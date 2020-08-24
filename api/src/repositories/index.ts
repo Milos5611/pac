@@ -4,3 +4,5 @@ export * from './language.repository';
 export * from './organization.repository';
 export * from './person.repository';
 export * from './room.repository';
+export * from './talk.repository';
+export * from './topic.repository';

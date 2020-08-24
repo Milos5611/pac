@@ -22,7 +22,7 @@ export class PersonResolver {
     }
 
     @mutation(returns => Person)
-    async addPerson(@arg('person') person: PersonInput): Promise<Person | void> {
-        return this.personRepo.add(person);
+    async createPerson(@arg('person') person: PersonInput): Promise<Person | void> {
+        return this.personRepo.createPerson(person);
     }
 }

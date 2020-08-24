@@ -1,3 +1,4 @@
 dist
 node_modules
 graphql/node_modules
+tsconfig.tsbuildinfo

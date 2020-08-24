@@ -22,7 +22,7 @@ export class OrganizationResolver {
     }
 
     @mutation(returns => Organization)
-    async addOrganization(@arg('organization') organization: OrganizationInput): Promise<Organization | void> {
-        return this.organizationRepo.add(organization);
+    async createOrganization(@arg('organization') organization: OrganizationInput): Promise<Organization> {
+        return this.organizationRepo.createOrganization(organization);
     }
 }

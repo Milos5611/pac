@@ -5,7 +5,14 @@ import {Entity, model, property} from '@loopback/repository';
 @model({settings: {strict: true}})
 export class Language extends Entity {
   @field(type => ID)
-  @property({id: true})
+  @property({
+    type: 'string',
+    id: true,
+    defaultFn: 'uuidv4',
+    postgresql: {
+      dataType: 'uuid',
+    },
+  })
   id: string;
 
   @field()

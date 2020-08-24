@@ -41,7 +41,7 @@ export class RoomRepository
         return this.findById(id);
     }
 
-    async add(room: RoomInput) {
+    async createRoom(room: RoomInput) {
         return this.create(room);
     }
 }

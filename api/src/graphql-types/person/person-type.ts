@@ -1,12 +1,13 @@
 import {field, ID, objectType} from '../../../graphql';
-import {Entity, model, property} from '@loopback/repository';
+import {belongsTo, Entity, model, property} from '@loopback/repository';
+import {Organization} from "../organization/organization-type";
 
 @objectType({description: 'Object representing person'})
 @model({
     settings: {
         "foreignKeys": {
-            "organization_id": {
-                "name": "organization_id",
+            "fk_organization_id": {
+                "name": "fk_organization_id",
                 "foreignKey": "organization_id",
                 "entityKey": "id",
                 "entity": "Organization"
@@ -16,14 +17,20 @@ import {Entity, model, property} from '@loopback/repository';
 })
 export class Person extends Entity {
     @field(type => ID)
-    @property({id: true})
+    @property({
+        type: 'string',
+        id: true,
+        defaultFn: 'uuidv4',
+        postgresql: {
+            dataType: 'uuid',
+        },
+    })
     id: string;
 
     @field()
     @property()
     name: string;
 
-    @field({nullable: true})
-    @property()
+    @belongsTo(() => Organization, {name: 'organization'})
     organization_id: string;
 }

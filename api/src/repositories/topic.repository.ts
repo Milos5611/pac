@@ -8,8 +8,8 @@ import {
     LifeCycleObserver,
     lifeCycleObserver,
 } from '@loopback/core';
-import {Organization} from '../graphql-types/organization/organization-type';
-import {OrganizationInput} from "../graphql-types/organization/organization-input";
+import {Topic} from "../graphql-types/topic/topic-type";
+import {TopicInput} from "../graphql-types/topic/topic-input";
 
 @bind({
     scope: BindingScope.SINGLETON,
@@ -18,13 +18,13 @@ import {OrganizationInput} from "../graphql-types/organization/organization-inpu
     },
 })
 @lifeCycleObserver('repository')
-export class OrganizationRepository
-    extends DefaultCrudRepository<Organization, typeof Organization.prototype.id>
+export class TopicRepository
+    extends DefaultCrudRepository<Topic, typeof Topic.prototype.id>
     implements LifeCycleObserver {
     constructor(
         @inject('datasources.conference') dataSource: ConferenceDatasource,
     ) {
-        super(Organization, dataSource);
+        super(Topic, dataSource);
     }
 
     async start() {
@@ -41,7 +41,7 @@ export class OrganizationRepository
         return this.findById(id);
     }
 
-    async createOrganization(organization: OrganizationInput) {
-        return this.create(organization);
+    async createTalk(topic: TopicInput) {
+        return this.create(topic);
     }
 }

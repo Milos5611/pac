@@ -22,7 +22,7 @@ export class RoomResolver {
     }
 
     @mutation(returns => Room)
-    async addRoom(@arg('room') room: RoomInput): Promise<Room | void> {
-        return this.roomRepo.add(room);
+    async createRoom(@arg('room') room: RoomInput): Promise<Room | void> {
+        return this.roomRepo.createRoom(room);
     }
 }

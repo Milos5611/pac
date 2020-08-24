@@ -22,7 +22,7 @@ export class LocationResolver {
     }
 
     @mutation(returns => Location)
-    async addLocation(@arg('location') location: LocationInput): Promise<Location | void> {
-        return this.locationRepo.create(location);
+    async createLocation(@arg('location') location: LocationInput): Promise<Location> {
+        return this.locationRepo.createLocation(location);
     }
 }

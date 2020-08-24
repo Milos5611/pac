@@ -12,6 +12,7 @@ import {
 } from '@loopback/core';
 import {Event} from "../graphql-types/event/event-type";
 import {EventRepository} from "./event.repository";
+import {LocationInput} from "../graphql-types/location/location-input";
 
 @bind({
   scope: BindingScope.SINGLETON,
@@ -53,12 +54,10 @@ export class LocationRepository
   }
 
   async getOne(id: string) {
-    const location = await this.findById(id);
-    const eventById = await this.events(id).find();
     return this.findById(id);
   }
 
-  async add(location: Location) {
+  async createLocation(location: LocationInput) {
     return this.create(location);
   }
 }

@@ -41,7 +41,7 @@ export class LanguageRepository
     return this.findById(id);
   }
 
-  async add(language: LanguageInput) {
+  async createLanguage(language: LanguageInput) {
     return this.create(language);
   }
 }

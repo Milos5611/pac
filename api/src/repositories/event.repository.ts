@@ -10,7 +10,6 @@ import {
   lifeCycleObserver,
   Getter
 } from '@loopback/core';
-import {v4 as uuidv4} from 'uuid'
 import {LocationRepository} from "./location.repository";
 import {plainToClass} from "class-transformer";
 import {EventInput} from "../graphql-types/event/event-input";
@@ -52,11 +51,9 @@ export class EventRepository
   }
 
   async createEvent(eventData: EventInput) {
-    const id: string = uuidv4();
-    const newEvent = Object.assign(eventData, {id});
     const locRepo = await this.getLocationRepository();
     const {name} = await locRepo.findById(eventData.location_id);
-    const event = this.createEventClass(newEvent, name);
+    const event = this.createEventClass(eventData, name);
     return this.create(event);
   }
 

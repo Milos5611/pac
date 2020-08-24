@@ -41,7 +41,7 @@ export class PersonRepository
         return this.findById(id);
     }
 
-    async add(person: PersonInput) {
+    async createPerson(person: PersonInput) {
         return this.create(person);
     }
 }

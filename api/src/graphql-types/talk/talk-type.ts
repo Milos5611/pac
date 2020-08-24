@@ -1,21 +1,21 @@
 import {field, ID, objectType} from '../../../graphql';
 import {belongsTo, Entity, model, property} from '@loopback/repository';
-import {Organization} from "../organization/organization-type";
+import {Language} from "../language/language-type";
 
 @objectType({description: 'Object representing room'})
 @model({
     settings: {
         "foreignKeys": {
             "fk_organization_id": {
-                "name": "fk_organization_id",
-                "foreignKey": "organization_id",
+                "name": "fk_language_id",
+                "foreignKey": "language_id",
                 "entityKey": "id",
-                "entity": "Organization"
+                "entity": "language_id"
             }
         }
     }
 })
-export class Room extends Entity {
+export class Talk extends Entity {
     @field(type => ID)
     @property({
         type: 'string',
@@ -29,8 +29,12 @@ export class Room extends Entity {
 
     @field()
     @property()
-    name: string;
+    duration: number;
 
-    @belongsTo(() => Organization, {name: 'organization'})
-    organization_id: string;
+    @field()
+    @property()
+    level: string;
+
+    @belongsTo(() => Language, {name: 'language'})
+    language_id: string;
 }

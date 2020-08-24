@@ -17,7 +17,14 @@ import {Location} from "../location/location-type";
 })
 export class Event extends Entity {
   @field(type => ID)
-  @property({id: true})
+  @property({
+    type: 'string',
+    id: true,
+    defaultFn: 'uuidv4',
+    postgresql: {
+      dataType: 'uuid',
+    },
+  })
   id: string;
 
   @field()

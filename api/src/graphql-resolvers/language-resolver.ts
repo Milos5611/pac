@@ -22,7 +22,7 @@ export class LanguageResolver {
     }
 
     @mutation(returns => Language)
-    async addLanguage(@arg('language') language: LanguageInput): Promise<Language | void> {
-        return this.languageRepo.add(language);
+    async createLanguage(@arg('language') language: LanguageInput): Promise<Language | void> {
+        return this.languageRepo.createLanguage(language);
     }
 }

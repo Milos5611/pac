@@ -27,8 +27,12 @@ export class EventResolver {
   }
 
   @mutation(returns => Event)
-  async updateEvent(@arg('event') event: EventInput): Promise<Event | void> {
-    console.log(event)
-    return this.eventsRepo.updateEvent(event);
+  async createEvent(@arg('event') event: EventInput): Promise<Event> {
+    return this.eventsRepo.createEvent(event);
+  }
+
+  @mutation(returns => Event)
+  async updateEvent(@arg('id') id: string,  @arg('event') event: EventInput): Promise<Event> {
+    return this.eventsRepo.updateEvent(id, event);
   }
 }

@@ -1,13 +1,14 @@
 import {BootMixin} from '@loopback/boot';
 import {ApplicationConfig} from '@loopback/core';
 import {RepositoryMixin} from '@loopback/repository';
-import {RestApplication} from '@loopback/rest';
+import {HttpErrors, RestApplication} from '@loopback/rest';
 import {ServiceMixin} from '@loopback/service-proxy';
 import path from 'path';
 import {GraphQLBindings, GraphQLComponent} from '../graphql';
 import {sampleLocation} from './sample-locations';
 import * as dotenv from 'dotenv';
 import * as dotenvExt from 'dotenv-extended';
+import {LoggingBindings, LoggingComponent, WinstonLoggerOptions, format} from "@loopback/extension-logging";
 
 export {ApplicationConfig};
 
@@ -19,7 +20,7 @@ export class ApiApplication extends BootMixin(
 
     dotenv.config();
     dotenvExt.load({
-      schema: '.env.example',
+      schema: '.env',
       errorOnMissing: true,
     });
 
@@ -29,6 +30,9 @@ export class ApiApplication extends BootMixin(
     this.configure(GraphQLBindings.GRAPHQL_SERVER).to({
       asMiddlewareOnly: true,
     });
+
+    // Configure and add logging component
+    this.addLoggingComponent();
 
     this.bind('location').to([...sampleLocation]);
 
@@ -45,6 +49,67 @@ export class ApiApplication extends BootMixin(
         nested: true,
       },
     };
+  }
+
+  private addLoggingComponent() {
+    this.configure(LoggingBindings.COMPONENT).to({
+      enableFluent: false,
+      enableHttpAccessLog: true,
+    });
+
+    this.configure<WinstonLoggerOptions>(LoggingBindings.WINSTON_LOGGER).to({
+      // Only show warnings or higher when running tests
+      level: process.env.NODE_ENV === 'test' ? 'error' : 'info',
+      format:
+          process.env.NODE_ENV === 'development'
+              ? format.combine(format.colorize(), format.simple())
+              : format.combine(format.errors({stack: true}), format.json()),
+      defaultMeta: {
+        serviceContext: {
+          service: 'api',
+          version: '1.0.0',
+          resourceType: 'api',
+        },
+      },
+    });
+
+    this.component(LoggingComponent);
+  }
+
+  private bindPostgresConfig() {
+    const {
+      DB_HOST,
+      DB_USER,
+      DB_PASSWORD,
+      DB_DATABASE,
+    } = process.env;
+
+    if (!DB_HOST) {
+      throw new HttpErrors.InternalServerError(
+          'Missing environment variable DB_HOST.',
+      );
+    }
+
+    if (!DB_USER) {
+      throw new HttpErrors.InternalServerError(
+          'Missing environment variable DB_USER.',
+      );
+    }
+
+    if (!DB_DATABASE) {
+      throw new HttpErrors.InternalServerError(
+          'Missing environment variable DB_DATABASE.',
+      );
+    }
+
+    this.bind('datasources.config.postgres').to({
+      name: 'postgres',
+      connector: 'postgresql',
+      host: DB_HOST,
+      user: DB_USER,
+      password: DB_PASSWORD,
+      database: DB_DATABASE,
+    });
   }
 
   /*async migrateSchema(options?: SchemaMigrationOptions) {

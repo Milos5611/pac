@@ -1,8 +1,3 @@
-// Copyright IBM Corp. 2020. All Rights Reserved.
-// Node module: @loopback/example-graphql
-// This file is licensed under the MIT License.
-// License text available at https://opensource.org/licenses/MIT
-
 import {field, ID, objectType} from '../../../graphql';
 import {Entity, hasMany, model, property} from '@loopback/repository';
 import {Event} from "../event/event-type";
@@ -18,6 +13,6 @@ export class Location extends Entity {
   @property()
   name: string;
 
-  @hasMany(() => Event, {keyTo: 'location_id'})
+  @hasMany(() => Event, {keyFrom: 'id', keyTo: 'location_id'})
   events: Event[];
 }

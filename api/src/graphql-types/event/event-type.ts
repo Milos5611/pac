@@ -1,14 +1,20 @@
-// Copyright IBM Corp. 2020. All Rights Reserved.
-// Node module: @loopback/example-graphql
-// This file is licensed under the MIT License.
-// License text available at https://opensource.org/licenses/MIT
-
 import {field, ID, objectType} from '../../../graphql';
 import {belongsTo, Entity, model, property} from '@loopback/repository';
 import {Location} from "../location/location-type";
 
 @objectType({description: 'Object representing events'})
-@model({settings: {strict: true}})
+@model({
+  settings: {
+    "foreignKeys": {
+      "fk_location_id": {
+        "name": "fk_location_id",
+        "foreignKey": "location_id",
+        "entityKey": "id",
+        "entity": "Location"
+      }
+    }
+  }
+})
 export class Event extends Entity {
   @field(type => ID)
   @property({id: true})
@@ -16,17 +22,20 @@ export class Event extends Entity {
 
   @field()
   @property()
-  name?: string;
+  name: string;
 
-  @field()
+  @field({nullable: true})
   @property()
   start_date?: Date;
 
-  @field()
+  @field({nullable: true})
   @property()
   end_date?: Date;
 
-  @field()
   @belongsTo(() => Location, {name: 'location'})
-  location_id?: string;
+  location_id: string;
+
+  @field()
+  @property()
+  event_location: string;
 }

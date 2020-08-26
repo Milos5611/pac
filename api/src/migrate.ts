@@ -8,12 +8,12 @@ export async function migrate(args: string[]) {
   const logger = await app.get(LoggingBindings.WINSTON_LOGGER);
   const existingSchema = args.includes('--rebuild') ? 'drop' : 'alter';
   logger.info(`Migrating schemas (${existingSchema} existing schema)`);
-  /*await app.migrateSchema({existingSchema});*/
+  await app.migrateSchema({existingSchema});
 
-  await app.migrateSchema({
+  /*await app.migrateSchema({
     existingSchema,
     models: ['Location', 'Event', 'Language', 'Organization', 'Room', 'Person' ],
-  });
+  });*/
 
   // Connectors usually keep a pool of opened connections,
   // this keeps the process running even after all work is done.

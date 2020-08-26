@@ -4,16 +4,7 @@ import {Location} from "../location/location-type";
 
 @objectType({description: 'Object representing events'})
 @model({
-  settings: {
-    "foreignKeys": {
-      "fk_location_id": {
-        "name": "fk_location_id",
-        "foreignKey": "location_id",
-        "entityKey": "id",
-        "entity": "Location"
-      }
-    }
-  }
+  settings: {strict: true}
 })
 export class Event extends Entity {
   @field(type => ID)
@@ -21,9 +12,6 @@ export class Event extends Entity {
     type: 'string',
     id: true,
     defaultFn: 'uuidv4',
-    postgresql: {
-      dataType: 'uuid',
-    },
   })
   id: string;
 

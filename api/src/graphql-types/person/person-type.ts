@@ -5,14 +5,7 @@ import {Organization} from "../organization/organization-type";
 @objectType({description: 'Object representing person'})
 @model({
     settings: {
-        "foreignKeys": {
-            "fk_organization_id": {
-                "name": "fk_organization_id",
-                "foreignKey": "organization_id",
-                "entityKey": "id",
-                "entity": "Organization"
-            }
-        }
+      strict: true
     }
 })
 export class Person extends Entity {

@@ -1,0 +1,9 @@
+image:
+  repository: pac_mnikolic_web
+  tag: latest
+ingress:
+  enabled: true
+  hosts:
+    - host: conference.frontend
+      paths:
+        - "/"

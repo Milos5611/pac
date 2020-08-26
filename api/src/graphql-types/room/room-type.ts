@@ -4,16 +4,7 @@ import {Organization} from "../organization/organization-type";
 
 @objectType({description: 'Object representing room'})
 @model({
-    settings: {
-        "foreignKeys": {
-            "fk_organization_id": {
-                "name": "fk_organization_id",
-                "foreignKey": "organization_id",
-                "entityKey": "id",
-                "entity": "Organization"
-            }
-        }
-    }
+    settings: {strict: true}
 })
 export class Room extends Entity {
     @field(type => ID)

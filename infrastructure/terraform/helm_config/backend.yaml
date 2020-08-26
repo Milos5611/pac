@@ -1,0 +1,14 @@
+image:
+  repository: pac_mnikolic_api
+  tag: latest
+envFrom:
+- configMapRef:
+    name: backend-config
+- secretRef:
+    name: backend-postgres-access
+ingress:
+  enabled: true
+  hosts:
+    - host: conference.backend
+      paths:
+        - "/"

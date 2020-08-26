@@ -3947,12 +3947,12 @@
         "affectsGlobalScope": false
       },
       "./src/graphql-types/event/event-type.ts": {
-        "version": "bf4c51ebff263d7c3e972d64d08ba0620026c30a661d2355e15b556a795ddc33",
+        "version": "cad0740c6b31c27986839294e5e4e95d5dd9afc6409f20fe4b6f2886372f4d4a",
         "signature": "f4a5a98f911d4da0b87f4f6d9cd50e496d625b7f21103cba0437640fcde2e2fb",
         "affectsGlobalScope": false
       },
       "./src/graphql-types/location/location-type.ts": {
-        "version": "543fcf050043b9d70976f9cfcdb4cab022779639e0459ce855b23aac0e410470",
+        "version": "7652378e7849c4892fcc9e21af42151c84aefd7089034170b58ff774e573a6f0",
         "signature": "d5d02dea245e3e4d9c6bc2af129593cbcf0ccf92822918a2aacf1d6e1970c3dd",
         "affectsGlobalScope": false
       },
@@ -4042,7 +4042,7 @@
         "affectsGlobalScope": false
       },
       "./src/migrate.ts": {
-        "version": "d765890476bb3789ad9f4ff9b2a3c96d8afa3767315055e04cd66b2a2a1315e0",
+        "version": "ee323a8e0c6a88170388f0bb715deacdfb2104451c6ee220664c7e9599b04745",
         "signature": "d289609b56df6411204c89f5197dc2d4d19910336a10c86cd9b3af21b22e344d",
         "affectsGlobalScope": false
       },
@@ -4192,7 +4192,7 @@
         "affectsGlobalScope": false
       },
       "./src/repositories/event.repository.ts": {
-        "version": "830423bc55a3ff06a69ed672d744b60fe7246731cc7c07daad2ef9284bfd09ac",
+        "version": "362ccbb66d1a52f4b756518e490a6f63131bcb2b1e771d8dd632ce4535ad7789",
         "signature": "93557fd48567124e72ad6b3e2123981125f4897ec16c7c443029fa813b7cf583",
         "affectsGlobalScope": false
       },
@@ -4212,12 +4212,12 @@
         "affectsGlobalScope": false
       },
       "./src/graphql-types/person/person-type.ts": {
-        "version": "26519659a44287428e302517b8ac4cd3f0cb209539c3e194e3e5b39da3a0e640",
+        "version": "aa8b18de90a4b587ddf5d2c32301cb95e2027ce8b21e5d6856e8b0d69515edad",
         "signature": "70dd5e5d77c8c30aa73874af27fb7e5e0da22ee563e148b73b67c96744776aa7",
         "affectsGlobalScope": false
       },
       "./src/graphql-types/room/room-type.ts": {
-        "version": "6e7097a77ea1deb0dd144b71eae15c5591c4a9913ff0acf89917fd0db17224a9",
+        "version": "3c85bccf8ea66c5a54243545e2d8dad92c2da2dec1f2eb9c421851926988a929",
         "signature": "4d1db01fa8c39e9ce5225959320a9d3c3011b14fcf41c873e3f76d63b7321f02",
         "affectsGlobalScope": false
       },
@@ -4257,7 +4257,7 @@
         "affectsGlobalScope": false
       },
       "./src/graphql-types/talk/talk-type.ts": {
-        "version": "7749bfc9659835bb438376e00a0c807f7ea7c8b63bf12b718078b1bba99ede06",
+        "version": "ef0248e5932789706e6a8d595cc46b97f8f08284c2d01515c2ad5c0f0898f767",
         "signature": "22ed6665f0505cf444ecaf00f0b1a95456cc93d4d99ec2784c8da1e6cf8dbc62",
         "affectsGlobalScope": false
       },

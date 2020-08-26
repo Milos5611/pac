@@ -10,9 +10,6 @@ export class Location extends Entity {
     type: 'string',
     id: true,
     defaultFn: 'uuidv4',
-    postgresql: {
-      dataType: 'uuid',
-    },
   })
   id: string;
 

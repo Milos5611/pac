@@ -37,6 +37,7 @@ export class EventRepository
     return this.find();
   }
 
+
   async getOne(id: string) {
     const event = await this.findById(id);
     const locRepo = await this.getLocationRepository();

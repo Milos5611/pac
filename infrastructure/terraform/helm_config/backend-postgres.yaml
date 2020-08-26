@@ -1,0 +1,12 @@
+global:
+  postgresql:
+    postgresqlDatabase: "conference_db"
+    postgresqlUsername: "postgres"
+  ## password injected via secret
+master:
+  persistence:
+    size: 1Gi
+slave:
+  persistence:
+    size: 1Gi
+  replicas: 0

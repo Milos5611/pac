@@ -1,0 +1,12 @@
+global:
+  postgresql:
+    postgresqlDatabase: "keycloak"
+    postgresqlUsername: "keycloak"
+  ## password injected via secret
+master:
+  persistence:
+    size: 1Gi
+slave:
+  persistence:
+    size: 1Gi
+  replicas: 0

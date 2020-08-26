@@ -5,14 +5,7 @@ import {Language} from "../language/language-type";
 @objectType({description: 'Object representing room'})
 @model({
     settings: {
-        "foreignKeys": {
-            "fk_organization_id": {
-                "name": "fk_language_id",
-                "foreignKey": "language_id",
-                "entityKey": "id",
-                "entity": "language_id"
-            }
-        }
+       strict: true
     }
 })
 export class Talk extends Entity {

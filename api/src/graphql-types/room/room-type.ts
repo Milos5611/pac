@@ -1,6 +1,7 @@
 import {field, ID, objectType} from '../../../graphql';
-import {belongsTo, Entity, model, property} from '@loopback/repository';
+import {belongsTo, Entity, hasMany, model, property} from '@loopback/repository';
 import {Organization} from "../organization/organization-type";
+import {TalkDate} from "../talk-date/talk_date-type";
 
 @objectType({description: 'Object representing room'})
 @model({
@@ -24,4 +25,7 @@ export class Room extends Entity {
 
     @belongsTo(() => Organization, {name: 'organization'})
     organization_id: string;
+
+    @hasMany(() => TalkDate, {keyFrom: 'id', keyTo: 'talk_id'})
+    talkDate: TalkDate[]
 }

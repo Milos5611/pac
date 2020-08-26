@@ -3946,9 +3946,34 @@
         "signature": "ea4f5e760ac2f6dd1fb06785f38d42b6dde82b29d8a1be10a7540dc598a5e4af",
         "affectsGlobalScope": false
       },
+      "./src/graphql-types/talk/talk-type.ts": {
+        "version": "cf3baa7f457afccf689ab27094b7dff99912398d2bf5955d29f6276e67a86d53",
+        "signature": "704c141d8ed02b4857c012c08174d5d7baa0801cdf8472acda9bd7746ef43cbd",
+        "affectsGlobalScope": false
+      },
+      "./src/graphql-types/person/person-type.ts": {
+        "version": "aa8b18de90a4b587ddf5d2c32301cb95e2027ce8b21e5d6856e8b0d69515edad",
+        "signature": "70dd5e5d77c8c30aa73874af27fb7e5e0da22ee563e148b73b67c96744776aa7",
+        "affectsGlobalScope": false
+      },
+      "./src/graphql-types/organization/organization-type.ts": {
+        "version": "8bd4b538c2fa33a7981c77eeb4b1aa8cad5df51b7140d9f2178c37a917007e2c",
+        "signature": "b04ff83ec78a4550694ac690f4d414a8dff82f330635f02b5971b02783405884",
+        "affectsGlobalScope": false
+      },
+      "./src/graphql-types/room/room-type.ts": {
+        "version": "c636deaedf727ed0fbcd72e594b7ce5c84aeff2c7f2849d678333f38839f8872",
+        "signature": "a730b9f83b70597be0c78d08ade6c26798bad4f9c69b11d26f567eb11182ceb7",
+        "affectsGlobalScope": false
+      },
+      "./src/graphql-types/talk-date/talk_date-type.ts": {
+        "version": "2e841c2c7d04aa014bae60f527420e2df4d522718be83d7bec76636ade25d68e",
+        "signature": "b781c4213119a992dce3ee94fd880c130efde6696139d0ceb5c616190ef27ed4",
+        "affectsGlobalScope": false
+      },
       "./src/graphql-types/event/event-type.ts": {
-        "version": "cad0740c6b31c27986839294e5e4e95d5dd9afc6409f20fe4b6f2886372f4d4a",
-        "signature": "f4a5a98f911d4da0b87f4f6d9cd50e496d625b7f21103cba0437640fcde2e2fb",
+        "version": "f0609df1cac0220514e884ebf501ba54ff46b9eb45eb822ed7b9c9adaf04f8be",
+        "signature": "eed7f77adc27856cb89395a7e6ab1ff7c9aaeaf48305d4ad87afab8081c44abc",
         "affectsGlobalScope": false
       },
       "./src/graphql-types/location/location-type.ts": {
@@ -4196,36 +4221,6 @@
         "signature": "93557fd48567124e72ad6b3e2123981125f4897ec16c7c443029fa813b7cf583",
         "affectsGlobalScope": false
       },
-      "./src/graphql-types/language/language-type.ts": {
-        "version": "fc4e6ccb149501b41d7b4a26c43a6433807c1a26eaa0b1120ecdd931019942c9",
-        "signature": "f4213c610260232eceae6edca344d2b5da35888870774b08f670ab4d8cd71cbe",
-        "affectsGlobalScope": false
-      },
-      "./src/graphql-types/language/language-input.ts": {
-        "version": "359145dbac0b61d0a4611962c890b0e553a98fa63543320b067481d0a11a0d4b",
-        "signature": "cea5e1686e4aaf6b8ee2408b357fd8eadfaee3f86750c508baea2b75a1a5059b",
-        "affectsGlobalScope": false
-      },
-      "./src/repositories/language.repository.ts": {
-        "version": "20ccfb89d1a1282f568d569ac133b2262189c3e62bda9acb67e9a7a54dd6627c",
-        "signature": "00792cea6fb12d239eec7e421b4c87950e90c757f67d4c6cf919046c02c2e981",
-        "affectsGlobalScope": false
-      },
-      "./src/graphql-types/person/person-type.ts": {
-        "version": "aa8b18de90a4b587ddf5d2c32301cb95e2027ce8b21e5d6856e8b0d69515edad",
-        "signature": "70dd5e5d77c8c30aa73874af27fb7e5e0da22ee563e148b73b67c96744776aa7",
-        "affectsGlobalScope": false
-      },
-      "./src/graphql-types/room/room-type.ts": {
-        "version": "3c85bccf8ea66c5a54243545e2d8dad92c2da2dec1f2eb9c421851926988a929",
-        "signature": "4d1db01fa8c39e9ce5225959320a9d3c3011b14fcf41c873e3f76d63b7321f02",
-        "affectsGlobalScope": false
-      },
-      "./src/graphql-types/organization/organization-type.ts": {
-        "version": "8bd4b538c2fa33a7981c77eeb4b1aa8cad5df51b7140d9f2178c37a917007e2c",
-        "signature": "b04ff83ec78a4550694ac690f4d414a8dff82f330635f02b5971b02783405884",
-        "affectsGlobalScope": false
-      },
       "./src/graphql-types/organization/organization-input.ts": {
         "version": "e19fe7b769fc5ece0682fe78b40a5b4f0610acdf0de8cefe716a6de94e6b2bc6",
         "signature": "f39fb84689105c96bf8c3bb39bf094cddb1b40107bea0d43c6bb65cf76ed852d",
@@ -4256,14 +4251,9 @@
         "signature": "19d4127834edd82af0ddc5c31b3ca91838511f8fd811045c59a511dcaacffad8",
         "affectsGlobalScope": false
       },
-      "./src/graphql-types/talk/talk-type.ts": {
-        "version": "ef0248e5932789706e6a8d595cc46b97f8f08284c2d01515c2ad5c0f0898f767",
-        "signature": "22ed6665f0505cf444ecaf00f0b1a95456cc93d4d99ec2784c8da1e6cf8dbc62",
-        "affectsGlobalScope": false
-      },
       "./src/graphql-types/talk/talk-input.ts": {
-        "version": "71e7bbab3b447bc31331c4cc7dc909e5139af80d0fbc90ee9bcc37fcac40998a",
-        "signature": "55236013dc1989e67275b24353653ec1f7148e072abf6670386d6d5959c0c8ee",
+        "version": "944b854f1483984598fef82e453cd467c7b82781dd4e0fb28840cfa761610893",
+        "signature": "355bccc3e516fecfaf5fa32c6e3475b2045aa15fa3b35c2a4fa11dcdd3b88a9d",
         "affectsGlobalScope": false
       },
       "./src/repositories/talk.repository.ts": {
@@ -4286,19 +4276,39 @@
         "signature": "aeb84f9ec39b72e1223e7c53ab75e2a801621e0f3438e8faa402b91dcd637ef2",
         "affectsGlobalScope": false
       },
+      "./src/graphql-types/talk-date/talk_date-input.ts": {
+        "version": "58826c736afb6494622f2e094dd512422fa245675b1ac9d35e0a3825d1745b20",
+        "signature": "fb0a3e8267942016c77b3c5d2330ef220bef695d9382f0f87f02c947ada25760",
+        "affectsGlobalScope": false
+      },
+      "./src/repositories/talk_date.repository.ts": {
+        "version": "cacc3a8423d0d0d2a1d458a73990852e4a060a30f2e5b0a79221604649a317e8",
+        "signature": "065847a007622e7cd3e565c8fc162aeafa63c3574520c0eecaa0f34aed96c66e",
+        "affectsGlobalScope": false
+      },
+      "./src/graphql-types/talk-topic/talk_topic-type.ts": {
+        "version": "b27c3d067813a1edbdd5568a15dbd58921c0e723aafdfd6ec51774a33379e7fc",
+        "signature": "6d74b049af2a117e2d196ee622dce2ef3d44a32ada839a2e5522b1f399dd5e22",
+        "affectsGlobalScope": false
+      },
+      "./src/graphql-types/talk-topic/talk_topic-input.ts": {
+        "version": "be6f01c3f9f0e874d68c6ad8ae893982e579f524509928aeb5b86aabc54172c0",
+        "signature": "c91f56f25f08c2d410feb88322e8524e3e0fc8bcc63ae7cdec9753a2a7d742e7",
+        "affectsGlobalScope": false
+      },
+      "./src/repositories/talk_topic.repository.ts": {
+        "version": "38b7b416f68fb704531704bdf1d7ef9aa63eb64415ab8991ce23f173a89dffa8",
+        "signature": "a7e8d49a62a4c4ffacd3ef491f3b5873b773dadd356c57867a5ae2afaeeea629",
+        "affectsGlobalScope": false
+      },
       "./src/repositories/index.ts": {
-        "version": "35441f035b6b6a139e3aabc160e1c09bfabb1dba9144f1d879642033005ca4d6",
-        "signature": "35441f035b6b6a139e3aabc160e1c09bfabb1dba9144f1d879642033005ca4d6",
+        "version": "b6dddd4d16507618f6ec16c16b75e6a4118f956d376389a14d7407adcced0639",
+        "signature": "b6dddd4d16507618f6ec16c16b75e6a4118f956d376389a14d7407adcced0639",
         "affectsGlobalScope": false
       },
       "./src/graphql-resolvers/event-resolver.ts": {
         "version": "1c76422d85b966ef8381f9e0e06c903d2bc46cc2a323604994e7e79419d5163f",
         "signature": "5d191796cfc6758cc661cc5f33cbcf96925a4c98deecf46c7137d8368d83e976",
-        "affectsGlobalScope": false
-      },
-      "./src/graphql-resolvers/language-resolver.ts": {
-        "version": "4e1806e509af33746b33a904cda3dd1cccf1ca438f9871bfd0ed2346fe4f23f2",
-        "signature": "cb50c93011a8e546e7e7f4a5b1457fa86d7137e9b134edb8f55ac25eb8d93d21",
         "affectsGlobalScope": false
       },
       "./src/graphql-resolvers/location-resolver.ts": {
@@ -4322,8 +4332,18 @@
         "affectsGlobalScope": false
       },
       "./src/graphql-resolvers/talk-resolver.ts": {
-        "version": "0e480759d0c0c138a69ad74619cf27bcc0adb13a882529b493c850cce87ef700",
-        "signature": "e4ef946345262188964913c3de24347bb15cbcb159329662320bdb7c1619c342",
+        "version": "4c4485880beaf6e8fdfec32fe6ddda884e9c8e9c887c30e387763541c5888bda",
+        "signature": "fc783e24d9e3d9c219cdec6aa3c64968feff5130ee1b615711c49bbbb8104021",
+        "affectsGlobalScope": false
+      },
+      "./src/graphql-resolvers/talk_date-resolver.ts": {
+        "version": "b93264983799b33905b18fd2dc413831b691283af5f710799a10bae19d812576",
+        "signature": "3de7d73832afa31f72492607ba1f07636cea077161551b12b41114fabee05f13",
+        "affectsGlobalScope": false
+      },
+      "./src/graphql-resolvers/talk_topic-resolver.ts": {
+        "version": "b1dcfc549e2344523e4dff9b82f11a20ce667449f98bc1368430d35c92f164f9",
+        "signature": "45ecf5c081616fcb7c4d41c9bcd6269e0ad181076ea9e0f52228712e7eceaac5",
         "affectsGlobalScope": false
       },
       "./src/graphql-resolvers/topic-resolver.ts": {
@@ -4334,16 +4354,6 @@
       "./src/graphql-types/talk-at/talk_at-type.ts": {
         "version": "9bd25f183cbfa0a03c803a3b68b898dc86d5d9a8139e49cb48904377df7eb13a",
         "signature": "8412e21e9bac7aee9fe23f3242888f4a73e6b2971baef3d0c40fe332e6100f8d",
-        "affectsGlobalScope": false
-      },
-      "./src/graphql-types/talk-date/talk_date-type.ts": {
-        "version": "131b1419094cac4af6b98b7bfc8eff29298d7379cae313bf61595ca0fe777c03",
-        "signature": "2462919e9188f507de748d96287a26dc635d0e97ebccfa2ed315efbbbea40ed1",
-        "affectsGlobalScope": false
-      },
-      "./src/graphql-types/talk-topic/talk_topic-type.ts": {
-        "version": "1450c54ce1aa91e1f85c0237f07798e53c9f6772dc4d5808d55e0f5813c84a71",
-        "signature": "3c5e369077ec1ca67eb3b814a322dc54c104bb1e59184cfee8fc9635a2f08e32",
         "affectsGlobalScope": false
       },
       "./node_modules/@types/color-name/index.d.ts": {
@@ -9986,15 +9996,6 @@
         "./src/graphql-types/event/event-type.ts",
         "./src/repositories/index.ts"
       ],
-      "./src/graphql-resolvers/language-resolver.ts": [
-        "./graphql/dist/index.d.ts",
-        "./node_modules/@loopback/repository/dist/index.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./src/graphql-types/language/language-input.ts",
-        "./src/graphql-types/language/language-type.ts",
-        "./src/repositories/index.ts"
-      ],
       "./src/graphql-resolvers/location-resolver.ts": [
         "./graphql/dist/index.d.ts",
         "./node_modules/@loopback/repository/dist/index.d.ts",
@@ -10040,6 +10041,23 @@
         "./src/graphql-types/talk/talk-type.ts",
         "./src/repositories/index.ts"
       ],
+      "./src/graphql-resolvers/talk_date-resolver.ts": [
+        "./graphql/dist/index.d.ts",
+        "./node_modules/@loopback/repository/dist/index.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./src/graphql-types/talk-date/talk_date-input.ts",
+        "./src/graphql-types/talk-date/talk_date-type.ts",
+        "./src/repositories/index.ts"
+      ],
+      "./src/graphql-resolvers/talk_topic-resolver.ts": [
+        "./graphql/dist/index.d.ts",
+        "./node_modules/@loopback/repository/dist/index.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./src/graphql-types/talk-topic/talk_topic-type.ts",
+        "./src/repositories/index.ts"
+      ],
       "./src/graphql-resolvers/topic-resolver.ts": [
         "./graphql/dist/index.d.ts",
         "./node_modules/@loopback/repository/dist/index.d.ts",
@@ -10060,19 +10078,8 @@
         "./node_modules/@loopback/repository/dist/index.d.ts",
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts",
-        "./src/graphql-types/location/location-type.ts"
-      ],
-      "./src/graphql-types/language/language-input.ts": [
-        "./graphql/dist/index.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./src/graphql-types/language/language-type.ts"
-      ],
-      "./src/graphql-types/language/language-type.ts": [
-        "./graphql/dist/index.d.ts",
-        "./node_modules/@loopback/repository/dist/index.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts",
-        "./node_modules/@types/node/util.d.ts"
+        "./src/graphql-types/location/location-type.ts",
+        "./src/graphql-types/talk-date/talk_date-type.ts"
       ],
       "./src/graphql-types/location/location-input.ts": [
         "./graphql/dist/index.d.ts",
@@ -10125,7 +10132,8 @@
         "./node_modules/@loopback/repository/dist/index.d.ts",
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts",
-        "./src/graphql-types/organization/organization-type.ts"
+        "./src/graphql-types/organization/organization-type.ts",
+        "./src/graphql-types/talk-date/talk_date-type.ts"
       ],
       "./src/graphql-types/talk-at/talk_at-type.ts": [
         "./graphql/dist/index.d.ts",
@@ -10133,11 +10141,29 @@
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts"
       ],
+      "./src/graphql-types/talk-date/talk_date-input.ts": [
+        "./graphql/dist/index.d.ts",
+        "./node_modules/@loopback/repository/dist/index.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./src/graphql-types/talk-date/talk_date-type.ts"
+      ],
       "./src/graphql-types/talk-date/talk_date-type.ts": [
         "./graphql/dist/index.d.ts",
         "./node_modules/@loopback/repository/dist/index.d.ts",
         "./node_modules/@types/node/ts3.2/util.d.ts",
-        "./node_modules/@types/node/util.d.ts"
+        "./node_modules/@types/node/util.d.ts",
+        "./src/graphql-types/event/event-type.ts",
+        "./src/graphql-types/location/location-type.ts",
+        "./src/graphql-types/room/room-type.ts",
+        "./src/graphql-types/talk/talk-type.ts"
+      ],
+      "./src/graphql-types/talk-topic/talk_topic-input.ts": [
+        "./graphql/dist/index.d.ts",
+        "./node_modules/@loopback/repository/dist/index.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./src/graphql-types/talk-date/talk_date-input.ts"
       ],
       "./src/graphql-types/talk-topic/talk_topic-type.ts": [
         "./graphql/dist/index.d.ts",
@@ -10156,7 +10182,7 @@
         "./node_modules/@loopback/repository/dist/index.d.ts",
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts",
-        "./src/graphql-types/language/language-type.ts"
+        "./src/graphql-types/talk-date/talk_date-type.ts"
       ],
       "./src/graphql-types/topic/topic-input.ts": [
         "./graphql/dist/index.d.ts",
@@ -10202,22 +10228,14 @@
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts",
         "./src/repositories/event.repository.ts",
-        "./src/repositories/language.repository.ts",
         "./src/repositories/location.repository.ts",
         "./src/repositories/organization.repository.ts",
         "./src/repositories/person.repository.ts",
         "./src/repositories/room.repository.ts",
         "./src/repositories/talk.repository.ts",
+        "./src/repositories/talk_date.repository.ts",
+        "./src/repositories/talk_topic.repository.ts",
         "./src/repositories/topic.repository.ts"
-      ],
-      "./src/repositories/language.repository.ts": [
-        "./node_modules/@loopback/core/dist/index.d.ts",
-        "./node_modules/@loopback/repository/dist/index.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./src/datasources/index.ts",
-        "./src/graphql-types/language/language-input.ts",
-        "./src/graphql-types/language/language-type.ts"
       ],
       "./src/repositories/location.repository.ts": [
         "./node_modules/@loopback/core/dist/index.d.ts",
@@ -10265,6 +10283,24 @@
         "./src/datasources/index.ts",
         "./src/graphql-types/talk/talk-input.ts",
         "./src/graphql-types/talk/talk-type.ts"
+      ],
+      "./src/repositories/talk_date.repository.ts": [
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/repository/dist/index.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./src/datasources/index.ts",
+        "./src/graphql-types/talk-date/talk_date-input.ts",
+        "./src/graphql-types/talk-date/talk_date-type.ts"
+      ],
+      "./src/repositories/talk_topic.repository.ts": [
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/repository/dist/index.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./src/datasources/index.ts",
+        "./src/graphql-types/talk-topic/talk_topic-input.ts",
+        "./src/graphql-types/talk-topic/talk_topic-type.ts"
       ],
       "./src/repositories/topic.repository.ts": [
         "./node_modules/@loopback/core/dist/index.d.ts",
@@ -15826,11 +15862,6 @@
         "./src/graphql-types/event/event-type.ts",
         "./src/repositories/index.ts"
       ],
-      "./src/graphql-resolvers/language-resolver.ts": [
-        "./src/graphql-types/language/language-input.ts",
-        "./src/graphql-types/language/language-type.ts",
-        "./src/repositories/index.ts"
-      ],
       "./src/graphql-resolvers/location-resolver.ts": [
         "./src/graphql-types/location/location-input.ts",
         "./src/graphql-types/location/location-type.ts",
@@ -15856,6 +15887,14 @@
         "./src/graphql-types/talk/talk-type.ts",
         "./src/repositories/index.ts"
       ],
+      "./src/graphql-resolvers/talk_date-resolver.ts": [
+        "./src/graphql-types/talk-date/talk_date-type.ts",
+        "./src/repositories/index.ts"
+      ],
+      "./src/graphql-resolvers/talk_topic-resolver.ts": [
+        "./src/graphql-types/talk-topic/talk_topic-type.ts",
+        "./src/repositories/index.ts"
+      ],
       "./src/graphql-resolvers/topic-resolver.ts": [
         "./src/graphql-types/topic/topic-input.ts",
         "./src/graphql-types/topic/topic-type.ts",
@@ -15865,13 +15904,8 @@
         "./src/graphql-types/event/event-type.ts"
       ],
       "./src/graphql-types/event/event-type.ts": [
-        "./node_modules/@loopback/repository/dist/index.d.ts"
-      ],
-      "./src/graphql-types/language/language-input.ts": [
-        "./src/graphql-types/language/language-type.ts"
-      ],
-      "./src/graphql-types/language/language-type.ts": [
-        "./node_modules/@loopback/repository/dist/index.d.ts"
+        "./node_modules/@loopback/repository/dist/index.d.ts",
+        "./src/graphql-types/talk-date/talk_date-type.ts"
       ],
       "./src/graphql-types/location/location-input.ts": [
         "./src/graphql-types/location/location-type.ts"
@@ -15898,13 +15932,20 @@
         "./src/graphql-types/room/room-type.ts"
       ],
       "./src/graphql-types/room/room-type.ts": [
-        "./node_modules/@loopback/repository/dist/index.d.ts"
+        "./node_modules/@loopback/repository/dist/index.d.ts",
+        "./src/graphql-types/talk-date/talk_date-type.ts"
       ],
       "./src/graphql-types/talk-at/talk_at-type.ts": [
         "./node_modules/@loopback/repository/dist/index.d.ts"
       ],
+      "./src/graphql-types/talk-date/talk_date-input.ts": [
+        "./src/graphql-types/talk-date/talk_date-type.ts"
+      ],
       "./src/graphql-types/talk-date/talk_date-type.ts": [
         "./node_modules/@loopback/repository/dist/index.d.ts"
+      ],
+      "./src/graphql-types/talk-topic/talk_topic-input.ts": [
+        "./src/graphql-types/talk-date/talk_date-input.ts"
       ],
       "./src/graphql-types/talk-topic/talk_topic-type.ts": [
         "./node_modules/@loopback/repository/dist/index.d.ts"
@@ -15913,7 +15954,8 @@
         "./src/graphql-types/talk/talk-type.ts"
       ],
       "./src/graphql-types/talk/talk-type.ts": [
-        "./node_modules/@loopback/repository/dist/index.d.ts"
+        "./node_modules/@loopback/repository/dist/index.d.ts",
+        "./src/graphql-types/talk-date/talk_date-type.ts"
       ],
       "./src/graphql-types/topic/topic-input.ts": [
         "./src/graphql-types/topic/topic-type.ts"
@@ -15934,20 +15976,14 @@
       ],
       "./src/repositories/index.ts": [
         "./src/repositories/event.repository.ts",
-        "./src/repositories/language.repository.ts",
         "./src/repositories/location.repository.ts",
         "./src/repositories/organization.repository.ts",
         "./src/repositories/person.repository.ts",
         "./src/repositories/room.repository.ts",
         "./src/repositories/talk.repository.ts",
+        "./src/repositories/talk_date.repository.ts",
+        "./src/repositories/talk_topic.repository.ts",
         "./src/repositories/topic.repository.ts"
-      ],
-      "./src/repositories/language.repository.ts": [
-        "./node_modules/@loopback/core/dist/index.d.ts",
-        "./node_modules/@loopback/repository/dist/index.d.ts",
-        "./src/datasources/index.ts",
-        "./src/graphql-types/language/language-input.ts",
-        "./src/graphql-types/language/language-type.ts"
       ],
       "./src/repositories/location.repository.ts": [
         "./node_modules/@loopback/core/dist/index.d.ts",
@@ -15985,6 +16021,20 @@
         "./src/datasources/index.ts",
         "./src/graphql-types/talk/talk-input.ts",
         "./src/graphql-types/talk/talk-type.ts"
+      ],
+      "./src/repositories/talk_date.repository.ts": [
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/repository/dist/index.d.ts",
+        "./src/datasources/index.ts",
+        "./src/graphql-types/talk-date/talk_date-input.ts",
+        "./src/graphql-types/talk-date/talk_date-type.ts"
+      ],
+      "./src/repositories/talk_topic.repository.ts": [
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/repository/dist/index.d.ts",
+        "./src/datasources/index.ts",
+        "./src/graphql-types/talk-topic/talk_topic-input.ts",
+        "./src/graphql-types/talk-topic/talk_topic-type.ts"
       ],
       "./src/repositories/topic.repository.ts": [
         "./node_modules/@loopback/core/dist/index.d.ts",
@@ -16839,17 +16889,16 @@
       "./src/datasources/conference.datasource.ts",
       "./src/datasources/index.ts",
       "./src/graphql-resolvers/event-resolver.ts",
-      "./src/graphql-resolvers/language-resolver.ts",
       "./src/graphql-resolvers/location-resolver.ts",
       "./src/graphql-resolvers/organization-resolver.ts",
       "./src/graphql-resolvers/person-resolver.ts",
       "./src/graphql-resolvers/room-resolver.ts",
       "./src/graphql-resolvers/talk-resolver.ts",
+      "./src/graphql-resolvers/talk_date-resolver.ts",
+      "./src/graphql-resolvers/talk_topic-resolver.ts",
       "./src/graphql-resolvers/topic-resolver.ts",
       "./src/graphql-types/event/event-input.ts",
       "./src/graphql-types/event/event-type.ts",
-      "./src/graphql-types/language/language-input.ts",
-      "./src/graphql-types/language/language-type.ts",
       "./src/graphql-types/location/location-input.ts",
       "./src/graphql-types/location/location-type.ts",
       "./src/graphql-types/organization/organization-input.ts",
@@ -16859,7 +16908,9 @@
       "./src/graphql-types/room/room-input.ts",
       "./src/graphql-types/room/room-type.ts",
       "./src/graphql-types/talk-at/talk_at-type.ts",
+      "./src/graphql-types/talk-date/talk_date-input.ts",
       "./src/graphql-types/talk-date/talk_date-type.ts",
+      "./src/graphql-types/talk-topic/talk_topic-input.ts",
       "./src/graphql-types/talk-topic/talk_topic-type.ts",
       "./src/graphql-types/talk/talk-input.ts",
       "./src/graphql-types/talk/talk-type.ts",
@@ -16870,12 +16921,13 @@
       "./src/openapi-spec.ts",
       "./src/repositories/event.repository.ts",
       "./src/repositories/index.ts",
-      "./src/repositories/language.repository.ts",
       "./src/repositories/location.repository.ts",
       "./src/repositories/organization.repository.ts",
       "./src/repositories/person.repository.ts",
       "./src/repositories/room.repository.ts",
       "./src/repositories/talk.repository.ts",
+      "./src/repositories/talk_date.repository.ts",
+      "./src/repositories/talk_topic.repository.ts",
       "./src/repositories/topic.repository.ts",
       "./src/sample-locations.ts",
       "./src/sequence.ts"

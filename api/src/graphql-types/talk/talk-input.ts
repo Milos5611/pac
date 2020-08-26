@@ -7,8 +7,5 @@ export class TalkInput implements Partial<Talk> {
     duration: number;
 
     @field()
-    language_id: string;
-
-    @field()
     level: string;
 }

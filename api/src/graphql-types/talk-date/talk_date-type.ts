@@ -1,43 +1,19 @@
 import {field, ID, objectType} from '../../../graphql';
-import {Model, model, property} from '@loopback/repository';
+import {belongsTo, Entity, model, property} from '@loopback/repository';
+import {Talk} from "../talk/talk-type";
+import {Event} from "../event/event-type";
+import {Room} from "../room/room-type";
+import {Location} from "../location/location-type";
 
 @objectType({description: 'Object representing talk date'})
 @model({
-    settings: {
-        "foreignKeys": {
-            "fk_talk_id": {
-                "name": "fk_talk_id",
-                "foreignKey": "talk_id",
-                "entityKey": "id",
-                "entity": "talk_id"
-            },
-            "fk_room_id": {
-                "name": "fk_room_id",
-                "foreignKey": "room_id",
-                "entityKey": "id",
-                "entity": "room_id"
-            },
-            "fk_event_id": {
-                "name": "fk_event_id",
-                "foreignKey": "event_id",
-                "entityKey": "id",
-                "entity": "event_id"
-            },
-            "fk_location_id": {
-                "name": "fk_location_id",
-                "foreignKey": "location_id",
-                "entityKey": "id",
-                "entity": "location_id"
-            }
-        }
-    }
+    settings: { strict: true}
 })
-export class TalkDate extends Model {
+export class TalkDate extends Entity {
     @field(type => ID)
     @property({
-        type: 'number',
+        type: 'string',
         id: true,
-        generated: true,
     })
     id: string;
 
@@ -49,19 +25,15 @@ export class TalkDate extends Model {
     @property()
     level: string;
 
-    @field()
-    @property()
+    @belongsTo(() => Talk, {name: 'talk'})
     talk_id: string;
 
-    @field()
-    @property()
+    @belongsTo(() => Room, {name: 'room'})
     room_id: string;
 
-    @field()
-    @property()
+    @belongsTo(() => Event, {name: 'event'})
     event_id: string;
 
-    @field()
-    @property()
+    @belongsTo(() => Location, {name: 'location'})
     location_id: string;
 }

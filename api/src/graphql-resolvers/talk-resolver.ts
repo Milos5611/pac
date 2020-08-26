@@ -5,7 +5,7 @@ import {TalkInput} from "../graphql-types/talk/talk-input";
 import {TalkRepository} from "../repositories";
 
 @resolver(of => Talk)
-export class RoomResolver {
+export class TalkResolver {
     constructor(
         @repository('TalkRepository')
         private readonly talkRepo: TalkRepository,

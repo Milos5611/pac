@@ -20,7 +20,7 @@ export class Room extends Entity {
     name: string;
 
     @field()
-    @belongsTo(() => Location)
+    @belongsTo(() => Location, {name: "location"})
     location_id: string;
 
     @field(type => [Talk])

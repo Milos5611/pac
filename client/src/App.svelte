@@ -1,30 +1,12 @@
-<script context="module">
-	export let name;
+<script>
+	import ApolloClient from "apollo-boost";
+	import { setClient } from 'svelte-apollo';
+	import Todos from "./Todos.svelte";
+
+	const client = new ApolloClient({ uri: "http://localhost:3000/graphql" });
+	setClient(client);
 </script>
 
 <main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+	<Todos />
 </main>
-
-<style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
-
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
-</style>

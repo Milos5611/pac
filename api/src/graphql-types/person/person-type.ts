@@ -25,10 +25,10 @@ export class Person extends Entity {
     name: string;
 
     @field()
-    @belongsTo(() => Organization)
+    @belongsTo(() => Organization, {name: "organization"})
     organization_id: string;
 
     @field()
-    @belongsTo(() => Person)
+    @belongsTo(() => Person, {name: "person"})
     topic_id: string
 }

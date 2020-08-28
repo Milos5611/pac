@@ -1,13 +1,10 @@
-import ApolloClient, { gql } from "apollo-boost";
+import { gql } from "apollo-boost";
 export const QUERY = gql`
   query Events() {
-      events2 {
+      events {
         id
         name
       }
     }
   }
 `;
-export const client = new ApolloClient({
-	uri: "http://localhost:3001/graphql",
-});

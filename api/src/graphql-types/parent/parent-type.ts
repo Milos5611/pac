@@ -17,6 +17,6 @@ export class Parent extends Entity {
     topic_name: string;
 
     @field()
-    @belongsTo(() => TopicParent)
+    @belongsTo(() => TopicParent, {name: "topicParent"})
     topic_parent_id: string;
 }

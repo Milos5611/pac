@@ -20,7 +20,7 @@ export class TopicChildren extends Entity {
     id: string;
 
     @field()
-    @belongsTo(() => Topic)
+    @belongsTo(() => Topic, {name: "topic"})
     topic_id: string;
 
     @field(type => [Children])

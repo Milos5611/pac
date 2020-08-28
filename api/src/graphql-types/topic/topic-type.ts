@@ -17,6 +17,6 @@ export class Topic extends Entity {
     name: string;
 
     @field()
-    @belongsTo(() => Talk)
+    @belongsTo(() => Talk, {name: "talk"})
     topic_id: string;
 }

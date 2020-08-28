@@ -19,7 +19,7 @@ export class Location extends Entity {
   name: string;
 
   @field(type => [Event], {nullable: true})
-  @hasMany(() => Event, {keyTo: 'location_id'})
+  @hasMany(() => Event, {keyTo: 'location_id', keyFrom: "id"})
   events?: Event[];
 
   @field(type => [Room], {nullable: true})

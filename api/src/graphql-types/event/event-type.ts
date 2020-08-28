@@ -27,6 +27,6 @@ export class Event extends Entity {
   end_date?: Date;
 
   @field()
-  @belongsTo(() => Location)
+  @belongsTo(() => Location, {name: "location"})
   location_id: string;
 }

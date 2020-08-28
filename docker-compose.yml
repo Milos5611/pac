@@ -1,17 +1,5 @@
 version: '3.7'
 services:
-  web:
-    build:
-      context: ./client
-      dockerfile: ./Dockerfile
-    volumes:
-      - ./client:/home/node/client:cached
-    env_file:
-      - devenv/.env
-    ports:
-      - "5000:5000"
-      - "35729:35729"
-    command: npm run dev
   api:
     build:
       context: ./api

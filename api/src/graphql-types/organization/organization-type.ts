@@ -1,7 +1,6 @@
 import {field, ID, objectType} from '../../../graphql';
 import {Entity, hasMany, model, property} from '@loopback/repository';
 import {Person} from "../person/person-type";
-import {Room} from "../room/room-type";
 
 @objectType({description: 'Object representing organization'})
 @model({settings: {strict: true}})
@@ -10,10 +9,7 @@ export class Organization extends Entity {
     @property({
         type: 'string',
         id: true,
-        defaultFn: 'uuidv4',
-        postgresql: {
-            dataType: 'uuid',
-        },
+        defaultFn: 'uuidv4'
     })
     id: string;
 
@@ -21,9 +17,7 @@ export class Organization extends Entity {
     @property()
     name: string;
 
-    @hasMany(() => Person, {keyFrom: 'id', keyTo: 'organization_id'})
-    persons: Person[];
-
-    @hasMany(() => Room, {keyFrom: 'id', keyTo: 'organization_id'})
-    rooms: Room[];
+    @field(type => [Person])
+    @hasMany(() => Person, {keyTo: "organization_id"})
+    persons?: Person[];
 }

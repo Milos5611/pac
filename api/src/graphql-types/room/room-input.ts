@@ -7,5 +7,5 @@ export class RoomInput implements Partial<Room> {
     name: string;
 
     @field()
-    organization_id: string;
+    location_id: string;
 }

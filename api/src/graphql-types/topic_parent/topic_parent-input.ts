@@ -1,8 +1,8 @@
 import {field, ID, inputType} from '../../../graphql';
-import {Topic} from './topic-type';
+import {TopicParent} from "./topic_parent-type";
 
 @inputType()
-export class TopicInput implements Partial<Topic> {
+export class TopicParentInput implements Partial<TopicParent> {
     @field(type => ID)
     id: string;
 

@@ -1,7 +1,7 @@
 import {field, ID, objectType} from '../../../graphql';
 import {belongsTo, Entity, hasMany, model, property} from '@loopback/repository';
-import {Organization} from "../organization/organization-type";
-import {TalkDate} from "../talk-date/talk_date-type";
+import {Location} from "../location/location-type";
+import {Talk} from "../talk/talk-type";
 
 @objectType({description: 'Object representing room'})
 @model({
@@ -11,11 +11,7 @@ export class Room extends Entity {
     @field(type => ID)
     @property({
         type: 'string',
-        id: true,
-        defaultFn: 'uuidv4',
-        postgresql: {
-            dataType: 'uuid',
-        },
+        id: true
     })
     id: string;
 
@@ -23,9 +19,11 @@ export class Room extends Entity {
     @property()
     name: string;
 
-    @belongsTo(() => Organization, {name: 'organization'})
-    organization_id: string;
+    @field()
+    @belongsTo(() => Location)
+    location_id: string;
 
-    @hasMany(() => TalkDate, {keyFrom: 'id', keyTo: 'talk_id'})
-    talkDate: TalkDate[]
+    @field(type => [Talk])
+    @hasMany(() => Talk, {keyTo: "talk_id"})
+    talks?: Talk[];
 }

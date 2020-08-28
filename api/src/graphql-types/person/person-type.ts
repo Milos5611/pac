@@ -24,6 +24,11 @@ export class Person extends Entity {
     @property()
     name: string;
 
-    @belongsTo(() => Organization, {name: 'organization'})
+    @field()
+    @belongsTo(() => Organization)
     organization_id: string;
+
+    @field()
+    @belongsTo(() => Person)
+    topic_id: string
 }

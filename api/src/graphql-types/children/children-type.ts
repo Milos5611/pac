@@ -1,10 +1,10 @@
 import {field, ID, objectType} from '../../../graphql';
 import {belongsTo, Entity, model, property} from '@loopback/repository';
-import {Talk} from "../talk/talk-type";
+import {TopicChildren} from "../topic_children/topic_children-type";
 
 @objectType({description: 'Object representing topic'})
 @model({settings: {strict: true}})
-export class Topic extends Entity {
+export class Children extends Entity {
     @field(type => ID)
     @property({
         type: 'string',
@@ -14,9 +14,9 @@ export class Topic extends Entity {
 
     @field()
     @property()
-    name: string;
+    topic_name: string;
 
     @field()
-    @belongsTo(() => Talk)
-    topic_id: string;
+    @belongsTo(() => TopicChildren)
+    topic_children_id: string;
 }

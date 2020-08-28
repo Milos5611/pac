@@ -15,3 +15,4 @@ export class EventInput implements Partial<Event> {
   @field()
   location_id: string;
 }
+

@@ -1,7 +1,6 @@
 import {field, ID, objectType} from '../../../graphql';
-import {belongsTo, Entity, hasMany, model, property} from '@loopback/repository';
+import {belongsTo, Entity, model, property} from '@loopback/repository';
 import {Location} from "../location/location-type";
-import {TalkDate} from "../talk-date/talk_date-type";
 
 @objectType({description: 'Object representing events'})
 @model({
@@ -12,7 +11,6 @@ export class Event extends Entity {
   @property({
     type: 'string',
     id: true,
-    defaultFn: 'uuidv4',
   })
   id: string;
 
@@ -28,13 +26,7 @@ export class Event extends Entity {
   @property()
   end_date?: Date;
 
-  @belongsTo(() => Location, {name: 'location'})
-  location_id: string;
-
   @field()
-  @property()
-  event_location: string;
-
-  @hasMany(() => TalkDate, {keyFrom: 'id', keyTo: 'talk_id'})
-  talkDates: TalkDate[];
+  @belongsTo(() => Location)
+  location_id: string;
 }

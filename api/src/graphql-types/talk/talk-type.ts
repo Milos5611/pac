@@ -1,8 +1,9 @@
 import {field, ID, objectType} from '../../../graphql';
 import {Entity, hasMany, model, property} from '@loopback/repository';
-import {TalkDate} from "../talk-date/talk_date-type";
+import {Person} from "../person/person-type";
+import {Topic} from "../topic/topic-type";
 
-@objectType({description: 'Object representing room'})
+@objectType({description: 'Object representing talk'})
 @model({
     settings: {
        strict: true
@@ -23,8 +24,21 @@ export class Talk extends Entity {
 
     @field()
     @property()
+    title: string;
+
+    @field()
+    @property()
     level: string;
 
-    @hasMany(() => TalkDate, {keyFrom: 'id', keyTo: 'talk_id'})
-    talkDate: TalkDate[]
+    @field()
+    @property()
+    language: string;
+
+    @field(type => [Person])
+    @hasMany(() => Person, {keyTo: "person_id"})
+    persons?: Person[];
+
+    @field(type => [Topic])
+    @hasMany(() => Topic, {keyTo: "topic_id"})
+    topics?: Topic[];
 }

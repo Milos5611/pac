@@ -8,4 +8,10 @@ export class TalkInput implements Partial<Talk> {
 
     @field()
     level: string;
+
+    @field()
+    language: string;
+
+    @field()
+    title: string;
 }

@@ -13,6 +13,7 @@ import {
 import {LocationRepository} from "./location.repository";
 import {plainToClass} from "class-transformer";
 import {EventInput} from "../graphql-types/event/event-input";
+import {v4 as uuidv4} from 'uuid'
 
 @bind({
   scope: BindingScope.SINGLETON,
@@ -22,11 +23,22 @@ import {EventInput} from "../graphql-types/event/event-input";
 })
 @lifeCycleObserver('repository')
 export class EventRepository
-  extends DefaultCrudRepository<Event, typeof Event.prototype.id>
-  implements LifeCycleObserver {
+  extends DefaultCrudRepository<Event, typeof Event.prototype.id> implements LifeCycleObserver {
+  /*topics: HasManyRepositoryFactory<Topic, typeof Topic.prototype.id>;
+  talks: HasManyRepositoryFactory<Talk, typeof Talk.prototype.id>;*/
+
   @repository.getter('LocationRepository') getLocationRepository: Getter<LocationRepository>;
-  constructor(@inject('datasources.conference') dataSource: ConferenceDatasource) {
+  constructor(
+      @inject('datasources.conference') dataSource: ConferenceDatasource,
+      /*@repository.getter('TopicRepository') topicRepositoryGetter: Getter<TopicRepository>,
+      @repository.getter('TalkRepository') talkRepositoryGetter: Getter<TalkRepository>*/) {
     super(Event, dataSource);
+/*
+    this.topics = this.createHasManyRepositoryFactoryFor('topics', topicRepositoryGetter);
+    this.talks = this.createHasManyRepositoryFactoryFor('talks', talkRepositoryGetter);
+
+    this.registerInclusionResolver('topics', this.topics.inclusionResolver);
+    this.registerInclusionResolver('talks', this.talks.inclusionResolver);*/
   }
 
   async start() {}
@@ -39,22 +51,17 @@ export class EventRepository
 
 
   async getOne(id: string) {
-    const event = await this.findById(id);
-    const locRepo = await this.getLocationRepository();
-    const {name} = await locRepo.findById(event.location_id);
-    return {
-      id: event.id,
-      name: event.name,
-      start_date: event.start_date,
-      end_date: event.end_date,
-      event_location: name
-    };
+    return this.findById(id);
   }
 
+
   async createEvent(eventData: EventInput) {
-    const locRepo = await this.getLocationRepository();
-    const {name} = await locRepo.findById(eventData.location_id);
-    const event = this.createEventClass(eventData, name);
+    const newEvent = Object.assign(eventData, {id: uuidv4()});
+    /*const locRepo = await this.getLocationRepository();
+    const {name} = await locRepo.findById(eventData.locationId);*/
+
+    const event = plainToClass(Event, newEvent);
+
     return this.create(event);
   }
 
@@ -63,11 +70,5 @@ export class EventRepository
     if(!foundEvent) throw new Error("Event doesn't exist");
     await this.updateById(id, eventData);
     return this.findById(id);
-  }
-
-  private createEventClass(eventData: Partial<Event>, name: string): Event {
-    const event = plainToClass(Event, eventData);
-    event.event_location = name;
-    return event;
   }
 }

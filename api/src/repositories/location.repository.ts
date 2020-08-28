@@ -13,6 +13,8 @@ import {
 import {Event} from "../graphql-types/event/event-type";
 import {EventRepository} from "./event.repository";
 import {LocationInput} from "../graphql-types/location/location-input";
+import {Room} from "../graphql-types/room/room-type";
+import {RoomRepository} from "./room.repository";
 
 @bind({
   scope: BindingScope.SINGLETON,
@@ -28,16 +30,27 @@ export class LocationRepository
       Event,
       typeof Location.prototype.id
       >;
+  public readonly rooms: HasManyRepositoryFactory<
+      Room,
+      typeof Room.prototype.id
+      >;
   constructor(
       @inject('datasources.conference') dataSource: ConferenceDatasource,
-      @repository.getter('EventRepository')
-          eventRepositoryGetter: Getter<EventRepository>,
+      @repository.getter('EventRepository') eventRepositoryGetter: Getter<EventRepository>,
+      @repository.getter('RoomRepository') roomRepositoryGetter: Getter<RoomRepository>
   ) {
     super(Location, dataSource);
     this.events = this.createHasManyRepositoryFactoryFor(
         'events',
         eventRepositoryGetter,
     );
+    this.rooms = this.createHasManyRepositoryFactoryFor(
+        'rooms',
+        roomRepositoryGetter,
+    );
+
+    this.registerInclusionResolver('events', this.events.inclusionResolver);
+    this.registerInclusionResolver('rooms', this.rooms.inclusionResolver);
   }
 
   @inject('location')
@@ -50,11 +63,19 @@ export class LocationRepository
   stop() {}
 
   async getAll() {
-    return this.find();
+    return this.find({
+      include: [{relation: "events"}, {relation: "rooms"}]
+    });
   }
 
   async getOne(id: string) {
-    return this.findById(id);
+    return  this.findOne({
+      where: {id},
+      include: [
+          {relation: "events"},
+          {relation: "rooms"}
+      ]
+    });
   }
 
   async createLocation(location: LocationInput) {

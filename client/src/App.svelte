@@ -1,12 +1,22 @@
 <script>
-	import ApolloClient from "apollo-boost";
-	import { setClient } from 'svelte-apollo';
-	import Todos from "./Todos.svelte";
+	import "smelte/src/tailwind.css" ;
+	import { Router } from 'svelte-router-spa'
+	import { routes } from './routes';
 
-	const client = new ApolloClient({ uri: "http://localhost:3000/graphql" });
+	import graphQLClient from '../config/graphQLClient';
+	import { setClient } from 'svelte-apollo';
+	const client = graphQLClient();
 	setClient(client);
 </script>
 
 <main>
-	<Todos />
+	<Router {routes} />
 </main>
+
+<style type="text/scss">
+	@import "./App.scss";
+	:global(body) {
+		background: #f3f3f3;
+		font-family: 'Roboto', sans-serif;
+	}
+</style>

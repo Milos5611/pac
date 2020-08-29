@@ -17,7 +17,7 @@ export class EventResolver {
   }
 
   @query(returns => [Event])
-  async events(): Promise<Event[]> {
+  async events() {
     return this.eventsRepo.getAll();
   }
 

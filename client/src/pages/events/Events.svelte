@@ -1,0 +1,124 @@
+<script>
+	export let currentRoute = {};
+	import moment from 'moment';
+	import {Route, navigateTo} from 'svelte-router-spa';
+	import {
+		Button
+	} from 'smelte';
+	import {getClient, query} from "svelte-apollo";
+	const client = getClient();
+	import {EVENTS_QUERY} from './data';
+	const events = query(client, { query: EVENTS_QUERY});
+</script>
+
+<Route {currentRoute} />
+{#await $events}
+	<p>...loading</p>
+	{:then $events}
+<div class="event-cards">
+	<div class="toolbar-wrapper">
+		<p class="all--events">ALL EVENTS</p>
+	</div>
+	{#each $events.data.events as event}
+		<div class="event-card">
+				<div class="wrapper">
+					<div class="card__meta">
+						<time>{moment(event.start_date).format("DD.MM.Y")}</time>
+						<time>-</time>
+						<time>{moment(event.end_date).format("DD.MM.Y")}</time>
+					</div>
+					<article>
+						<h5 class="card__title">
+							{event.name}
+						</h5>
+						<p class="card__description">
+							{event.location_name}
+						</p>
+					</article>
+				</div>
+
+			<div class="event-action">
+				<div class="p-2">
+					<a href="events/{event.id}">
+						<Button color="blue" text>
+							Check details
+						</Button>
+					</a>
+				</div>
+			</div>
+		</div>
+	{/each}
+</div>
+{/await}
+
+<style type="text/scss">
+	.event-cards {
+		width: 70%;
+		margin: 10em auto 0;
+		z-index: 2;
+	}
+	.event-card {
+		width: 31%;
+		height: 340px;
+		float: left;
+		margin-bottom: 15px;
+		margin-left: .5em;
+		margin-right: .5em;
+		border-radius: 2px;
+		background-color: #fff;
+		box-shadow: 0 2px 3px 0 rgba(0,0,0,.11);
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		overflow: hidden;
+		@extend %transitionTopBlue;
+	}
+	.wrapper {
+		overflow: hidden;
+		padding: 2.6em 1.6em 1.6em;
+	}
+
+    .card__description {
+		font-size: 16px;
+		line-height: 1.5;
+		color: #949ea8;
+	}
+	.event-action {
+		margin-top: auto;
+	}
+
+	time {
+		font-size: 14px;
+		line-height: 1.71;
+		color: #cacdd0;
+	}
+
+	.toolbar-wrapper {
+		padding: 0 10px 10px;
+		font-size: 14px;
+		font-weight: bold;
+	}
+
+	%transitionTopBlue {
+		 transform: perspective(1px) translateZ(0);
+	&:hover:before {
+		 transform: translateY(0);
+	 }
+
+	&:before {
+		 content: "";
+		 position: absolute;
+		 z-index: -1;
+		 left: 0;
+		 right: 0;
+		 top: 0;
+		 background: #2098D1;
+		 height: 4px;
+		 transform: translateY(-4px);
+		 transition-property: transform;
+		 transition-duration: 0.3s;
+		 transition-timing-function: ease-out;
+	 }
+	}
+
+</style>

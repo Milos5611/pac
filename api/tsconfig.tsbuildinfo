@@ -3947,8 +3947,8 @@
         "affectsGlobalScope": false
       },
       "./src/graphql-types/event/event-type.ts": {
-        "version": "a2f03edc1ad0b70c87f230daa341e8426b0ceae6be9ea4739c154b46e7afbf45",
-        "signature": "4704d120cea759d8193f3a8a44cade04dab824a154371c9931f3e5874d9be986",
+        "version": "1ea8f3ce72b74fc525ea3bd5b5f55a616d05d9380cfac3cedf8b237dceb02ff9",
+        "signature": "fbd589d94f6f30e8d5b1f64c6ac6aff6d1f2673d8a9a545b6975a398803602c2",
         "affectsGlobalScope": false
       },
       "./src/graphql-types/organization/organization-type.ts": {
@@ -4217,7 +4217,7 @@
         "affectsGlobalScope": false
       },
       "./src/repositories/location.repository.ts": {
-        "version": "a99cbf846990d414fba552176ab981cf8a094bcdd0baa422b4c7f296f294a54d",
+        "version": "2c8de3cfa2a7456fac4fb817cf4eb68d8d51b0aeffd3e28f95df2fb22cb93737",
         "signature": "e351c4af26cb84c34d17879fa606466871b16ecff733f5a552aaed95d1114eba",
         "affectsGlobalScope": false
       },
@@ -4232,8 +4232,8 @@
         "affectsGlobalScope": false
       },
       "./src/repositories/event.repository.ts": {
-        "version": "f0b78dd864e5b99efa6f31bcb609edc6607ab361b648f430f354fdd9060747aa",
-        "signature": "661f6dc58d09b306fa972cdad6d1ccb72438c07d443b0328a4988e34b879091c",
+        "version": "844d068f3f88ebf6bb79e99427e99e2a9022a124123be98490d493214e11dac0",
+        "signature": "5114245df40d1dd3733607174727fa057c6481eeb7300139cd2163e2ebe7c699",
         "affectsGlobalScope": false
       },
       "./src/graphql-types/organization/organization-input.ts": {
@@ -4317,8 +4317,8 @@
         "affectsGlobalScope": false
       },
       "./src/graphql-resolvers/event-resolver.ts": {
-        "version": "4035e0ce50c06f58ddb27a6e9324a2e618c3f821fdfc9554d092acb27639d490",
-        "signature": "a77c14995d97de4fe3973909e9c35455e013d3ff2a23337ab81a5ebd2bdabd12",
+        "version": "751f2e2207d79890a94dca1818156cbaafed8b4a762d48be815d9f5559264aaf",
+        "signature": "fd58f3a6348a8f146faba8b5d016cb00d46675140851075e49e5c8af23bc70c6",
         "affectsGlobalScope": false
       },
       "./src/graphql-resolvers/location-resolver.ts": {
@@ -10307,6 +10307,7 @@
         "./src/datasources/index.ts",
         "./src/graphql-types/event/event-input.ts",
         "./src/graphql-types/event/event-type.ts",
+        "./src/graphql-types/location/location-type.ts",
         "./src/repositories/location.repository.ts"
       ],
       "./src/repositories/index.ts": [
@@ -15965,6 +15966,7 @@
         "./src/repositories/index.ts"
       ],
       "./src/graphql-resolvers/event-resolver.ts": [
+        "./node_modules/@loopback/repository/dist/index.d.ts",
         "./src/graphql-types/event/event-input.ts",
         "./src/graphql-types/event/event-type.ts",
         "./src/repositories/index.ts"
@@ -16024,7 +16026,8 @@
         "./src/graphql-types/event/event-type.ts"
       ],
       "./src/graphql-types/event/event-type.ts": [
-        "./node_modules/@loopback/repository/dist/index.d.ts"
+        "./node_modules/@loopback/repository/dist/index.d.ts",
+        "./src/graphql-types/location/location-type.ts"
       ],
       "./src/graphql-types/location/location-input.ts": [
         "./src/graphql-types/location/location-type.ts"
@@ -16104,6 +16107,7 @@
         "./src/datasources/index.ts",
         "./src/graphql-types/event/event-input.ts",
         "./src/graphql-types/event/event-type.ts",
+        "./src/graphql-types/location/location-type.ts",
         "./src/repositories/location.repository.ts"
       ],
       "./src/repositories/index.ts": [

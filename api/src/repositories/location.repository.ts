@@ -64,17 +64,14 @@ export class LocationRepository
 
   async getAll() {
     return this.find({
-      include: [{relation: "events"}, {relation: "rooms"}]
+      include: [{relation: "events"}]
     });
   }
 
   async getOne(id: string) {
     return  this.findOne({
       where: {id},
-      include: [
-          {relation: "events"},
-          {relation: "rooms"}
-      ]
+      include: [{relation: "events"}]
     });
   }
 

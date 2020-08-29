@@ -29,4 +29,10 @@ export class Event extends Entity {
   @field()
   @belongsTo(() => Location, {name: "location"})
   location_id: string;
+
+  @field()
+  location_name: string;
+
+  @field(type => Location, {nullable: true})
+  location?: Location;
 }

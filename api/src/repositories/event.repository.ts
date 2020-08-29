@@ -1,4 +1,4 @@
-import {DefaultCrudRepository, repository, RepositoryBindings} from '@loopback/repository';
+import {BelongsToAccessor, DefaultCrudRepository, repository, RepositoryBindings} from '@loopback/repository';
 import {Event} from '../graphql-types/event/event-type';
 import {ConferenceDatasource} from '../datasources';
 import {
@@ -14,6 +14,7 @@ import {LocationRepository} from "./location.repository";
 import {plainToClass} from "class-transformer";
 import {EventInput} from "../graphql-types/event/event-input";
 import {v4 as uuidv4} from 'uuid'
+import {Location} from "../graphql-types/location/location-type";
 
 @bind({
   scope: BindingScope.SINGLETON,
@@ -24,21 +25,21 @@ import {v4 as uuidv4} from 'uuid'
 @lifeCycleObserver('repository')
 export class EventRepository
   extends DefaultCrudRepository<Event, typeof Event.prototype.id> implements LifeCycleObserver {
-  /*topics: HasManyRepositoryFactory<Topic, typeof Topic.prototype.id>;
-  talks: HasManyRepositoryFactory<Talk, typeof Talk.prototype.id>;*/
 
-  @repository.getter('LocationRepository') getLocationRepository: Getter<LocationRepository>;
+  public readonly location: BelongsToAccessor<Location, typeof Event.prototype.id>;
+
+  @repository.getter('EventRepository') getLocationRepository: Getter<LocationRepository>
   constructor(
       @inject('datasources.conference') dataSource: ConferenceDatasource,
-      /*@repository.getter('TopicRepository') topicRepositoryGetter: Getter<TopicRepository>,
-      @repository.getter('TalkRepository') talkRepositoryGetter: Getter<TalkRepository>*/) {
+      ) {
     super(Event, dataSource);
-/*
-    this.topics = this.createHasManyRepositoryFactoryFor('topics', topicRepositoryGetter);
-    this.talks = this.createHasManyRepositoryFactoryFor('talks', talkRepositoryGetter);
 
-    this.registerInclusionResolver('topics', this.topics.inclusionResolver);
-    this.registerInclusionResolver('talks', this.talks.inclusionResolver);*/
+    this.location = this.createBelongsToAccessorFor(
+        "location",
+        this.getLocationRepository
+    );
+    this.registerInclusionResolver("location", this.location.inclusionResolver);
+
   }
 
   async start() {}
@@ -46,7 +47,11 @@ export class EventRepository
   stop() {}
 
   async getAll() {
-    return this.find();
+    return this.execute( `
+      SELECT event.id, event.name, event.start_date, event.end_date, event.location_id, location.name as location_name
+      FROM event
+      INNER JOIN location on event.location_id = location.id
+  `);
   }
 
 

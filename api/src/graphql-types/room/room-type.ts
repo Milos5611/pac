@@ -5,7 +5,16 @@ import {Talk} from "../talk/talk-type";
 
 @objectType({description: 'Object representing room'})
 @model({
-    settings: {strict: true}
+    settings: {
+        foreignKeys: {
+            fk_location_id: {
+                name: 'fk_location_id',
+                entity: 'Location',
+                entityKey: 'id',
+                foreignKey: 'location_id',
+            },
+        },
+    }
 })
 export class Room extends Entity {
     @field(type => ID)
@@ -20,10 +29,10 @@ export class Room extends Entity {
     name: string;
 
     @field()
-    @belongsTo(() => Location, {name: "location"})
-    location_id: string;
+    @belongsTo(() => Location, {keyFrom: "locationId"},{name: "location_id"})
+    locationId: string;
 
     @field(type => [Talk])
-    @hasMany(() => Talk, {keyTo: "talk_id"})
+    @hasMany(() => Talk, {keyTo: 'location_id', keyFrom: "id"})
     talks?: Talk[];
 }

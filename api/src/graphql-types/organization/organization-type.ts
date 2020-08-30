@@ -17,6 +17,6 @@ export class Organization extends Entity {
     @property()
     name: string;
 
-    @hasMany(() => Person, {keyTo: "organization_id"})
+    @hasMany(() => Person, {keyTo: 'organization_id', keyFrom: "id"})
     persons: Person[];
 }

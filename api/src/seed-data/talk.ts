@@ -7,19 +7,19 @@ export const sampleTalk = [
         duration: 70,
         level: "Senior",
         language: "English",
-        title: "JavaScript"
+        title: "JavaScript in real word"
     }),
     createTalk({
         id: "2",
         duration: 40,
-        level: "Senior",
+        level: "Junior",
         language: "English",
-        title: "JavaScript"
+        title: "Kubernetes and how to start"
     }),
     createTalk({
         id: "3",
         duration: 80,
-        level: "Senior",
+        level: "Intermediate",
         language: "English",
         title: "JavaScript"
     }),
@@ -33,7 +33,7 @@ export const sampleTalk = [
     createTalk({
         id: "5",
         duration: 20,
-        level: "Senior",
+        level: "Intermediate",
         language: "English",
         title: "JavaScript"
     }),
@@ -47,30 +47,24 @@ export const sampleTalk = [
     createTalk({
         id: "7",
         duration: 120,
-        level: "Senior",
+        level: "Junior",
         language: "English",
         title: "JavaScript"
     }),
     createTalk({
         id: "8",
         duration: 50,
-        level: "Senior",
+        level: "Intermediate",
         language: "English",
         title: "JavaScript"
     }),
     createTalk({
         id: "9",
         duration: 70,
-        level: "Senior",
+        level: "Junior",
         language: "English",
         title: "JavaScript"
-    }),createTalk({
-        id: "10",
-        duration: 30,
-        level: "Senior",
-        language: "English",
-        title: "JavaScript"
-    }),
+    })
 ];
 
 function createTalk(talkData: Partial<Talk>): Talk {

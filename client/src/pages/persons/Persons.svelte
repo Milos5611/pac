@@ -12,7 +12,6 @@
 </script>
 
 {#await $persons}
-	<p>...loading</p>
 {:then $persons}
 
 	<div class="person-cards">
@@ -24,8 +23,14 @@
 				<div class="wrapper">
 					<article>
 						<h5 class="card__title">
-							{person.talk.title}
+							{person.name}
 						</h5>
+						<p class="card__description">
+							{person.organization.name}
+						</p>
+						<p class="card__description">
+							{person.talk.title}
+						</p>
 					</article>
 				</div>
 

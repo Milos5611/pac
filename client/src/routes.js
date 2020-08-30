@@ -23,7 +23,7 @@ const routes = [
     {
         name: 'person/:id',
         component: Person,
-        layout: ItemLayout,
+        layout: PublicLayout,
     },
 ];
 

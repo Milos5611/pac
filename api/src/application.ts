@@ -36,9 +36,9 @@ export class ApiApplication extends BootMixin(
 
     this.bind('location').to([...sampleLocation]);
     this.bind('event').to([...sampleEvent]);
+    this.bind('talk').to([...sampleTalk]);
     this.bind('organization').to([...sampleOrganization]);
     this.bind('person').to([...samplePerson]);
-    this.bind('talk').to([...sampleTalk]);
 
     // Set up default home page
     this.static('/', path.join(__dirname, '../public'));

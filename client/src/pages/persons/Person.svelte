@@ -1,5 +1,5 @@
 <script>
-	import {Route} from 'svelte-router-spa';
+	import {Route, Navigate} from 'svelte-router-spa';
 	export let currentRoute;
 	import {getClient, query} from "svelte-apollo";
 	const client = getClient();
@@ -10,11 +10,14 @@
 <Route {currentRoute} />
 {#await $person}
 	{:then $person}
-	{#if $person && $person.data.person}
+	{#if $person.data && $person.data.person}
 		<div class="person-detail">
+			<Navigate to="persons">
+				<p class="back">{"<- Back"}</p>
+			</Navigate>
 			<div class="top_nav">
 				<p class="person_id">
-					PERSON ID: #{$person.data.person.id}
+					SPEAKER ID: #{$person.data.person.id}
 				</p>
 			</div>
 		<div class="person-card">
@@ -30,7 +33,18 @@
 					<article>
 						<p class="card__description">
 							He will give a talk about:
-							<span style="color: grey; text-decoration: underline">{$person.data.person.talk.title}</span>
+							<span class="underline">{$person.data.person.talk.title}</span>
+						</p>
+						<p class="card__description">
+							It will last for about:
+							<span class="underline">{$person.data.person.talk.duration}</span>
+							min
+						</p>
+						<p class="card__description">
+							This talk is require
+							<span class="underline">{$person.data.person.talk.level}</span>
+							level understanding of topic and will be held in
+							<span class="underline">{$person.data.person.talk.language}</span>
 						</p>
 					</article>
 				</div>
@@ -49,8 +63,17 @@
 		margin: 7em auto 0;
 		width: 60%;
 
+		.back {
+			text-align: center;
+		}
+		
+		.underline {
+			color: grey; 
+			text-decoration: underline
+		}
+
 		.top_nav {
-			margin: 3em 0 2em 1em;
+			margin: 3em 0 2em 0;
 			flex: 1 0 50%;
 
 			.person_id {
@@ -63,7 +86,7 @@
 			}
 		}
 		.person-card {
-			height: 340px;
+			height: 240px;
 			align-items: stretch;
 			position: relative;
 			overflow: hidden;

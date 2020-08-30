@@ -4,69 +4,70 @@ import {Event} from "../graphql-types/event/event-type";
 export const sampleEvent = [
     createEvent({
         id: "e6c6d273-b2d3-4bb6-bcc3-aeb4d067a277",
-        name: "Simple Event",
+        name: "Methodological challenges and research methods.",
         locationId: "1",
         start_date: new Date(),
         end_date: new Date()
     }),
     createEvent({
         id: "e6c6d273-b2d3-4bb6-bcc3-aeb4d067a2fn",
-        name: "Simple Event",
+        name: "Opportunity generation and early business development.",
         locationId: "2",
         start_date: new Date(),
         end_date: new Date()
     }),
     createEvent({
         id: "e6c6d273-b2d3-4bb6-bcc3-aeb4d0611isk",
-        name: "Simple Event",
+        name: "Minority entrepreneurship.",
         locationId: "3",
         start_date: new Date(),
         end_date: new Date()
     }),
     createEvent({
         id: "e6c6d273-b2d3-4bb6-bcc3-aeb4d06jaada",
-        name: "Simple Event",
+        name: "Technology and knowledge-based entrepreneurship.",
         locationId: "3",
         start_date: new Date(),
         end_date: new Date()
     }),
     createEvent({
         id: "e6c6d273-b2d3-4bb6-bcc3-aeb4d060aeh3",
-        name: "Simple Event",
+        name: "Family business, succession and business transfer.",
         locationId: "2",
         start_date: new Date(),
         end_date: new Date()
     }),
     createEvent({
         id: "e6c6d273-b2d3-4bb6-bcc3-aeb4d06p3847",
-        name: "Simple Event",
+        name: "Entrepreneurship education, learning, and knowledge dissemination.",
         locationId: "1",
         start_date: new Date(),
         end_date: new Date()
     }),
     createEvent({
         id: "e6c6d273-b2d3-4bb6-bcc3-aeb4d06palej",
-        name: "Simple Event",
+        name: "Entrepreneurship education, learning, and knowledge dissemination.",
         locationId: "1",
         start_date: new Date(),
         end_date: new Date()
     }),
     createEvent({
         id: "e6c6d273-b2d3-4bb6-bcc3-aeb4d0673jsdu",
-        name: "Simple Event",
+        name: "Human and social capital",
         locationId: "1",
         start_date: new Date(),
         end_date: new Date()
     }),
     createEvent({
         id: "e6c6d273-b2d3-4bb6-bcc3-aeb4d06mxksu",
-        name: "Simple Event",
+        name: "Policy, support systems and infrastructure",
         locationId: "5",
         start_date: new Date(),
         end_date: new Date()
-    }),createEvent({
+    })
+    ,createEvent({
         id: "e6c6d273-b2d3-4bb6-bcc3-aeb4d06aopdy",
-        name: "Simple Event",
+        name: "Authentic entrepreneurial leadership",
         locationId: "4",
         start_date: new Date(),
         end_date: new Date()

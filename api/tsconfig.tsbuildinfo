@@ -3927,7 +3927,7 @@
         "affectsGlobalScope": false
       },
       "./src/graphql-types/organization/organization-type.ts": {
-        "version": "30531f481aa17f6890f8cfd3beceb935c7f681c0285e48ae766647bbdb1140da",
+        "version": "d4ce7b9bb61e460f03f9c8dd91a0c1762a744e78b10ae1a39d2fc3bca85648c4",
         "signature": "a0fb0d06705def52deded06a969279caa3189e342a5af90aeb073f24e05bc83e",
         "affectsGlobalScope": false
       },
@@ -3937,22 +3937,22 @@
         "affectsGlobalScope": false
       },
       "./src/graphql-types/topic/topic-type.ts": {
-        "version": "773a4b86da01439eb8131ddf143042d15564f0a75dae2b70b4d67c2120278e12",
-        "signature": "8177dd4068a5aab50ebf78c6d2b0be182399d68ea6081300ab7d3fd395ba0464",
+        "version": "27e1879ce48f7358122cbbf2689b08daaca9900b25fff92113f3c9d804bb0371",
+        "signature": "eb1f30d1d9284c501f2dcb1b6f018ab806731bc624b37715a58490c2bc1df85f",
         "affectsGlobalScope": false
       },
       "./src/graphql-types/talk/talk-type.ts": {
-        "version": "783878cf0f6af7d58e83b392d36c75bf88036f726122fc42a14e5960314e5c73",
-        "signature": "3b1136715d3fb67d3a81ac8ee6fdbc997db2b65f868e5b3ec9233b6d05ae3145",
+        "version": "62180d36f828a4fb017b238b610ef5762364cf187e9718418239c0d496a09d34",
+        "signature": "f76946109284807c9dad316a7adc0e9bdab49d3b4e190fd5c31a5308e46256cc",
         "affectsGlobalScope": false
       },
       "./src/graphql-types/room/room-type.ts": {
-        "version": "67e4f5d1db22e5a4e7e0c731591c198146697f4098abae74f770b40280c3ad07",
-        "signature": "84eff44fd77a86cbe3cf24feb1e09c3f5fe96c3eea9894be446ca70cfafc9bcf",
+        "version": "8cf73be7bd24612cf498f6b1f25a66ee40211d0fa7f634a5edba43cdb250d4cc",
+        "signature": "d4fc1c3c3aeb9e7c48f23fe5f78d0e94e7842ae774fcec8520e367129247567a",
         "affectsGlobalScope": false
       },
       "./src/graphql-types/location/location-type.ts": {
-        "version": "a92a5f01106d2786437cd6d1d9b634049b95ddf4c1ee2939731f927f1e497ea6",
+        "version": "eaa8c236696cef7e6243c73eef251ea240d022a232b516a71683dca947cf88f5",
         "signature": "42903f80dcd353fdcb69d94f4e4864d04ea510a9a94e0232dd0688fc77e0f75e",
         "affectsGlobalScope": false
       },
@@ -3962,7 +3962,7 @@
         "affectsGlobalScope": false
       },
       "./src/seed-data/events.ts": {
-        "version": "09cd8918577cf45c908c637b80b3e9a0ac084af9ad65fbad9c95155d3694954b",
+        "version": "1718c63da50c47c78ad2d6d86de2b45c6ab4683301e7096d8c505e114526444e",
         "signature": "bf28a756865efbb5c6eb46b49c8f1a31cc501c9e736077336ded60342dce9a4f",
         "affectsGlobalScope": false
       },
@@ -3982,12 +3982,12 @@
         "affectsGlobalScope": false
       },
       "./src/seed-data/persons.ts": {
-        "version": "133863272d94687e877b8fcb66bb67bbbfc1014a75ec3ac36249c44039ae2d0e",
+        "version": "97a33cf473a3ce57411d0c9c33979bde49023b9cb88484e0875e2dc57bdbd50c",
         "signature": "f0ea258e7ab1a92830bbc015a57d0e24ac7acb957382a3c1a9d152095f314dff",
         "affectsGlobalScope": false
       },
       "./src/seed-data/talk.ts": {
-        "version": "bbb938bb3336d30e255ec70ac30715c5d04de70b4d5fac766f8a52f5736ad4b7",
+        "version": "6767c93610eac2bf7021d0ab74d28b3c13217a7c2632d2a57aa43843fd1c9eab",
         "signature": "6fd5367b3ad79139a312fc85d48456c5a6c4e6f4ac39b732ee58dd70383bcbce",
         "affectsGlobalScope": false
       },
@@ -4067,7 +4067,7 @@
         "affectsGlobalScope": false
       },
       "./src/application.ts": {
-        "version": "7838e48a4de519d515c1f61cd7863b05107acd6bbca667420e97d8052a22c8e3",
+        "version": "8fff7f66ef7eb974ca579c4c07659a4c2587d1f9216f52e2ae2127ab063eb328",
         "signature": "c7a24b88aa97ba302a26e96ecfe18b048e8aa0dabe178e27c38b0ec71168cfff",
         "affectsGlobalScope": false
       },
@@ -4112,8 +4112,8 @@
         "affectsGlobalScope": false
       },
       "./src/graphql-types/room/room-input.ts": {
-        "version": "bb46ad6870f80b740e4d2e8670dde38ce049888c03e58e16712bd99761d569a1",
-        "signature": "bd45a7f6633e0dd5c38d6a1faf8ecfb3ebe213a6030e1cc605d7df7498ee863e",
+        "version": "0f59771d98f81cba8e8667fa4d03cd9564bb0c9d82043ad1175012da09f53b9c",
+        "signature": "a541dfdeb81e3ba9b7851e917902fde160b0c71659b93d08b1cebc232407e55a",
         "affectsGlobalScope": false
       },
       "./src/repositories/room.repository.ts": {
@@ -4147,8 +4147,8 @@
         "affectsGlobalScope": false
       },
       "./src/graphql-types/talk/talk-input.ts": {
-        "version": "fd0327ada06dc3ef2e58f6b551b10bfe87bf19fd5e810ff336e7d6b8c526443a",
-        "signature": "e0d5494c7eb0b5a17bc3e1a34d84f6060885f0bce1a48c18659323b665cb71c3",
+        "version": "d7107fe393cff98565f75463203dbf96b8b0b0e0eb47e1f270fedc6cfa7e6b02",
+        "signature": "b14b597e0c3048b959a0e728601cc1552f5360ecb06d9625098196c6a5b72a74",
         "affectsGlobalScope": false
       },
       "./src/repositories/talk.repository.ts": {
@@ -4162,8 +4162,8 @@
         "affectsGlobalScope": false
       },
       "./src/graphql-types/topic/topic-input.ts": {
-        "version": "3a4ccd1dda9db0f58417847840023ece229e1e7305c87b22fb22896aa1bbd170",
-        "signature": "7bf96a639b34c82c4d3e582a5b4a0ad289f51ca9b0b206fae21c3856712bd22d",
+        "version": "251c71bcc379714de8d9b88613e839bac2f5940cd249208ad64d52f6793bd87d",
+        "signature": "966b486df04b79851d77e5ac428b0b30e1134555c50fef673d81d8d989116344",
         "affectsGlobalScope": false
       },
       "./src/repositories/topic.repository.ts": {
@@ -4172,18 +4172,18 @@
         "affectsGlobalScope": false
       },
       "./src/graphql-types/children/children-type.ts": {
-        "version": "de46c880c641b1328d336e07f40c726a71e43af8b22e85db1407172f9d74d404",
-        "signature": "33f127c12f8cfad0ae04e417057db1dc3bfbcc955be0d49fb0f5160d4a87a7ae",
+        "version": "1ac30e48d00ae585f1c3311fb88560840c43c4996e43d1431ba048fdf529b6eb",
+        "signature": "8525830c06f862bf6aeed772fe41aa39db49fa6138e8c02bfaa9540a4e91c7bf",
         "affectsGlobalScope": false
       },
       "./src/graphql-types/topic_children/topic_children-type.ts": {
-        "version": "ea8178d37f77f9cf755640547de2090a26b5e389e80765d1260a37f609f66674",
-        "signature": "1e4d5b0476147c4d3efe97d4466ad9a51d301464fcca51aa46d3658a031308da",
+        "version": "30a45f7444961e6b74b32e0752da705af5ae0a0e9e983c5ee3057123b5de6ded",
+        "signature": "aff035448cb5077218e8d16552600bc9cb6200e34bfea534f95f1fe03709e6a0",
         "affectsGlobalScope": false
       },
       "./src/graphql-types/topic_children/topic_children-input.ts": {
-        "version": "4877d236d73214f41a340213e0002134d372afea02cf2227a88f6b32da61aa2c",
-        "signature": "d531f5e7cd00a3c969548e31e2680d6e0cd244f0edf025ce41c8b41b5c06bedc",
+        "version": "57f69c01ce06c6d6d05c9d240a07f5ab58671b97db424fcfbf9c4264e73aad28",
+        "signature": "71d2ea9c73f26745c37048e2b2e05846fd024b02d65e9cb044a6950fe9c37b52",
         "affectsGlobalScope": false
       },
       "./src/repositories/topic_children.repository.ts": {
@@ -4192,8 +4192,8 @@
         "affectsGlobalScope": false
       },
       "./src/graphql-types/children/children-input.ts": {
-        "version": "36c76e8626a133fafd7287921788f7726547c6381796c8090bb177645f10b508",
-        "signature": "1c5468ff092ebe577e5fb4435d036eb1e76797fd6aeb470d714a3e1a3d2652ca",
+        "version": "a3bb98d62adf03bc9a008b3bfb65996089596450d212c3276a8a64e32f803cca",
+        "signature": "8c30675d06f30b4e0931505a5e48776ebdd0aa3b3b4a8274a3b5d62d53e1fe72",
         "affectsGlobalScope": false
       },
       "./src/repositories/children.repository.ts": {
@@ -4227,18 +4227,18 @@
         "affectsGlobalScope": false
       },
       "./src/graphql-types/topic_parent/topic_parent-type.ts": {
-        "version": "0a114bca1f2b463afde2680ef3c684da4e7374b8428b7441d3066be552793ce6",
-        "signature": "89e08515afe0d1d1675b3ae797fa686b55b26c15cae20fae9921fb33dcab60ab",
+        "version": "69e4f661066aa2606a5d669c8da5feea985c36ce323dbd7cb5ce066e8aa2232b",
+        "signature": "5f9320b98f1f235b9bb8fff08f7a8e6b1d608532e650bc1583b6acd10414d8e5",
         "affectsGlobalScope": false
       },
       "./src/graphql-types/parent/parent-type.ts": {
-        "version": "350e75b74138551bc665ae07e5cd50dc247f912c2b51f8c92864f30bd8a46191",
-        "signature": "7cd9085276c6087e346f616e4619b117d3569d35841db2a8a0ef1a44490883ac",
+        "version": "ba6e87aef44fcf0a10d68f25f217d037951bdf3fdd67d786ccf27e7eb39c202b",
+        "signature": "b4f072f09600db551a91db725f444fdc434124063c08b35c043da1eceec9119e",
         "affectsGlobalScope": false
       },
       "./src/graphql-types/parent/parent-input.ts": {
-        "version": "8508e5a22101d03b7648830587f4d7f44cfb39cbe2bc2deb130cc9bed3b4dfd5",
-        "signature": "58ed9361c1987ed47b94b83b698964430e43ee9181c008fd8886d70c5d6016f9",
+        "version": "5d297031ecb4626c28caf3a736549c91fc80a5948a24c4c0b957f4190fd53062",
+        "signature": "dfe7f655f41345c15a44c05907e3ff91d74cb8dd8bc35db4b85cd1b9344e21cb",
         "affectsGlobalScope": false
       },
       "./src/repositories/parent.repository.ts": {
@@ -4277,8 +4277,8 @@
         "affectsGlobalScope": false
       },
       "./src/graphql-types/topic_parent/topic_parent-input.ts": {
-        "version": "4aca72d1dc3607c2f6ff0adcf0a4d40362073a32332b1fd955905c2ae68cace7",
-        "signature": "221f48135f88d6a77d4ef9e78c861fd31605796b580b4c9b57dc02f7c251a68b",
+        "version": "fd6a12981887f1ddf2433f0f7725f43db274eb73c30cdeff4d63caa9becb9675",
+        "signature": "4309a96b44db9f806433c25d51b9374150ceec408affa257ad70dc00148ac55e",
         "affectsGlobalScope": false
       },
       "./src/repositories/topic_parent.repository.ts": {
@@ -10509,6 +10509,7 @@
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts",
         "./src/graphql-types/person/person-type.ts",
+        "./src/graphql-types/room/room-type.ts",
         "./src/graphql-types/topic/topic-type.ts"
       ],
       "./src/graphql-types/topic/topic-input.ts": [

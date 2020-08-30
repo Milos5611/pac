@@ -41,13 +41,13 @@ export const samplePerson = [
     }),
     createPerson({
         id: uuid(),
-        name: "Milan Gajic ( Pirot matori )",
+        name: "Milan Gajic",
         organizationId: "2",
         talkId: "7",
     }),
     createPerson({
         id: uuid(),
-        name: "Milutin Dzunic ( Pirot matori )",
+        name: "Milutin Dzunic",
         organizationId: "1",
         talkId: "8",
     }),
@@ -56,12 +56,7 @@ export const samplePerson = [
         name: "Darko Krizic",
         organizationId: "1",
         talkId: "9",
-    }),createPerson({
-        id: uuid(),
-        name: "Lidija Dukanac",
-        organizationId: "1",
-        talkId: "10",
-    }),
+    })
 ];
 
 function createPerson(personData: Partial<Person>): Person {

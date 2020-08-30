@@ -9,6 +9,14 @@ import {Parent} from "../parent/parent-type";
         postgresql: {
             table: 'topic_parent',
         },
+        foreignKeys: {
+            fk_topic_id: {
+                name: 'fk_topic_id',
+                entity: 'Topic',
+                entityKey: 'id',
+                foreignKey: 'topic_id',
+            },
+        },
     }
 })
 export class TopicParent extends Entity {
@@ -20,10 +28,10 @@ export class TopicParent extends Entity {
     id: string;
 
     @field()
-    @belongsTo(() => Topic, {name: "topic"})
-    topic_id: string;
+    @belongsTo(() => Topic, {keyFrom: "topicId"},{name: "topic_id"})
+    topicId: string;
 
     @field(type => [Parent])
-    @hasMany(() => Parent, {keyTo: "topic_parent_id"})
+    @hasMany(() => Parent, {keyTo: 'topic_parent_id', keyFrom: "id"})
     parents?: Parent[]
 }

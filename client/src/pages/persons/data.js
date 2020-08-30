@@ -28,7 +28,10 @@ export const PERSON_QUERY = gql`
               name
             }
             talk {
-              title
+              title   
+              duration
+              level
+              language
             }
         }
     }

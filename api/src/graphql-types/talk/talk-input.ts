@@ -14,4 +14,7 @@ export class TalkInput implements Partial<Talk> {
 
     @field()
     title: string;
+
+    @field()
+    roomId: string;
 }

@@ -3,7 +3,18 @@ import {belongsTo, Entity, model, property} from '@loopback/repository';
 import {TopicParent} from "../topic_parent/topic_parent-type";
 
 @objectType({description: 'Object representing parent entity of thee topic'})
-@model({settings: {strict: true}})
+@model({
+    settings: {
+        foreignKeys: {
+            fk_topic_parent_id: {
+                name: 'fk_topic_parent_id',
+                entity: 'TopicParent',
+                entityKey: 'id',
+                foreignKey: 'topic_parent_id',
+            },
+        },
+    }
+})
 export class Parent extends Entity {
     @field(type => ID)
     @property({
@@ -17,6 +28,6 @@ export class Parent extends Entity {
     topic_name: string;
 
     @field()
-    @belongsTo(() => TopicParent, {name: "topicParent"})
-    topic_parent_id: string;
+    @belongsTo(() => TopicParent, {keyFrom: "topicParentId"},{name: "topic_parent_id"})
+    topicParentId: string;
 }

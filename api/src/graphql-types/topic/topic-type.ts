@@ -1,6 +1,8 @@
 import {field, ID, objectType} from '../../../graphql/server';
-import {belongsTo, Entity, model, property} from '@loopback/repository';
+import {belongsTo, Entity, hasMany, model, property} from '@loopback/repository';
 import {Talk} from "../talk/talk-type";
+import {Children} from "../children/children-type";
+import {TopicChildren} from "../topic_children/topic_children-type";
 
 @objectType({description: 'Object representing topic'})
 @model({
@@ -30,4 +32,8 @@ export class Topic extends Entity {
     @field()
     @belongsTo(() => Talk, {keyFrom: "talkId"},{name: "talk_id"})
     talkId: string;
+
+    @field(type => [Children], {nullable: true})
+    @hasMany(() => Children, {through: {model: () => TopicChildren}})
+    childrens?: Children[];
 }

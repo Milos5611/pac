@@ -8,7 +8,4 @@ export class ChildrenInput implements Partial<Children> {
 
     @field()
     topic_mame: string;
-
-    @field()
-    topicChildrenId: string;
 }

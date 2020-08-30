@@ -16,6 +16,12 @@ import {Children} from "../children/children-type";
                 entityKey: 'id',
                 foreignKey: 'topic_id',
             },
+            fk_children_id: {
+                name: 'fk_children_id',
+                entity: 'Children',
+                entityKey: 'id',
+                foreignKey: 'children_id',
+            },
         },
     }
 })
@@ -29,9 +35,10 @@ export class TopicChildren extends Entity {
 
     @field()
     @belongsTo(() => Topic, {keyFrom: "topicId"},{name: "topic_id"})
-    topicId: string;
+    topicId?: string;
 
-    @field(type => [Children])
-    @hasMany(() => Children, {keyTo: 'topic_children_id', keyFrom: "id"})
-    childrens?: Children[]
+    @field()
+    @belongsTo(() => Children, {keyFrom: "childrenId"},{name: "children_id"})
+    childrenId?: string;
+
 }

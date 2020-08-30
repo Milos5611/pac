@@ -8,4 +8,7 @@ export class TopicChildrenInput implements Partial<TopicChildren> {
 
     @field()
     topicId: string;
+
+    @field()
+    childrenId: string;
 }

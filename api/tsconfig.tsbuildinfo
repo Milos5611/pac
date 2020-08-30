@@ -3936,9 +3936,19 @@
         "signature": "2f389532ad0acc80ade68542f4141eee3f22c6d9609c093ec47737bf988083e0",
         "affectsGlobalScope": false
       },
+      "./src/graphql-types/children/children-type.ts": {
+        "version": "4b1d5d7f6aa49af3d6b2c71f6bc3c0e754bf684bb97d2fda5ab5989e7d11cc56",
+        "signature": "e7f679d5e33410bb6252aebd46251bc0e2c6896c5b65e192f8d606689974ede0",
+        "affectsGlobalScope": false
+      },
+      "./src/graphql-types/topic_children/topic_children-type.ts": {
+        "version": "eac117d5f612be10d4fcc6fbd61c15e2423294dddb4a2dca27a2ca01baac9fcb",
+        "signature": "afa95f9ddfa908861676ec8c6ad2ec0b24236e6e07de1defd00e56de1b53ab85",
+        "affectsGlobalScope": false
+      },
       "./src/graphql-types/topic/topic-type.ts": {
-        "version": "27e1879ce48f7358122cbbf2689b08daaca9900b25fff92113f3c9d804bb0371",
-        "signature": "eb1f30d1d9284c501f2dcb1b6f018ab806731bc624b37715a58490c2bc1df85f",
+        "version": "5ff73ec4eb26b733e7895ec4caddfcf039c94482e7d487322f38044bfa29ad8a",
+        "signature": "a9e4780e20fd8606743ae96be60e215e0ba0206c3a5d258215b10cb821eb08aa",
         "affectsGlobalScope": false
       },
       "./src/graphql-types/talk/talk-type.ts": {
@@ -4162,28 +4172,23 @@
         "affectsGlobalScope": false
       },
       "./src/graphql-types/topic/topic-input.ts": {
-        "version": "251c71bcc379714de8d9b88613e839bac2f5940cd249208ad64d52f6793bd87d",
-        "signature": "966b486df04b79851d77e5ac428b0b30e1134555c50fef673d81d8d989116344",
+        "version": "91b5cd155247095f66d5c52f250038283a8f4c60241986fd25eba48564c36245",
+        "signature": "58f03145f238e5d25a4e567263cf470b8b09c0131077425268ff22fb5a0a4ee6",
         "affectsGlobalScope": false
       },
-      "./src/repositories/topic.repository.ts": {
-        "version": "2da4caefebedc33a299cade209b90ef790e3291f323a244e23f47f74fa56f2d2",
-        "signature": "aeb84f9ec39b72e1223e7c53ab75e2a801621e0f3438e8faa402b91dcd637ef2",
+      "./src/graphql-types/children/children-input.ts": {
+        "version": "0b7a01dcee91986a1c647979211ddc60236b00cd08ef4c195f262b3a5b1464c6",
+        "signature": "a879c59e774657f1e95c05180593b6629dfb1b5742661190ebfc661498cead2d",
         "affectsGlobalScope": false
       },
-      "./src/graphql-types/children/children-type.ts": {
-        "version": "1ac30e48d00ae585f1c3311fb88560840c43c4996e43d1431ba048fdf529b6eb",
-        "signature": "8525830c06f862bf6aeed772fe41aa39db49fa6138e8c02bfaa9540a4e91c7bf",
-        "affectsGlobalScope": false
-      },
-      "./src/graphql-types/topic_children/topic_children-type.ts": {
-        "version": "30a45f7444961e6b74b32e0752da705af5ae0a0e9e983c5ee3057123b5de6ded",
-        "signature": "aff035448cb5077218e8d16552600bc9cb6200e34bfea534f95f1fe03709e6a0",
+      "./src/repositories/children.repository.ts": {
+        "version": "03fd0109c06b1e67a355178d0602001d7615807d87c6dd71002adf61e000e139",
+        "signature": "25e1ff4b06e3440f8af23cb91fae94b16498b10563a8ff53a0289f5297bcc8d5",
         "affectsGlobalScope": false
       },
       "./src/graphql-types/topic_children/topic_children-input.ts": {
-        "version": "57f69c01ce06c6d6d05c9d240a07f5ab58671b97db424fcfbf9c4264e73aad28",
-        "signature": "71d2ea9c73f26745c37048e2b2e05846fd024b02d65e9cb044a6950fe9c37b52",
+        "version": "32d2d1f27048cb9483416502892c848b902e514763bd01d932cc295b80bc52ed",
+        "signature": "6492456cd404cd53ea54581b4945eaa41ffc88deca4b16a3daf4797ad9ec7b45",
         "affectsGlobalScope": false
       },
       "./src/repositories/topic_children.repository.ts": {
@@ -4191,14 +4196,9 @@
         "signature": "59bca071837be40b4338c809867b6b0175b848e977990652124615f78455714c",
         "affectsGlobalScope": false
       },
-      "./src/graphql-types/children/children-input.ts": {
-        "version": "a3bb98d62adf03bc9a008b3bfb65996089596450d212c3276a8a64e32f803cca",
-        "signature": "8c30675d06f30b4e0931505a5e48776ebdd0aa3b3b4a8274a3b5d62d53e1fe72",
-        "affectsGlobalScope": false
-      },
-      "./src/repositories/children.repository.ts": {
-        "version": "03fd0109c06b1e67a355178d0602001d7615807d87c6dd71002adf61e000e139",
-        "signature": "25e1ff4b06e3440f8af23cb91fae94b16498b10563a8ff53a0289f5297bcc8d5",
+      "./src/repositories/topic.repository.ts": {
+        "version": "64ff71fa8f39d4ae606e0144148192629281e92a5e0747d97faad0e246aa496a",
+        "signature": "b6bb93a8d6a40bb46ca3f5ac0d951625f28732429b75d5de117f61fa68363f43",
         "affectsGlobalScope": false
       },
       "./src/repositories/index.ts": {
@@ -10413,8 +10413,7 @@
         "./graphql/server/index.d.ts",
         "./node_modules/@loopback/repository/dist/index.d.ts",
         "./node_modules/@types/node/ts3.2/util.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./src/graphql-types/topic_children/topic_children-type.ts"
+        "./node_modules/@types/node/util.d.ts"
       ],
       "./src/graphql-types/event/event-input.ts": [
         "./graphql/server/index.d.ts",
@@ -10523,7 +10522,9 @@
         "./node_modules/@loopback/repository/dist/index.d.ts",
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts",
-        "./src/graphql-types/talk/talk-type.ts"
+        "./src/graphql-types/children/children-type.ts",
+        "./src/graphql-types/talk/talk-type.ts",
+        "./src/graphql-types/topic_children/topic_children-type.ts"
       ],
       "./src/graphql-types/topic_children/topic_children-input.ts": [
         "./graphql/server/index.d.ts",
@@ -10677,8 +10678,12 @@
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts",
         "./src/datasources/index.ts",
+        "./src/graphql-types/children/children-type.ts",
         "./src/graphql-types/topic/topic-input.ts",
-        "./src/graphql-types/topic/topic-type.ts"
+        "./src/graphql-types/topic/topic-type.ts",
+        "./src/graphql-types/topic_children/topic_children-type.ts",
+        "./src/repositories/children.repository.ts",
+        "./src/repositories/topic_children.repository.ts"
       ],
       "./src/repositories/topic_children.repository.ts": [
         "./node_modules/@loopback/core/dist/index.d.ts",
@@ -16571,14 +16576,14 @@
         "./src/graphql-types/topic/topic-type.ts"
       ],
       "./src/graphql-types/topic/topic-type.ts": [
-        "./node_modules/@loopback/repository/dist/index.d.ts"
+        "./node_modules/@loopback/repository/dist/index.d.ts",
+        "./src/graphql-types/children/children-type.ts"
       ],
       "./src/graphql-types/topic_children/topic_children-input.ts": [
         "./src/graphql-types/topic_children/topic_children-type.ts"
       ],
       "./src/graphql-types/topic_children/topic_children-type.ts": [
-        "./node_modules/@loopback/repository/dist/index.d.ts",
-        "./src/graphql-types/children/children-type.ts"
+        "./node_modules/@loopback/repository/dist/index.d.ts"
       ],
       "./src/graphql-types/topic_parent/topic_parent-input.ts": [
         "./src/graphql-types/topic_parent/topic_parent-type.ts"
@@ -16671,8 +16676,12 @@
         "./node_modules/@loopback/core/dist/index.d.ts",
         "./node_modules/@loopback/repository/dist/index.d.ts",
         "./src/datasources/index.ts",
+        "./src/graphql-types/children/children-type.ts",
         "./src/graphql-types/topic/topic-input.ts",
-        "./src/graphql-types/topic/topic-type.ts"
+        "./src/graphql-types/topic/topic-type.ts",
+        "./src/graphql-types/topic_children/topic_children-type.ts",
+        "./src/repositories/children.repository.ts",
+        "./src/repositories/topic_children.repository.ts"
       ],
       "./src/repositories/topic_children.repository.ts": [
         "./node_modules/@loopback/core/dist/index.d.ts",

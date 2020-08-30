@@ -10,5 +10,5 @@ export class TopicInput implements Partial<Topic> {
     name: string;
 
     @field()
-    topicId: string;
+    talkId: string;
 }

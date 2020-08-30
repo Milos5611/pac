@@ -30,8 +30,9 @@ export class TopicChildren extends Entity {
     @property({
         type: 'string',
         id: true,
+        defaultFn: 'uuidv4',
     })
-    id: string;
+    id?: string;
 
     @field()
     @belongsTo(() => Topic, {keyFrom: "topicId"},{name: "topic_id"})

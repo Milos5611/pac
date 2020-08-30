@@ -3,6 +3,8 @@ import {belongsTo, Entity, hasMany, model, property} from '@loopback/repository'
 import {Talk} from "../talk/talk-type";
 import {Children} from "../children/children-type";
 import {TopicChildren} from "../topic_children/topic_children-type";
+import {Parent} from "../parent/parent-type";
+import {TopicParent} from "../topic_parent/topic_parent-type";
 
 @objectType({description: 'Object representing topic'})
 @model({
@@ -23,7 +25,7 @@ export class Topic extends Entity {
         type: 'string',
         id: true,
     })
-    id: string;
+    id?: string;
 
     @field()
     @property()
@@ -31,9 +33,21 @@ export class Topic extends Entity {
 
     @field()
     @belongsTo(() => Talk, {keyFrom: "talkId"},{name: "talk_id"})
-    talkId: string;
+    talkId?: string;
 
     @field(type => [Children], {nullable: true})
-    @hasMany(() => Children, {through: {model: () => TopicChildren}})
-    childrens?: Children[];
+    @hasMany(() => Children, {
+        through: {
+            model: () => TopicChildren,
+        }
+    })
+    children?: Children[];
+
+    @field(type => [Parent], {nullable: true})
+    @hasMany(() => Parent, {
+        through: {
+            model: () => TopicParent,
+        }
+    })
+    parent?: Parent[];
 }

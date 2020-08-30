@@ -8,10 +8,11 @@ export class Children extends Entity {
     @property({
         type: 'string',
         id: true,
+        defaultFn: 'uuidv4',
     })
-    id: string;
+    id?: string;
 
     @field()
     @property()
-    topic_name: string;
+    name: string;
 }

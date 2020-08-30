@@ -3,12 +3,6 @@ import {Parent} from "./parent-type";
 
 @inputType()
 export class ParentInput implements Partial<Parent> {
-    @field(type => ID)
-    id: string;
-
     @field()
-    topic_name: string;
-
-    @field()
-    topicParentId: string;
+    name: string;
 }

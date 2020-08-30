@@ -20,6 +20,12 @@ import {Children} from "../graphql-types/children/children-type";
 import {TopicChildren} from "../graphql-types/topic_children/topic_children-type";
 import {ChildrenRepository} from "./children.repository";
 import {TopicChildrenRepository} from "./topic_children.repository";
+import {ParentInput} from "../graphql-types/parent/parent-input";
+import {ChildrenInput} from "../graphql-types/children/children-input";
+import {Parent} from "../graphql-types/parent/parent-type";
+import {TopicParent} from "../graphql-types/topic_parent/topic_parent-type";
+import {ParentRepository} from "./parent.repository";
+import {TopicParentRepository} from "./topic_parent.repository";
 
 @bind({
     scope: BindingScope.SINGLETON,
@@ -31,24 +37,41 @@ import {TopicChildrenRepository} from "./topic_children.repository";
 export class TopicRepository
     extends DefaultCrudRepository<Topic, typeof Topic.prototype.id>
     implements LifeCycleObserver {
-    public readonly childrens: HasManyThroughRepositoryFactory<
+
+    public readonly children: HasManyThroughRepositoryFactory<
         Children,
         typeof Children.prototype.id,
         TopicChildren,
         typeof Topic.prototype.id
         >;
+    public readonly parent: HasManyThroughRepositoryFactory<
+        Parent,
+        typeof Parent.prototype.id,
+        TopicParent,
+        typeof Topic.prototype.id
+        >;
+
     constructor(
         @repository.getter('ChildrenRepository')
             childrenRepository: Getter<ChildrenRepository>,
         @repository.getter('TopicChildrenRepository')
             topicChildrenRepository: Getter<TopicChildrenRepository>,
+        @repository.getter('ParentRepository')
+            parentRepository: Getter<ParentRepository>,
+        @repository.getter('TopicParentRepository')
+            topicParentRepository: Getter<TopicParentRepository>,
         @inject('datasources.conference') dataSource: ConferenceDatasource,
     ) {
         super(Topic, dataSource);
-        this.childrens = this.createHasManyThroughRepositoryFactoryFor(
-            'childrens',
+        this.children = this.createHasManyThroughRepositoryFactoryFor(
+            'children',
             childrenRepository,
             topicChildrenRepository,
+        );
+        this.parent = this.createHasManyThroughRepositoryFactoryFor(
+            'parent',
+            parentRepository,
+            topicParentRepository,
         );
     }
 
@@ -59,8 +82,13 @@ export class TopicRepository
     stop() {}
 
     async getAll() {
-        const all = await this.find();
-        console.log("all", all);
+        const all = await this.execute(`
+        select *
+        from topic
+        inner join topic_children tc on topic.id = tc.topic_id
+        inner join children c on tc.children_id = c.id
+        `);
+        console.log("all", all)
         return all;
     }
 
@@ -68,7 +96,15 @@ export class TopicRepository
         return this.findById(id);
     }
 
-    async createTalk(topic: TopicInput) {
+    async createTopic(topic: TopicInput) {
         return this.create(topic);
+    }
+
+    async addChildTopic(id: string, children: ChildrenInput) {
+        return this.children(id).create(children);
+    }
+
+    async addParentTopic(id: string, parent: ParentInput) {
+        return this.parent(id).create(parent);
     }
 }

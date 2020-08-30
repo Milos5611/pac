@@ -2,12 +2,12 @@
 	import { Route } from 'svelte-router-spa'
 	import Header from '../header/Header.svelte';
 	export let currentRoute;
-	const params = {};
+	console.log("currentRoute", currentRoute);
 </script>
 
 <div class="app">
 	<Header />
-	<section class="section">
-		<Route {currentRoute}  {params} />
+	<section class="section" style="position: relative">
+		<Route {currentRoute} />
 	</section>
 </div>

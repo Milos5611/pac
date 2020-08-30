@@ -13,6 +13,6 @@ export class EventInput implements Partial<Event> {
   end_date?: Date;
 
   @field()
-  location_id: string;
+  locationId: string;
 }
 

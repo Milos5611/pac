@@ -7,8 +7,8 @@ export class PersonInput implements Partial<Person> {
     name: string;
 
     @field()
-    organization_d: string;
+    organizationId: string;
 
     @field()
-    talk_id: string;
+    talkId: string;
 }

@@ -1,7 +1,6 @@
 <script>
-	export let currentRoute = {};
 	import moment from 'moment';
-	import {Route, navigateTo} from 'svelte-router-spa';
+	import {Navigate} from 'svelte-router-spa';
 	import {
 		Button
 	} from 'smelte';
@@ -11,7 +10,6 @@
 	const events = query(client, { query: EVENTS_QUERY});
 </script>
 
-<Route {currentRoute} />
 {#await $events}
 	<p>...loading</p>
 	{:then $events}
@@ -32,18 +30,14 @@
 							{event.name}
 						</h5>
 						<p class="card__description">
-							{event.location_name}
+							{event.location.name}
 						</p>
 					</article>
 				</div>
 
 			<div class="event-action">
 				<div class="p-2">
-					<a href="events/{event.id}">
-						<Button color="blue" text>
-							Check details
-						</Button>
-					</a>
+
 				</div>
 			</div>
 		</div>
@@ -59,7 +53,7 @@
 	}
 	.event-card {
 		width: 31%;
-		height: 340px;
+		height: 260px;
 		float: left;
 		margin-bottom: 15px;
 		margin-left: .5em;

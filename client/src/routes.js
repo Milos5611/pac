@@ -1,6 +1,8 @@
 import Events from './pages/events/Events.svelte';
-import Event from './pages/event/Event.svelte';
+import Persons from './pages/persons/Persons.svelte';
+import Person from './pages/persons/Person.svelte';
 import PublicLayout from './component/layout/public_layout.svelte';
+import ItemLayout from './component/layout/item_layout.svelte';
 
 const routes = [
     {
@@ -12,12 +14,16 @@ const routes = [
         name: 'events',
         component: Events,
         layout: PublicLayout,
-        nestedRoutes: [
-            {
-                name: ':id',
-                component: Event,
-            },
-        ]
+    },
+    {
+        name: 'persons',
+        component: Persons,
+        layout: PublicLayout,
+    },
+    {
+        name: 'person/:id',
+        component: Person,
+        layout: ItemLayout,
     },
 ];
 

@@ -1,11 +1,25 @@
 import {field, ID, objectType} from '../../../graphql';
 import {belongsTo, Entity, model, property} from '@loopback/repository';
 import {Organization} from "../organization/organization-type";
+import {Talk} from "../talk/talk-type";
 
 @objectType({description: 'Object representing person'})
 @model({
     settings: {
-      strict: true
+        foreignKeys: {
+            fk_organization_id: {
+                name: 'fk_organization_id',
+                entity: 'Organization',
+                entityKey: 'id',
+                foreignKey: 'organization_id',
+            },
+            fk_talk_id: {
+                name: 'fk_talk_id',
+                entity: 'Talk',
+                entityKey: 'id',
+                foreignKey: 'talk_id',
+            },
+        },
     }
 })
 export class Person extends Entity {
@@ -25,10 +39,16 @@ export class Person extends Entity {
     name: string;
 
     @field()
-    @belongsTo(() => Organization, {name: "organization"})
-    organization_id: string;
+    @belongsTo(() => Organization, {keyFrom: "organizationId"}, {name: "organization_id"})
+    organizationId: string;
+
+    @field(type => Organization, {nullable: true})
+    organization: Organization;
 
     @field()
-    @belongsTo(() => Person, {name: "person"})
-    topic_id: string
+    @belongsTo(() => Talk, {keyFrom: "talkId"}, {name: "talk_id"})
+    talkId: string;
+
+    @field(type => Talk, {nullable: true})
+    talk: Talk;
 }

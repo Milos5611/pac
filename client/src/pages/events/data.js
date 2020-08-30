@@ -6,8 +6,10 @@ export const EVENTS_QUERY = gql`
         name
         start_date
         end_date
-        location_id
-        location_name
-      }
+        location {
+            id
+            name
+        }
+    }
 }
 `;

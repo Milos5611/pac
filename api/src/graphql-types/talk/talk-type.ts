@@ -35,7 +35,7 @@ export class Talk extends Entity {
     language: string;
 
     @field(type => [Person])
-    @hasMany(() => Person, {keyTo: "person_id"})
+    @hasMany(() => Person, {keyTo: "talk_id"})
     persons?: Person[];
 
     @field(type => [Topic])

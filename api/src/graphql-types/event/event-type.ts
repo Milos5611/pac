@@ -4,7 +4,16 @@ import {Location} from "../location/location-type";
 
 @objectType({description: 'Object representing events'})
 @model({
-  settings: {strict: true}
+  settings: {
+    foreignKeys: {
+      fk_location_id: {
+        name: 'fk_location_id',
+        entity: 'Location',
+        entityKey: 'id',
+        foreignKey: 'location_id',
+      },
+    },
+  }
 })
 export class Event extends Entity {
   @field(type => ID)
@@ -27,12 +36,9 @@ export class Event extends Entity {
   end_date?: Date;
 
   @field()
-  @belongsTo(() => Location, {name: "location"})
-  location_id: string;
-
-  @field()
-  location_name: string;
+  @belongsTo(() => Location, {keyFrom: "locationId"},{name: "location_id"})
+  locationId: string;
 
   @field(type => Location, {nullable: true})
-  location?: Location;
+  location: Location;
 }

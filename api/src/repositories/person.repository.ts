@@ -47,8 +47,14 @@ export class PersonRepository
         this.registerInclusionResolver("talk", this.talk.inclusionResolver);
     }
 
+    @inject('person')
+    private samplePerson: Person[];
+
     async start() {
-        /*await this.createAll(this.sampleLocation);*/
+        const person = await this.find();
+        if(person.length === 0) {
+            await this.createAll(this.samplePerson);
+        }
     }
 
     stop() {}

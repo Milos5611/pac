@@ -5,7 +5,7 @@ import {HttpErrors, RestApplication} from '@loopback/rest';
 import {ServiceMixin} from '@loopback/service-proxy';
 import path from 'path';
 import {GraphQLBindings, GraphQLComponent} from '../graphql/server';
-import {sampleLocation} from './sample-locations';
+import {sampleLocation, sampleEvent, sampleOrganization, samplePerson, sampleTalk} from './seed-data';
 import * as dotenv from 'dotenv';
 import * as dotenvExt from 'dotenv-extended';
 import {LoggingBindings, LoggingComponent, WinstonLoggerOptions, format} from "@loopback/extension-logging";
@@ -35,6 +35,10 @@ export class ApiApplication extends BootMixin(
     this.addLoggingComponent();
 
     this.bind('location').to([...sampleLocation]);
+    this.bind('event').to([...sampleEvent]);
+    this.bind('organization').to([...sampleOrganization]);
+    this.bind('person').to([...samplePerson]);
+    this.bind('talk').to([...sampleTalk]);
 
     // Set up default home page
     this.static('/', path.join(__dirname, '../public'));

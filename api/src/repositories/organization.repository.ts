@@ -27,8 +27,14 @@ export class OrganizationRepository
         super(Organization, dataSource);
     }
 
+    @inject('organization')
+    private sampleOrganization: Organization[];
+
     async start() {
-        /*await this.createAll(this.sampleLocation);*/
+        const organizations = await this.find();
+        if(organizations.length === 0) {
+            await this.createAll(this.sampleOrganization);
+        }
     }
 
     stop() {}

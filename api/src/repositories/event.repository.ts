@@ -42,7 +42,15 @@ export class EventRepository
 
   }
 
-  async start() {}
+
+  @inject('event')
+  private sampleEvents: Event[];
+  async start() {
+    const events = await this.find();
+    if(events.length === 0) {
+      await this.createAll(this.sampleEvents);
+    }
+  }
 
   stop() {}
 

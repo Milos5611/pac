@@ -57,7 +57,10 @@ export class LocationRepository
   private sampleLocation: Location[];
 
   async start() {
-    /*await this.createAll(this.sampleLocation);*/
+    const locations = await this.find();
+    if(locations.length === 0) {
+      await this.createAll(this.sampleLocation);
+    }
   }
 
   stop() {}

@@ -4,7 +4,7 @@ import {RepositoryMixin} from '@loopback/repository';
 import {HttpErrors, RestApplication} from '@loopback/rest';
 import {ServiceMixin} from '@loopback/service-proxy';
 import path from 'path';
-import {GraphQLBindings, GraphQLComponent} from '../graphql';
+import {GraphQLBindings, GraphQLComponent} from '../graphql/server';
 import {sampleLocation} from './sample-locations';
 import * as dotenv from 'dotenv';
 import * as dotenvExt from 'dotenv-extended';

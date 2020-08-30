@@ -1,4 +1,4 @@
-import {arg, mutation, query, resolver} from '../../graphql';
+import {arg, mutation, query, resolver} from '../../graphql/server';;
 import {repository} from '@loopback/repository';
 import {TopicParent} from "../graphql-types/topic_parent/topic_parent-type";
 import {TopicParentRepository} from "../repositories/topic_parent.repository";

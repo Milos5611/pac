@@ -1,4 +1,4 @@
-import {field, inputType} from '../../../graphql';
+import {field, inputType} from '../../../graphql/server';
 import {Event} from './event-type';
 
 @inputType()

@@ -1,4 +1,4 @@
-import {field, ID, objectType} from '../../../graphql';
+import {field, ID, objectType} from '../../../graphql/server';
 import {belongsTo, Entity, model, property} from '@loopback/repository';
 import {Organization} from "../organization/organization-type";
 import {Talk} from "../talk/talk-type";

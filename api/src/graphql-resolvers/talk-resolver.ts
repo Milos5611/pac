@@ -1,4 +1,4 @@
-import {arg, mutation, query, resolver} from '../../graphql';
+import {arg, mutation, query, resolver} from '../../graphql/server';
 import {repository} from '@loopback/repository';
 import {Talk} from "../graphql-types/talk/talk-type";
 import {TalkInput} from "../graphql-types/talk/talk-input";

@@ -1,4 +1,4 @@
-import {arg, mutation, query, resolver} from '../../graphql';
+import {arg, mutation, query, resolver} from '../../graphql/server';
 import {repository} from '@loopback/repository';
 import {Person} from '../graphql-types/person/person-type';
 import {PersonRepository} from '../repositories';

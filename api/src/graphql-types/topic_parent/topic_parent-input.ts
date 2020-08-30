@@ -1,4 +1,4 @@
-import {field, ID, inputType} from '../../../graphql';
+import {field, ID, inputType} from '../../../graphql/server';;
 import {TopicParent} from "./topic_parent-type";
 
 @inputType()

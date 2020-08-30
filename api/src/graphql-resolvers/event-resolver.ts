@@ -1,4 +1,4 @@
-import {arg, mutation, query, resolver} from '../../graphql';
+import {arg, mutation, query, resolver} from '../../graphql/server';
 import {repository} from '@loopback/repository';
 import {EventInput} from '../graphql-types/event/event-input';
 import {Event} from '../graphql-types/event/event-type';

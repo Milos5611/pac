@@ -1,4 +1,4 @@
-import {field, ID, objectType} from '../../../graphql';
+import {field, ID, objectType} from '../../../graphql/server';
 import {Entity, hasMany, model, property} from '@loopback/repository';
 import {Person} from "../person/person-type";
 import {Topic} from "../topic/topic-type";

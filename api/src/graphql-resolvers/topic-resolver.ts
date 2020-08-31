@@ -8,29 +8,29 @@ import {Children} from "../graphql-types/children/children-type";
 import {ParentInput} from "../graphql-types/parent/parent-input";
 import {Parent} from "../graphql-types/parent/parent-type";
 
-@resolver(of => Topic)
+@resolver(() => Topic)
 export class RoomResolver {
     constructor(
         @repository('TopicRepository')
         private readonly topicRepo: TopicRepository,
     ) {}
 
-    @query(returns => Topic, {nullable: true})
+    @query(() => Topic, {nullable: true})
     async topic(@arg('topicId') topicId: string) {
         return this.topicRepo.getOne(topicId);
     }
 
-    @query(returns => [Topic])
+    @query(() => [Topic])
     async topics() {
         return this.topicRepo.getAll();
     }
 
-    @mutation(returns => Topic)
+    @mutation(() => Topic)
     async createTopic(@arg('topic') topic: TopicInput): Promise<Topic> {
         return this.topicRepo.createTopic(topic);
     }
 
-    @mutation(returns => Children)
+    @mutation(() => Children)
     async addChildTopic(
         @arg('topicId') topicId: string,
         @arg('childTopic') childTopic: ChildrenInput
@@ -38,7 +38,7 @@ export class RoomResolver {
         return this.topicRepo.addChildTopic(topicId, childTopic);
     }
 
-    @mutation(returns => Parent)
+    @mutation(() => Parent)
     async addParentTopic(
         @arg('topicId') topicId: string,
         @arg('parentTopic') parentTopic: ParentInput

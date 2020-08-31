@@ -3,9 +3,13 @@ import {Entity, hasMany, model, property} from '@loopback/repository';
 import {Person} from "../person/person-type";
 
 @objectType({description: 'Object representing organization'})
-@model({settings: {strict: true}})
+@model({settings: {
+    postgresql: {
+        table: 'organization',
+    },
+}})
 export class Organization extends Entity {
-    @field(type => ID)
+    @field(() => ID)
     @property({
         type: 'string',
         id: true,

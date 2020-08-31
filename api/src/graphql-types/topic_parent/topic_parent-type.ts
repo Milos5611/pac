@@ -27,7 +27,7 @@ import {Children} from "../children/children-type";
     }
 })
 export class TopicParent extends Entity {
-    @field(type => ID)
+    @field(() => ID)
     @property({
         type: 'string',
         id: true,

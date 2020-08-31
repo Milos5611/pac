@@ -20,7 +20,7 @@ import {TopicParent} from "../topic_parent/topic_parent-type";
     }
 })
 export class Topic extends Entity {
-    @field(type => ID)
+    @field(() => ID)
     @property({
         type: 'string',
         id: true,
@@ -35,7 +35,7 @@ export class Topic extends Entity {
     @belongsTo(() => Talk, {keyFrom: "talkId"},{name: "talk_id"})
     talkId?: string;
 
-    @field(type => [Children], {nullable: true})
+    @field(() => [Children], {nullable: true})
     @hasMany(() => Children, {
         through: {
             model: () => TopicChildren,
@@ -43,7 +43,7 @@ export class Topic extends Entity {
     })
     children?: Children[];
 
-    @field(type => [Parent], {nullable: true})
+    @field(() => [Parent], {nullable: true})
     @hasMany(() => Parent, {
         through: {
             model: () => TopicParent,

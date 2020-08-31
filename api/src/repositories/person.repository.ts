@@ -51,10 +51,10 @@ export class PersonRepository
     private samplePerson: Person[];
 
     async start() {
-        const person = await this.find();
+        /*const person = await this.find();
         if(person.length === 0) {
             await this.createAll(this.samplePerson);
-        }
+        }*/
     }
 
     stop() {}

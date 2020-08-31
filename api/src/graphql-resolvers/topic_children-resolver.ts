@@ -9,31 +9,31 @@ import {TopicChildren} from "../graphql-types/topic_children/topic_children-type
 import {TopicChildrenInput} from "../graphql-types/topic_children/topic_children-input";
 import {TopicChildrenRepository} from "../repositories";
 
-@resolver(of => TopicChildren)
+@resolver(() => TopicChildren)
 export class TopicChildrenResolver {
     constructor(
         @repository('TopicChildrenRepository')
         private readonly topicChildrenRepository: TopicChildrenRepository
     ) {}
 
-    @query(returns => TopicChildren, {nullable: true})
+    @query(() => TopicChildren, {nullable: true})
     async topicChildren(@arg('id') id: string) {
         return this.topicChildrenRepository.getOne(id);
     }
 
-    @query(returns => [TopicChildren])
+    @query(() => [TopicChildren])
     async topicChildrens(): Promise<TopicChildren[]> {
         return this.topicChildrenRepository.getAll();
     }
 
-    @mutation(returns => TopicChildren)
+    @mutation(() => TopicChildren)
     async createTopicChildren(
         @arg('topicChildren') topicChildren: TopicChildrenInput,
     ): Promise<TopicChildren> {
         return this.topicChildrenRepository.createTopicChildren(topicChildren);
     }
 
-    @mutation(returns => TopicChildren)
+    @mutation(() => TopicChildren)
     async updateTopicChildren(@arg('id') id: string,  @arg('topicChildren') topicChildren: TopicChildrenInput): Promise<TopicChildren> {
         return this.topicChildrenRepository.updateTopicChildren(id, topicChildren);
     }

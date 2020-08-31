@@ -8,13 +8,9 @@ export async function migrate(args: string[]) {
   const logger = await app.get(LoggingBindings.WINSTON_LOGGER);
   const existingSchema = args.includes('--rebuild') ? 'drop' : 'alter';
   logger.info(`Migrating schemas (${existingSchema} existing schema)`);
-  /*await app.migrateSchema({existingSchema});*/
 
-  await app.migrateSchema({
+  await app.migrateDataSources({
     existingSchema,
-    models: [
-        'Location', 'Event', 'Organization', 'Talk', 'Topic', 'Room', 'Person', 'Children', 'Parent', 'TopicChildren', 'TopicParent'
-    ],
   });
 
   // Connectors usually keep a pool of opened connections,

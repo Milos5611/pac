@@ -1,3 +1,4 @@
 devenv/.env
 .idea
 .DS_Store
+infrastructure/terraform/.terraform

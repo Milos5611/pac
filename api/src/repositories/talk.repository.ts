@@ -31,10 +31,10 @@ export class TalkRepository
     private sampleTalk: Talk[];
 
     async start() {
-        const talks = await this.find();
+       /* const talks = await this.find();
         if(talks.length === 0) {
             await this.createAll(this.sampleTalk);
-        }
+        }*/
     }
 
     stop() {}

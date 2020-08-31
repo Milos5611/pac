@@ -3,7 +3,7 @@ import {Children} from "./children-type";
 
 @inputType()
 export class ChildrenInput implements Partial<Children> {
-    @field(type => ID)
+    @field(() => ID)
     id: string;
 
     @field()

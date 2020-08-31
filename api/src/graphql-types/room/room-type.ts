@@ -17,7 +17,7 @@ import {Talk} from "../talk/talk-type";
     }
 })
 export class Room extends Entity {
-    @field(type => ID)
+    @field(() => ID)
     @property({
         type: 'string',
         id: true
@@ -32,7 +32,7 @@ export class Room extends Entity {
     @belongsTo(() => Location, {keyFrom: "locationId"},{name: "location_id"})
     locationId: string;
 
-    @field(type => [Talk])
+    @field(() => [Talk])
     @hasMany(() => Talk, {keyTo: 'location_id', keyFrom: "id"})
     talks?: Talk[];
 }

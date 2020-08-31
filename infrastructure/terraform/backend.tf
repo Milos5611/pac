@@ -16,13 +16,13 @@ resource "kubernetes_secret" "backend-postgres-access" {
   }
 
   data = {
-    DB_USER = "backend"
+    DB_USER = "postgres"
     DB_PASSWORD = random_password.backend-postgres-password.result
   }
 }
 
 resource "helm_release" "backend-postgres" {
-  name = "backend-postgres"
+  name = "backend-postgres-postgresql-0"
   namespace = kubernetes_namespace.backend.metadata[0].name
   chart = "postgresql"
   repository = local.helm_repository_bitnami

@@ -16,7 +16,7 @@ import {Location} from "../location/location-type";
   }
 })
 export class Event extends Entity {
-  @field(type => ID)
+  @field(() => ID)
   @property({
     type: 'string',
     id: true,
@@ -39,6 +39,6 @@ export class Event extends Entity {
   @belongsTo(() => Location, {keyFrom: "locationId"},{name: "location_id"})
   locationId: string;
 
-  @field(type => Location, {nullable: true})
+  @field(() => Location, {nullable: true})
   location: Location;
 }

@@ -4,7 +4,7 @@ import {Entity, model, property} from '@loopback/repository';
 @objectType({description: 'Object representing topic children'})
 @model({settings: {strict: true}})
 export class Children extends Entity {
-    @field(type => ID)
+    @field(() => ID)
     @property({
         type: 'string',
         id: true,

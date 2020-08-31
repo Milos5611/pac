@@ -4,31 +4,31 @@ import {EventInput} from '../graphql-types/event/event-input';
 import {Event} from '../graphql-types/event/event-type';
 import {EventRepository} from '../repositories';
 
-@resolver(of => Event)
+@resolver(() => Event)
 export class EventResolver {
   constructor(
     @repository('EventRepository')
     private readonly eventsRepo: EventRepository
   ) {}
 
-  @query(returns => Event, {nullable: true})
+  @query(() => Event, {nullable: true})
   async event(@arg('eventId') eventId: string) {
     return this.eventsRepo.getOne(eventId);
   }
 
-  @query(returns => [Event])
+  @query(() => [Event])
   async events() {
     return this.eventsRepo.getAll();
   }
 
-  @mutation(returns => Event)
+  @mutation(() => Event)
   async createEvent(
       @arg('event') event: EventInput,
   ): Promise<Event> {
     return this.eventsRepo.createEvent(event);
   }
 
-  @mutation(returns => Event)
+  @mutation(() => Event)
   async updateEvent(@arg('id') id: string,  @arg('event') event: EventInput): Promise<Event> {
     return this.eventsRepo.updateEvent(id, event);
   }

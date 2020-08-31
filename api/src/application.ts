@@ -9,12 +9,13 @@ import {sampleLocation, sampleEvent, sampleOrganization, samplePerson, sampleTal
 import * as dotenv from 'dotenv';
 import * as dotenvExt from 'dotenv-extended';
 import {LoggingBindings, LoggingComponent, WinstonLoggerOptions, format} from "@loopback/extension-logging";
+import {DataSourceMixin} from "./datasources/mixins";
 
 export {ApplicationConfig};
 
-export class ApiApplication extends BootMixin(
+export class ApiApplication extends DataSourceMixin(BootMixin(
   ServiceMixin(RepositoryMixin(RestApplication)),
-) {
+)) {
   constructor(options: ApplicationConfig = {}) {
     super(options);
 

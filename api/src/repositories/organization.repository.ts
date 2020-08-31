@@ -31,10 +31,10 @@ export class OrganizationRepository
     private sampleOrganization: Organization[];
 
     async start() {
-        const organizations = await this.find();
+       /* const organizations = await this.find();
         if(organizations.length === 0) {
             await this.createAll(this.sampleOrganization);
-        }
+        }*/
     }
 
     stop() {}

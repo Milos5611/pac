@@ -4,24 +4,24 @@ import {Person} from '../graphql-types/person/person-type';
 import {PersonRepository} from '../repositories';
 import {PersonInput} from "../graphql-types/person/person-input";
 
-@resolver(of => Person)
+@resolver(() => Person)
 export class PersonResolver {
     constructor(
         @repository('PersonRepository')
         private readonly personRepo: PersonRepository,
     ) {}
 
-    @query(returns => Person, {nullable: true})
+    @query(() => Person, {nullable: true})
     async person(@arg('personId') personId: string) {
         return this.personRepo.getOne(personId);
     }
 
-    @query(returns => [Person])
+    @query(() => [Person])
     async persons(): Promise<Person[]> {
         return this.personRepo.getAll();
     }
 
-    @mutation(returns => Person)
+    @mutation(() => Person)
     async createPerson(@arg('person') person: PersonInput): Promise<Person | void> {
         return this.personRepo.createPerson(person);
     }

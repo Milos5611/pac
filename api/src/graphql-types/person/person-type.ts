@@ -23,7 +23,7 @@ import {Talk} from "../talk/talk-type";
     }
 })
 export class Person extends Entity {
-    @field(type => ID)
+    @field(() => ID)
     @property({
         type: 'string',
         id: true,
@@ -42,13 +42,13 @@ export class Person extends Entity {
     @belongsTo(() => Organization, {keyFrom: "organizationId"}, {name: "organization_id"})
     organizationId: string;
 
-    @field(type => Organization, {nullable: true})
+    @field(() => Organization, {nullable: true})
     organization: Organization;
 
     @field()
     @belongsTo(() => Talk, {keyFrom: "talkId"}, {name: "talk_id"})
     talkId: string;
 
-    @field(type => Talk, {nullable: true})
+    @field(() => Talk, {nullable: true})
     talk: Talk;
 }

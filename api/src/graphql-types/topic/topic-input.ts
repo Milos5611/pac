@@ -3,7 +3,7 @@ import {Topic} from './topic-type';
 
 @inputType()
 export class TopicInput implements Partial<Topic> {
-    @field(type => ID)
+    @field(() => ID)
     id: string;
 
     @field()

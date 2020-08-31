@@ -4,9 +4,13 @@ import {Event} from "../event/event-type";
 import {Room} from "../room/room-type";
 
 @objectType({description: 'Object representing locations'})
-@model({settings: {strict: true}})
+@model({settings: {
+    postgresql: {
+      table: 'location',
+  },
+}})
 export class Location extends Entity {
-  @field(type => ID)
+  @field(() => ID)
   @property({
     type: 'string',
     id: true,
@@ -17,11 +21,11 @@ export class Location extends Entity {
   @property()
   name: string;
 
-  @field(type => [Event], {nullable: true})
+  @field(() => [Event], {nullable: true})
   @hasMany(() => Event, {keyTo: 'location_id', keyFrom: "id"})
   events?: Event[];
 
-  @field(type => [Room], {nullable: true})
+  @field(() => [Room], {nullable: true})
   @hasMany(() => Room, {keyTo: 'location_id', keyFrom: "id"})
   rooms?: Room[];
 }

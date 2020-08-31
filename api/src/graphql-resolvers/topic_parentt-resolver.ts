@@ -4,31 +4,31 @@ import {TopicParent} from "../graphql-types/topic_parent/topic_parent-type";
 import {TopicParentRepository} from "../repositories/topic_parent.repository";
 import {TopicParentInput} from "../graphql-types/topic_parent/topic_parent-input";
 
-@resolver(of => TopicParent)
+@resolver(() => TopicParent)
 export class TopicParentResolver {
     constructor(
         @repository('TopicParentRepository')
         private readonly topicParentRepository: TopicParentRepository
     ) {}
 
-    @query(returns => TopicParent, {nullable: true})
+    @query(() => TopicParent, {nullable: true})
     async topicParent(@arg('id') id: string) {
         return this.topicParentRepository.getOne(id);
     }
 
-    @query(returns => [TopicParent])
+    @query(() => [TopicParent])
     async topicParents(): Promise<TopicParent[]> {
         return this.topicParentRepository.getAll();
     }
 
-    @mutation(returns => TopicParent)
+    @mutation(() => TopicParent)
     async createTopicParent(
         @arg('topicChildren') topicParent: TopicParentInput,
     ): Promise<TopicParent> {
         return this.topicParentRepository.createTopicParent(topicParent);
     }
 
-    @mutation(returns => TopicParent)
+    @mutation(() => TopicParent)
     async updateTopicParent(@arg('id') id: string,  @arg('topicParent') topicParent: TopicParentInput): Promise<TopicParent> {
         return this.topicParentRepository.updateTopicParent(id, topicParent);
     }

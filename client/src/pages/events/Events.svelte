@@ -11,7 +11,6 @@
 </script>
 
 {#await $events}
-	<p>...loading</p>
 	{:then $events}
 <div class="event-cards">
 	<div class="toolbar-wrapper">

@@ -4117,12 +4117,12 @@
         "affectsGlobalScope": false
       },
       "./src/repositories/location.repository.ts": {
-        "version": "2ccee47752ca66b1af8a49cc79b11b8029283d72c3068edf8b9ef9643187ed95",
+        "version": "5aee71ec113782535d1dea75e98fe72f7538fbe659e4db7ceca0367787814f6f",
         "signature": "e351c4af26cb84c34d17879fa606466871b16ecff733f5a552aaed95d1114eba",
         "affectsGlobalScope": false
       },
       "./src/repositories/event.repository.ts": {
-        "version": "9f0f85b6ba4dddfb5ae61c15e00ac1997a8a8cb1198509d2117e959cea8b32f7",
+        "version": "712941fe762e9977a6d3906b9635282cc30905a5b66f0fa8f4d7bc1d2dabdea2",
         "signature": "a81e334cb05d45f47d98ab55953acaeb33bdd6e3da05ebdad8c42f46affc4b74",
         "affectsGlobalScope": false
       },
@@ -4132,7 +4132,7 @@
         "affectsGlobalScope": false
       },
       "./src/repositories/organization.repository.ts": {
-        "version": "b9e152bff579663aa43d4f6e1f838a28af542c32be878b5d615e2a8a326ecec6",
+        "version": "c021b54b72cf3ae815aca50682ced234b21e70c2f8626fcde62cf19e38773f2f",
         "signature": "c638979df224e2d1cd128e0ea5f19eaa6b627fbd1618830c4ce865a6b777b2b8",
         "affectsGlobalScope": false
       },
@@ -4147,12 +4147,12 @@
         "affectsGlobalScope": false
       },
       "./src/repositories/talk.repository.ts": {
-        "version": "48a3f8117fc4b207c0c7749c4798b2e0f93fb562408f522abd9ce721cfd57c23",
+        "version": "21bc749c5bd4f901cb5a7ab798b0953f08a178165208552684bc81bf5dd6e14a",
         "signature": "ac88848923c71657a9fe349d5b5a19185d350bbc46b0087e35cfc02bcdd8d5bf",
         "affectsGlobalScope": false
       },
       "./src/repositories/person.repository.ts": {
-        "version": "f6e1620e473e82ba729792e1444961b1b9c92e1f40b202dfd134c3da54aa662b",
+        "version": "6ea3a00286f566a2a190778b9d7469d96a3b545debeb2f9e6636c63d78f7eb22",
         "signature": "c7da2d6e504efab110316ed03f2ed7a87a137e369b335b6a3aa216f75522cde6",
         "affectsGlobalScope": false
       },
@@ -4202,8 +4202,8 @@
         "affectsGlobalScope": false
       },
       "./src/repositories/topic.repository.ts": {
-        "version": "9e13d2c0def406638f35f4da60eee021cf94a6acbb57c175cd45fa17efc890b0",
-        "signature": "d4803ec3e6472114424cad2be478c87f89c748aa135a05afb281182fdc464d51",
+        "version": "cd57dd067c2ca319d0fcdf7822dfaf227eb4f0c02c458b5474fb799c4c4dadc4",
+        "signature": "c11d7ae78f138b1ca4f988f7761c70d7a82a4b526ed86824a2a6a0dad2a1ec74",
         "affectsGlobalScope": false
       },
       "./src/models/migration.model.ts": {
@@ -4242,7 +4242,7 @@
         "affectsGlobalScope": false
       },
       "./src/index.ts": {
-        "version": "820b08bd747a531908c34d0cb2399598ca5e3e48c1c05d0f8c9c6da5049b5a24",
+        "version": "0db61f404fb46366f2e8a5b84c4659ab33fa360446ba03eeff8822fed8fe94f8",
         "signature": "9b82cd14ab934e05f6787d750f0ccf042a05797b62d0790658a510a22be6964d",
         "affectsGlobalScope": false
       },
@@ -4303,7 +4303,7 @@
       },
       "./src/graphql-resolvers/topic-resolver.ts": {
         "version": "85c185d46d6416dd474e5207acb04f94da2eaa21d4774cefe3af1bee2bf99801",
-        "signature": "341f6cdb5e88ef27982cc069684a903f3ed01780566c9f8c9598744c9b22f0a4",
+        "signature": "682f8e74612ab98f1ac2d189dd7bfc18a1fb17d7a8065a234da3925bee507514",
         "affectsGlobalScope": false
       },
       "./src/graphql-resolvers/topic_children-resolver.ts": {
@@ -16580,7 +16580,6 @@
         "./src/repositories/index.ts"
       ],
       "./src/graphql-resolvers/topic-resolver.ts": [
-        "./node_modules/@loopback/repository/dist/index.d.ts",
         "./src/graphql-types/children/children-input.ts",
         "./src/graphql-types/parent/parent-input.ts",
         "./src/graphql-types/topic/topic-input.ts",

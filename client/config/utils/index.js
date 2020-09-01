@@ -52,7 +52,7 @@ export const removePersistedUserRedirect = () => {
  * Returns Auth token in cacheClient if avaliable
  */
 export const getPersistedUserToken = () => {
-  return cacheClient.getItem('token') || null;
+  return cacheClient.getItem('oidc') || null;
 };
 
 /**

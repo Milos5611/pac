@@ -1,4 +1,13 @@
 <script>
+	import {
+		OidcContext,
+		authError,
+		idToken,
+		isAuthenticated,
+		isLoading,
+		userInfo,
+		accessToken
+	} from '@dopry/svelte-oidc';
 	import "smelte/src/tailwind.css" ;
 	import { Router } from 'svelte-router-spa'
 	import { routes } from './routes';
@@ -10,7 +19,14 @@
 </script>
 
 <main>
-	<Router {routes} />
+	<OidcContext
+			issuer="https://dev-269607.okta.com"
+			client_id="0oaup7oeuqIcBZjyw4x6"
+			redirect_uri="http://localhost:5000"
+			post_logout_redirect_uri="http://localhost:5000"
+	>
+		<Router {routes} />
+	</OidcContext>
 </main>
 
 <style type="text/scss">

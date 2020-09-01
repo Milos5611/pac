@@ -82,13 +82,13 @@ export class TopicRepository
     stop() {}
 
     async getAll() {
-        const all = await this.execute(`
-        select *
+        const exectute = `select *
         from topic
         inner join topic_children tc on topic.id = tc.topic_id
         inner join children c on tc.children_id = c.id
-        `);
-        console.log("all", all)
+        );`
+        const all = await this.find();
+        console.log("all", all);
         return all;
     }
 

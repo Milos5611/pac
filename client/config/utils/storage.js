@@ -7,19 +7,19 @@ export default class Storage {
     };
   }
 
-  isExpired(record) {
-    return record ? new Date().getTime() > parseInt(record.ts, 10) : null;
-  }
-
   getItem(key) {
-    const item = localStorage.getItem(key);
     let record = null;
+    Object.keys(sessionStorage).forEach(item => {
+      if (item.includes(key)) {
+        record = item
+      }
+    });
 
-    if (item) {
+    if (record) {
       try {
-        record = JSON.parse(item);
+        record = JSON.parse(sessionStorage.getItem(record))
       } catch (error) {
-        localStorage.removeItem(key);
+        sessionStorage.removeItem(key);
         return undefined;
       }
     }
@@ -28,34 +28,10 @@ export default class Storage {
       return undefined;
     }
 
-    if (this.isExpired(record)) {
-      localStorage.removeItem(key);
-      return undefined;
-    }
-
-    if (!this.isExpired(record) && this.config.extend) {
-      this.setItem(key, record.value || record);
-    }
-
-    return record.value;
-  }
-
-  setItem(key, value, ttl) {
-    const cacheTTL = ttl || this.config.cacheDuration;
-
-    if (value === null) {
-      this.removeItem(key);
-    }
-
-    const record = {
-      value,
-      ts: new Date().getTime() + parseInt(cacheTTL * 1000, 10),
-    };
-
-    localStorage.setItem(key, JSON.stringify(record));
+    return record.id_token;
   }
 
   removeItem(key) {
-    return localStorage.removeItem(key);
+    return sessionStorage.removeItem(key);
   }
 }

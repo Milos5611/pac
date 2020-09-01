@@ -1,4 +1,4 @@
-import {arg, mutation, query, resolver} from '../../graphql/server';
+import {arg, mutation, query, resolver} from '../../module/graphql';
 import {repository} from '@loopback/repository';
 import {Room} from '../graphql-types/room/room-type';
 import {RoomRepository} from '../repositories';

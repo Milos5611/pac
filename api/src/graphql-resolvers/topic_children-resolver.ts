@@ -3,7 +3,7 @@
 // This file is licensed under the MIT License.
 // License text available at https://opensource.org/licenses/MIT
 
-import {arg, mutation, query, resolver} from '../../graphql/server';;
+import {arg, mutation, query, resolver} from '../../module/graphql';;
 import {repository} from '@loopback/repository';
 import {TopicChildren} from "../graphql-types/topic_children/topic_children-type";
 import {TopicChildrenInput} from "../graphql-types/topic_children/topic_children-input";

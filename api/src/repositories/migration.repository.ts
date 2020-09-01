@@ -1,5 +1,5 @@
 import {DefaultTransactionalRepository} from '@loopback/repository';
-import {Migration, MigrationRelations} from '../models';
+import {Migration, MigrationRelations} from '../helper';
 import {inject} from '@loopback/core';
 import {ConferenceDatasource} from '../datasources';
 

@@ -29,28 +29,26 @@
 			<div class="login-form">
 				<aside>
 					<h3 class="aside-title">
-						{#if !isAuthenticated}
+						{#if !$userInfo.name}
 							Welcome to
 						{/if}
 						Eventio
 					</h3>
-					{#if !isAuthenticated}
+					{#if !$userInfo.name}
 						<p class="login--good aside-desc">Choose how you want to continue</p>
 					{/if}
 				</aside>
 				<aside class="action-buttons">
-					{#if !isAuthenticated}
-						<Navigate to="{login()}">
-							<Button text on:click={() => login()}>
-								Login
-							</Button>
-						</Navigate>
+					{#if !$userInfo.name}
+						<Button text on:click={() => login()}>
+							Login
+						</Button>
 					{/if}
 					<Navigate to="events">
 						<Button text>
-							{#if isAuthenticated && $userInfo}
+							{#if isAuthenticated && $userInfo.name}
 								Welcome back {$userInfo.name} you can proceed to application
-							{:else if !isAuthenticated}
+							{:else}
 								Guest access
 							{/if}
 						</Button>

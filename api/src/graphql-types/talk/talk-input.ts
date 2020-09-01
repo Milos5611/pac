@@ -1,4 +1,4 @@
-import {field, inputType} from '../../../graphql/server';
+import {field, inputType} from '../../../module/graphql';
 import {Talk} from './talk-type';
 
 @inputType()

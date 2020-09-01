@@ -1,4 +1,4 @@
-import {field, inputType} from '../../../graphql/server';
+import {field, inputType} from '../../../module/graphql';
 import {Room} from './room-type';
 
 @inputType()

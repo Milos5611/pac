@@ -1,5 +1,7 @@
 <script>
 	import {Navigate} from "svelte-router-spa";
+	import { logout, userInfo } from "@dopry/svelte-oidc"
+	import { Button } from 'smelte';
 </script>
 <div class="header">
 	<a href="/" class="anchor">
@@ -13,6 +15,10 @@
 	<Navigate styles="anchor" to="overview" title="Day Overview">
 		<p>Day Overview</p>
 	</Navigate>
+
+	{#if $userInfo.name}
+		<button on:click|preventDefault='{() => logout() }'>Logout</button>
+	{/if}
 </div>
 
 <style type="text/scss">

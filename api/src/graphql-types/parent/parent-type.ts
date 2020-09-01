@@ -1,4 +1,4 @@
-import {field, ID, objectType} from '../../../graphql/server';
+import {field, ID, objectType} from '../../../module/graphql';
 import {Entity, model, property} from '@loopback/repository';
 
 @objectType({description: 'Object representing parent entity of thee topic'})

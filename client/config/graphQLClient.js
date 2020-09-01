@@ -9,7 +9,7 @@ export default function graphQLClient(token) {
     link: createUploadLink({
       uri: "http://localhost:3000/graphql",
       headers: {
-        Authorization: `Bearer ${requestToken}`,
+        Authorization: requestToken,
       },
     }),
     cache: new InMemoryCache(),

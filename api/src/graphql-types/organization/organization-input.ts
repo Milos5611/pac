@@ -1,4 +1,4 @@
-import {field, inputType} from '../../../graphql/server';
+import {field, inputType} from '../../../module/graphql';
 import {Organization} from './organization-type';
 
 @inputType()

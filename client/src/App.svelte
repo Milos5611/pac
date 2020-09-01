@@ -1,12 +1,6 @@
 <script>
 	import {
 		OidcContext,
-		authError,
-		idToken,
-		isAuthenticated,
-		isLoading,
-		userInfo,
-		accessToken
 	} from '@dopry/svelte-oidc';
 	import "smelte/src/tailwind.css" ;
 	import { Router } from 'svelte-router-spa'

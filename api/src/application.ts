@@ -3,6 +3,7 @@ import {ApplicationConfig} from '@loopback/core';
 import {RepositoryMixin} from '@loopback/repository';
 import {RestApplication} from '@loopback/rest';
 import {ServiceMixin} from '@loopback/service-proxy';
+import {MetricsComponent} from '@loopback/extension-metrics';
 import path from 'path';
 import {GraphQLBindings, GraphQLComponent} from '../module/graphql';
 import {sampleLocation, sampleEvent, sampleOrganization, samplePerson, sampleTalk} from './seed-data';
@@ -25,15 +26,16 @@ export class ApiApplication extends DataSourceMixin(BootMixin(
       errorOnMissing: true,
     });
 
+    // Register GraphQL module
     this.component(GraphQLComponent);
+    // Register Metrics module
+    this.component(MetricsComponent);
+
     const server = this.getSync(GraphQLBindings.GRAPHQL_SERVER);
     this.expressMiddleware('middleware.express.GraphQL', server.expressApp);
     this.configure(GraphQLBindings.GRAPHQL_SERVER).to({
       asMiddlewareOnly: true,
     });
-
-    // Configure and add logging component
-    this.addLoggingComponent();
 
     this.bind(GraphQLBindings.GRAPHQL_CONTEXT_RESOLVER).to((context: any) => {
       return {...context};
@@ -44,6 +46,9 @@ export class ApiApplication extends DataSourceMixin(BootMixin(
     this.bind('talk').to([...sampleTalk]);
     this.bind('organization').to([...sampleOrganization]);
     this.bind('person').to([...samplePerson]);
+
+    // Configure and add logging component
+    this.addLoggingComponent();
 
     // Set up default home page
     this.static('/', path.join(__dirname, '../public'));

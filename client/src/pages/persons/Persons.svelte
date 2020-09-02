@@ -17,7 +17,7 @@
 {:then $persons}
 	<div class="person-cards">
 		<div class="toolbar-wrapper">
-			<p class="all--persons">ALL PEOPLE</p>
+			<p class="all--persons">ALL SPEAKERS</p>
 		</div>
 		{#each $persons.data.persons as person}
 			<div class="person-card">

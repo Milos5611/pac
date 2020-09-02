@@ -4,58 +4,54 @@
 	import {getClient, query} from "svelte-apollo";
 	const client = getClient();
 	import {PERSON_QUERY} from './data';
-	let person;
-	$: {
-		person = query(client, { query: PERSON_QUERY, variables: {personId: currentRoute.namedParams.id}});
-	}
+	const person = query(client, { query: PERSON_QUERY, variables: {personId: currentRoute.namedParams.id}});
 </script>
 
 <Route {currentRoute} />
 {#await $person}
-	{@debug $person}
-	{:then $person}
-	{@debug $person}
-	{#if $person.data && $person.data.person}
+	{:then speaker}
+	{@debug speaker}
 		<div class="person-detail">
 			<Navigate to="persons">
 				<p class="back">{"<- Back"}</p>
 			</Navigate>
 			<div class="top_nav">
 				<p class="person_id">
-					SPEAKER ID: #{$person.data.person.id}
+					SPEAKER ID: #{currentRoute.namedParams.id}
 				</p>
 			</div>
 		<div class="person-card">
 				<div class="wrapper">
 					<div class="card__meta">
-						<p>{$person.data.person.name}</p>
+						<p>{speaker.data.person.name}</p>
 					</div>
 					<article>
 						<h5 class="card__title">
-							{$person.data.person.organization.name}
+							{speaker.data.person.organization.name}
 						</h5>
 					</article>
 					<article>
 						<p class="card__description">
 							He will give a talk about:
-							<span class="underline">{$person.data.person.talk.title}</span>
+							<span class="underline">{speaker.data.person.talk.title}</span>
 						</p>
 						<p class="card__description">
 							It will last for about:
-							<span class="underline">{$person.data.person.talk.duration}</span>
+							<span class="underline">{speaker.data.person.talk.duration}</span>
 							min
 						</p>
 						<p class="card__description">
 							This talk is require
-							<span class="underline">{$person.data.person.talk.level}</span>
+							<span class="underline">{speaker.data.person.talk.level}</span>
 							level understanding of topic and will be held in
-							<span class="underline">{$person.data.person.talk.language}</span>
+							<span class="underline">{speaker.data.person.talk.language}</span>
 						</p>
 					</article>
 				</div>
 			</div>
 		</div>
-	{/if}
+	{:catch error}
+		<li>ERROR: {error}</li>
 {/await}
 
 <style type="text/scss">
@@ -78,7 +74,7 @@
 		}
 
 		.top_nav {
-			margin: 3em 0 2em 0;
+			margin: 3em 0 1em 0;
 			flex: 1 0 50%;
 
 			.person_id {

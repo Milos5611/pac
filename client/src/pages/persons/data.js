@@ -23,7 +23,6 @@ export const PERSON_QUERY = gql`
     query Person($personId: String!) {
         person(personId: $personId) {
             name
-            id
             organization {
               name
             }

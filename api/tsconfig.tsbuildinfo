@@ -1676,6 +1676,31 @@
         "signature": "be4dbc47afac5f25848839f43d0b6e3438b7ec739b97e453c8cf71c9123b01b3",
         "affectsGlobalScope": false
       },
+      "./node_modules/prom-client/index.d.ts": {
+        "version": "5b79527caa77a95695d2eff3b44c3e7342cf7ecaa8fdf05f6464d2b0f1847b1d",
+        "signature": "5b79527caa77a95695d2eff3b44c3e7342cf7ecaa8fdf05f6464d2b0f1847b1d",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/extension-metrics/dist/types.d.ts": {
+        "version": "0a536294ca3b104703ca3c9bcba0df6fa2f06ad81fee515e0bc9995b9b20fe75",
+        "signature": "0a536294ca3b104703ca3c9bcba0df6fa2f06ad81fee515e0bc9995b9b20fe75",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/extension-metrics/dist/metrics.component.d.ts": {
+        "version": "792394adb3646f70a02ae4cef7ba1faf90cd668fa4ff4de809597ac926292136",
+        "signature": "792394adb3646f70a02ae4cef7ba1faf90cd668fa4ff4de809597ac926292136",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/extension-metrics/dist/keys.d.ts": {
+        "version": "7da49ffb9a9bee325274d4d073ffaf049ba567186bced00338b980e8a444c81f",
+        "signature": "7da49ffb9a9bee325274d4d073ffaf049ba567186bced00338b980e8a444c81f",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/extension-metrics/dist/index.d.ts": {
+        "version": "91b2c65b5aa97cb96faa2baf5db8b450d6322542ea0f51f3d884d5c3f692c7bf",
+        "signature": "91b2c65b5aa97cb96faa2baf5db8b450d6322542ea0f51f3d884d5c3f692c7bf",
+        "affectsGlobalScope": false
+      },
       "./node_modules/graphql/version.d.ts": {
         "version": "fd179d7b68260caf075aaabe202dfd39622403405beec3c7a697dec1df338cb2",
         "signature": "fd179d7b68260caf075aaabe202dfd39622403405beec3c7a697dec1df338cb2",
@@ -4247,7 +4272,7 @@
         "affectsGlobalScope": false
       },
       "./src/application.ts": {
-        "version": "f2214ccf7f6d49eedab0f17b9a66bfc3e2461d0c15004d434e66c603dc94b46e",
+        "version": "63bc4b8825fa979bd02693a3f6642e38a511e7fdb5aa3703da8789119921ce48",
         "signature": "dc25a440855f5fcf0bec25e08ca478e848aba80554dc4394c425ae89843c73ef",
         "affectsGlobalScope": false
       },
@@ -6189,6 +6214,31 @@
         "./node_modules/logform/index.d.ts",
         "./node_modules/winston-transport/index.d.ts",
         "./node_modules/winston/index.d.ts"
+      ],
+      "./node_modules/@loopback/extension-metrics/dist/index.d.ts": [
+        "./node_modules/@loopback/extension-metrics/dist/keys.d.ts",
+        "./node_modules/@loopback/extension-metrics/dist/metrics.component.d.ts",
+        "./node_modules/@loopback/extension-metrics/dist/types.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/prom-client/index.d.ts"
+      ],
+      "./node_modules/@loopback/extension-metrics/dist/keys.d.ts": [
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/extension-metrics/dist/metrics.component.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@loopback/extension-metrics/dist/metrics.component.d.ts": [
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/extension-metrics/dist/types.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@loopback/extension-metrics/dist/types.d.ts": [
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/prom-client/index.d.ts"
       ],
       "./node_modules/@loopback/http-server/dist/http-server.d.ts": [
         "./node_modules/@types/node/http.d.ts",
@@ -10689,6 +10739,10 @@
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts"
       ],
+      "./node_modules/prom-client/index.d.ts": [
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
       "./node_modules/reflect-metadata/index.d.ts": [
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts"
@@ -11454,6 +11508,7 @@
         "./node_modules/@loopback/boot/dist/index.d.ts",
         "./node_modules/@loopback/core/dist/index.d.ts",
         "./node_modules/@loopback/extension-logging/dist/index.d.ts",
+        "./node_modules/@loopback/extension-metrics/dist/index.d.ts",
         "./node_modules/@loopback/repository/dist/index.d.ts",
         "./node_modules/@loopback/rest/dist/index.d.ts",
         "./node_modules/@loopback/service-proxy/dist/index.d.ts",
@@ -13149,6 +13204,31 @@
         "./node_modules/logform/index.d.ts",
         "./node_modules/winston-transport/index.d.ts",
         "./node_modules/winston/index.d.ts"
+      ],
+      "./node_modules/@loopback/extension-metrics/dist/index.d.ts": [
+        "./node_modules/@loopback/extension-metrics/dist/keys.d.ts",
+        "./node_modules/@loopback/extension-metrics/dist/metrics.component.d.ts",
+        "./node_modules/@loopback/extension-metrics/dist/types.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/prom-client/index.d.ts"
+      ],
+      "./node_modules/@loopback/extension-metrics/dist/keys.d.ts": [
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/extension-metrics/dist/metrics.component.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@loopback/extension-metrics/dist/metrics.component.d.ts": [
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/extension-metrics/dist/types.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@loopback/extension-metrics/dist/types.d.ts": [
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/prom-client/index.d.ts"
       ],
       "./node_modules/@loopback/http-server/dist/http-server.d.ts": [
         "./node_modules/@types/node/http.d.ts",
@@ -17649,6 +17729,10 @@
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts"
       ],
+      "./node_modules/prom-client/index.d.ts": [
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
       "./node_modules/reflect-metadata/index.d.ts": [
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts"
@@ -18869,6 +18953,10 @@
       "./node_modules/@loopback/extension-logging/dist/keys.d.ts",
       "./node_modules/@loopback/extension-logging/dist/logging.component.d.ts",
       "./node_modules/@loopback/extension-logging/dist/winston.d.ts",
+      "./node_modules/@loopback/extension-metrics/dist/index.d.ts",
+      "./node_modules/@loopback/extension-metrics/dist/keys.d.ts",
+      "./node_modules/@loopback/extension-metrics/dist/metrics.component.d.ts",
+      "./node_modules/@loopback/extension-metrics/dist/types.d.ts",
       "./node_modules/@loopback/http-server/dist/http-server.d.ts",
       "./node_modules/@loopback/http-server/dist/index.d.ts",
       "./node_modules/@loopback/metadata/dist/decorator-factory.d.ts",
@@ -19512,6 +19600,7 @@
       "./node_modules/openapi3-ts/dist/model/server.d.ts",
       "./node_modules/openapi3-ts/dist/model/specificationextension.d.ts",
       "./node_modules/path-to-regexp/dist/index.d.ts",
+      "./node_modules/prom-client/index.d.ts",
       "./node_modules/reflect-metadata/index.d.ts",
       "./node_modules/strong-error-handler/index.d.ts",
       "./node_modules/subscriptions-transport-ws/dist/client.d.ts",

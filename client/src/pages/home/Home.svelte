@@ -13,7 +13,10 @@
 		// see: https://github.com/IdentityModel/oidc-client-js/pull/1068
 		end_session_endpoint: `process.env.OIDC_ISSUER/v2/logout?client_id=process.env.OIDC_CLIENT_ID`,
 	}*/
-	$userInfo = JSON.stringify(userInfo, null, 2);
+	let authData;
+	$: {
+		authData = $userInfo = JSON.stringify(userInfo, null, 2);
+	}
 </script>
 
 <div id="appContainer">
@@ -29,25 +32,25 @@
 			<div class="login-form">
 				<aside>
 					<h3 class="aside-title">
-						{#if !$userInfo.name}
+						{#if !authData.name}
 							Welcome to
 						{/if}
 						Eventio
 					</h3>
-					{#if !$userInfo.name}
+					{#if !authData.name}
 						<p class="login--good aside-desc">Choose how you want to continue</p>
 					{/if}
 				</aside>
 				<aside class="action-buttons">
-					{#if !$userInfo.name}
+					{#if !authData.name}
 						<Button text on:click={() => login()}>
 							Login
 						</Button>
 					{/if}
 					<Navigate to="events">
 						<Button text>
-							{#if isAuthenticated && $userInfo.name}
-								Welcome back {$userInfo.name} you can proceed to application
+							{#if isAuthenticated && authData.name}
+								Welcome back {authData.name} you can proceed to application
 							{:else}
 								Guest access
 							{/if}

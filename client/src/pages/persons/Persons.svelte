@@ -4,16 +4,17 @@
 	import {
 		Button
 	} from 'smelte';
-	import {Navigate} from "svelte-router-spa";
+	import {Route, Navigate} from 'svelte-router-spa';
+	export let currentRoute;
 	import {getClient, query} from "svelte-apollo";
 	const client = getClient();
 	import {PERSONS_QUERY} from './data';
 	const persons = query(client, { query: PERSONS_QUERY});
 </script>
 
+<Route {currentRoute} />
 {#await $persons}
 {:then $persons}
-
 	<div class="person-cards">
 		<div class="toolbar-wrapper">
 			<p class="all--persons">ALL PEOPLE</p>
@@ -36,7 +37,7 @@
 
 				<div class="person-action">
 					<div class="p-2">
-						<Navigate to="person/{person.id}">
+						<Navigate to="/person/{person.id}">
 							<Button text>
 								Person detail
 							</Button>

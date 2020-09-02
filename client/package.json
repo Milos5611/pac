@@ -4,14 +4,14 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "start": "sirv public -s"
+    "start": "sirv public -s",
+    "clean": "rm -rf public/build"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^14.0.0",
     "@rollup/plugin-node-resolve": "^8.0.0",
     "node-sass": "^4.14.1",
     "rollup": "^2.3.4",
-    "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-livereload": "^1.0.0",
     "rollup-plugin-svelte": "^5.0.3",
     "rollup-plugin-terser": "^6.0.0",
@@ -27,13 +27,11 @@
     "apollo-client": "^2.6.10",
     "apollo-upload-client": "^14.1.1",
     "graphql": "^14.0.2",
-    "graphql-tag": "^2.11.0",
     "moment": "^2.27.0",
     "rollup-plugin-postcss": "^3.1.6",
     "sirv-cli": "^1.0.0",
     "smelte": "^1.0.15",
     "svelte-apollo": "^0.3.0",
-    "svelte-router-spa": "^5.7.3",
-    "svelte-routing": "^1.4.2"
+    "svelte-router-spa": "^5.7.3"
   }
 }

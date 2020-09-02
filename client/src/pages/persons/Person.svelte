@@ -4,12 +4,17 @@
 	import {getClient, query} from "svelte-apollo";
 	const client = getClient();
 	import {PERSON_QUERY} from './data';
-	const person = query(client, { query: PERSON_QUERY, variables: {personId: currentRoute.namedParams.id}});
+	let person;
+	$: {
+		person = query(client, { query: PERSON_QUERY, variables: {personId: currentRoute.namedParams.id}});
+	}
 </script>
 
 <Route {currentRoute} />
 {#await $person}
+	{@debug $person}
 	{:then $person}
+	{@debug $person}
 	{#if $person.data && $person.data.person}
 		<div class="person-detail">
 			<Navigate to="persons">

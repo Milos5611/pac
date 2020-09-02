@@ -38,18 +38,18 @@ export class TopicRepository
     extends DefaultCrudRepository<Topic, typeof Topic.prototype.id>
     implements LifeCycleObserver {
 
-    public readonly children: HasManyThroughRepositoryFactory<
+    public readonly childrens: HasManyThroughRepositoryFactory<
         Children,
         typeof Children.prototype.id,
         TopicChildren,
         typeof Topic.prototype.id
-        >;
+    >;
     public readonly parent: HasManyThroughRepositoryFactory<
         Parent,
         typeof Parent.prototype.id,
         TopicParent,
         typeof Topic.prototype.id
-        >;
+    >;
 
     constructor(
         @repository.getter('ChildrenRepository')
@@ -63,33 +63,24 @@ export class TopicRepository
         @inject('datasources.conference') dataSource: ConferenceDatasource,
     ) {
         super(Topic, dataSource);
-        this.children = this.createHasManyThroughRepositoryFactoryFor(
-            'children',
+        /*this.childrens = this.createHasManyThroughRepositoryFactoryFor(
+            'childrens',
             childrenRepository,
             topicChildrenRepository,
-        );
-        this.parent = this.createHasManyThroughRepositoryFactoryFor(
+        );*/
+       /* this.parent = this.createHasManyThroughRepositoryFactoryFor(
             'parent',
             parentRepository,
             topicParentRepository,
-        );
+        );*/
     }
 
-    async start() {
-        /*await this.createAll(this.sampleLocation);*/
-    }
+    async start() {}
 
     stop() {}
 
     async getAll() {
-        const exectute = `select *
-        from topic
-        inner join topic_children tc on topic.id = tc.topic_id
-        inner join children c on tc.children_id = c.id
-        );`
-        const all = await this.find();
-        console.log("all", all);
-        return all;
+        return this.find();
     }
 
     async getOne(id: string) {
@@ -101,7 +92,7 @@ export class TopicRepository
     }
 
     async addChildTopic(id: string, children: ChildrenInput) {
-        return this.children(id).create(children);
+        return this.childrens(id).create(children);
     }
 
     async addParentTopic(id: string, parent: ParentInput) {

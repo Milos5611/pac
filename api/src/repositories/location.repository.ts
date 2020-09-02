@@ -32,7 +32,7 @@ export class LocationRepository
       >;
   public readonly rooms: HasManyRepositoryFactory<
       Room,
-      typeof Room.prototype.id
+      typeof Location.prototype.id
       >;
   constructor(
       @inject('datasources.conference') dataSource: ConferenceDatasource,
@@ -53,28 +53,20 @@ export class LocationRepository
     this.registerInclusionResolver('rooms', this.rooms.inclusionResolver);
   }
 
-  @inject('location')
-  private sampleLocation: Location[];
-
-  async start() {
-    const locations = await this.find();
-    if(locations.length === 0) {
-      await this.createAll(this.sampleLocation);
-    }
-  }
+  async start() {}
 
   stop() {}
 
   async getAll() {
     return this.find({
-      include: [{relation: "events"}]
+      include: [{relation: "events"}, {relation: "rooms"}]
     });
   }
 
   async getOne(id: string) {
     return  this.findOne({
       where: {id},
-      include: [{relation: "events"}]
+      include: [{relation: "events"}, {relation: "rooms"}]
     });
   }
 

@@ -8,7 +8,7 @@ import {inject} from "@loopback/core";
 import {ContextTypes} from "../helper/types";
 import {parseToken} from "../helper/util";
 
-@resolver(() => Event)
+@resolver(of => Event)
 export class EventResolver {
   constructor(
     @repository('EventRepository')

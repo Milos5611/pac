@@ -1,69 +1,78 @@
 import {plainToClass} from 'class-transformer';
 import {Talk} from "../graphql-types/talk/talk-type";
-
+import faker from "faker";
 export const sampleTalk = [
     createTalk({
         id: "1",
-        duration: 70,
+        duration: faker.random.number({min: 20, max: 45, precision: 5}),
         level: "Senior",
         language: "English",
-        title: "JavaScript in real word"
+        title: faker.commerce.productName(),
+        roomId: "1"
     }),
     createTalk({
         id: "2",
-        duration: 40,
+        duration: faker.random.number({min: 20, max: 45, precision: 5}),
         level: "Junior",
         language: "English",
-        title: "Kubernetes and how to start"
+        title: faker.commerce.productName(),
+        roomId: "3"
     }),
     createTalk({
         id: "3",
-        duration: 80,
+        duration: faker.random.number({min: 20, max: 45, precision: 5}),
         level: "Intermediate",
         language: "English",
-        title: "JavaScript"
+        title: faker.commerce.productName(),
+        roomId: "2"
     }),
     createTalk({
         id: "4",
-        duration: 90,
+        duration: faker.random.number({min: 20, max: 45, precision: 5}),
         level: "Senior",
         language: "English",
-        title: "JavaScript"
+        title: faker.commerce.productName(),
+        roomId: "7"
     }),
     createTalk({
         id: "5",
-        duration: 20,
+        duration: faker.random.number({min: 20, max: 45, precision: 5}),
         level: "Intermediate",
         language: "English",
-        title: "JavaScript"
+        title: faker.commerce.productName(),
+        roomId: "3"
     }),
     createTalk({
         id: "6",
-        duration: 90,
+        duration: faker.random.number({min: 20, max: 45, precision: 5}),
         level: "Senior",
         language: "English",
-        title: "JavaScript"
+        title: faker.commerce.productName(),
+        roomId: "9"
     }),
     createTalk({
         id: "7",
-        duration: 120,
+        duration: faker.random.number({min: 20, max: 45, precision: 5}),
         level: "Junior",
         language: "English",
-        title: "JavaScript"
+        title: faker.commerce.productName(),
+        roomId: "7"
     }),
     createTalk({
         id: "8",
-        duration: 50,
+        duration: faker.random.number({min: 20, max: 45, precision: 5}),
         level: "Intermediate",
         language: "English",
-        title: "JavaScript"
+        title: faker.commerce.productName(),
+        roomId: "1"
     }),
     createTalk({
         id: "9",
-        duration: 70,
+        duration: faker.random.number({min: 20, max: 45, precision: 5}),
         level: "Junior",
         language: "English",
-        title: "JavaScript"
+        title: faker.commerce.productName(),
+        roomId: "4"
     })
 ];
 

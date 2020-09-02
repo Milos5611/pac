@@ -7,9 +7,6 @@ import {Room} from "../room/room-type";
 @objectType({description: 'Object representing talk'})
 @model({
     settings: {
-        postgresql: {
-            table: 'talk',
-        },
         foreignKeys: {
             fk_room_id: {
                 name: 'fk_room_id',
@@ -21,7 +18,7 @@ import {Room} from "../room/room-type";
     }
 })
 export class Talk extends Entity {
-    @field(() => ID)
+    @field(type => ID)
     @property({
         type: 'string',
         id: true,
@@ -45,15 +42,15 @@ export class Talk extends Entity {
     @property()
     language: string;
 
-    @field(() => [Person])
-    @hasMany(() => Person, {keyTo: 'talk_id', keyFrom: "id"})
-    persons?: Person[];
-
-    @field(() => [Topic])
-    @hasMany(() => Topic, {keyTo: 'talk_id', keyFrom: "id"})
-    topics?: Topic[];
-
     @field()
     @belongsTo(() => Room, {keyFrom: "roomId"},{name: "room_id"})
     roomId: string;
+
+    @field(type => [Person])
+    @hasMany(() => Person, {keyTo: 'talk_id', keyFrom: "id"})
+    persons?: Person[];
+
+    @field(type => [Topic])
+    @hasMany(() => Topic, {keyTo: 'talk_id', keyFrom: "id"})
+    topics?: Topic[];
 }

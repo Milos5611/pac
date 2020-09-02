@@ -4,7 +4,7 @@ import {Talk} from "../graphql-types/talk/talk-type";
 import {TalkInput} from "../graphql-types/talk/talk-input";
 import {TalkRepository} from "../repositories";
 
-@resolver(() => Talk)
+@resolver(of => Talk)
 export class TalkResolver {
     constructor(
         @repository('TalkRepository')

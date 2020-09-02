@@ -4,7 +4,7 @@ import {Location} from '../graphql-types/location/location-type';
 import {LocationRepository} from '../repositories';
 import {LocationInput} from "../graphql-types/location/location-input";
 
-@resolver(() => Location)
+@resolver(of => Location)
 export class LocationResolver {
     constructor(
         @repository('LocationRepository')

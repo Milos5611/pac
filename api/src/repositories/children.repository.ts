@@ -1,4 +1,4 @@
-import {DefaultCrudRepository, RepositoryBindings} from '@loopback/repository';
+import {DefaultCrudRepository, repository, RepositoryBindings} from '@loopback/repository';
 import {ConferenceDatasource} from '../datasources';
 import {
   bind,
@@ -7,11 +7,12 @@ import {
   inject,
   LifeCycleObserver,
   lifeCycleObserver,
+  Getter
 } from '@loopback/core';
-import {plainToClass} from "class-transformer";
-import {v4 as uuidv4} from 'uuid'
 import {Children} from "../graphql-types/children/children-type";
 import {ChildrenInput} from "../graphql-types/children/children-input";
+import {v4 as uuidv4} from 'uuid'
+import {TopicChildrenRepository} from "./topic_children.repository";
 
 @bind({
   scope: BindingScope.SINGLETON,
@@ -23,6 +24,7 @@ import {ChildrenInput} from "../graphql-types/children/children-input";
 export class ChildrenRepository
   extends DefaultCrudRepository<Children, typeof Children.prototype.id> implements LifeCycleObserver {
 
+  @repository.getter('TopicChildrenRepository') geTopicChildrenRepository: Getter<TopicChildrenRepository>;
   constructor(
       @inject('datasources.conference') dataSource: ConferenceDatasource,
   ) {
@@ -44,13 +46,13 @@ export class ChildrenRepository
 
 
   async createChildren(childrenData: ChildrenInput) {
-    const newChildren = Object.assign(childrenData, {id: uuidv4()});
-    /*const locRepo = await this.getLocationRepository();
-    const {name} = await locRepo.findById(eventData.locationId);*/
-
-    const children = plainToClass(Children, newChildren);
-
-    return this.create(children);
+    /*const repo = await this.geTopicChildrenRepository();
+    const topicChildren = await repo.createTopicChildren({
+      id: uuidv4(),
+      childrenId: childrenData.id,
+      topicId: childrenData.
+    });*/
+    return this.create(childrenData);
   }
 
   async updateChildren(id: string, childrenData: ChildrenInput) {

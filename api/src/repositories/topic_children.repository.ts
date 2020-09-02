@@ -45,8 +45,6 @@ export class TopicChildrenRepository
 
   async createTopicChildren(topicChildren: TopicChildrenInput) {
     const newEvent = Object.assign(topicChildren, {id: uuidv4()});
-    /*const locRepo = await this.getLocationRepository();
-    const {name} = await locRepo.findById(eventData.locationId);*/
 
     const event = plainToClass(TopicChildren, newEvent);
 

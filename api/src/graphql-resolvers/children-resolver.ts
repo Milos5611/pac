@@ -4,7 +4,7 @@ import {ChildrenRepository} from "../repositories";
 import {Children} from "../graphql-types/children/children-type";
 import {ChildrenInput} from "../graphql-types/children/children-input";
 
-@resolver(() => Children)
+@resolver(of => Children)
 export class ChildrenResolver {
     constructor(
         @repository('ChildrenRepository')

@@ -4,7 +4,7 @@ import {Organization} from '../graphql-types/organization/organization-type';
 import {OrganizationRepository} from '../repositories';
 import {OrganizationInput} from "../graphql-types/organization/organization-input";
 
-@resolver(() => Organization)
+@resolver(of => Organization)
 export class OrganizationResolver {
     constructor(
         @repository('OrganizationRepository')

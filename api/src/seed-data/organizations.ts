@@ -1,26 +1,26 @@
 import {plainToClass} from 'class-transformer';
 import {Organization} from "../graphql-types/organization/organization-type";
-
+import faker from "faker";
 export const sampleOrganization = [
     createOrganization({
         id: "1",
-        name: "Prodyna"
+        name: faker.company.companyName()
     }),
     createOrganization({
         id: "2",
-        name: "Microsoft",
+        name: faker.company.companyName(),
     }),
     createOrganization({
         id: "3",
-        name: "Levi9"
+        name: faker.company.companyName()
     }),
     createOrganization({
         id: "4",
-        name: "TDI Radio"
+        name: faker.company.companyName()
     }),
     createOrganization({
         id: "5",
-        name: "Gornjak Trade"
+        name: faker.company.companyName()
     })
 ];
 

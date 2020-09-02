@@ -41,7 +41,7 @@ export class Topic extends Entity {
             model: () => TopicChildren,
         }
     })
-    children?: Children[];
+    childrens?: Children[];
 
     @field(() => [Parent], {nullable: true})
     @hasMany(() => Parent, {
@@ -49,5 +49,5 @@ export class Topic extends Entity {
             model: () => TopicParent,
         }
     })
-    parent?: Parent[];
+    parents?: Parent[];
 }

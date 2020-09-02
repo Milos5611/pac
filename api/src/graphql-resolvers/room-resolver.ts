@@ -4,7 +4,7 @@ import {Room} from '../graphql-types/room/room-type';
 import {RoomRepository} from '../repositories';
 import {RoomInput} from "../graphql-types/room/room-input";
 
-@resolver(() => Room)
+@resolver(of => Room)
 export class RoomResolver {
     constructor(
         @repository('RoomRepository')
@@ -22,7 +22,7 @@ export class RoomResolver {
     }
 
     @mutation(() => Room)
-    async createRoom(@arg('room') room: RoomInput): Promise<Room | void> {
+    async createRoom(@arg('room') room: RoomInput): Promise<Room> {
         return this.roomRepo.createRoom(room);
     }
 }

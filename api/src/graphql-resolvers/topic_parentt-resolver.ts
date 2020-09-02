@@ -4,7 +4,7 @@ import {TopicParent} from "../graphql-types/topic_parent/topic_parent-type";
 import {TopicParentRepository} from "../repositories/topic_parent.repository";
 import {TopicParentInput} from "../graphql-types/topic_parent/topic_parent-input";
 
-@resolver(() => TopicParent)
+@resolver(of => TopicParent)
 export class TopicParentResolver {
     constructor(
         @repository('TopicParentRepository')

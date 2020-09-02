@@ -5,7 +5,6 @@ export * from './application';
 export async function main(options: ApplicationConfig = {}) {
   const app = new ApiApplication(options);
   await app.boot();
-  /*await app.migrateDataSources({existingSchema: "alter"});*/
   await app.start();
 
   const url = app.restServer.url;

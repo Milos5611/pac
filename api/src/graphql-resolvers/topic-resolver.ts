@@ -8,7 +8,7 @@ import {Children} from "../graphql-types/children/children-type";
 import {ParentInput} from "../graphql-types/parent/parent-input";
 import {Parent} from "../graphql-types/parent/parent-type";
 
-@resolver(() => Topic)
+@resolver(of => Topic)
 export class RoomResolver {
     constructor(
         @repository('TopicRepository')

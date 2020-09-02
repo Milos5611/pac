@@ -1,30 +1,30 @@
 import {plainToClass} from 'class-transformer';
 import {Location} from "../graphql-types/location/location-type";
-
+import faker from "faker";
 export const sampleLocation = [
   createLocation({
     id: '1',
-    name: "Beograd",
+    name: faker.address.city(),
   }),
   createLocation({
     id: '2',
-    name: "Pirot"
+    name: faker.address.city()
   }),
   createLocation({
     id: '3',
-    name: "Negotin"
+    name: faker.address.city()
   }),
   createLocation({
     id: '4',
-    name: "Smederevo"
+    name: faker.address.city()
   }),
   createLocation({
     id: '5',
-    name: "Pozega"
+    name: faker.address.city()
   }),
   createLocation({
     id: '6',
-    name: "Sid"
+    name: faker.address.city()
   }),
 ];
 

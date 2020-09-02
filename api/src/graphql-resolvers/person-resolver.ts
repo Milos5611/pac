@@ -4,7 +4,7 @@ import {Person} from '../graphql-types/person/person-type';
 import {PersonRepository} from '../repositories';
 import {PersonInput} from "../graphql-types/person/person-input";
 
-@resolver(() => Person)
+@resolver(of => Person)
 export class PersonResolver {
     constructor(
         @repository('PersonRepository')
@@ -22,7 +22,7 @@ export class PersonResolver {
     }
 
     @mutation(() => Person)
-    async createPerson(@arg('person') person: PersonInput): Promise<Person | void> {
+    async createPerson(@arg('person') person: PersonInput): Promise<Person> {
         return this.personRepo.createPerson(person);
     }
 }

@@ -1,13 +1,14 @@
 import {plainToClass} from 'class-transformer';
 import {Event} from "../graphql-types/event/event-type";
+import faker from "faker";
 
 export const sampleEvent = [
     createEvent({
         id: "e6c6d273-b2d3-4bb6-bcc3-aeb4d067a277",
         name: "Methodological challenges and research methods.",
         locationId: "1",
-        start_date: new Date(),
-        end_date: new Date()
+        start_date: faker.date.between('2020-01-01', '2020-01-02'),
+        end_date: faker.date.between('2020-01-04', '2020-01-06')
     }),
     createEvent({
         id: "e6c6d273-b2d3-4bb6-bcc3-aeb4d067a2fn",

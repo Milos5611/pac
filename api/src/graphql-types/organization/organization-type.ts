@@ -9,7 +9,7 @@ import {Person} from "../person/person-type";
     },
 }})
 export class Organization extends Entity {
-    @field(() => ID)
+    @field(type => ID)
     @property({
         type: 'string',
         id: true,

@@ -45,8 +45,6 @@ export class TopicParentRepository
 
   async createTopicParent(topicParent: TopicParentInput) {
     const newParent = Object.assign(topicParent, {id: uuidv4()});
-    /*const locRepo = await this.getLocationRepository();
-    const {name} = await locRepo.findById(eventData.locationId);*/
 
     const parent = plainToClass(TopicParent, newParent);
 

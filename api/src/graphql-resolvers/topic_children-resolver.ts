@@ -9,7 +9,7 @@ import {TopicChildren} from "../graphql-types/topic_children/topic_children-type
 import {TopicChildrenInput} from "../graphql-types/topic_children/topic_children-input";
 import {TopicChildrenRepository} from "../repositories";
 
-@resolver(() => TopicChildren)
+@resolver(of => TopicChildren)
 export class TopicChildrenResolver {
     constructor(
         @repository('TopicChildrenRepository')

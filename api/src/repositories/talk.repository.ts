@@ -27,15 +27,7 @@ export class TalkRepository
         super(Talk, dataSource);
     }
 
-    @inject('talk')
-    private sampleTalk: Talk[];
-
-    async start() {
-        const talks = await this.find();
-        if(talks.length === 0) {
-            await this.createAll(this.sampleTalk);
-        }
-    }
+    async start() {}
 
     stop() {}
 

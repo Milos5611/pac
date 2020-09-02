@@ -1,4 +1,4 @@
-import {DefaultCrudRepository, RepositoryBindings} from '@loopback/repository';
+import {DefaultCrudRepository, HasManyRepositoryFactory, repository, RepositoryBindings} from '@loopback/repository';
 import {ConferenceDatasource} from '../datasources';
 import {
     bind,
@@ -7,9 +7,12 @@ import {
     inject,
     LifeCycleObserver,
     lifeCycleObserver,
+    Getter
 } from '@loopback/core';
 import {Room} from '../graphql-types/room/room-type';
 import {RoomInput} from "../graphql-types/room/room-input";
+import {Talk} from "../graphql-types/talk/talk-type";
+import {TalkRepository} from "./talk.repository";
 
 @bind({
     scope: BindingScope.SINGLETON,
@@ -21,24 +24,36 @@ import {RoomInput} from "../graphql-types/room/room-input";
 export class RoomRepository
     extends DefaultCrudRepository<Room, typeof Room.prototype.id>
     implements LifeCycleObserver {
+
+    public readonly talks: HasManyRepositoryFactory<Talk, typeof Room.prototype.id>;
+
     constructor(
+        @repository.getter('TalkRepository') talkRepositoryGetter: Getter<TalkRepository>,
         @inject('datasources.conference') dataSource: ConferenceDatasource,
     ) {
         super(Room, dataSource);
+
+        this.talks = this.createHasManyRepositoryFactoryFor(
+            'talks',
+            talkRepositoryGetter,
+        );
+        this.registerInclusionResolver('talks', this.talks.inclusionResolver);
     }
 
-    async start() {
-        /*await this.createAll(this.sampleLocation);*/
-    }
+    async start() {}
 
     stop() {}
 
     async getAll() {
-        return this.find();
+        return this.find({
+            include: [{relation: "talk"}]
+        });
     }
 
     async getOne(id: string) {
-        return this.findById(id);
+        return this.findById(id, {
+            include: [{relation: "talk"}]
+        });
     }
 
     async createRoom(room: RoomInput) {

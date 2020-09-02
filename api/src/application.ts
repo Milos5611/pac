@@ -6,11 +6,11 @@ import {ServiceMixin} from '@loopback/service-proxy';
 import {MetricsComponent} from '@loopback/extension-metrics';
 import path from 'path';
 import {GraphQLBindings, GraphQLComponent} from '../module/graphql';
-import {sampleLocation, sampleEvent, sampleOrganization, samplePerson, sampleTalk} from './seed-data';
 import * as dotenv from 'dotenv';
 import * as dotenvExt from 'dotenv-extended';
 import {LoggingBindings, LoggingComponent, WinstonLoggerOptions, format} from "@loopback/extension-logging";
 import {DataSourceMixin} from "./datasources/mixins";
+import {SeedService} from "./services";
 
 export {ApplicationConfig};
 
@@ -37,15 +37,13 @@ export class ApiApplication extends DataSourceMixin(BootMixin(
       asMiddlewareOnly: true,
     });
 
+    // Bind context to resolver classes so we can use header to check for auth
     this.bind(GraphQLBindings.GRAPHQL_CONTEXT_RESOLVER).to((context: any) => {
       return {...context};
     });
 
-    this.bind('location').to([...sampleLocation]);
-    this.bind('event').to([...sampleEvent]);
-    this.bind('talk').to([...sampleTalk]);
-    this.bind('organization').to([...sampleOrganization]);
-    this.bind('person').to([...samplePerson]);
+    // Bind service class to main app
+    this.service(SeedService);
 
     // Configure and add logging component
     this.addLoggingComponent();
@@ -89,20 +87,4 @@ export class ApiApplication extends DataSourceMixin(BootMixin(
 
     this.component(LoggingComponent);
   }
-
-  /*async migrateSchema(options?: SchemaMigrationOptions) {
-    // 1. Run migration scripts provided by connectors
-    await super.migrateSchema(options);
-
-    // 2. Make further changes. When creating predefined model instances,
-    // handle the case when these instances already exist.
-    const eventsRepo = await this.getRepository(EventsRepository);
-    const found = await eventsRepo.findOne({where: {id: 8}});
-    if (found) {
-      eventsRepo.updateById(found.id, {eventName: "Milos"});
-    } else {
-      // @ts-ignore
-      await eventsRepo.create(...events);
-    }
-  }*/
 }

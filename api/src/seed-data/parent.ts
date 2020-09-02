@@ -3,48 +3,48 @@ import faker from "faker";
 import {Parent} from "../graphql-types/parent/parent-type";
 
 export const sampleParent = [
-    createParent({
-        id: "1",
+    addParentTopic("1", {
+        id: faker.random.uuid(),
         name: faker.name.jobArea(),
     }),
-    createParent({
-        id: "2",
+    addParentTopic("2", {
+        id: faker.random.uuid(),
         name: faker.name.jobArea(),
     }),
-    createParent({
-        id: "3",
+    addParentTopic("3",{
+        id: faker.random.uuid(),
         name: faker.name.jobArea(),
     }),
-    createParent({
-        id: "4",
+    addParentTopic("2",{
+        id: faker.random.uuid(),
         name: faker.name.jobArea(),
     }),
-    createParent({
-        id: "5",
+    addParentTopic("2",{
+        id: faker.random.uuid(),
         name: faker.name.jobArea(),
     }),
-    createParent({
-        id: "6",
+    addParentTopic("4",{
+        id: faker.random.uuid(),
         name: faker.name.jobArea(),
     }),
-    createParent({
-        id: "7",
+    addParentTopic("5",{
+        id: faker.random.uuid(),
         name: faker.name.jobArea(),
     }),
-    createParent({
-        id: "8",
+    addParentTopic("2",{
+        id: faker.random.uuid(),
         name: faker.name.jobArea(),
     }),
-    createParent({
-        id: "9",
+    addParentTopic("2",{
+        id: faker.random.uuid(),
         name: faker.name.jobArea(),
     }),
-    createParent({
-        id: "10",
+    addParentTopic("9",{
+        id: faker.random.uuid(),
         name: faker.name.jobArea(),
     }),
 ];
 
-function createParent(parentData: Partial<Parent>): Parent {
+function addParentTopic(topicId: string, parentData: Partial<Parent>): Parent {
     return plainToClass(Parent, parentData);
 }

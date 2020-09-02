@@ -1,51 +1,50 @@
 import {plainToClass} from 'class-transformer';
 import faker from "faker";
-import {Parent} from "../graphql-types/parent/parent-type";
 import {Children} from "../graphql-types/children/children-type";
 
 export const sampleChildren = [
-    createChildren({
-        id: "1",
+    addChildrenTopic("1", {
+        id: faker.random.uuid(),
         name: faker.name.jobArea(),
     }),
-    createChildren({
-        id: "2",
+    addChildrenTopic("2", {
+        id: faker.random.uuid(),
         name: faker.name.jobArea(),
     }),
-    createChildren({
-        id: "3",
+    addChildrenTopic("3",{
+        id: faker.random.uuid(),
         name: faker.name.jobArea(),
     }),
-    createChildren({
-        id: "4",
+    addChildrenTopic("2",{
+        id: faker.random.uuid(),
         name: faker.name.jobArea(),
     }),
-    createChildren({
-        id: "5",
+    addChildrenTopic("2",{
+        id: faker.random.uuid(),
         name: faker.name.jobArea(),
     }),
-    createChildren({
-        id: "6",
+    addChildrenTopic("4",{
+        id: faker.random.uuid(),
         name: faker.name.jobArea(),
     }),
-    createChildren({
-        id: "7",
+    addChildrenTopic("5",{
+        id: faker.random.uuid(),
         name: faker.name.jobArea(),
     }),
-    createChildren({
-        id: "8",
+    addChildrenTopic("2",{
+        id: faker.random.uuid(),
         name: faker.name.jobArea(),
     }),
-    createChildren({
-        id: "9",
+    addChildrenTopic("2",{
+        id: faker.random.uuid(),
         name: faker.name.jobArea(),
     }),
-    createChildren({
-        id: "10",
+    addChildrenTopic("9",{
+        id: faker.random.uuid(),
         name: faker.name.jobArea(),
     }),
 ];
 
-function createChildren(childrenData: Partial<Children>): Children {
+function addChildrenTopic(topicId: string, childrenData: Partial<Children>): Children {
     return plainToClass(Children, childrenData);
 }

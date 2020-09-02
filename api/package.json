@@ -47,11 +47,11 @@
     "!*/__tests__"
   ],
   "dependencies": {
-    "@loopback/authentication": "^5.0.0",
+    "@loopback/authentication": "^6.0.1",
     "@loopback/boot": "^2.4.1",
     "@loopback/core": "^2.9.3",
     "@loopback/extension-logging": "^0.3.11",
-    "@loopback/extension-metrics": "^0.3.11",
+    "@loopback/extension-metrics": "^0.3.13",
     "@loopback/repository": "^2.11.0",
     "@loopback/rest-explorer": "^2.2.8",
     "@loopback/service-proxy": "^2.3.6",
@@ -80,8 +80,8 @@
   "devDependencies": {
     "@loopback/build": "^6.2.0",
     "@loopback/eslint-config": "^9.0.0",
-    "@loopback/repository": "^2.11.0",
-    "@loopback/rest": "^6.0.0",
+    "@loopback/repository": "^2.10.0",
+    "@loopback/rest": "^5.2.1",
     "@loopback/testlab": "^3.2.2",
     "@types/debug": "^4.1.5",
     "@types/faker": "^4.1.12",

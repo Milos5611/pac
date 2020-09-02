@@ -44,7 +44,7 @@ export class TopicRepository
         TopicChildren,
         typeof Topic.prototype.id
     >;
-    public readonly parent: HasManyThroughRepositoryFactory<
+    public readonly parents: HasManyThroughRepositoryFactory<
         Parent,
         typeof Parent.prototype.id,
         TopicParent,
@@ -63,16 +63,16 @@ export class TopicRepository
         @inject('datasources.conference') dataSource: ConferenceDatasource,
     ) {
         super(Topic, dataSource);
-        /*this.childrens = this.createHasManyThroughRepositoryFactoryFor(
+        this.childrens = this.createHasManyThroughRepositoryFactoryFor(
             'childrens',
             childrenRepository,
             topicChildrenRepository,
-        );*/
-       /* this.parent = this.createHasManyThroughRepositoryFactoryFor(
-            'parent',
+        );
+        this.parents = this.createHasManyThroughRepositoryFactoryFor(
+            'parents',
             parentRepository,
             topicParentRepository,
-        );*/
+        );
     }
 
     async start() {}
@@ -96,6 +96,6 @@ export class TopicRepository
     }
 
     async addParentTopic(id: string, parent: ParentInput) {
-        return this.parent(id).create(parent);
+        return this.parents(id).create(parent);
     }
 }

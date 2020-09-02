@@ -27,10 +27,10 @@ async function seedDev() {
   await seedService.createPerson();
     logger.info(`Seeding Topic data`);
   await seedService.createTopic();
-    logger.info(`Seeding Parent data`);
+/*    logger.info(`Seeding Parent data`);
   await seedService.createParent();
     logger.info(`Seeding Children data`);
-  await seedService.createChildren();
+  await seedService.createChildren();*/
 }
 
 // Execute script

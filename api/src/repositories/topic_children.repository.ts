@@ -41,20 +41,4 @@ export class TopicChildrenRepository
   async getOne(id: string) {
     return this.findById(id);
   }
-
-
-  async createTopicChildren(topicChildren: TopicChildrenInput) {
-    const newEvent = Object.assign(topicChildren, {id: uuidv4()});
-
-    const event = plainToClass(TopicChildren, newEvent);
-
-    return this.create(event);
-  }
-
-  async updateTopicChildren(id: string, topicChildren: TopicChildrenInput) {
-    const found = await this.findById(id);
-    if(!found) throw new Error("It doesn't exist");
-    await this.updateById(id, found);
-    return this.findById(id);
-  }
 }

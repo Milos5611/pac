@@ -1,10 +1,27 @@
-FROM node:10-slim
+FROM node:10-slim as build
+
+# copy the app
 WORKDIR /usr/src/app
-VOLUME /usr/src/app/src
-VOLUME /usr/src/app/public
-ADD package.json ./
-RUN npm install
-COPY . .
-EXPOSE 5000 35729 3572
-ENV HOST=0.0.0.0
-CMD [ "npm", "build" ]
+COPY . /usr/src/app/
+
+# install node modules
+RUN yarn install
+
+# build the app
+RUN npm run-script build
+
+# drop node modules after build
+RUN rm -rf ./node_modules
+
+# use nginx to build the second stage
+FROM nginx:1.13.12-alpine
+
+# copy default nginx configuration and replace args with the values via envsubst
+COPY --from=build /usr/src/app/nginx.conf /data/conf/nginx.conf
+
+# copy static files
+COPY --from=build /usr/src/app/public /usr/share/nginx/html
+
+# run the nginx
+CMD ["nginx", "-c", "/data/conf/nginx.conf", "-g", "daemon off;"]
+EXPOSE 80

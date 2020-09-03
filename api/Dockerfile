@@ -20,12 +20,9 @@ RUN npm install
 COPY --chown=node . .
 
 RUN npm run build
-RUN npm run migrate
-RUN npm run seed
-RUN npm run start
 
 # Bind to all network interfaces so that it can be mapped to the host OS
-ENV HOST="conference.backend/" PORT=80
+ENV HOST=0.0.0.0 PORT=3000
 
 EXPOSE ${PORT}
 CMD [ "node", "." ]

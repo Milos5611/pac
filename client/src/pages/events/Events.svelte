@@ -11,12 +11,12 @@
 </script>
 
 {#await $events}
-	{:then $events}
+	{:then allEvents}
 <div class="event-cards">
 	<div class="toolbar-wrapper">
 		<p class="all--events">ALL EVENTS</p>
 	</div>
-	{#each $events.data.events as event}
+	{#each allEvents.data.events as event}
 		<div class="event-card">
 				<div class="wrapper">
 					<div class="card__meta">

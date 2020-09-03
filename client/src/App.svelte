@@ -14,10 +14,10 @@
 
 <main>
 	<OidcContext
-			issuer="https://dev-269607.okta.com"
-			client_id="0oaup7oeuqIcBZjyw4x6"
-			redirect_uri="http://localhost:5000"
-			post_logout_redirect_uri="http://localhost:5000"
+			issuer="{process.env.ISSUER}"
+			client_id="{process.env.CLIENT_ID}"
+			redirect_uri="{process.env.REDIRECT_OKTA_URL}"
+			post_logout_redirect_uri="{process.env.REDIRECT_OKTA_URL}"
 	>
 		<Router {routes} />
 	</OidcContext>

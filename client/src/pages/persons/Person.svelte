@@ -10,7 +10,6 @@
 <Route {currentRoute} />
 {#await $person}
 	{:then speaker}
-	{@debug speaker}
 		<div class="person-detail">
 			<Navigate to="persons">
 				<p class="back">{"<- Back"}</p>

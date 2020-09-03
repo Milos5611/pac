@@ -2,7 +2,7 @@ import {ApiApplication} from '../application';
 import {LoggingBindings} from '@loopback/extension-logging';
 import {SeedService} from "../services";
 
-async function seedDev() {
+export async function seedDev() {
 
     // Boot the application to access bindings
   const app = new ApiApplication();

@@ -1,6 +1,9 @@
 image:
   repository: pac_mnikolic_web
   tag: latest
+envFrom:
+  - configMapRef:
+      name: frontend-config
 ingress:
   enabled: true
   hosts:

@@ -7,7 +7,7 @@ export default function graphQLClient(token) {
   let requestToken = token || getPersistedUserToken();
   return new ApolloClient({
     link: createUploadLink({
-      uri: "http://localhost:3000/graphql",
+      uri: `${process.env.BE_URL}`,
       headers: {
         Authorization: requestToken,
       },

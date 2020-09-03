@@ -6,7 +6,7 @@ export * from './application';
 export async function main(options: ApplicationConfig = {}) {
   const app = new ApiApplication(options);
   await app.boot();
-  /*await app.migrateDataSources();
+ /* await app.migrateDataSources();
   await seedDev();*/
   await app.start();
 

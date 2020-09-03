@@ -7,6 +7,9 @@ import {ChildrenInput} from "../graphql-types/children/children-input";
 import {Children} from "../graphql-types/children/children-type";
 import {ParentInput} from "../graphql-types/parent/parent-input";
 import {Parent} from "../graphql-types/parent/parent-type";
+import {Ctx} from "type-graphql";
+import {ContextTypes} from "../helper/types";
+import {parseToken} from "../helper/util";
 
 @resolver(of => Topic)
 export class RoomResolver {
@@ -26,23 +29,43 @@ export class RoomResolver {
     }
 
     @mutation(() => Topic)
-    async createTopic(@arg('topic') topic: TopicInput): Promise<Topic> {
-        return this.topicRepo.createTopic(topic);
+    async createTopic(
+        @arg('topic') topic: TopicInput,
+        @Ctx() context: ContextTypes
+    ): Promise<Topic | Error> {
+        const user = await parseToken(context.req.headers);
+        if(user) {
+            return this.topicRepo.createTopic(topic);
+        } else {
+            return new Error("You must be logged in to do this action");
+        }
     }
 
     @mutation(() => Children)
     async addChildTopic(
         @arg('topicId') topicId: string,
-        @arg('childTopic') childTopic: ChildrenInput
-    ): Promise<Topic> {
-        return this.topicRepo.addChildTopic(topicId, childTopic);
+        @arg('childTopic') childTopic: ChildrenInput,
+        @Ctx() context: ContextTypes
+    ): Promise<Topic | Error> {
+        const user = await parseToken(context.req.headers);
+        if(user) {
+            return this.topicRepo.addParentTopic(topicId, childTopic);
+        } else {
+            return new Error("You must be logged in to do this action");
+        }
     }
 
     @mutation(() => Parent)
     async addParentTopic(
         @arg('topicId') topicId: string,
-        @arg('parentTopic') parentTopic: ParentInput
-    ): Promise<Topic> {
-        return this.topicRepo.addParentTopic(topicId, parentTopic);
+        @arg('parentTopic') parentTopic: ParentInput,
+        @Ctx() context: ContextTypes
+    ): Promise<Topic | Error> {
+        const user = await parseToken(context.req.headers);
+        if(user) {
+            return this.topicRepo.addParentTopic(topicId, parentTopic);
+        } else {
+            return new Error("You must be logged in to do this action");
+        }
     }
 }

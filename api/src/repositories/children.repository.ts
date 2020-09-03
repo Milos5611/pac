@@ -46,12 +46,6 @@ export class ChildrenRepository
 
 
   async createChildren(childrenData: ChildrenInput) {
-    /*const repo = await this.geTopicChildrenRepository();
-    const topicChildren = await repo.createTopicChildren({
-      id: uuidv4(),
-      childrenId: childrenData.id,
-      topicId: childrenData.
-    });*/
     return this.create(childrenData);
   }
 

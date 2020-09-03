@@ -3,6 +3,9 @@ import {repository} from '@loopback/repository';
 import {Talk} from "../graphql-types/talk/talk-type";
 import {TalkInput} from "../graphql-types/talk/talk-input";
 import {TalkRepository} from "../repositories";
+import {Ctx} from "type-graphql";
+import {ContextTypes} from "../helper/types";
+import {parseToken} from "../helper/util";
 
 @resolver(of => Talk)
 export class TalkResolver {
@@ -22,7 +25,15 @@ export class TalkResolver {
     }
 
     @mutation(() => Talk)
-    async createTalk(@arg('talk') talk: TalkInput): Promise<Talk> {
-        return this.talkRepo.createTalk(talk);
+    async createTalk(
+        @arg('talk') talk: TalkInput,
+        @Ctx() context: ContextTypes
+    ): Promise<Talk | Error> {
+        const user = await parseToken(context.req.headers);
+        if(user) {
+            return this.talkRepo.createTalk(talk);
+        } else {
+            return new Error("You must be logged in to do this action");
+        }
     }
 }

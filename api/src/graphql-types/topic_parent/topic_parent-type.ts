@@ -1,8 +1,7 @@
-import {field, ID, objectType} from '../../../module/graphql';;
-import {belongsTo, Entity, hasMany, model, property} from '@loopback/repository';
+import {field, ID, objectType} from '../../../module/graphql';
+import {belongsTo, Entity, model, property} from '@loopback/repository';
 import {Topic} from "../topic/topic-type";
 import {Parent} from "../parent/parent-type";
-import {Children} from "../children/children-type";
 
 @objectType({description: 'Object representing middle table of parent entry of topic'})
 @model({
@@ -17,8 +16,8 @@ import {Children} from "../children/children-type";
                 entityKey: 'id',
                 foreignKey: 'topic_id',
             },
-            fk_paren_id: {
-                name: 'fk_paren_id',
+            fk_parent_id: {
+                name: 'fk_parent_id',
                 entity: 'Parent',
                 entityKey: 'id',
                 foreignKey: 'parent_id',
@@ -40,6 +39,6 @@ export class TopicParent extends Entity {
     topicId?: string;
 
     @field()
-    @belongsTo(() => Children, {keyFrom: "parentId"},{name: "parent_id"})
+    @belongsTo(() => Parent, {keyFrom: "parentId"},{name: "parent_id"})
     parentId?: string;
 }

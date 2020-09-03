@@ -3,6 +3,10 @@ import {repository} from '@loopback/repository';
 import {Location} from '../graphql-types/location/location-type';
 import {LocationRepository} from '../repositories';
 import {LocationInput} from "../graphql-types/location/location-input";
+import {Ctx} from "type-graphql";
+import {ContextTypes} from "../helper/types";
+import {Event} from "../graphql-types/event/event-type";
+import {parseToken} from "../helper/util";
 
 @resolver(of => Location)
 export class LocationResolver {
@@ -22,7 +26,15 @@ export class LocationResolver {
     }
 
     @mutation(() => Location)
-    async createLocation(@arg('location') location: LocationInput): Promise<Location> {
-        return this.locationRepo.createLocation(location);
+    async createLocation(
+        @arg('location') location: LocationInput,
+        @Ctx() context: ContextTypes
+    ): Promise<Location | Error> {
+        const user = await parseToken(context.req.headers);
+        if(user) {
+            return this.locationRepo.createLocation(location);
+        } else {
+            return new Error("You must be logged in to do this action");
+        }
     }
 }

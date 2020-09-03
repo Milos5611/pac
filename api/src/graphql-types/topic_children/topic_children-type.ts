@@ -1,5 +1,5 @@
 import {field, ID, objectType} from '../../../module/graphql';
-import {belongsTo, Entity, hasMany, model, property} from '@loopback/repository';
+import {belongsTo, Entity, model, property} from '@loopback/repository';
 import {Topic} from "../topic/topic-type";
 import {Children} from "../children/children-type";
 
@@ -26,6 +26,7 @@ import {Children} from "../children/children-type";
     }
 })
 export class TopicChildren extends Entity {
+
     @field(() => ID)
     @property({
         type: 'string',

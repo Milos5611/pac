@@ -31,12 +31,13 @@ export class EventResolver {
   async createEvent(
       @arg('event') event: EventInput,
       @Ctx() context: ContextTypes
-  ): Promise<Event> {
-    return parseToken(context.req.headers).then(user => {
+  ): Promise<Event | Error> {
+    const user = await parseToken(context.req.headers);
+    if(user) {
       return this.eventsRepo.createEvent(event);
-    }).catch(e => {
-      throw new Error("You must be logged in to do this action")
-    })
+    } else {
+      return new Error("You must be logged in to do this action");
+    }
   }
 
   @mutation(() => Event)

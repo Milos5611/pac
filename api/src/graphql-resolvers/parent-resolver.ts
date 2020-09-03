@@ -3,6 +3,9 @@ import {repository} from '@loopback/repository';
 import {ParentRepository} from "../repositories/parent.repository";
 import {Parent} from "../graphql-types/parent/parent-type";
 import {ParentInput} from "../graphql-types/parent/parent-input";
+import {Ctx} from "type-graphql";
+import {ContextTypes} from "../helper/types";
+import {parseToken} from "../helper/util";
 
 @resolver(of => Parent)
 export class ParentResolver {
@@ -24,12 +27,27 @@ export class ParentResolver {
     @mutation(() => Parent)
     async createParent(
         @arg('parent') parent: ParentInput,
-    ): Promise<Parent> {
-        return this.parentRepository.createParent(parent);
+        @Ctx() context: ContextTypes
+    ): Promise<Parent | Error> {
+        const user = await parseToken(context.req.headers);
+        if(user) {
+            return this.parentRepository.createParent(parent);
+        } else {
+            return new Error("You must be logged in to do this action");
+        }
     }
 
     @mutation(() => Parent)
-    async updateParent(@arg('id') id: string,  @arg('parent') parent: ParentInput): Promise<Parent> {
-        return this.parentRepository.updateParent(id, parent);
+    async updateParent(
+        @arg('id') id: string,
+        @arg('parent') parent: ParentInput,
+        @Ctx() context: ContextTypes
+    ): Promise<Parent | Error> {
+        const user = await parseToken(context.req.headers);
+        if(user) {
+            return this.parentRepository.updateParent(id, parent);
+        } else {
+            return new Error("You must be logged in to do this action");
+        }
     }
 }

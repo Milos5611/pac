@@ -21,7 +21,6 @@
     "rollup-plugin-terser": "^6.0.0",
     "sass": "^1.26.10",
     "svelte": "^3.0.0",
-    "svelte-material-ui": "^1.0.0",
     "svelte-preprocess": "^4.1.2"
   },
   "dependencies": {
@@ -30,11 +29,12 @@
     "apollo-cache-inmemory": "^1.6.6",
     "apollo-client": "^2.6.10",
     "apollo-upload-client": "^14.1.1",
+    "bulma": "^0.9.0",
     "graphql": "^14.0.2",
     "moment": "^2.27.0",
-    "rollup-plugin-postcss": "^3.1.6",
+    "rollup-plugin-postcss": "^3.1.8",
     "sirv-cli": "^1.0.0",
-    "smelte": "^1.0.15",
+    "svelma": "^0.4.0",
     "svelte-apollo": "^0.3.0",
     "svelte-router-spa": "^5.7.3"
   }

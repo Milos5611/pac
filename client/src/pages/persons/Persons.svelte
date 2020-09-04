@@ -1,9 +1,7 @@
 <script>
 	import {onMount} from 'svelte';
 	import moment from 'moment';
-	import {
-		Button
-	} from 'smelte';
+	import { Button } from 'smelte';
 	import {Route, Navigate} from 'svelte-router-spa';
 	export let currentRoute;
 	import {getClient, query} from "svelte-apollo";

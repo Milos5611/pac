@@ -5,8 +5,13 @@ import {EventInput} from '../graphql-types/event/event-input';
 import {Event} from '../graphql-types/event/event-type';
 import {EventRepository} from '../repositories';
 import {inject} from "@loopback/core";
-import {ContextTypes} from "../helper/types";
+import {ContextTypes} from "../helper";
 import {parseToken} from "../helper/util";
+import {EventFilter} from "../graphql-types/event/event-filter";
+
+export interface IFilter {
+  start_date: string
+}
 
 @resolver(of => Event)
 export class EventResolver {
@@ -23,8 +28,10 @@ export class EventResolver {
   }
 
   @query(() => [Event])
-  async events(@Ctx() context: ContextTypes) {
-    return this.eventsRepo.getAll();
+  async events(
+      @arg('filter', {nullable: true}) filter?: EventFilter
+  ) {
+    return this.eventsRepo.getAll(filter);
   }
 
   @mutation(() => Event)

@@ -1,4 +1,4 @@
-import {BelongsToAccessor, DefaultCrudRepository, repository, RepositoryBindings} from '@loopback/repository';
+import {BelongsToAccessor, DefaultCrudRepository, Filter, repository, RepositoryBindings} from '@loopback/repository';
 import {Event} from '../graphql-types/event/event-type';
 import {ConferenceDatasource} from '../datasources';
 import {
@@ -15,6 +15,8 @@ import {EventInput} from "../graphql-types/event/event-input";
 import {v4 as uuidv4} from 'uuid'
 import {Location} from "../graphql-types/location/location-type";
 import {LocationRepository} from "./location.repository";
+import {IFilter} from "../graphql-resolvers/event-resolver";
+import {EventFilter} from "../graphql-types/event/event-filter";
 
 @bind({
   scope: BindingScope.SINGLETON,
@@ -46,8 +48,13 @@ export class EventRepository
 
   stop() {}
 
-  async getAll() {
+  async getAll(filter?: EventFilter) {
     return this.find({
+      ...filter && {
+        where: {
+          ...filter
+        },
+      },
       include: [{
         relation: "location",
         scope: {

@@ -1,9 +1,7 @@
 <script>
 	import moment from 'moment';
 	import {Navigate} from 'svelte-router-spa';
-	import {
-		Button
-	} from 'smelte';
+	import { Button } from 'svelma';
 	import Chip from "../../component/chip/Chip.svelte";
 	import {getClient, query} from "svelte-apollo";
 	const client = getClient();
@@ -34,16 +32,16 @@
 						</p>
 						<p class="card__description">
 							Topic that will be covered
-							{#if event.location.rooms}
-								{#each event.location.rooms as rooms}
-									{#each rooms.talks || [] as talk}
-										{#each talk.topics || [] as topic}
-											<Chip name="{topic.name}" />
-										{/each}
+						</p>
+						{#if event.location.rooms}
+							{#each event.location.rooms as rooms}
+								{#each rooms.talks || [] as talk}
+									{#each talk.topics || [] as topic}
+										<Chip name="{topic.name}" />
 									{/each}
 								{/each}
-							{/if}
-						</p>
+							{/each}
+						{/if}
 					</article>
 				</div>
 
@@ -65,7 +63,7 @@
 	}
 	.event-card {
 		width: 31%;
-		height: auto;
+		height: 300px;
 		float: left;
 		margin-bottom: 15px;
 		margin-left: .5em;
@@ -85,13 +83,17 @@
 	}
 	.wrapper {
 		overflow: hidden;
-		padding: 2.6em 1.6em 0em;
+		padding: 2.6em 1.6em 0;
 	}
 
     .card__description {
 		font-size: 16px;
 		line-height: 1.5;
 		color: #949ea8;
+
+		&:last-of-type {
+			margin-bottom: 20px;
+		}
 	}
 	.event-action {
 		margin-top: auto;

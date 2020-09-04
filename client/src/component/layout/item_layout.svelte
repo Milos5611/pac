@@ -3,7 +3,6 @@
 	import Header from '../header/Header.svelte';
 	export let currentRoute;
 	const parentRoute = currentRoute.name.split("/")[1];
-	console.log("currentRoute", currentRoute);
 </script>
 
 <div class="app">

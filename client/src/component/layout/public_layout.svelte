@@ -2,7 +2,6 @@
 	import { Route } from 'svelte-router-spa'
 	import Header from '../header/Header.svelte';
 	export let currentRoute;
-	console.log("currentRoute", currentRoute);
 </script>
 
 <div class="app">

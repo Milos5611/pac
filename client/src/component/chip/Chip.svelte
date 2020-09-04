@@ -57,21 +57,4 @@
 		padding-left: 12px;
 		padding-right: 12px;
 	}
-	.chip-svg{
-		color: #999999;
-		cursor: pointer;
-		height: auto;
-		margin: 4px 4px 0 -8px;
-		fill: currentColor;
-		width: 1em;
-		height: 1em;
-		display: inline-block;
-		font-size: 24px;
-		transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-		user-select: none;
-		flex-shrink: 0;
-	}
-	.chip-svg:hover{
-		color: #666666;
-	}
 </style>

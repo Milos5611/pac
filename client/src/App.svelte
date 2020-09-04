@@ -15,10 +15,10 @@
 
 <main>
 	<OidcContext
-			issuer="{conference.env.ISSUER}"
-			client_id="{conference.env.CLIENT_ID}"
-			redirect_uri="{conference.env.REDIRECT_OKTA_URL}"
-			post_logout_redirect_uri="{conference.env.REDIRECT_OKTA_URL}"
+			issuer="{conference.env.ISSUER ?? process.env.ISSUER}"
+			client_id="{conference.env.CLIENT_ID ?? process.env.CLIENT_ID}"
+			redirect_uri="{conference.env.REDIRECT_OKTA_URL ?? process.env.REDIRECT_OKTA_URL}"
+			post_logout_redirect_uri="{conference.env.REDIRECT_OKTA_URL ?? process.env.REDIRECT_OKTA_URL}"
 	>
 		<Router {routes} />
 	</OidcContext>

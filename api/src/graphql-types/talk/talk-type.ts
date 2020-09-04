@@ -46,11 +46,11 @@ export class Talk extends Entity {
     @belongsTo(() => Room, {keyFrom: "roomId"},{name: "room_id"})
     roomId: string;
 
-    @field(type => [Person])
+    @field(type => [Person], {nullable: true})
     @hasMany(() => Person, {keyTo: 'talk_id', keyFrom: "id"})
     persons?: Person[];
 
-    @field(type => [Topic])
+    @field(type => [Topic], {nullable: true})
     @hasMany(() => Topic, {keyTo: 'talk_id', keyFrom: "id"})
     topics?: Topic[];
 }

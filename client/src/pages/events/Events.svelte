@@ -4,6 +4,7 @@
 	import {
 		Button
 	} from 'smelte';
+	import Chip from "../../component/chip/Chip.svelte";
 	import {getClient, query} from "svelte-apollo";
 	const client = getClient();
 	import {EVENTS_QUERY} from './data';
@@ -31,6 +32,18 @@
 						<p class="card__description">
 							{event.location.name}
 						</p>
+						<p class="card__description">
+							Topic that will be covered
+							{#if event.location.rooms}
+								{#each event.location.rooms as rooms}
+									{#each rooms.talks || [] as talk}
+										{#each talk.topics || [] as topic}
+											<Chip name="{topic.name}" />
+										{/each}
+									{/each}
+								{/each}
+							{/if}
+						</p>
 					</article>
 				</div>
 
@@ -52,7 +65,7 @@
 	}
 	.event-card {
 		width: 31%;
-		height: 260px;
+		height: auto;
 		float: left;
 		margin-bottom: 15px;
 		margin-left: .5em;
@@ -65,10 +78,14 @@
 		position: relative;
 		overflow: hidden;
 		@extend %transitionTopBlue;
+
+		&:nth-of-type(3n - 1) {
+			clear: left;
+		}
 	}
 	.wrapper {
 		overflow: hidden;
-		padding: 2.6em 1.6em 1.6em;
+		padding: 2.6em 1.6em 0em;
 	}
 
     .card__description {

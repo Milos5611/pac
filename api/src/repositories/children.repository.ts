@@ -1,4 +1,4 @@
-import {DefaultCrudRepository, repository, RepositoryBindings} from '@loopback/repository';
+import {BelongsToAccessor, DefaultCrudRepository, Getter, repository, RepositoryBindings} from '@loopback/repository';
 import {ConferenceDatasource} from '../datasources';
 import {
   bind,
@@ -7,12 +7,11 @@ import {
   inject,
   LifeCycleObserver,
   lifeCycleObserver,
-  Getter
 } from '@loopback/core';
 import {Children} from "../graphql-types/children/children-type";
 import {ChildrenInput} from "../graphql-types/children/children-input";
-import {v4 as uuidv4} from 'uuid'
-import {TopicChildrenRepository} from "./topic_children.repository";
+import {Topic} from "../graphql-types/topic/topic-type";
+import {TopicRepository} from "./topic.repository";
 
 @bind({
   scope: BindingScope.SINGLETON,
@@ -24,11 +23,19 @@ import {TopicChildrenRepository} from "./topic_children.repository";
 export class ChildrenRepository
   extends DefaultCrudRepository<Children, typeof Children.prototype.id> implements LifeCycleObserver {
 
-  @repository.getter('TopicChildrenRepository') geTopicChildrenRepository: Getter<TopicChildrenRepository>;
+  public readonly topic: BelongsToAccessor<Topic, typeof Children.prototype.id>;
+
   constructor(
       @inject('datasources.conference') dataSource: ConferenceDatasource,
+      @repository.getter('TopicRepository') topicRepository: Getter<TopicRepository>
   ) {
     super(Children, dataSource);
+
+    this.topic = this.createBelongsToAccessorFor(
+        "topic",
+        topicRepository
+    );
+    this.registerInclusionResolver("topic", this.topic.inclusionResolver);
   }
 
   async start() {}
@@ -36,12 +43,16 @@ export class ChildrenRepository
   stop() {}
 
   async getAll() {
-    return this.find();
+    return this.find({
+      include: [{relation: "topic"}]
+    });
   }
 
 
   async getOne(id: string) {
-    return this.findById(id);
+    return this.findById(id, {
+        include: [{relation: "topic"}]
+    });
   }
 
 

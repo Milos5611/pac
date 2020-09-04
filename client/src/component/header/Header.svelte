@@ -16,9 +16,11 @@
 		<p>Day Overview</p>
 	</Navigate>
 
-	{#if $userInfo.name}
-		<button on:click|preventDefault='{() => logout() }'>Logout</button>
-	{/if}
+	<Navigate styles="anchor" to="/" title="Logout">
+		{#if $userInfo.name}
+			<button on:click|preventDefault='{() => logout() }'>Logout</button>
+		{/if}
+	</Navigate>
 </div>
 
 <style type="text/scss">

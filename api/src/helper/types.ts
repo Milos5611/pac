@@ -3,4 +3,8 @@ export interface ContextTypes {
     res: { [key: string]: string }
 }
 
+export interface ErrorResponse {
+    name: string | string[]
+}
+
 

@@ -1,4 +1,5 @@
 <script>
+	export let conference;
 	import {
 		OidcContext,
 	} from '@dopry/svelte-oidc';
@@ -14,10 +15,10 @@
 
 <main>
 	<OidcContext
-			issuer="{process.env.ISSUER}"
-			client_id="{process.env.CLIENT_ID}"
-			redirect_uri="{process.env.REDIRECT_OKTA_URL}"
-			post_logout_redirect_uri="{process.env.REDIRECT_OKTA_URL}"
+			issuer="{conference.env.ISSUER}"
+			client_id="{conference.env.CLIENT_ID}"
+			redirect_uri="{conference.env.REDIRECT_OKTA_URL}"
+			post_logout_redirect_uri="{conference.env.REDIRECT_OKTA_URL}"
 	>
 		<Router {routes} />
 	</OidcContext>

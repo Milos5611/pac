@@ -1,6 +1,6 @@
 import {
     DefaultCrudRepository,
-    HasManyThroughRepositoryFactory,
+    HasManyRepositoryFactory,
     repository,
     RepositoryBindings
 } from '@loopback/repository';
@@ -17,15 +17,11 @@ import {
 import {Topic} from "../graphql-types/topic/topic-type";
 import {TopicInput} from "../graphql-types/topic/topic-input";
 import {Children} from "../graphql-types/children/children-type";
-import {TopicChildren} from "../graphql-types/topic_children/topic_children-type";
 import {ChildrenRepository} from "./children.repository";
-import {TopicChildrenRepository} from "./topic_children.repository";
 import {ParentInput} from "../graphql-types/parent/parent-input";
 import {ChildrenInput} from "../graphql-types/children/children-input";
 import {Parent} from "../graphql-types/parent/parent-type";
-import {TopicParent} from "../graphql-types/topic_parent/topic_parent-type";
 import {ParentRepository} from "./parent.repository";
-import {TopicParentRepository} from "./topic_parent.repository";
 
 @bind({
     scope: BindingScope.SINGLETON,
@@ -38,41 +34,34 @@ export class TopicRepository
     extends DefaultCrudRepository<Topic, typeof Topic.prototype.id>
     implements LifeCycleObserver {
 
-    public readonly childrens: HasManyThroughRepositoryFactory<
+    public readonly childrens: HasManyRepositoryFactory<
         Children,
-        typeof Children.prototype.id,
-        TopicChildren,
         typeof Topic.prototype.id
     >;
-    public readonly parents: HasManyThroughRepositoryFactory<
+    public readonly parents: HasManyRepositoryFactory<
         Parent,
-        typeof Parent.prototype.id,
-        TopicParent,
         typeof Topic.prototype.id
     >;
 
     constructor(
         @repository.getter('ChildrenRepository')
             childrenRepository: Getter<ChildrenRepository>,
-        @repository.getter('TopicChildrenRepository')
-            topicChildrenRepository: Getter<TopicChildrenRepository>,
         @repository.getter('ParentRepository')
             parentRepository: Getter<ParentRepository>,
-        @repository.getter('TopicParentRepository')
-            topicParentRepository: Getter<TopicParentRepository>,
         @inject('datasources.conference') dataSource: ConferenceDatasource,
     ) {
         super(Topic, dataSource);
-        this.childrens = this.createHasManyThroughRepositoryFactoryFor(
+        this.childrens = this.createHasManyRepositoryFactoryFor(
             'childrens',
             childrenRepository,
-            topicChildrenRepository,
         );
-        this.parents = this.createHasManyThroughRepositoryFactoryFor(
+        this.parents = this.createHasManyRepositoryFactoryFor(
             'parents',
             parentRepository,
-            topicParentRepository,
         );
+
+        this.registerInclusionResolver('childrens', this.childrens.inclusionResolver);
+        this.registerInclusionResolver('parents', this.parents.inclusionResolver);
     }
 
     async start() {}
@@ -80,11 +69,15 @@ export class TopicRepository
     stop() {}
 
     async getAll() {
-        return this.find();
+        return this.find({
+            include: [{relation: "childrens"}, {relation: "parents"}]
+        });
     }
 
     async getOne(id: string) {
-        return this.findById(id);
+        return this.findById(id, {
+            include: [{relation: "childrens"}, {relation: "parents"}]
+        });
     }
 
     async createTopic(topic: TopicInput) {

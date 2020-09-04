@@ -5,11 +5,15 @@
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "start": "sirv public -s",
-    "clean": "rm -rf public/build"
+    "clean": "rm -rf public/build",
+    "docker:build": "docker build -t pac_mnikolic_web .",
+    "docker:run": "docker run -p 5000:5000 -d pac_mnikolic_web"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^14.0.0",
     "@rollup/plugin-node-resolve": "^8.0.0",
+    "@rollup/plugin-replace": "^2.3.3",
+    "dotenv": "^8.2.0",
     "node-sass": "^4.14.1",
     "rollup": "^2.3.4",
     "rollup-plugin-livereload": "^1.0.0",

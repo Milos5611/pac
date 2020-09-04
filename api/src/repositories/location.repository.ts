@@ -59,7 +59,14 @@ export class LocationRepository
 
   async getAll() {
     return this.find({
-      include: [{relation: "events"}, {relation: "rooms"}]
+      include: [
+          {relation: "events"},
+          {
+            relation: "rooms",
+            scope: {
+              include: [{relation: 'talks'}],
+            },
+          }]
     });
   }
 

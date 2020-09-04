@@ -9,7 +9,7 @@ import {LoggingBindings} from '@loopback/extension-logging';
 // so we don't receive "relation does not exist" errors
 // https://github.com/strongloop/loopback-connector/issues/168
 const PUBLIC_MODELS: string[] = [
-  'Location', 'Event', 'Room', 'Talk', 'Organization', 'Person', 'Topic', 'TopicParent', 'TopicChildren', 'Children',  'Parent'
+  'Location', 'Event', 'Room', 'Talk', 'Organization', 'Person', 'Topic', 'Children',  'Parent'
 ];
 
 export enum MIGRATION_TYPES {

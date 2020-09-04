@@ -73,6 +73,22 @@ export const sampleTalk = [
         language: "English",
         title: faker.commerce.productName(),
         roomId: "4"
+    }),
+    createTalk({
+        id: "10",
+        duration: faker.random.number({min: 20, max: 45, precision: 5}),
+        level: "Intermediate",
+        language: "English",
+        title: faker.commerce.productName(),
+        roomId: "5"
+    }),
+    createTalk({
+        id: "11",
+        duration: faker.random.number({min: 20, max: 45, precision: 5}),
+        level: "Intermediate",
+        language: "English",
+        title: faker.commerce.productName(),
+        roomId: "6"
     })
 ];
 

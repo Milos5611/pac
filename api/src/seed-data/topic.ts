@@ -51,7 +51,22 @@ export const sampleTopic = [
     createTopic({
         id: "10",
         name: faker.name.jobArea(),
-        talkId: "4"
+        talkId: "3"
+    }),
+    createTopic({
+        id: "11",
+        name: faker.name.jobArea(),
+        talkId: "3"
+    }),
+    createTopic({
+        id: "12",
+        name: faker.name.jobArea(),
+        talkId: "3"
+    }),
+    createTopic({
+        id: "13",
+        name: faker.name.jobArea(),
+        talkId: "3"
     }),
 ];
 

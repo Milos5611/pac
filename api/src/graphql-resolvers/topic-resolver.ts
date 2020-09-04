@@ -49,7 +49,7 @@ export class RoomResolver {
     ): Promise<Topic | Error> {
         const user = await parseToken(context.req.headers);
         if(user) {
-            return this.topicRepo.addParentTopic(topicId, childTopic);
+            return this.topicRepo.addChildTopic(topicId, childTopic);
         } else {
             return new Error("You must be logged in to do this action");
         }

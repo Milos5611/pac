@@ -5,4 +5,7 @@ import {Children} from "./children-type";
 export class ChildrenInput implements Partial<Children> {
     @field()
     name: string;
+
+    @field()
+    topicId: string;
 }

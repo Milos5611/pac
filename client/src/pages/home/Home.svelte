@@ -7,16 +7,7 @@
 	} from '@dopry/svelte-oidc';
 	import { Button } from 'smelte';
 	import {Navigate} from "svelte-router-spa";
-	/*const metadata = {
-		// added to overcome missing value in auth0 .well-known/openid-configuration
-		// see: https://github.com/IdentityModel/oidc-client-js/issues/1067
-		// see: https://github.com/IdentityModel/oidc-client-js/pull/1068
-		end_session_endpoint: `process.env.OIDC_ISSUER/v2/logout?client_id=process.env.OIDC_CLIENT_ID`,
-	}*/
-	let authData;
-	$: {
-		authData = $userInfo = JSON.stringify(userInfo, null, 2);
-	}
+	$userInfo = JSON.stringify(userInfo, null, 2);
 </script>
 
 <div id="appContainer">
@@ -32,25 +23,25 @@
 			<div class="login-form">
 				<aside>
 					<h3 class="aside-title">
-						{#if !authData.name}
+						{#if !$userInfo.name}
 							Welcome to
 						{/if}
 						Eventio
 					</h3>
-					{#if !authData.name}
+					{#if !$userInfo.name}
 						<p class="login--good aside-desc">Choose how you want to continue</p>
 					{/if}
 				</aside>
 				<aside class="action-buttons">
-					{#if !authData.name}
+					{#if !$userInfo.name}
 						<Button text on:click={() => login()}>
 							Login
 						</Button>
 					{/if}
 					<Navigate to="events">
 						<Button text>
-							{#if isAuthenticated && authData.name}
-								Welcome back {authData.name} you can proceed to application
+							{#if isAuthenticated && $userInfo.name}
+								Welcome back {$userInfo.name} you can proceed to application
 							{:else}
 								Guest access
 							{/if}

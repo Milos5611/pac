@@ -2,9 +2,7 @@ import {field, ID, objectType} from '../../../module/graphql';
 import {belongsTo, Entity, hasMany, model, property} from '@loopback/repository';
 import {Talk} from "../talk/talk-type";
 import {Children} from "../children/children-type";
-import {TopicChildren} from "../topic_children/topic_children-type";
 import {Parent} from "../parent/parent-type";
-import {TopicParent} from "../topic_parent/topic_parent-type";
 
 @objectType({description: 'Object representing topic'})
 @model({
@@ -36,18 +34,10 @@ export class Topic extends Entity {
     talkId?: string;
 
     @field(() => [Children], {nullable: true})
-    @hasMany(() => Children, {
-        through: {
-            model: () => TopicChildren,
-        }
-    })
+    @hasMany(() => Children, {keyTo: 'topic_id', keyFrom: "id"})
     childrens?: Children[];
 
     @field(() => [Parent], {nullable: true})
-    @hasMany(() => Parent, {
-        through: {
-            model: () => TopicParent,
-        }
-    })
+    @hasMany(() => Parent, {keyTo: 'topic_id', keyFrom: "id"})
     parents?: Parent[];
 }

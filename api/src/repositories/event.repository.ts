@@ -48,7 +48,22 @@ export class EventRepository
 
   async getAll() {
     return this.find({
-      include: [{relation: "location"}]
+      include: [{
+        relation: "location",
+        scope: {
+          include: [{
+            relation: 'rooms',
+            scope: {
+              include: [{
+                relation: 'talks',
+                scope: {
+                  include: [{relation: 'topics'}],
+                },
+              }],
+            },
+          }],
+        },
+      }]
     });
   }
 

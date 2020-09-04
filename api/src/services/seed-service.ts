@@ -7,7 +7,6 @@ import {
     PersonRepository,
     TalkRepository,
     TopicRepository,
-    TopicChildrenRepository,
     EventRepository,
     LocationRepository
 } from '../repositories';
@@ -17,6 +16,7 @@ import {sampleRoom} from "../seed-data/room";
 import {sampleTopic} from "../seed-data/topic";
 import {sampleChildren} from "../seed-data/children";
 import {sampleParent} from "../seed-data/parent";
+import {ParentRepository} from "../repositories/parent.repository";
 
 @bind({scope: BindingScope.TRANSIENT})
 export class SeedService {
@@ -27,14 +27,14 @@ export class SeedService {
       protected organizationRepository: OrganizationRepository,
       @repository('ChildrenRepository')
       protected childrenRepository: ChildrenRepository,
+      @repository('ParentRepository')
+      protected parentRepository: ParentRepository,
       @repository('PersonRepository')
       protected personRepository: PersonRepository,
       @repository('TalkRepository')
       protected talkRepository: TalkRepository,
       @repository('TopicRepository')
       protected topicRepository: TopicRepository,
-      @repository('TopicChildrenRepository')
-      protected topicChildrenRepository: TopicChildrenRepository,
       @repository('EventRepository')
       protected eventRepository: EventRepository,
       @repository('LocationRepository')
@@ -88,14 +88,14 @@ export class SeedService {
   }
   async createChildren() {
       // Create Children
-      const find = await this.topicRepository.find();
+      const find = await this.childrenRepository.find();
       if(find.length === 0)
-      await this.topicRepository.createAll(sampleChildren)
+      await this.childrenRepository.createAll(sampleChildren)
   }
   async createParent() {
       // Create Parent
-      const find = await this.topicRepository.find();
+      const find = await this.parentRepository.find();
       if(find.length === 0)
-      await this.topicRepository.createAll(sampleParent)
+      await this.parentRepository.createAll(sampleParent)
   }
 }

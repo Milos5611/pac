@@ -1,5 +1,3 @@
-import {arg, mutation, query, resolver, Ctx} from '../../module/graphql';
-import {ResolverData, GraphQLBindings} from "../../module/graphql"
 import {repository} from '@loopback/repository';
 import {EventInput} from '../graphql-types/event/event-input';
 import {Event} from '../graphql-types/event/event-type';
@@ -8,6 +6,7 @@ import {inject} from "@loopback/core";
 import {ContextTypes} from "../helper";
 import {parseToken} from "../helper/util";
 import {EventFilter} from "../graphql-types/event/event-filter";
+import {arg, Ctx, GraphQLBindings, mutation, query, resolver, ResolverData} from "@loopback/graphql";
 
 export interface IFilter {
   start_date: string

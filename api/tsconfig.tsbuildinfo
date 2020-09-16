@@ -1426,6 +1426,11 @@
         "signature": "cc6b0bb8a9bcef9e4ea2ad21af259393935fe6bf0e50f22719b3e57877a3ad2c",
         "affectsGlobalScope": false
       },
+      "./node_modules/@loopback/rest/node_modules/@types/serve-static/index.d.ts": {
+        "version": "5b56da2c458a9522dbfec8ee94287abe037f52fc9dea766d87bd9aaf100cf14f",
+        "signature": "5b56da2c458a9522dbfec8ee94287abe037f52fc9dea766d87bd9aaf100cf14f",
+        "affectsGlobalScope": false
+      },
       "./node_modules/@loopback/rest/dist/router/router-spec.d.ts": {
         "version": "35fe3b683af14d3a28f91ddb985a5eb0b1aba18b7a424091d7ef163bdf8fd297",
         "signature": "35fe3b683af14d3a28f91ddb985a5eb0b1aba18b7a424091d7ef163bdf8fd297",
@@ -1447,13 +1452,13 @@
         "affectsGlobalScope": false
       },
       "./node_modules/@loopback/rest/dist/sequence.d.ts": {
-        "version": "d86ac7458de1953aef511943625ceb39c0b85c7723f5d6e8bba8c8b5dc31ecd8",
-        "signature": "d86ac7458de1953aef511943625ceb39c0b85c7723f5d6e8bba8c8b5dc31ecd8",
+        "version": "ea94517838a5421772f5f1c99fc9f8f9c04af035300f39d269533bd5f4959a38",
+        "signature": "ea94517838a5421772f5f1c99fc9f8f9c04af035300f39d269533bd5f4959a38",
         "affectsGlobalScope": false
       },
       "./node_modules/@loopback/rest/dist/rest.server.d.ts": {
-        "version": "e05bc7ffe46f66a22e835e1e0202cf3432ffbd23dab4879951911560e885e717",
-        "signature": "e05bc7ffe46f66a22e835e1e0202cf3432ffbd23dab4879951911560e885e717",
+        "version": "4b2e738917b8dbec426d5c94096a2b073fa0bedb7468ddf2cc30a673f55ed98f",
+        "signature": "4b2e738917b8dbec426d5c94096a2b073fa0bedb7468ddf2cc30a673f55ed98f",
         "affectsGlobalScope": false
       },
       "./node_modules/@loopback/rest/dist/request-context.d.ts": {
@@ -1517,8 +1522,8 @@
         "affectsGlobalScope": false
       },
       "./node_modules/@loopback/rest/dist/types.d.ts": {
-        "version": "c6a0fa3304bcaee68e73a3b2c2ea67d26c51cd823123337162e5d316a6658764",
-        "signature": "c6a0fa3304bcaee68e73a3b2c2ea67d26c51cd823123337162e5d316a6658764",
+        "version": "9ba78cb52230d2a001d850c1e884d1c9c322c44de314223c84e1da9b2e044c3f",
+        "signature": "9ba78cb52230d2a001d850c1e884d1c9c322c44de314223c84e1da9b2e044c3f",
         "affectsGlobalScope": false
       },
       "./node_modules/@loopback/rest/dist/body-parsers/types.d.ts": {
@@ -1572,8 +1577,8 @@
         "affectsGlobalScope": false
       },
       "./node_modules/@loopback/rest/dist/keys.d.ts": {
-        "version": "d6a54aafdd32c186ce080b01eced0444e6d2b42498d912024e4f5058343986aa",
-        "signature": "d6a54aafdd32c186ce080b01eced0444e6d2b42498d912024e4f5058343986aa",
+        "version": "432e37d133401250da8ae549bfb7a95d816836185756edda9530f0701f5bb840",
+        "signature": "432e37d133401250da8ae549bfb7a95d816836185756edda9530f0701f5bb840",
         "affectsGlobalScope": false
       },
       "./node_modules/@loopback/rest/dist/parse-json.d.ts": {
@@ -1582,18 +1587,18 @@
         "affectsGlobalScope": false
       },
       "./node_modules/@loopback/rest/dist/parser.d.ts": {
-        "version": "d67a7c4d69fd114b222c9762f935420bad6052531340b82c22d3c9cf72254659",
-        "signature": "d67a7c4d69fd114b222c9762f935420bad6052531340b82c22d3c9cf72254659",
+        "version": "f9494d930b4f528799fceab9cf64c49cd92ea323def42b4149a893a94f52bcec",
+        "signature": "f9494d930b4f528799fceab9cf64c49cd92ea323def42b4149a893a94f52bcec",
         "affectsGlobalScope": false
       },
       "./node_modules/@loopback/rest/dist/providers/find-route.provider.d.ts": {
-        "version": "ae35494147e9e0919bf74aa2718462b3aef3b45f3734946ff25631ac762a5893",
-        "signature": "ae35494147e9e0919bf74aa2718462b3aef3b45f3734946ff25631ac762a5893",
+        "version": "aa1fd34292c6f7a8b8cd780282e5e2c0a6043cb8286936258a9f221adb39378f",
+        "signature": "aa1fd34292c6f7a8b8cd780282e5e2c0a6043cb8286936258a9f221adb39378f",
         "affectsGlobalScope": false
       },
       "./node_modules/@loopback/rest/dist/providers/invoke-method.provider.d.ts": {
-        "version": "62f0902facf2eed328903f73006e2a8f1333aeac2d623468c4ed10f2429ae58f",
-        "signature": "62f0902facf2eed328903f73006e2a8f1333aeac2d623468c4ed10f2429ae58f",
+        "version": "196fceb8b65059da35db9ba0bca00abb211cd695a2250612777e9f195f91c3b7",
+        "signature": "196fceb8b65059da35db9ba0bca00abb211cd695a2250612777e9f195f91c3b7",
         "affectsGlobalScope": false
       },
       "./node_modules/@loopback/rest/dist/providers/log-error.provider.d.ts": {
@@ -1602,8 +1607,8 @@
         "affectsGlobalScope": false
       },
       "./node_modules/@loopback/rest/dist/providers/parse-params.provider.d.ts": {
-        "version": "1773dd80bb3756b23e303117e6c0b1c39eacafe1818ee68b7a5a48de313e03e5",
-        "signature": "1773dd80bb3756b23e303117e6c0b1c39eacafe1818ee68b7a5a48de313e03e5",
+        "version": "66bcb0c6e763f851b90992eedb6c20337e5bfeb1061618a1ba2b9554276790e8",
+        "signature": "66bcb0c6e763f851b90992eedb6c20337e5bfeb1061618a1ba2b9554276790e8",
         "affectsGlobalScope": false
       },
       "./node_modules/@loopback/rest/dist/providers/reject.provider.d.ts": {
@@ -1617,8 +1622,8 @@
         "affectsGlobalScope": false
       },
       "./node_modules/@loopback/rest/dist/providers/send.provider.d.ts": {
-        "version": "f617bb9cc6d4e916f067fd2983a81f822c246ef758d18f55a617e32c8511a62c",
-        "signature": "f617bb9cc6d4e916f067fd2983a81f822c246ef758d18f55a617e32c8511a62c",
+        "version": "38ce765891e2b9eb83845d478bfe8bfead660630a8636a2395d2f5dc43f0c2eb",
+        "signature": "38ce765891e2b9eb83845d478bfe8bfead660630a8636a2395d2f5dc43f0c2eb",
         "affectsGlobalScope": false
       },
       "./node_modules/@loopback/rest/dist/providers/index.d.ts": {
@@ -1627,8 +1632,8 @@
         "affectsGlobalScope": false
       },
       "./node_modules/@loopback/rest/dist/rest-http-error.d.ts": {
-        "version": "7442acf4628d662f8cddce81b3412de463f761921e3d9e4b69ceefda021809d5",
-        "signature": "7442acf4628d662f8cddce81b3412de463f761921e3d9e4b69ceefda021809d5",
+        "version": "82b252d3809711631631b9c38fb87324fd335b8601a07456596a8c9699536fc4",
+        "signature": "82b252d3809711631631b9c38fb87324fd335b8601a07456596a8c9699536fc4",
         "affectsGlobalScope": false
       },
       "./node_modules/@loopback/rest/dist/rest.application.d.ts": {
@@ -1637,8 +1642,8 @@
         "affectsGlobalScope": false
       },
       "./node_modules/@loopback/rest/dist/rest.component.d.ts": {
-        "version": "ef9d9808f357de97c3d2663508e037b47e5143bd2ae05025e8bd5268ff0e3d3f",
-        "signature": "ef9d9808f357de97c3d2663508e037b47e5143bd2ae05025e8bd5268ff0e3d3f",
+        "version": "319c79e4d2631bb74bf2f337c1c7e5973c3ffea0c4f9e13326d6b495efde1198",
+        "signature": "319c79e4d2631bb74bf2f337c1c7e5973c3ffea0c4f9e13326d6b495efde1198",
         "affectsGlobalScope": false
       },
       "./node_modules/@loopback/rest/dist/spec-enhancers/info.spec-enhancer.d.ts": {
@@ -1647,8 +1652,8 @@
         "affectsGlobalScope": false
       },
       "./node_modules/@loopback/rest/dist/validation/request-body.validator.d.ts": {
-        "version": "5399af22bca217a720a067ef2ff49012130cc49217c3c115222398cc76f95f44",
-        "signature": "5399af22bca217a720a067ef2ff49012130cc49217c3c115222398cc76f95f44",
+        "version": "5199671fd160a0ec7317ea3a6aca3db13191f9ff4fec6e1c324fa11ccecb46f0",
+        "signature": "5199671fd160a0ec7317ea3a6aca3db13191f9ff4fec6e1c324fa11ccecb46f0",
         "affectsGlobalScope": false
       },
       "./node_modules/@loopback/rest/dist/index.d.ts": {
@@ -1679,6 +1684,86 @@
       "./node_modules/@loopback/extension-metrics/dist/index.d.ts": {
         "version": "91b2c65b5aa97cb96faa2baf5db8b450d6322542ea0f51f3d884d5c3f692c7bf",
         "signature": "91b2c65b5aa97cb96faa2baf5db8b450d6322542ea0f51f3d884d5c3f692c7bf",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/dotenv/types/index.d.ts": {
+        "version": "c9ae0b351a07b52f29a28e869d8c7c8d29743bbb5eeddc7c0b5b2a69a2450528",
+        "signature": "c9ae0b351a07b52f29a28e869d8c7c8d29743bbb5eeddc7c0b5b2a69a2450528",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/dotenv-extended/dotenv-extended.d.ts": {
+        "version": "eff8a737b1deb418817dbc788e62f89db0ee8adca68643f15c757ea81480132e",
+        "signature": "eff8a737b1deb418817dbc788e62f89db0ee8adca68643f15c757ea81480132e",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/extension-logging/dist/decorators/logging.decorator.d.ts": {
+        "version": "ba8fe11e20a4583d7adafbd3f1c01a1d34f584d7eaf45fb3135943623ba8ec05",
+        "signature": "ba8fe11e20a4583d7adafbd3f1c01a1d34f584d7eaf45fb3135943623ba8ec05",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/extension-logging/dist/decorators/index.d.ts": {
+        "version": "3ad1865fd328c1498a8d715152d0b21cc622ca69adf8221239110f570e671252",
+        "signature": "3ad1865fd328c1498a8d715152d0b21cc622ca69adf8221239110f570e671252",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/fluent-logger/lib/index.d.ts": {
+        "version": "a60128614d5bde1175b2948fd88d19328d392e30a7c4be54fb8c6c9868c19792",
+        "signature": "a60128614d5bde1175b2948fd88d19328d392e30a7c4be54fb8c6c9868c19792",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/logform/index.d.ts": {
+        "version": "89c631193ed616083e1ee16611dae34d719029b77274680d0f00dbf3bb8ba998",
+        "signature": "89c631193ed616083e1ee16611dae34d719029b77274680d0f00dbf3bb8ba998",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/winston-transport/index.d.ts": {
+        "version": "d667ec244bc8f65d0ac176f7ea91ef9e2904e7aa10923fbbe843d19f1270593b",
+        "signature": "d667ec244bc8f65d0ac176f7ea91ef9e2904e7aa10923fbbe843d19f1270593b",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/extension-logging/dist/logging.component.d.ts": {
+        "version": "b3aa8d6b5a80e787d61f74e16b846a3570ba3882676ed0a59bf682e4f0d708ee",
+        "signature": "b3aa8d6b5a80e787d61f74e16b846a3570ba3882676ed0a59bf682e4f0d708ee",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/winston/lib/winston/config/index.d.ts": {
+        "version": "e9c33c05be71c17c3b08988fe6755605632a09c5cdd267cede8de5558ec80027",
+        "signature": "e9c33c05be71c17c3b08988fe6755605632a09c5cdd267cede8de5558ec80027",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/winston/lib/winston/transports/index.d.ts": {
+        "version": "3fb6de4789fba0473c4877a4ef4ee002902ccef2b04f620caf2313e4d1b2aecc",
+        "signature": "3fb6de4789fba0473c4877a4ef4ee002902ccef2b04f620caf2313e4d1b2aecc",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/winston/index.d.ts": {
+        "version": "e7c0503e5da78c978e6b9c43dc5728312fa9e19943fd392eca047739e348f283",
+        "signature": "e7c0503e5da78c978e6b9c43dc5728312fa9e19943fd392eca047739e348f283",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/extension-logging/dist/winston.d.ts": {
+        "version": "0994ef871e9203b2600d4ad61fb6ba913a8c19c4ea9983fd86ef536bfc700141",
+        "signature": "0994ef871e9203b2600d4ad61fb6ba913a8c19c4ea9983fd86ef536bfc700141",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/extension-logging/dist/keys.d.ts": {
+        "version": "f1be01c15fe60fe5e22ab19ce55de3c6aad5abb38ca36aef345be30c510613af",
+        "signature": "f1be01c15fe60fe5e22ab19ce55de3c6aad5abb38ca36aef345be30c510613af",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/extension-logging/dist/index.d.ts": {
+        "version": "08346d5d40fcd22d5c1c15a3456bc187d90a25393d3e88c05588c630538fa07d",
+        "signature": "08346d5d40fcd22d5c1c15a3456bc187d90a25393d3e88c05588c630538fa07d",
+        "affectsGlobalScope": false
+      },
+      "./src/datasources/conference.datasource.ts": {
+        "version": "b01ac120fef9d0b7bf7d4675df3ceaa78cbb93ca1a3ed6ec2a67baf6dae71c1a",
+        "signature": "6366cc00b54bb13e34b3448ef53f17c62038e94e9d64d8f962d238d3f230859f",
+        "affectsGlobalScope": false
+      },
+      "./src/datasources/index.ts": {
+        "version": "207492d26015901e9b5e7ca757946d26c099158f4b1be829f3bf6809ada5f6fd",
+        "signature": "207492d26015901e9b5e7ca757946d26c099158f4b1be829f3bf6809ada5f6fd",
         "affectsGlobalScope": false
       },
       "./node_modules/graphql/version.d.ts": {
@@ -2661,24 +2746,29 @@
         "signature": "86ba810f782b1c70750b3b1ddcb32edea02ad0c516e10ed79c59f3015d195444",
         "affectsGlobalScope": false
       },
-      "./module/graphql/decorators/index.d.ts": {
-        "version": "06dc4bbe7387c9e8455ddaf6ce27924afd13d521798366172cdffe5d01e9d963",
-        "signature": "06dc4bbe7387c9e8455ddaf6ce27924afd13d521798366172cdffe5d01e9d963",
+      "./node_modules/@loopback/graphql/dist/decorators/index.d.ts": {
+        "version": "5df86b32d9c89e8590829b725561126c5713f0c9809150c1e6d335a72dd6f915",
+        "signature": "5df86b32d9c89e8590829b725561126c5713f0c9809150c1e6d335a72dd6f915",
         "affectsGlobalScope": false
       },
-      "./module/graphql/types.d.ts": {
-        "version": "1ab5d4ecd687345e91d65673119d1709ac336250987e2ebbe88f89a2112808d8",
-        "signature": "1ab5d4ecd687345e91d65673119d1709ac336250987e2ebbe88f89a2112808d8",
+      "./node_modules/@loopback/graphql/dist/graphql.component.d.ts": {
+        "version": "275b91102d9183084a0c53323322e3017f5c4b5965732c90d3adb2312f875b3f",
+        "signature": "275b91102d9183084a0c53323322e3017f5c4b5965732c90d3adb2312f875b3f",
         "affectsGlobalScope": false
       },
-      "./module/graphql/graphql.component.d.ts": {
-        "version": "a365ca1850ac16c2c1d3c4d362f75385df9dca72f95c5cf5aeabf3a8ee4a9de7",
-        "signature": "a365ca1850ac16c2c1d3c4d362f75385df9dca72f95c5cf5aeabf3a8ee4a9de7",
-        "affectsGlobalScope": false
-      },
-      "./module/graphql/graphql.container.d.ts": {
+      "./node_modules/@loopback/graphql/dist/graphql.container.d.ts": {
         "version": "a0f22d2d30f20630e861a4338f9c228fd31ed81aab20c0719dc0cba15ec005c2",
         "signature": "a0f22d2d30f20630e861a4338f9c228fd31ed81aab20c0719dc0cba15ec005c2",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/graphql/node_modules/@loopback/http-server/dist/http-server.d.ts": {
+        "version": "5017bb38141b84e51e252c95b89639e0c0eda1c2a5c7a9528e38b3f3afd1ed0d",
+        "signature": "5017bb38141b84e51e252c95b89639e0c0eda1c2a5c7a9528e38b3f3afd1ed0d",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/graphql/node_modules/@loopback/http-server/dist/index.d.ts": {
+        "version": "9b02c5fc7ee15fbb88b9a767f810aa82251dc29eb331c66e4f82c67c8ee31b9b",
+        "signature": "9b02c5fc7ee15fbb88b9a767f810aa82251dc29eb331c66e4f82c67c8ee31b9b",
         "affectsGlobalScope": false
       },
       "./node_modules/apollo-server-env/dist/fetch.d.ts": {
@@ -3891,143 +3981,68 @@
         "signature": "77c71787c70625318099c6eadfc0a0f472ba9b3b37a1fc2fb2701b341394f616",
         "affectsGlobalScope": false
       },
-      "./module/graphql/graphql.server.d.ts": {
-        "version": "92cb47bd69dc97c4b5d6488a7844b3cf3f9dd03b411460f14e3f71d611606808",
-        "signature": "92cb47bd69dc97c4b5d6488a7844b3cf3f9dd03b411460f14e3f71d611606808",
+      "./node_modules/@loopback/graphql/dist/types.d.ts": {
+        "version": "6e5cc6e065113f1507d823314da106fa3714468619015c38f81cdb6009ee7fd3",
+        "signature": "6e5cc6e065113f1507d823314da106fa3714468619015c38f81cdb6009ee7fd3",
         "affectsGlobalScope": false
       },
-      "./module/graphql/keys.d.ts": {
-        "version": "5179876d16495f92489c5ddd582ad605338ed74e820b463bac73c8522b543465",
-        "signature": "5179876d16495f92489c5ddd582ad605338ed74e820b463bac73c8522b543465",
+      "./node_modules/@loopback/graphql/dist/graphql.server.d.ts": {
+        "version": "730904091248e220ce10f6777aa2b8e000e7d6544c56c505dc5001894b0cd8ed",
+        "signature": "730904091248e220ce10f6777aa2b8e000e7d6544c56c505dc5001894b0cd8ed",
         "affectsGlobalScope": false
       },
-      "./module/graphql/index.d.ts": {
+      "./node_modules/@loopback/graphql/dist/keys.d.ts": {
+        "version": "575813a6e6e23d3a47f8f601a750a36f4926395b6eb5efca38072b61b3e6884c",
+        "signature": "575813a6e6e23d3a47f8f601a750a36f4926395b6eb5efca38072b61b3e6884c",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/graphql/dist/index.d.ts": {
         "version": "fff7f22a870781dba40b10b9ca90c5c000e1b79dd1b5f5fba1b488c6c6fadc7a",
         "signature": "fff7f22a870781dba40b10b9ca90c5c000e1b79dd1b5f5fba1b488c6c6fadc7a",
         "affectsGlobalScope": false
       },
-      "./node_modules/dotenv/types/index.d.ts": {
-        "version": "c9ae0b351a07b52f29a28e869d8c7c8d29743bbb5eeddc7c0b5b2a69a2450528",
-        "signature": "c9ae0b351a07b52f29a28e869d8c7c8d29743bbb5eeddc7c0b5b2a69a2450528",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/dotenv-extended/dotenv-extended.d.ts": {
-        "version": "eff8a737b1deb418817dbc788e62f89db0ee8adca68643f15c757ea81480132e",
-        "signature": "eff8a737b1deb418817dbc788e62f89db0ee8adca68643f15c757ea81480132e",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/@loopback/extension-logging/dist/decorators/logging.decorator.d.ts": {
-        "version": "ba8fe11e20a4583d7adafbd3f1c01a1d34f584d7eaf45fb3135943623ba8ec05",
-        "signature": "ba8fe11e20a4583d7adafbd3f1c01a1d34f584d7eaf45fb3135943623ba8ec05",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/@loopback/extension-logging/dist/decorators/index.d.ts": {
-        "version": "3ad1865fd328c1498a8d715152d0b21cc622ca69adf8221239110f570e671252",
-        "signature": "3ad1865fd328c1498a8d715152d0b21cc622ca69adf8221239110f570e671252",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/fluent-logger/lib/index.d.ts": {
-        "version": "a60128614d5bde1175b2948fd88d19328d392e30a7c4be54fb8c6c9868c19792",
-        "signature": "a60128614d5bde1175b2948fd88d19328d392e30a7c4be54fb8c6c9868c19792",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/logform/index.d.ts": {
-        "version": "89c631193ed616083e1ee16611dae34d719029b77274680d0f00dbf3bb8ba998",
-        "signature": "89c631193ed616083e1ee16611dae34d719029b77274680d0f00dbf3bb8ba998",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/winston-transport/index.d.ts": {
-        "version": "d667ec244bc8f65d0ac176f7ea91ef9e2904e7aa10923fbbe843d19f1270593b",
-        "signature": "d667ec244bc8f65d0ac176f7ea91ef9e2904e7aa10923fbbe843d19f1270593b",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/@loopback/extension-logging/dist/logging.component.d.ts": {
-        "version": "b3aa8d6b5a80e787d61f74e16b846a3570ba3882676ed0a59bf682e4f0d708ee",
-        "signature": "b3aa8d6b5a80e787d61f74e16b846a3570ba3882676ed0a59bf682e4f0d708ee",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/winston/lib/winston/config/index.d.ts": {
-        "version": "e9c33c05be71c17c3b08988fe6755605632a09c5cdd267cede8de5558ec80027",
-        "signature": "e9c33c05be71c17c3b08988fe6755605632a09c5cdd267cede8de5558ec80027",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/winston/lib/winston/transports/index.d.ts": {
-        "version": "3fb6de4789fba0473c4877a4ef4ee002902ccef2b04f620caf2313e4d1b2aecc",
-        "signature": "3fb6de4789fba0473c4877a4ef4ee002902ccef2b04f620caf2313e4d1b2aecc",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/winston/index.d.ts": {
-        "version": "e7c0503e5da78c978e6b9c43dc5728312fa9e19943fd392eca047739e348f283",
-        "signature": "e7c0503e5da78c978e6b9c43dc5728312fa9e19943fd392eca047739e348f283",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/@loopback/extension-logging/dist/winston.d.ts": {
-        "version": "0994ef871e9203b2600d4ad61fb6ba913a8c19c4ea9983fd86ef536bfc700141",
-        "signature": "0994ef871e9203b2600d4ad61fb6ba913a8c19c4ea9983fd86ef536bfc700141",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/@loopback/extension-logging/dist/keys.d.ts": {
-        "version": "f1be01c15fe60fe5e22ab19ce55de3c6aad5abb38ca36aef345be30c510613af",
-        "signature": "f1be01c15fe60fe5e22ab19ce55de3c6aad5abb38ca36aef345be30c510613af",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/@loopback/extension-logging/dist/index.d.ts": {
-        "version": "08346d5d40fcd22d5c1c15a3456bc187d90a25393d3e88c05588c630538fa07d",
-        "signature": "08346d5d40fcd22d5c1c15a3456bc187d90a25393d3e88c05588c630538fa07d",
-        "affectsGlobalScope": false
-      },
-      "./src/datasources/conference.datasource.ts": {
-        "version": "b01ac120fef9d0b7bf7d4675df3ceaa78cbb93ca1a3ed6ec2a67baf6dae71c1a",
-        "signature": "6366cc00b54bb13e34b3448ef53f17c62038e94e9d64d8f962d238d3f230859f",
-        "affectsGlobalScope": false
-      },
-      "./src/datasources/index.ts": {
-        "version": "207492d26015901e9b5e7ca757946d26c099158f4b1be829f3bf6809ada5f6fd",
-        "signature": "207492d26015901e9b5e7ca757946d26c099158f4b1be829f3bf6809ada5f6fd",
-        "affectsGlobalScope": false
-      },
       "./src/graphql-types/organization/organization-type.ts": {
-        "version": "49189b9c667a2e881a4c6525abf3759e872178e516769e5134422b42b8049595",
+        "version": "05bc2acdb23ee33854619a833c6c428c71a4510ddd137a9be77c8f00972b6378",
         "signature": "a0fb0d06705def52deded06a969279caa3189e342a5af90aeb073f24e05bc83e",
         "affectsGlobalScope": false
       },
       "./src/graphql-types/person/person-type.ts": {
-        "version": "6dab8403151d96249dbb004e7cbb12ac844275b537cb60c54c3d4d0948eebe4f",
+        "version": "987bc408242d43ed9255dd9c1357b03390843c4f460c9ffe1d55a803e66892bd",
         "signature": "d2e3e13dc2296aee227e847bfc995293e387305ba46c0ac7dd22beee86eb56ab",
         "affectsGlobalScope": false
       },
       "./src/graphql-types/children/children-type.ts": {
-        "version": "06f7d1d913b4696eb297ff1ba1fd823affd07691f3b413057d7359b412b16507",
+        "version": "4dad110f0db27c678f745ee16f4e56e1e8a91441fc2891da45ec3e3418c10144",
         "signature": "cb06c9109206d8f1fbca9e8f075466f967d946c647bf9d6b45c2e1505d9779b4",
         "affectsGlobalScope": false
       },
       "./src/graphql-types/parent/parent-type.ts": {
-        "version": "b2018cd477d4724a633676df1467fea119be598489ccef96d01d62c4bdb5857e",
+        "version": "36bfbeffb0a24daa11ff579043d9cc904cee641678d4788ee3b77c497bc692ae",
         "signature": "9b101536adb80143ca176985fb1b1a2f5fce355b79170abb98a1f772b8357f23",
         "affectsGlobalScope": false
       },
       "./src/graphql-types/topic/topic-type.ts": {
-        "version": "6d2b2511e5dcd3fed81add9b6a1f2f661f18b662b182b3cf960375c66d00e4e8",
+        "version": "d5c323dd58c8090f4afa235333ccf4ff94262c393a7b33507103c922d8bdc8d3",
         "signature": "de615a200e9c0b487786cbebf5b856ca2944ae46475087eba63c0bad41070f08",
         "affectsGlobalScope": false
       },
       "./src/graphql-types/talk/talk-type.ts": {
-        "version": "6a133e3ab3bf8b33c6a5fcd1cc418f1a69cd8c755666045a3297d240ed54a70e",
+        "version": "363b2df6d741eaf351d87aa5447fa751a2b5d165f18e54dd0a93cdcfe2b03753",
         "signature": "0632cc42e79956e5128cdcd4e0437d2a497c52c53693cf86d13e12add4c1b556",
         "affectsGlobalScope": false
       },
       "./src/graphql-types/room/room-type.ts": {
-        "version": "b16f7e7e42a94071862329813b43f09af7aebbcc535e540673ebfd53c98a74a7",
+        "version": "ee21816b81f40f0b7fa5cc32299b5bc88c58c37707e52e829d5f7ca5a2a96526",
         "signature": "d4fc1c3c3aeb9e7c48f23fe5f78d0e94e7842ae774fcec8520e367129247567a",
         "affectsGlobalScope": false
       },
       "./src/graphql-types/location/location-type.ts": {
-        "version": "dd51e182f1109f9d41f2595a0ce4cf7e5e26810e2ed3218fd08756458a54f71e",
+        "version": "0176afbedf562f57ac692917af28b04febf7139c1ed3b6f349c4897298f829eb",
         "signature": "42903f80dcd353fdcb69d94f4e4864d04ea510a9a94e0232dd0688fc77e0f75e",
         "affectsGlobalScope": false
       },
       "./src/graphql-types/event/event-type.ts": {
-        "version": "faf6ac150fbde825aa5246391d07ff581777974ab2f418b4b3f37b1adba83c4b",
+        "version": "d2f22737128d0c2b2a3a6994450432d455283c0bc98e3ffaa941da927760f8b3",
         "signature": "f79e26b053375354a23122b0a0de3dca3c3f7eb06f3c403caca8bdfcb3edf934",
         "affectsGlobalScope": false
       },
@@ -4067,7 +4082,7 @@
         "affectsGlobalScope": false
       },
       "./src/graphql-types/event/event-input.ts": {
-        "version": "cfc0c7f3485d7ae99bf6a8a7033dbfe2f316f9e2b8913c354778d01c0951189c",
+        "version": "647d4991fe5fd9cab12d9c77341ae77ba866bc8a1f45025880a1c32c4c6db371",
         "signature": "f3a2d509105c5d425433d1d11fc9c78343b725358b32827c406eed0f8d7c1d8a",
         "affectsGlobalScope": false
       },
@@ -4077,27 +4092,27 @@
         "affectsGlobalScope": false
       },
       "./src/graphql-types/location/location-input.ts": {
-        "version": "13fb067dba665bf64be7b0055c0635ec22cd001451012ce3f241fd2481b10acf",
+        "version": "0492ad27bbebc4d92c5ea26d6882c8be20fa4449b2191d3b5b716b6248e4a68e",
         "signature": "9c0e6408a002b192514d0d75aed6af509069c1851c8172d7e3e753367961223d",
         "affectsGlobalScope": false
       },
       "./src/graphql-types/room/room-input.ts": {
-        "version": "cf1e209aa1f305739f134eb6c937ae75f47d80d47339d3e1cf895f6c1491e292",
+        "version": "de91a909c66abd8e11a5e9f2b1ac5a61eacb6c5558b3d6f5862176221a3bf269",
         "signature": "a541dfdeb81e3ba9b7851e917902fde160b0c71659b93d08b1cebc232407e55a",
         "affectsGlobalScope": false
       },
       "./src/graphql-types/talk/talk-input.ts": {
-        "version": "3e8ec5bb366c2a4f7eba95da339de5e7b61a64d0c2d0a0125fc6b8b18760ccb2",
+        "version": "7e33a58cebbce125c4717e1ef39ef141d5eb56def75b47f9f7abab7ffbfaf69e",
         "signature": "b14b597e0c3048b959a0e728601cc1552f5360ecb06d9625098196c6a5b72a74",
         "affectsGlobalScope": false
       },
       "./src/graphql-types/topic/topic-input.ts": {
-        "version": "cc05bcee4a087fe0ffef7031ec158f1bdedfb2e4c74f837c03251ab6b4e5c2f1",
+        "version": "54e88dd1fd819eee8615979fb3a528109bde0ad436800cb5c78a95ecfb83021c",
         "signature": "58f03145f238e5d25a4e567263cf470b8b09c0131077425268ff22fb5a0a4ee6",
         "affectsGlobalScope": false
       },
       "./src/graphql-types/children/children-input.ts": {
-        "version": "0306408235676b2530f80bf3cc8efc86069ed9303ffd3616e70f21d2d4e62c48",
+        "version": "3adb92f83b7859c063f944920dbe0cef51d135c2112bcfabddeb1854127a01d6",
         "signature": "5ed5173d922492e4a3cbf2bf16251eddebd0c939c9cfc411edd30c64e63ae6fb",
         "affectsGlobalScope": false
       },
@@ -4107,7 +4122,7 @@
         "affectsGlobalScope": false
       },
       "./src/graphql-types/parent/parent-input.ts": {
-        "version": "3c496b714647ce362be903e6290d94864b67515e0cd462983d29098987f4dea6",
+        "version": "5318c7233f365382a981115d49da1a03c1863ee51b907fdf52d69573cff85eb3",
         "signature": "173489267af1b59191dd663bbfc29153209862a491e3f38c6417169e6467b580",
         "affectsGlobalScope": false
       },
@@ -4162,22 +4177,22 @@
         "affectsGlobalScope": false
       },
       "./src/graphql-types/event/event-filter.ts": {
-        "version": "f4abba00cac2ff4b80a79e9a30778291a7e8283a96590709a20539a9c9142355",
+        "version": "5ac5fb1e20370125a24571a390b3d33318900f602b9b6638649c8fce6f2773e0",
         "signature": "c42c14f5f97575577bb0c305a215452ce52d155546d541a1972aa4d5e55feb8d",
         "affectsGlobalScope": false
       },
       "./src/graphql-resolvers/event-resolver.ts": {
-        "version": "f4b60c7ca11dd1d05850197e2b461c2d0485e13e9e8875f5cc64c7abba6c1b84",
-        "signature": "73c6149e9ad1a57c2a6f9bad1511898750839d7714d64fe5d966ece42445c193",
+        "version": "4f152638a67fd3fc55287a180f277269543075c35f72489d7de3b5c5f6b0fa01",
+        "signature": "e4b07ac2f7e97a9010a3943dbc431f936060a224fffd7655ca24a73fe1a02989",
         "affectsGlobalScope": false
       },
       "./src/repositories/event.repository.ts": {
-        "version": "a7d4a904ecf7663219f40c313d7b1089f6fb13532f2125a18641ca7f72dc74a3",
+        "version": "57953dba4d9870742c51db12ee0e0885ef016c447c129387f8c43c2cac7e6828",
         "signature": "3bbf277ced60e2ec18f2d745b4cfb95bd38dc80c22d33898f086586c91f310d7",
         "affectsGlobalScope": false
       },
       "./src/graphql-types/organization/organization-input.ts": {
-        "version": "cdaa15c6b09d77caf1324c7df58b56fec3da6259fa132b10f023a6708fe078b1",
+        "version": "c4f23c910e4b88ce0f7b7d51f0af7d67d00df5ab4b54561c67ff3ff6964c330c",
         "signature": "f39fb84689105c96bf8c3bb39bf094cddb1b40107bea0d43c6bb65cf76ed852d",
         "affectsGlobalScope": false
       },
@@ -4187,7 +4202,7 @@
         "affectsGlobalScope": false
       },
       "./src/graphql-types/person/person-input.ts": {
-        "version": "c6e3612f2f23027132772d3d1a394edeb4bb0a34e511c4f80a80cc9c9640cf57",
+        "version": "d879ab92b097a90f331cb0b9180b858365d16b91ff3c5d0f3b61807e73adf0b6",
         "signature": "868f48c8b6e508d98bf5a8b48e41214107814484ec0301cbdf825033c8b7f75b",
         "affectsGlobalScope": false
       },
@@ -4282,7 +4297,7 @@
         "affectsGlobalScope": false
       },
       "./src/application.ts": {
-        "version": "58f9c1b225f343d0373f68f3098bbfe8d40ca09325831c8f3f886279e5bd191f",
+        "version": "8271f82f8f18ad5764df4ed6f153eb729742902495c3835d7a5e3f5447c13945",
         "signature": "dc25a440855f5fcf0bec25e08ca478e848aba80554dc4394c425ae89843c73ef",
         "affectsGlobalScope": false
       },
@@ -4292,7 +4307,7 @@
         "affectsGlobalScope": false
       },
       "./src/index.ts": {
-        "version": "758a737f11abe17f48d41340e1ec985fb9c3d35f0941faeeb0f9f44bf7b077b5",
+        "version": "ee4c544a8a9d9fa6216b7b2fbe2ce79ece3d063c983db14c4ba6ceaccf9d18d9",
         "signature": "9b82cd14ab934e05f6787d750f0ccf042a05797b62d0790658a510a22be6964d",
         "affectsGlobalScope": false
       },
@@ -4304,6 +4319,241 @@
       "./src/openapi-spec.ts": {
         "version": "3f38e23a99ad09a655cbd854d7977c63bde996692c1acf3180dae12921e88970",
         "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/route-entry.d.ts": {
+        "version": "93744c6f5839ba426cc84119224d6b02a923675f92d69c4422acf6a32ea43fdc",
+        "signature": "93744c6f5839ba426cc84119224d6b02a923675f92d69c4422acf6a32ea43fdc",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/base-route.d.ts": {
+        "version": "96bd7f7c2f11e038d2d8214e0ca1450393d0b384c4cf77cc3a3e5bcde2230bde",
+        "signature": "96bd7f7c2f11e038d2d8214e0ca1450393d0b384c4cf77cc3a3e5bcde2230bde",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/controller-route.d.ts": {
+        "version": "6f7ad5dd4becad52d11cbbf007e57a71f295c6de5427dc98ae616df27be2a8ae",
+        "signature": "6f7ad5dd4becad52d11cbbf007e57a71f295c6de5427dc98ae616df27be2a8ae",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/handler-route.d.ts": {
+        "version": "cc6b0bb8a9bcef9e4ea2ad21af259393935fe6bf0e50f22719b3e57877a3ad2c",
+        "signature": "cc6b0bb8a9bcef9e4ea2ad21af259393935fe6bf0e50f22719b3e57877a3ad2c",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/router-spec.d.ts": {
+        "version": "35fe3b683af14d3a28f91ddb985a5eb0b1aba18b7a424091d7ef163bdf8fd297",
+        "signature": "35fe3b683af14d3a28f91ddb985a5eb0b1aba18b7a424091d7ef163bdf8fd297",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/external-express-routes.d.ts": {
+        "version": "fc9284c76dcb2c4a178a170e1b52c7a94d728a2a9a23c72c12c46e926c4dbac1",
+        "signature": "fc9284c76dcb2c4a178a170e1b52c7a94d728a2a9a23c72c12c46e926c4dbac1",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/http-handler.d.ts": {
+        "version": "6eb22969cddd93eb79bb351088d6bcc2e05e31d8ce3673e4fe3399276edfb7a5",
+        "signature": "6eb22969cddd93eb79bb351088d6bcc2e05e31d8ce3673e4fe3399276edfb7a5",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/sequence.d.ts": {
+        "version": "d86ac7458de1953aef511943625ceb39c0b85c7723f5d6e8bba8c8b5dc31ecd8",
+        "signature": "d86ac7458de1953aef511943625ceb39c0b85c7723f5d6e8bba8c8b5dc31ecd8",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/rest.server.d.ts": {
+        "version": "e05bc7ffe46f66a22e835e1e0202cf3432ffbd23dab4879951911560e885e717",
+        "signature": "e05bc7ffe46f66a22e835e1e0202cf3432ffbd23dab4879951911560e885e717",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/request-context.d.ts": {
+        "version": "61a1900be2e5404dace9cbae6c309ef8e847eba039965292ac1c2f60683ff3f6",
+        "signature": "61a1900be2e5404dace9cbae6c309ef8e847eba039965292ac1c2f60683ff3f6",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/redirect-route.d.ts": {
+        "version": "efbb37093ba5f320b9d6e246f10e0805b55396e99fc5c620cd88a3efdf50ae4e",
+        "signature": "efbb37093ba5f320b9d6e246f10e0805b55396e99fc5c620cd88a3efdf50ae4e",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/rest-router.d.ts": {
+        "version": "99577cced147f85fa1bab869d868c9c1d00d29de486db6c2462bdd97e5df1640",
+        "signature": "99577cced147f85fa1bab869d868c9c1d00d29de486db6c2462bdd97e5df1640",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/router-base.d.ts": {
+        "version": "04b5ecda261b590133a6c6e78340c68be6e07db39dd3988f36b566be588867e4",
+        "signature": "04b5ecda261b590133a6c6e78340c68be6e07db39dd3988f36b566be588867e4",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/trie-router.d.ts": {
+        "version": "d7c614b14a3f6b5d80c2b3d5edccc76b72183bb114951cc945d84de240579f36",
+        "signature": "d7c614b14a3f6b5d80c2b3d5edccc76b72183bb114951cc945d84de240579f36",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/regexp-router.d.ts": {
+        "version": "452aa7e3da59a5841fc5c773094ef7981209063d9657df442c3a77e56cdbf596",
+        "signature": "452aa7e3da59a5841fc5c773094ef7981209063d9657df442c3a77e56cdbf596",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/routing-table.d.ts": {
+        "version": "c762b2947931805eeab0ec1c1049b07fc842404d950c237e5312e898322d0f07",
+        "signature": "c762b2947931805eeab0ec1c1049b07fc842404d950c237e5312e898322d0f07",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/route-sort.d.ts": {
+        "version": "eeda33d6368be6990dac830564a7670122d4b30559c16562ed322dc3f7abfdb1",
+        "signature": "eeda33d6368be6990dac830564a7670122d4b30559c16562ed322dc3f7abfdb1",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/openapi-path.d.ts": {
+        "version": "8db1eb2502553a7b2a02c0277048702be4e20e6714b1b975cfdd27729d5eb9f5",
+        "signature": "8db1eb2502553a7b2a02c0277048702be4e20e6714b1b975cfdd27729d5eb9f5",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/trie.d.ts": {
+        "version": "2ca642c2ad1dcd0bb3b530a01cc84777f42325b850d0f8a79cc0c2f0ec6a784b",
+        "signature": "2ca642c2ad1dcd0bb3b530a01cc84777f42325b850d0f8a79cc0c2f0ec6a784b",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/index.d.ts": {
+        "version": "9d44b8b7aa9daf16f2a836bbd207eb9d9ba4ff4899acad27e3f4d2010a3dfdff",
+        "signature": "9d44b8b7aa9daf16f2a836bbd207eb9d9ba4ff4899acad27e3f4d2010a3dfdff",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts": {
+        "version": "c6a0fa3304bcaee68e73a3b2c2ea67d26c51cd823123337162e5d316a6658764",
+        "signature": "c6a0fa3304bcaee68e73a3b2c2ea67d26c51cd823123337162e5d316a6658764",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/types.d.ts": {
+        "version": "44630c311cf7d021674e5ecd5460a786280be12f1cffb2c3d26b22d1181caa23",
+        "signature": "44630c311cf7d021674e5ecd5460a786280be12f1cffb2c3d26b22d1181caa23",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/body-parser.d.ts": {
+        "version": "51740905bd2d4fd57bc1476168ca89e218722f9593c7b485689ac04bae24b9f4",
+        "signature": "51740905bd2d4fd57bc1476168ca89e218722f9593c7b485689ac04bae24b9f4",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/body-parser.helpers.d.ts": {
+        "version": "4f92c282676169a87bb1826071d1896959869570c09e9a8395b2294d42b28001",
+        "signature": "4f92c282676169a87bb1826071d1896959869570c09e9a8395b2294d42b28001",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/body-parser.json.d.ts": {
+        "version": "af735a7d9aa5d1d5373dbd740d68753720b3d32f8688ddd8308256b6c22fb8c6",
+        "signature": "af735a7d9aa5d1d5373dbd740d68753720b3d32f8688ddd8308256b6c22fb8c6",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/body-parser.raw.d.ts": {
+        "version": "05da551441e4dc760e3b717e122c1c16eefa0a213d508d1be2a93e6487409c49",
+        "signature": "05da551441e4dc760e3b717e122c1c16eefa0a213d508d1be2a93e6487409c49",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/body-parser.stream.d.ts": {
+        "version": "9e98f7bf491afbc89f4248125ac6e5ef4004214baa02f4117e9cab34302ecc43",
+        "signature": "9e98f7bf491afbc89f4248125ac6e5ef4004214baa02f4117e9cab34302ecc43",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/body-parser.text.d.ts": {
+        "version": "31299a81af6d8857c17731792ff973be096e7f37886f49a3b34dce694ce7951d",
+        "signature": "31299a81af6d8857c17731792ff973be096e7f37886f49a3b34dce694ce7951d",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/body-parser.urlencoded.d.ts": {
+        "version": "af922897145b1007f9b72c9bea915887f88d0d3e31cf759cbd08ea0130edc4ec",
+        "signature": "af922897145b1007f9b72c9bea915887f88d0d3e31cf759cbd08ea0130edc4ec",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/index.d.ts": {
+        "version": "76b3c9826707000380d2b78a37a4a38c229cbe5b14e54b7b7803db6724ae0e1c",
+        "signature": "76b3c9826707000380d2b78a37a4a38c229cbe5b14e54b7b7803db6724ae0e1c",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/keys.d.ts": {
+        "version": "d6a54aafdd32c186ce080b01eced0444e6d2b42498d912024e4f5058343986aa",
+        "signature": "d6a54aafdd32c186ce080b01eced0444e6d2b42498d912024e4f5058343986aa",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/parse-json.d.ts": {
+        "version": "1baf6f4649ff40b94725d519eef9701ed55d984241451e81435d8e8be39f391a",
+        "signature": "1baf6f4649ff40b94725d519eef9701ed55d984241451e81435d8e8be39f391a",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/parser.d.ts": {
+        "version": "d67a7c4d69fd114b222c9762f935420bad6052531340b82c22d3c9cf72254659",
+        "signature": "d67a7c4d69fd114b222c9762f935420bad6052531340b82c22d3c9cf72254659",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/providers/find-route.provider.d.ts": {
+        "version": "ae35494147e9e0919bf74aa2718462b3aef3b45f3734946ff25631ac762a5893",
+        "signature": "ae35494147e9e0919bf74aa2718462b3aef3b45f3734946ff25631ac762a5893",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/providers/invoke-method.provider.d.ts": {
+        "version": "62f0902facf2eed328903f73006e2a8f1333aeac2d623468c4ed10f2429ae58f",
+        "signature": "62f0902facf2eed328903f73006e2a8f1333aeac2d623468c4ed10f2429ae58f",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/providers/log-error.provider.d.ts": {
+        "version": "6ff6b455eeec4b1173adc6402be721a59327927ac07620e23cc1464ccc09f608",
+        "signature": "6ff6b455eeec4b1173adc6402be721a59327927ac07620e23cc1464ccc09f608",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/providers/parse-params.provider.d.ts": {
+        "version": "1773dd80bb3756b23e303117e6c0b1c39eacafe1818ee68b7a5a48de313e03e5",
+        "signature": "1773dd80bb3756b23e303117e6c0b1c39eacafe1818ee68b7a5a48de313e03e5",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/providers/reject.provider.d.ts": {
+        "version": "1fc619de1956d7823f6ec33aed3273e0e56f3a58753d95f586daa342b768c2ae",
+        "signature": "1fc619de1956d7823f6ec33aed3273e0e56f3a58753d95f586daa342b768c2ae",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/writer.d.ts": {
+        "version": "89eb209e86651be0e6da6cddb6c6c4c3e2f8878f2bd0afaf970b9caf827f7255",
+        "signature": "89eb209e86651be0e6da6cddb6c6c4c3e2f8878f2bd0afaf970b9caf827f7255",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/providers/send.provider.d.ts": {
+        "version": "f617bb9cc6d4e916f067fd2983a81f822c246ef758d18f55a617e32c8511a62c",
+        "signature": "f617bb9cc6d4e916f067fd2983a81f822c246ef758d18f55a617e32c8511a62c",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/providers/index.d.ts": {
+        "version": "1367218a467b625be9739cefa5a22b6ecc185e4efbc06012c1ec9c7bac5818bd",
+        "signature": "1367218a467b625be9739cefa5a22b6ecc185e4efbc06012c1ec9c7bac5818bd",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/rest-http-error.d.ts": {
+        "version": "7442acf4628d662f8cddce81b3412de463f761921e3d9e4b69ceefda021809d5",
+        "signature": "7442acf4628d662f8cddce81b3412de463f761921e3d9e4b69ceefda021809d5",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/rest.application.d.ts": {
+        "version": "7a57c389dc14776c77ec476458d5b911706fdcd38c7be63084fa3222d92b9adf",
+        "signature": "7a57c389dc14776c77ec476458d5b911706fdcd38c7be63084fa3222d92b9adf",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/rest.component.d.ts": {
+        "version": "ef9d9808f357de97c3d2663508e037b47e5143bd2ae05025e8bd5268ff0e3d3f",
+        "signature": "ef9d9808f357de97c3d2663508e037b47e5143bd2ae05025e8bd5268ff0e3d3f",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/spec-enhancers/info.spec-enhancer.d.ts": {
+        "version": "6cfb367aaa686f1b33ac37a9c26458344a2f228fa1f7624f0de50c308a18920a",
+        "signature": "6cfb367aaa686f1b33ac37a9c26458344a2f228fa1f7624f0de50c308a18920a",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/validation/request-body.validator.d.ts": {
+        "version": "5399af22bca217a720a067ef2ff49012130cc49217c3c115222398cc76f95f44",
+        "signature": "5399af22bca217a720a067ef2ff49012130cc49217c3c115222398cc76f95f44",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/index.d.ts": {
+        "version": "be4dbc47afac5f25848839f43d0b6e3438b7ec739b97e453c8cf71c9123b01b3",
+        "signature": "be4dbc47afac5f25848839f43d0b6e3438b7ec739b97e453c8cf71c9123b01b3",
         "affectsGlobalScope": false
       },
       "./node_modules/@loopback/security/dist/types.d.ts": {
@@ -4322,23 +4572,23 @@
         "affectsGlobalScope": false
       },
       "./node_modules/@loopback/authentication/dist/types.d.ts": {
-        "version": "a697bf72c9180416454200140d9fdc5aac27c32d5cfa36969f01db190521f872",
-        "signature": "a697bf72c9180416454200140d9fdc5aac27c32d5cfa36969f01db190521f872",
+        "version": "b2fbacf5df46275f342df53317d1ac1b8245d04ee7f617973efb8198dac196d4",
+        "signature": "b2fbacf5df46275f342df53317d1ac1b8245d04ee7f617973efb8198dac196d4",
         "affectsGlobalScope": false
       },
       "./node_modules/@loopback/authentication/dist/providers/auth-action.provider.d.ts": {
-        "version": "e44d7be5ec573451ded67d1ce8c72b970aadba7ae2b658b79e5954aac674eaa6",
-        "signature": "e44d7be5ec573451ded67d1ce8c72b970aadba7ae2b658b79e5954aac674eaa6",
+        "version": "8a272142cf745358dc29b8fed9121309000fb9d2379df41f99ab5cba3ba8fb0e",
+        "signature": "8a272142cf745358dc29b8fed9121309000fb9d2379df41f99ab5cba3ba8fb0e",
         "affectsGlobalScope": false
       },
       "./node_modules/@loopback/authentication/dist/providers/auth-metadata.provider.d.ts": {
-        "version": "7d88ed8c571d27165fa69e40707e067aa6ef12e3d46025a90e4845993988d2e5",
-        "signature": "7d88ed8c571d27165fa69e40707e067aa6ef12e3d46025a90e4845993988d2e5",
+        "version": "e8e3e8d58cb561b2443c050dced8944c8d75586dd2f848c770103fdd63f89cb2",
+        "signature": "e8e3e8d58cb561b2443c050dced8944c8d75586dd2f848c770103fdd63f89cb2",
         "affectsGlobalScope": false
       },
       "./node_modules/@loopback/authentication/dist/providers/auth-strategy.provider.d.ts": {
-        "version": "2fcd6fe97c6c826b59be9e9e0bade2ed7530f38fe0f44a945b711cdc545c194e",
-        "signature": "2fcd6fe97c6c826b59be9e9e0bade2ed7530f38fe0f44a945b711cdc545c194e",
+        "version": "381ea3241a572a1ccdf61872cb72c4cb914afbb4a61e1e923262c2e16a764482",
+        "signature": "381ea3241a572a1ccdf61872cb72c4cb914afbb4a61e1e923262c2e16a764482",
         "affectsGlobalScope": false
       },
       "./node_modules/@loopback/authentication/dist/providers/index.d.ts": {
@@ -4352,8 +4602,8 @@
         "affectsGlobalScope": false
       },
       "./node_modules/@loopback/authentication/dist/decorators/authenticate.decorator.d.ts": {
-        "version": "70e0271802d5fc9eb6d209e1e1343809531cd6117844aa5f25f9fdf6bca71c0d",
-        "signature": "70e0271802d5fc9eb6d209e1e1343809531cd6117844aa5f25f9fdf6bca71c0d",
+        "version": "eddde2b49d5ea8df3871c6333d3d50c13e0dc63c130a8883a356ebbe5fc91e35",
+        "signature": "eddde2b49d5ea8df3871c6333d3d50c13e0dc63c130a8883a356ebbe5fc91e35",
         "affectsGlobalScope": false
       },
       "./node_modules/@loopback/authentication/dist/decorators/index.d.ts": {
@@ -4362,8 +4612,8 @@
         "affectsGlobalScope": false
       },
       "./node_modules/@loopback/authentication/dist/keys.d.ts": {
-        "version": "369ab05e8a2258c30ad20ad6834e584c32d0c0aadeb56f1b331f4c7fb70c1fae",
-        "signature": "369ab05e8a2258c30ad20ad6834e584c32d0c0aadeb56f1b331f4c7fb70c1fae",
+        "version": "746c9f1c52a968867a3744ad8e9ed56b47f66f5876009228539803d7c20d3162",
+        "signature": "746c9f1c52a968867a3744ad8e9ed56b47f66f5876009228539803d7c20d3162",
         "affectsGlobalScope": false
       },
       "./node_modules/@loopback/authentication/dist/services/token.service.d.ts": {
@@ -4397,43 +4647,43 @@
         "affectsGlobalScope": false
       },
       "./src/graphql-resolvers/children-resolver.ts": {
-        "version": "e53de85510360fef5c4a3638d757ccf2082b191a132de820189fe85a51b3e7e3",
+        "version": "67d0d08649cb1dc86a5ee9097fe56aedeb850ba36fe7569733d3fc443909a50f",
         "signature": "281d88c6d69c4ded0e577182372c00be2b76f17a2031dbf5efee442855e3a17f",
         "affectsGlobalScope": false
       },
       "./src/graphql-resolvers/location-resolver.ts": {
-        "version": "331eebc8ab0418463951bf9e31cc38701a136f0f39b40dd90d292d4a3e53fbb8",
-        "signature": "adbfd2b76b7cf152ff89037b010e70613a5f1f551a3c4a41901af755eb594eab",
+        "version": "5fa12189a855b0e87808f3e70544af3b6c432a67f2a1c0bfb6321d2d5774aac0",
+        "signature": "d3f2b824277dc83f3dcd05a2febc4c0aba734469839bc2d0c131807fe49a0022",
         "affectsGlobalScope": false
       },
       "./src/graphql-resolvers/organization-resolver.ts": {
-        "version": "ef982a8ba2d0d7c0286df0a93085aaf9f8e6c6418b1e7e277c630d2a22f67774",
-        "signature": "66bf430f02a9c0906f1c518273894a6ab490bc673d9364b72174a4347f8b81e8",
+        "version": "f9be98a1fbd72a191bddbb5c730a64470c918d2fc6f33794c8560d90c0cf334c",
+        "signature": "30bf7a4c04b759c2216a4e13d546bc7c38792332e5a760c1d169c7eebb667349",
         "affectsGlobalScope": false
       },
       "./src/graphql-resolvers/parent-resolver.ts": {
-        "version": "5a9900469726585dc8b6218becfa271cf2c34f7fc89e99cbcfeb71d1a79f647d",
-        "signature": "6dfb2472ebacbf1d4c0a7669fed2c8bf663add73c8b8869471785e53183eec3a",
+        "version": "75c7c7c34723b50694125a0a48a06395026cd2ff12fb473d8966b55fe9e84fb8",
+        "signature": "cf80091b127a135b156159ba64077fb9267726ad33b261745260f7f5f32221c8",
         "affectsGlobalScope": false
       },
       "./src/graphql-resolvers/person-resolver.ts": {
-        "version": "1553941099d2652139b7be7d2f9dd6e9cb16581b6fa5c3171a5c904b6686b2a8",
-        "signature": "5ea4d49a8931d9d98c4b10f14bd2bf769cfbdfd09026ed6fdd91797b259578ae",
+        "version": "4676a8e3cc8680a5148e8b9b50dfc3102aad56355f1f628c2197ac86c191cc63",
+        "signature": "95da6a31adf03ab379f1f532627b590587561efc2aa38692f95f88b0e5419daa",
         "affectsGlobalScope": false
       },
       "./src/graphql-resolvers/room-resolver.ts": {
-        "version": "766c276e5c50b441056e7e393144df35ceb813e3ace2620cf6099ea407d00783",
-        "signature": "bfbbc450b026780e0b773c66b331c9b9757b86f598fc39d37872f870394ede79",
+        "version": "e2720d15ee81c8e523b407d86018b85ee398865d7c2db43331d46c2c7d2a26e0",
+        "signature": "bd51782f4e536291e58b44b785b28b4825f01bafe2cc50378e7a056051cd06af",
         "affectsGlobalScope": false
       },
       "./src/graphql-resolvers/talk-resolver.ts": {
-        "version": "623f350682ff525f55649bcaba8f77bec99f22e6710edda74d081dc47fcae593",
-        "signature": "44dae4c487eb0a083a1f67de4ae0b73b8f1a0ed4d2b289db3398808364fddcd6",
+        "version": "3a0eb65f9346619f9fab1bf99c0b9bbcc9c18f3b6a64ab444465c8c2198343cb",
+        "signature": "af8e38c7bfa3d87556a1bfd8b2a31535608834c46c8293416588d579c630e623",
         "affectsGlobalScope": false
       },
       "./src/graphql-resolvers/topic-resolver.ts": {
-        "version": "5850d615e2817d0ad73e47087b74f233123e40b0466ff65b87a31380f6850ab3",
-        "signature": "317885924038be658bd9c82dd6e06eb5d37cd46e603c0fc833408f524d6cec10",
+        "version": "4ced1a0a0050a09779b2df57ca1cfcac2cfb9e0be8c7df481fc19918cb8bdd60",
+        "signature": "cbf0144f064354c573ba84c37f0149ee8b41c5e7bebbd1d7cfc11c1954360012",
         "affectsGlobalScope": false
       },
       "./node_modules/@types/basic-auth/index.d.ts": {
@@ -4801,45 +5051,6 @@
       "configFilePath": "./tsconfig.json"
     },
     "referencedMap": {
-      "./module/graphql/decorators/index.d.ts": [
-        "./node_modules/@loopback/metadata/dist/index.d.ts",
-        "./node_modules/type-graphql/dist/index.d.ts"
-      ],
-      "./module/graphql/graphql.component.d.ts": [
-        "./module/graphql/types.d.ts",
-        "./node_modules/@loopback/core/dist/index.d.ts"
-      ],
-      "./module/graphql/graphql.container.d.ts": [
-        "./node_modules/@loopback/core/dist/index.d.ts",
-        "./node_modules/type-graphql/dist/index.d.ts"
-      ],
-      "./module/graphql/graphql.server.d.ts": [
-        "./node_modules/@loopback/core/dist/index.d.ts",
-        "./node_modules/@loopback/http-server/dist/index.d.ts",
-        "./node_modules/@types/express/index.d.ts",
-        "./node_modules/apollo-server-core/dist/index.d.ts",
-        "./node_modules/apollo-server-express/dist/apolloserver.d.ts",
-        "./node_modules/apollo-server-express/dist/index.d.ts",
-        "./node_modules/type-graphql/dist/index.d.ts"
-      ],
-      "./module/graphql/index.d.ts": [
-        "./module/graphql/decorators/index.d.ts",
-        "./module/graphql/graphql.component.d.ts",
-        "./module/graphql/graphql.container.d.ts",
-        "./module/graphql/graphql.server.d.ts",
-        "./module/graphql/keys.d.ts",
-        "./module/graphql/types.d.ts",
-        "./node_modules/type-graphql/dist/index.d.ts"
-      ],
-      "./module/graphql/keys.d.ts": [
-        "./module/graphql/graphql.component.d.ts",
-        "./module/graphql/graphql.server.d.ts",
-        "./node_modules/@loopback/core/dist/index.d.ts",
-        "./node_modules/type-graphql/dist/index.d.ts"
-      ],
-      "./module/graphql/types.d.ts": [
-        "./node_modules/type-graphql/dist/index.d.ts"
-      ],
       "./node_modules/@apollo/protobufjs/index.d.ts": [
         "./node_modules/@types/long/index.d.ts"
       ],
@@ -4897,14 +5108,14 @@
       "./node_modules/@loopback/authentication/dist/keys.d.ts": [
         "./node_modules/@loopback/authentication/dist/authentication.component.d.ts",
         "./node_modules/@loopback/authentication/dist/types.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/index.d.ts",
         "./node_modules/@loopback/core/dist/index.d.ts",
-        "./node_modules/@loopback/rest/dist/index.d.ts",
         "./node_modules/@loopback/security/dist/index.d.ts"
       ],
       "./node_modules/@loopback/authentication/dist/providers/auth-action.provider.d.ts": [
         "./node_modules/@loopback/authentication/dist/types.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/index.d.ts",
         "./node_modules/@loopback/core/dist/index.d.ts",
-        "./node_modules/@loopback/rest/dist/index.d.ts",
         "./node_modules/@loopback/security/dist/index.d.ts"
       ],
       "./node_modules/@loopback/authentication/dist/providers/auth-metadata.provider.d.ts": [
@@ -4932,9 +5143,304 @@
         "./node_modules/@loopback/security/dist/index.d.ts"
       ],
       "./node_modules/@loopback/authentication/dist/types.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/index.d.ts",
         "./node_modules/@loopback/core/dist/index.d.ts",
-        "./node_modules/@loopback/rest/dist/index.d.ts",
         "./node_modules/@loopback/security/dist/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/body-parser.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/types.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts",
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/openapi-v3/dist/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/body-parser.helpers.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts",
+        "./node_modules/@types/body-parser/index.d.ts",
+        "./node_modules/@types/http-errors/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/body-parser.json.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/types.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/body-parser.raw.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/types.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/body-parser.stream.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/types.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/body-parser.text.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/types.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/body-parser.urlencoded.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/types.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/index.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/body-parser.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/body-parser.helpers.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/body-parser.json.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/body-parser.raw.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/body-parser.stream.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/body-parser.text.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/body-parser.urlencoded.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/types.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/types.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts",
+        "./node_modules/@loopback/openapi-v3/dist/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/http-handler.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/rest.server.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/index.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts",
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/openapi-v3/dist/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/index.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/index.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/http-handler.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/keys.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/parse-json.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/parser.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/providers/index.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/request-context.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/rest-http-error.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/rest.application.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/rest.component.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/rest.server.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/index.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/sequence.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/spec-enhancers/info.spec-enhancer.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/validation/request-body.validator.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/writer.d.ts",
+        "./node_modules/@loopback/openapi-v3/dist/index.d.ts",
+        "./node_modules/@types/http-errors/index.d.ts",
+        "./node_modules/strong-error-handler/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/keys.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/index.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/http-handler.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/rest.server.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/index.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/sequence.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts",
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/express/dist/index.d.ts",
+        "./node_modules/@loopback/http-server/dist/index.d.ts",
+        "./node_modules/@loopback/openapi-v3/dist/index.d.ts",
+        "./node_modules/@types/node/index.d.ts",
+        "./node_modules/@types/node/ts3.1/https.d.ts",
+        "./node_modules/strong-error-handler/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/parser.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/index.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/index.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/providers/find-route.provider.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/http-handler.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/index.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts",
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/express/dist/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/providers/index.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/providers/find-route.provider.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/providers/invoke-method.provider.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/providers/log-error.provider.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/providers/parse-params.provider.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/providers/reject.provider.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/providers/send.provider.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/providers/invoke-method.provider.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/index.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts",
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/express/dist/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/providers/log-error.provider.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts",
+        "./node_modules/@loopback/core/dist/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/providers/parse-params.provider.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/index.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts",
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/express/dist/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/providers/reject.provider.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts",
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/strong-error-handler/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/providers/send.provider.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/writer.d.ts",
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/express/dist/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/request-context.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/rest.server.d.ts",
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/express/dist/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/rest-http-error.d.ts": [
+        "./node_modules/@types/http-errors/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/rest.application.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/index.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/keys.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/rest.server.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/index.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/router-spec.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/sequence.d.ts",
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/express/dist/index.d.ts",
+        "./node_modules/@loopback/openapi-v3/dist/index.d.ts",
+        "./node_modules/@types/express-serve-static-core/index.d.ts",
+        "./node_modules/@types/serve-static/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/rest.component.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/rest.server.d.ts",
+        "./node_modules/@loopback/core/dist/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/rest.server.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/index.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/http-handler.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/request-context.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/index.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/sequence.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts",
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/express/dist/index.d.ts",
+        "./node_modules/@loopback/http-server/dist/index.d.ts",
+        "./node_modules/@loopback/openapi-v3/dist/index.d.ts",
+        "./node_modules/@types/cors/index.d.ts",
+        "./node_modules/@types/express-serve-static-core/index.d.ts",
+        "./node_modules/@types/express/index.d.ts",
+        "./node_modules/@types/node/index.d.ts",
+        "./node_modules/@types/node/ts3.1/http.d.ts",
+        "./node_modules/@types/serve-static/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/base-route.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/route-entry.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts",
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/openapi-v3/dist/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/controller-route.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/base-route.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts",
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/openapi-v3/dist/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/external-express-routes.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/route-entry.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/router-spec.d.ts",
+        "./node_modules/@loopback/express/dist/index.d.ts",
+        "./node_modules/@loopback/openapi-v3/dist/index.d.ts",
+        "./node_modules/@types/express-serve-static-core/index.d.ts",
+        "./node_modules/@types/express/index.d.ts",
+        "./node_modules/@types/serve-static/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/handler-route.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/base-route.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts",
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/openapi-v3/dist/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/index.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/base-route.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/controller-route.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/external-express-routes.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/handler-route.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/openapi-path.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/redirect-route.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/regexp-router.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/rest-router.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/route-entry.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/route-sort.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/router-spec.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/routing-table.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/trie-router.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/trie.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/redirect-route.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/request-context.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/index.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts",
+        "./node_modules/@loopback/openapi-v3/dist/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/regexp-router.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/rest-router.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/route-entry.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/router-base.d.ts",
+        "./node_modules/path-to-regexp/dist/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/rest-router.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/route-entry.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/route-entry.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts",
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/openapi-v3/dist/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/route-sort.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/route-entry.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/router-base.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/rest-router.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/route-entry.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/router-spec.d.ts": [
+        "./node_modules/@loopback/openapi-v3/dist/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/routing-table.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/controller-route.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/external-express-routes.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/rest-router.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/route-entry.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts",
+        "./node_modules/@loopback/openapi-v3/dist/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/trie-router.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/rest-router.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/route-entry.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/router-base.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/trie.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/sequence.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/request-context.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts",
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/express/dist/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/spec-enhancers/info.spec-enhancer.d.ts": [
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/openapi-v3/dist/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/index.d.ts",
+        "./node_modules/@loopback/express/dist/index.d.ts",
+        "./node_modules/@loopback/openapi-v3/dist/index.d.ts",
+        "./node_modules/@types/body-parser/index.d.ts",
+        "./node_modules/ajv/lib/ajv.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/validation/request-body.validator.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/index.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts",
+        "./node_modules/@loopback/openapi-v3/dist/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/writer.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts"
       ],
       "./node_modules/@loopback/boot/dist/boot.component.d.ts": [
         "./node_modules/@loopback/boot/dist/booters/index.d.ts",
@@ -5360,6 +5866,58 @@
       ],
       "./node_modules/@loopback/extension-metrics/dist/types.d.ts": [
         "./node_modules/prom-client/index.d.ts"
+      ],
+      "./node_modules/@loopback/graphql/dist/decorators/index.d.ts": [
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/type-graphql/dist/index.d.ts"
+      ],
+      "./node_modules/@loopback/graphql/dist/graphql.component.d.ts": [
+        "./node_modules/@loopback/core/dist/index.d.ts"
+      ],
+      "./node_modules/@loopback/graphql/dist/graphql.container.d.ts": [
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/type-graphql/dist/index.d.ts"
+      ],
+      "./node_modules/@loopback/graphql/dist/graphql.server.d.ts": [
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/graphql/dist/types.d.ts",
+        "./node_modules/@loopback/graphql/node_modules/@loopback/http-server/dist/index.d.ts",
+        "./node_modules/@types/express/index.d.ts",
+        "./node_modules/type-graphql/dist/index.d.ts",
+        "./node_modules/type-graphql/dist/interfaces/middleware.d.ts"
+      ],
+      "./node_modules/@loopback/graphql/dist/index.d.ts": [
+        "./node_modules/@loopback/graphql/dist/decorators/index.d.ts",
+        "./node_modules/@loopback/graphql/dist/graphql.component.d.ts",
+        "./node_modules/@loopback/graphql/dist/graphql.container.d.ts",
+        "./node_modules/@loopback/graphql/dist/graphql.server.d.ts",
+        "./node_modules/@loopback/graphql/dist/keys.d.ts",
+        "./node_modules/@loopback/graphql/dist/types.d.ts",
+        "./node_modules/type-graphql/dist/index.d.ts"
+      ],
+      "./node_modules/@loopback/graphql/dist/keys.d.ts": [
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/graphql/dist/graphql.component.d.ts",
+        "./node_modules/@loopback/graphql/dist/graphql.server.d.ts",
+        "./node_modules/@loopback/graphql/dist/types.d.ts",
+        "./node_modules/type-graphql/dist/index.d.ts"
+      ],
+      "./node_modules/@loopback/graphql/dist/types.d.ts": [
+        "./node_modules/@loopback/graphql/node_modules/@loopback/http-server/dist/index.d.ts",
+        "./node_modules/apollo-server-core/dist/index.d.ts",
+        "./node_modules/apollo-server-express/dist/apolloserver.d.ts",
+        "./node_modules/apollo-server-express/dist/index.d.ts",
+        "./node_modules/type-graphql/dist/index.d.ts",
+        "./node_modules/type-graphql/dist/interfaces/middleware.d.ts"
+      ],
+      "./node_modules/@loopback/graphql/node_modules/@loopback/http-server/dist/http-server.d.ts": [
+        "./node_modules/@types/node/index.d.ts",
+        "./node_modules/@types/node/ts3.1/http.d.ts",
+        "./node_modules/@types/node/ts3.1/https.d.ts",
+        "./node_modules/@types/node/ts3.1/net.d.ts"
+      ],
+      "./node_modules/@loopback/graphql/node_modules/@loopback/http-server/dist/index.d.ts": [
+        "./node_modules/@loopback/graphql/node_modules/@loopback/http-server/dist/http-server.d.ts"
       ],
       "./node_modules/@loopback/http-server/dist/http-server.d.ts": [
         "./node_modules/@types/node/index.d.ts",
@@ -5889,7 +6447,6 @@
       ],
       "./node_modules/@loopback/rest/dist/providers/find-route.provider.d.ts": [
         "./node_modules/@loopback/core/dist/index.d.ts",
-        "./node_modules/@loopback/express/dist/index.d.ts",
         "./node_modules/@loopback/rest/dist/http-handler.d.ts",
         "./node_modules/@loopback/rest/dist/router/index.d.ts",
         "./node_modules/@loopback/rest/dist/types.d.ts"
@@ -5904,7 +6461,6 @@
       ],
       "./node_modules/@loopback/rest/dist/providers/invoke-method.provider.d.ts": [
         "./node_modules/@loopback/core/dist/index.d.ts",
-        "./node_modules/@loopback/express/dist/index.d.ts",
         "./node_modules/@loopback/rest/dist/router/index.d.ts",
         "./node_modules/@loopback/rest/dist/types.d.ts"
       ],
@@ -5914,7 +6470,6 @@
       ],
       "./node_modules/@loopback/rest/dist/providers/parse-params.provider.d.ts": [
         "./node_modules/@loopback/core/dist/index.d.ts",
-        "./node_modules/@loopback/express/dist/index.d.ts",
         "./node_modules/@loopback/rest/dist/body-parsers/index.d.ts",
         "./node_modules/@loopback/rest/dist/types.d.ts"
       ],
@@ -5925,8 +6480,6 @@
       ],
       "./node_modules/@loopback/rest/dist/providers/send.provider.d.ts": [
         "./node_modules/@loopback/core/dist/index.d.ts",
-        "./node_modules/@loopback/express/dist/index.d.ts",
-        "./node_modules/@loopback/rest/dist/types.d.ts",
         "./node_modules/@loopback/rest/dist/writer.d.ts"
       ],
       "./node_modules/@loopback/rest/dist/request-context.d.ts": [
@@ -5947,8 +6500,8 @@
         "./node_modules/@loopback/rest/dist/router/index.d.ts",
         "./node_modules/@loopback/rest/dist/router/router-spec.d.ts",
         "./node_modules/@loopback/rest/dist/sequence.d.ts",
-        "./node_modules/@types/express-serve-static-core/index.d.ts",
-        "./node_modules/@types/serve-static/index.d.ts"
+        "./node_modules/@loopback/rest/node_modules/@types/serve-static/index.d.ts",
+        "./node_modules/@types/express-serve-static-core/index.d.ts"
       ],
       "./node_modules/@loopback/rest/dist/rest.component.d.ts": [
         "./node_modules/@loopback/core/dist/index.d.ts",
@@ -5965,12 +6518,12 @@
         "./node_modules/@loopback/rest/dist/router/index.d.ts",
         "./node_modules/@loopback/rest/dist/sequence.d.ts",
         "./node_modules/@loopback/rest/dist/types.d.ts",
+        "./node_modules/@loopback/rest/node_modules/@types/serve-static/index.d.ts",
         "./node_modules/@types/cors/index.d.ts",
         "./node_modules/@types/express-serve-static-core/index.d.ts",
         "./node_modules/@types/express/index.d.ts",
         "./node_modules/@types/node/index.d.ts",
-        "./node_modules/@types/node/ts3.1/http.d.ts",
-        "./node_modules/@types/serve-static/index.d.ts"
+        "./node_modules/@types/node/ts3.1/http.d.ts"
       ],
       "./node_modules/@loopback/rest/dist/router/base-route.d.ts": [
         "./node_modules/@loopback/core/dist/index.d.ts",
@@ -5989,9 +6542,9 @@
         "./node_modules/@loopback/openapi-v3/dist/index.d.ts",
         "./node_modules/@loopback/rest/dist/router/route-entry.d.ts",
         "./node_modules/@loopback/rest/dist/router/router-spec.d.ts",
+        "./node_modules/@loopback/rest/node_modules/@types/serve-static/index.d.ts",
         "./node_modules/@types/express-serve-static-core/index.d.ts",
-        "./node_modules/@types/express/index.d.ts",
-        "./node_modules/@types/serve-static/index.d.ts"
+        "./node_modules/@types/express/index.d.ts"
       ],
       "./node_modules/@loopback/rest/dist/router/handler-route.d.ts": [
         "./node_modules/@loopback/core/dist/index.d.ts",
@@ -6087,6 +6640,10 @@
       ],
       "./node_modules/@loopback/rest/dist/writer.d.ts": [
         "./node_modules/@loopback/rest/dist/types.d.ts"
+      ],
+      "./node_modules/@loopback/rest/node_modules/@types/serve-static/index.d.ts": [
+        "./node_modules/@types/express-serve-static-core/index.d.ts",
+        "./node_modules/@types/mime/index.d.ts"
       ],
       "./node_modules/@loopback/security/dist/index.d.ts": [
         "./node_modules/@loopback/security/dist/keys.d.ts",
@@ -8717,11 +9274,11 @@
         "./node_modules/zen-observable-ts/lib/types.d.ts"
       ],
       "./src/application.ts": [
-        "./module/graphql/index.d.ts",
         "./node_modules/@loopback/boot/dist/index.d.ts",
         "./node_modules/@loopback/core/dist/index.d.ts",
         "./node_modules/@loopback/extension-logging/dist/index.d.ts",
         "./node_modules/@loopback/extension-metrics/dist/index.d.ts",
+        "./node_modules/@loopback/graphql/dist/index.d.ts",
         "./node_modules/@loopback/repository/dist/index.d.ts",
         "./node_modules/@loopback/rest/dist/index.d.ts",
         "./node_modules/@loopback/service-proxy/dist/index.d.ts",
@@ -8750,15 +9307,15 @@
         "./src/datasources/mixins/datasource.mixin.ts"
       ],
       "./src/graphql-resolvers/children-resolver.ts": [
-        "./module/graphql/index.d.ts",
+        "./node_modules/@loopback/graphql/dist/index.d.ts",
         "./node_modules/@loopback/repository/dist/index.d.ts",
         "./src/graphql-types/children/children-input.ts",
         "./src/graphql-types/children/children-type.ts",
         "./src/repositories/index.ts"
       ],
       "./src/graphql-resolvers/event-resolver.ts": [
-        "./module/graphql/index.d.ts",
         "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/graphql/dist/index.d.ts",
         "./node_modules/@loopback/repository/dist/index.d.ts",
         "./src/graphql-types/event/event-filter.ts",
         "./src/graphql-types/event/event-input.ts",
@@ -8768,68 +9325,67 @@
         "./src/repositories/index.ts"
       ],
       "./src/graphql-resolvers/location-resolver.ts": [
-        "./module/graphql/index.d.ts",
+        "./node_modules/@loopback/graphql/dist/index.d.ts",
         "./node_modules/@loopback/repository/dist/index.d.ts",
         "./node_modules/type-graphql/dist/index.d.ts",
-        "./src/graphql-types/event/event-type.ts",
         "./src/graphql-types/location/location-input.ts",
         "./src/graphql-types/location/location-type.ts",
-        "./src/helper/types.ts",
+        "./src/helper/index.ts",
         "./src/helper/util.ts",
         "./src/repositories/index.ts"
       ],
       "./src/graphql-resolvers/organization-resolver.ts": [
-        "./module/graphql/index.d.ts",
+        "./node_modules/@loopback/graphql/dist/index.d.ts",
         "./node_modules/@loopback/repository/dist/index.d.ts",
         "./node_modules/type-graphql/dist/index.d.ts",
         "./src/graphql-types/organization/organization-input.ts",
         "./src/graphql-types/organization/organization-type.ts",
-        "./src/helper/types.ts",
+        "./src/helper/index.ts",
         "./src/helper/util.ts",
         "./src/repositories/index.ts"
       ],
       "./src/graphql-resolvers/parent-resolver.ts": [
-        "./module/graphql/index.d.ts",
+        "./node_modules/@loopback/graphql/dist/index.d.ts",
         "./node_modules/@loopback/repository/dist/index.d.ts",
         "./node_modules/type-graphql/dist/index.d.ts",
         "./src/graphql-types/parent/parent-input.ts",
         "./src/graphql-types/parent/parent-type.ts",
-        "./src/helper/types.ts",
+        "./src/helper/index.ts",
         "./src/helper/util.ts",
         "./src/repositories/parent.repository.ts"
       ],
       "./src/graphql-resolvers/person-resolver.ts": [
-        "./module/graphql/index.d.ts",
+        "./node_modules/@loopback/graphql/dist/index.d.ts",
         "./node_modules/@loopback/repository/dist/index.d.ts",
         "./node_modules/type-graphql/dist/index.d.ts",
         "./src/graphql-types/person/person-input.ts",
         "./src/graphql-types/person/person-type.ts",
-        "./src/helper/types.ts",
+        "./src/helper/index.ts",
         "./src/helper/util.ts",
         "./src/repositories/index.ts"
       ],
       "./src/graphql-resolvers/room-resolver.ts": [
-        "./module/graphql/index.d.ts",
+        "./node_modules/@loopback/graphql/dist/index.d.ts",
         "./node_modules/@loopback/repository/dist/index.d.ts",
         "./node_modules/type-graphql/dist/index.d.ts",
         "./src/graphql-types/room/room-input.ts",
         "./src/graphql-types/room/room-type.ts",
-        "./src/helper/types.ts",
+        "./src/helper/index.ts",
         "./src/helper/util.ts",
         "./src/repositories/index.ts"
       ],
       "./src/graphql-resolvers/talk-resolver.ts": [
-        "./module/graphql/index.d.ts",
+        "./node_modules/@loopback/graphql/dist/index.d.ts",
         "./node_modules/@loopback/repository/dist/index.d.ts",
         "./node_modules/type-graphql/dist/index.d.ts",
         "./src/graphql-types/talk/talk-input.ts",
         "./src/graphql-types/talk/talk-type.ts",
-        "./src/helper/types.ts",
+        "./src/helper/index.ts",
         "./src/helper/util.ts",
         "./src/repositories/index.ts"
       ],
       "./src/graphql-resolvers/topic-resolver.ts": [
-        "./module/graphql/index.d.ts",
+        "./node_modules/@loopback/graphql/dist/index.d.ts",
         "./node_modules/@loopback/repository/dist/index.d.ts",
         "./node_modules/type-graphql/dist/index.d.ts",
         "./src/graphql-types/children/children-input.ts",
@@ -8838,97 +9394,97 @@
         "./src/graphql-types/parent/parent-type.ts",
         "./src/graphql-types/topic/topic-input.ts",
         "./src/graphql-types/topic/topic-type.ts",
-        "./src/helper/types.ts",
+        "./src/helper/index.ts",
         "./src/helper/util.ts",
         "./src/repositories/index.ts"
       ],
       "./src/graphql-types/children/children-input.ts": [
-        "./module/graphql/index.d.ts",
+        "./node_modules/@loopback/graphql/dist/index.d.ts",
         "./src/graphql-types/children/children-type.ts"
       ],
       "./src/graphql-types/children/children-type.ts": [
-        "./module/graphql/index.d.ts",
+        "./node_modules/@loopback/graphql/dist/index.d.ts",
         "./node_modules/@loopback/repository/dist/index.d.ts",
         "./src/graphql-types/topic/topic-type.ts"
       ],
       "./src/graphql-types/event/event-filter.ts": [
-        "./module/graphql/index.d.ts",
+        "./node_modules/@loopback/graphql/dist/index.d.ts",
         "./src/graphql-types/event/event-input.ts"
       ],
       "./src/graphql-types/event/event-input.ts": [
-        "./module/graphql/index.d.ts",
+        "./node_modules/@loopback/graphql/dist/index.d.ts",
         "./src/graphql-types/event/event-type.ts"
       ],
       "./src/graphql-types/event/event-type.ts": [
-        "./module/graphql/index.d.ts",
+        "./node_modules/@loopback/graphql/dist/index.d.ts",
         "./node_modules/@loopback/repository/dist/index.d.ts",
         "./src/graphql-types/location/location-type.ts"
       ],
       "./src/graphql-types/location/location-input.ts": [
-        "./module/graphql/index.d.ts",
+        "./node_modules/@loopback/graphql/dist/index.d.ts",
         "./src/graphql-types/location/location-type.ts"
       ],
       "./src/graphql-types/location/location-type.ts": [
-        "./module/graphql/index.d.ts",
+        "./node_modules/@loopback/graphql/dist/index.d.ts",
         "./node_modules/@loopback/repository/dist/index.d.ts",
         "./src/graphql-types/event/event-type.ts",
         "./src/graphql-types/room/room-type.ts"
       ],
       "./src/graphql-types/organization/organization-input.ts": [
-        "./module/graphql/index.d.ts",
+        "./node_modules/@loopback/graphql/dist/index.d.ts",
         "./src/graphql-types/organization/organization-type.ts"
       ],
       "./src/graphql-types/organization/organization-type.ts": [
-        "./module/graphql/index.d.ts",
+        "./node_modules/@loopback/graphql/dist/index.d.ts",
         "./node_modules/@loopback/repository/dist/index.d.ts",
         "./src/graphql-types/person/person-type.ts"
       ],
       "./src/graphql-types/parent/parent-input.ts": [
-        "./module/graphql/index.d.ts",
+        "./node_modules/@loopback/graphql/dist/index.d.ts",
         "./src/graphql-types/parent/parent-type.ts"
       ],
       "./src/graphql-types/parent/parent-type.ts": [
-        "./module/graphql/index.d.ts",
+        "./node_modules/@loopback/graphql/dist/index.d.ts",
         "./node_modules/@loopback/repository/dist/index.d.ts",
         "./src/graphql-types/topic/topic-type.ts"
       ],
       "./src/graphql-types/person/person-input.ts": [
-        "./module/graphql/index.d.ts",
+        "./node_modules/@loopback/graphql/dist/index.d.ts",
         "./src/graphql-types/person/person-type.ts"
       ],
       "./src/graphql-types/person/person-type.ts": [
-        "./module/graphql/index.d.ts",
+        "./node_modules/@loopback/graphql/dist/index.d.ts",
         "./node_modules/@loopback/repository/dist/index.d.ts",
         "./src/graphql-types/organization/organization-type.ts",
         "./src/graphql-types/talk/talk-type.ts"
       ],
       "./src/graphql-types/room/room-input.ts": [
-        "./module/graphql/index.d.ts",
+        "./node_modules/@loopback/graphql/dist/index.d.ts",
         "./src/graphql-types/room/room-type.ts"
       ],
       "./src/graphql-types/room/room-type.ts": [
-        "./module/graphql/index.d.ts",
+        "./node_modules/@loopback/graphql/dist/index.d.ts",
         "./node_modules/@loopback/repository/dist/index.d.ts",
         "./src/graphql-types/location/location-type.ts",
         "./src/graphql-types/talk/talk-type.ts"
       ],
       "./src/graphql-types/talk/talk-input.ts": [
-        "./module/graphql/index.d.ts",
+        "./node_modules/@loopback/graphql/dist/index.d.ts",
         "./src/graphql-types/talk/talk-type.ts"
       ],
       "./src/graphql-types/talk/talk-type.ts": [
-        "./module/graphql/index.d.ts",
+        "./node_modules/@loopback/graphql/dist/index.d.ts",
         "./node_modules/@loopback/repository/dist/index.d.ts",
         "./src/graphql-types/person/person-type.ts",
         "./src/graphql-types/room/room-type.ts",
         "./src/graphql-types/topic/topic-type.ts"
       ],
       "./src/graphql-types/topic/topic-input.ts": [
-        "./module/graphql/index.d.ts",
+        "./node_modules/@loopback/graphql/dist/index.d.ts",
         "./src/graphql-types/topic/topic-type.ts"
       ],
       "./src/graphql-types/topic/topic-type.ts": [
-        "./module/graphql/index.d.ts",
+        "./node_modules/@loopback/graphql/dist/index.d.ts",
         "./node_modules/@loopback/repository/dist/index.d.ts",
         "./src/graphql-types/children/children-type.ts",
         "./src/graphql-types/parent/parent-type.ts",
@@ -9147,45 +9703,6 @@
       ]
     },
     "exportedModulesMap": {
-      "./module/graphql/decorators/index.d.ts": [
-        "./node_modules/@loopback/metadata/dist/index.d.ts",
-        "./node_modules/type-graphql/dist/index.d.ts"
-      ],
-      "./module/graphql/graphql.component.d.ts": [
-        "./module/graphql/types.d.ts",
-        "./node_modules/@loopback/core/dist/index.d.ts"
-      ],
-      "./module/graphql/graphql.container.d.ts": [
-        "./node_modules/@loopback/core/dist/index.d.ts",
-        "./node_modules/type-graphql/dist/index.d.ts"
-      ],
-      "./module/graphql/graphql.server.d.ts": [
-        "./node_modules/@loopback/core/dist/index.d.ts",
-        "./node_modules/@loopback/http-server/dist/index.d.ts",
-        "./node_modules/@types/express/index.d.ts",
-        "./node_modules/apollo-server-core/dist/index.d.ts",
-        "./node_modules/apollo-server-express/dist/apolloserver.d.ts",
-        "./node_modules/apollo-server-express/dist/index.d.ts",
-        "./node_modules/type-graphql/dist/index.d.ts"
-      ],
-      "./module/graphql/index.d.ts": [
-        "./module/graphql/decorators/index.d.ts",
-        "./module/graphql/graphql.component.d.ts",
-        "./module/graphql/graphql.container.d.ts",
-        "./module/graphql/graphql.server.d.ts",
-        "./module/graphql/keys.d.ts",
-        "./module/graphql/types.d.ts",
-        "./node_modules/type-graphql/dist/index.d.ts"
-      ],
-      "./module/graphql/keys.d.ts": [
-        "./module/graphql/graphql.component.d.ts",
-        "./module/graphql/graphql.server.d.ts",
-        "./node_modules/@loopback/core/dist/index.d.ts",
-        "./node_modules/type-graphql/dist/index.d.ts"
-      ],
-      "./module/graphql/types.d.ts": [
-        "./node_modules/type-graphql/dist/index.d.ts"
-      ],
       "./node_modules/@apollo/protobufjs/index.d.ts": [
         "./node_modules/@types/long/index.d.ts"
       ],
@@ -9243,14 +9760,14 @@
       "./node_modules/@loopback/authentication/dist/keys.d.ts": [
         "./node_modules/@loopback/authentication/dist/authentication.component.d.ts",
         "./node_modules/@loopback/authentication/dist/types.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/index.d.ts",
         "./node_modules/@loopback/core/dist/index.d.ts",
-        "./node_modules/@loopback/rest/dist/index.d.ts",
         "./node_modules/@loopback/security/dist/index.d.ts"
       ],
       "./node_modules/@loopback/authentication/dist/providers/auth-action.provider.d.ts": [
         "./node_modules/@loopback/authentication/dist/types.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/index.d.ts",
         "./node_modules/@loopback/core/dist/index.d.ts",
-        "./node_modules/@loopback/rest/dist/index.d.ts",
         "./node_modules/@loopback/security/dist/index.d.ts"
       ],
       "./node_modules/@loopback/authentication/dist/providers/auth-metadata.provider.d.ts": [
@@ -9278,9 +9795,304 @@
         "./node_modules/@loopback/security/dist/index.d.ts"
       ],
       "./node_modules/@loopback/authentication/dist/types.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/index.d.ts",
         "./node_modules/@loopback/core/dist/index.d.ts",
-        "./node_modules/@loopback/rest/dist/index.d.ts",
         "./node_modules/@loopback/security/dist/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/body-parser.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/types.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts",
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/openapi-v3/dist/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/body-parser.helpers.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts",
+        "./node_modules/@types/body-parser/index.d.ts",
+        "./node_modules/@types/http-errors/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/body-parser.json.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/types.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/body-parser.raw.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/types.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/body-parser.stream.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/types.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/body-parser.text.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/types.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/body-parser.urlencoded.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/types.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/index.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/body-parser.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/body-parser.helpers.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/body-parser.json.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/body-parser.raw.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/body-parser.stream.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/body-parser.text.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/body-parser.urlencoded.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/types.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/types.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts",
+        "./node_modules/@loopback/openapi-v3/dist/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/http-handler.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/rest.server.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/index.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts",
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/openapi-v3/dist/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/index.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/index.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/http-handler.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/keys.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/parse-json.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/parser.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/providers/index.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/request-context.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/rest-http-error.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/rest.application.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/rest.component.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/rest.server.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/index.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/sequence.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/spec-enhancers/info.spec-enhancer.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/validation/request-body.validator.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/writer.d.ts",
+        "./node_modules/@loopback/openapi-v3/dist/index.d.ts",
+        "./node_modules/@types/http-errors/index.d.ts",
+        "./node_modules/strong-error-handler/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/keys.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/index.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/http-handler.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/rest.server.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/index.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/sequence.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts",
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/express/dist/index.d.ts",
+        "./node_modules/@loopback/http-server/dist/index.d.ts",
+        "./node_modules/@loopback/openapi-v3/dist/index.d.ts",
+        "./node_modules/@types/node/index.d.ts",
+        "./node_modules/@types/node/ts3.1/https.d.ts",
+        "./node_modules/strong-error-handler/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/parser.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/index.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/index.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/providers/find-route.provider.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/http-handler.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/index.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts",
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/express/dist/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/providers/index.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/providers/find-route.provider.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/providers/invoke-method.provider.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/providers/log-error.provider.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/providers/parse-params.provider.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/providers/reject.provider.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/providers/send.provider.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/providers/invoke-method.provider.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/index.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts",
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/express/dist/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/providers/log-error.provider.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts",
+        "./node_modules/@loopback/core/dist/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/providers/parse-params.provider.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/index.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts",
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/express/dist/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/providers/reject.provider.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts",
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/strong-error-handler/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/providers/send.provider.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/writer.d.ts",
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/express/dist/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/request-context.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/rest.server.d.ts",
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/express/dist/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/rest-http-error.d.ts": [
+        "./node_modules/@types/http-errors/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/rest.application.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/index.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/keys.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/rest.server.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/index.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/router-spec.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/sequence.d.ts",
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/express/dist/index.d.ts",
+        "./node_modules/@loopback/openapi-v3/dist/index.d.ts",
+        "./node_modules/@types/express-serve-static-core/index.d.ts",
+        "./node_modules/@types/serve-static/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/rest.component.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/rest.server.d.ts",
+        "./node_modules/@loopback/core/dist/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/rest.server.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/index.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/http-handler.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/request-context.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/index.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/sequence.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts",
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/express/dist/index.d.ts",
+        "./node_modules/@loopback/http-server/dist/index.d.ts",
+        "./node_modules/@loopback/openapi-v3/dist/index.d.ts",
+        "./node_modules/@types/cors/index.d.ts",
+        "./node_modules/@types/express-serve-static-core/index.d.ts",
+        "./node_modules/@types/express/index.d.ts",
+        "./node_modules/@types/node/index.d.ts",
+        "./node_modules/@types/node/ts3.1/http.d.ts",
+        "./node_modules/@types/serve-static/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/base-route.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/route-entry.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts",
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/openapi-v3/dist/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/controller-route.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/base-route.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts",
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/openapi-v3/dist/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/external-express-routes.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/route-entry.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/router-spec.d.ts",
+        "./node_modules/@loopback/express/dist/index.d.ts",
+        "./node_modules/@loopback/openapi-v3/dist/index.d.ts",
+        "./node_modules/@types/express-serve-static-core/index.d.ts",
+        "./node_modules/@types/express/index.d.ts",
+        "./node_modules/@types/serve-static/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/handler-route.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/base-route.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts",
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/openapi-v3/dist/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/index.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/base-route.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/controller-route.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/external-express-routes.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/handler-route.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/openapi-path.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/redirect-route.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/regexp-router.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/rest-router.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/route-entry.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/route-sort.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/router-spec.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/routing-table.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/trie-router.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/trie.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/redirect-route.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/request-context.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/index.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts",
+        "./node_modules/@loopback/openapi-v3/dist/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/regexp-router.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/rest-router.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/route-entry.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/router-base.d.ts",
+        "./node_modules/path-to-regexp/dist/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/rest-router.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/route-entry.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/route-entry.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts",
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/openapi-v3/dist/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/route-sort.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/route-entry.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/router-base.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/rest-router.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/route-entry.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/router-spec.d.ts": [
+        "./node_modules/@loopback/openapi-v3/dist/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/routing-table.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/controller-route.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/external-express-routes.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/rest-router.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/route-entry.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts",
+        "./node_modules/@loopback/openapi-v3/dist/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/trie-router.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/rest-router.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/route-entry.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/router-base.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/trie.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/sequence.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/request-context.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts",
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/express/dist/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/spec-enhancers/info.spec-enhancer.d.ts": [
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/openapi-v3/dist/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/index.d.ts",
+        "./node_modules/@loopback/express/dist/index.d.ts",
+        "./node_modules/@loopback/openapi-v3/dist/index.d.ts",
+        "./node_modules/@types/body-parser/index.d.ts",
+        "./node_modules/ajv/lib/ajv.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/validation/request-body.validator.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/index.d.ts",
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts",
+        "./node_modules/@loopback/openapi-v3/dist/index.d.ts"
+      ],
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/writer.d.ts": [
+        "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts"
       ],
       "./node_modules/@loopback/boot/dist/boot.component.d.ts": [
         "./node_modules/@loopback/boot/dist/booters/index.d.ts",
@@ -9706,6 +10518,58 @@
       ],
       "./node_modules/@loopback/extension-metrics/dist/types.d.ts": [
         "./node_modules/prom-client/index.d.ts"
+      ],
+      "./node_modules/@loopback/graphql/dist/decorators/index.d.ts": [
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/type-graphql/dist/index.d.ts"
+      ],
+      "./node_modules/@loopback/graphql/dist/graphql.component.d.ts": [
+        "./node_modules/@loopback/core/dist/index.d.ts"
+      ],
+      "./node_modules/@loopback/graphql/dist/graphql.container.d.ts": [
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/type-graphql/dist/index.d.ts"
+      ],
+      "./node_modules/@loopback/graphql/dist/graphql.server.d.ts": [
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/graphql/dist/types.d.ts",
+        "./node_modules/@loopback/graphql/node_modules/@loopback/http-server/dist/index.d.ts",
+        "./node_modules/@types/express/index.d.ts",
+        "./node_modules/type-graphql/dist/index.d.ts",
+        "./node_modules/type-graphql/dist/interfaces/middleware.d.ts"
+      ],
+      "./node_modules/@loopback/graphql/dist/index.d.ts": [
+        "./node_modules/@loopback/graphql/dist/decorators/index.d.ts",
+        "./node_modules/@loopback/graphql/dist/graphql.component.d.ts",
+        "./node_modules/@loopback/graphql/dist/graphql.container.d.ts",
+        "./node_modules/@loopback/graphql/dist/graphql.server.d.ts",
+        "./node_modules/@loopback/graphql/dist/keys.d.ts",
+        "./node_modules/@loopback/graphql/dist/types.d.ts",
+        "./node_modules/type-graphql/dist/index.d.ts"
+      ],
+      "./node_modules/@loopback/graphql/dist/keys.d.ts": [
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/graphql/dist/graphql.component.d.ts",
+        "./node_modules/@loopback/graphql/dist/graphql.server.d.ts",
+        "./node_modules/@loopback/graphql/dist/types.d.ts",
+        "./node_modules/type-graphql/dist/index.d.ts"
+      ],
+      "./node_modules/@loopback/graphql/dist/types.d.ts": [
+        "./node_modules/@loopback/graphql/node_modules/@loopback/http-server/dist/index.d.ts",
+        "./node_modules/apollo-server-core/dist/index.d.ts",
+        "./node_modules/apollo-server-express/dist/apolloserver.d.ts",
+        "./node_modules/apollo-server-express/dist/index.d.ts",
+        "./node_modules/type-graphql/dist/index.d.ts",
+        "./node_modules/type-graphql/dist/interfaces/middleware.d.ts"
+      ],
+      "./node_modules/@loopback/graphql/node_modules/@loopback/http-server/dist/http-server.d.ts": [
+        "./node_modules/@types/node/index.d.ts",
+        "./node_modules/@types/node/ts3.1/http.d.ts",
+        "./node_modules/@types/node/ts3.1/https.d.ts",
+        "./node_modules/@types/node/ts3.1/net.d.ts"
+      ],
+      "./node_modules/@loopback/graphql/node_modules/@loopback/http-server/dist/index.d.ts": [
+        "./node_modules/@loopback/graphql/node_modules/@loopback/http-server/dist/http-server.d.ts"
       ],
       "./node_modules/@loopback/http-server/dist/http-server.d.ts": [
         "./node_modules/@types/node/index.d.ts",
@@ -10235,7 +11099,6 @@
       ],
       "./node_modules/@loopback/rest/dist/providers/find-route.provider.d.ts": [
         "./node_modules/@loopback/core/dist/index.d.ts",
-        "./node_modules/@loopback/express/dist/index.d.ts",
         "./node_modules/@loopback/rest/dist/http-handler.d.ts",
         "./node_modules/@loopback/rest/dist/router/index.d.ts",
         "./node_modules/@loopback/rest/dist/types.d.ts"
@@ -10250,7 +11113,6 @@
       ],
       "./node_modules/@loopback/rest/dist/providers/invoke-method.provider.d.ts": [
         "./node_modules/@loopback/core/dist/index.d.ts",
-        "./node_modules/@loopback/express/dist/index.d.ts",
         "./node_modules/@loopback/rest/dist/router/index.d.ts",
         "./node_modules/@loopback/rest/dist/types.d.ts"
       ],
@@ -10260,7 +11122,6 @@
       ],
       "./node_modules/@loopback/rest/dist/providers/parse-params.provider.d.ts": [
         "./node_modules/@loopback/core/dist/index.d.ts",
-        "./node_modules/@loopback/express/dist/index.d.ts",
         "./node_modules/@loopback/rest/dist/body-parsers/index.d.ts",
         "./node_modules/@loopback/rest/dist/types.d.ts"
       ],
@@ -10271,8 +11132,6 @@
       ],
       "./node_modules/@loopback/rest/dist/providers/send.provider.d.ts": [
         "./node_modules/@loopback/core/dist/index.d.ts",
-        "./node_modules/@loopback/express/dist/index.d.ts",
-        "./node_modules/@loopback/rest/dist/types.d.ts",
         "./node_modules/@loopback/rest/dist/writer.d.ts"
       ],
       "./node_modules/@loopback/rest/dist/request-context.d.ts": [
@@ -10311,12 +11170,12 @@
         "./node_modules/@loopback/rest/dist/router/index.d.ts",
         "./node_modules/@loopback/rest/dist/sequence.d.ts",
         "./node_modules/@loopback/rest/dist/types.d.ts",
+        "./node_modules/@loopback/rest/node_modules/@types/serve-static/index.d.ts",
         "./node_modules/@types/cors/index.d.ts",
         "./node_modules/@types/express-serve-static-core/index.d.ts",
         "./node_modules/@types/express/index.d.ts",
         "./node_modules/@types/node/index.d.ts",
-        "./node_modules/@types/node/ts3.1/http.d.ts",
-        "./node_modules/@types/serve-static/index.d.ts"
+        "./node_modules/@types/node/ts3.1/http.d.ts"
       ],
       "./node_modules/@loopback/rest/dist/router/base-route.d.ts": [
         "./node_modules/@loopback/core/dist/index.d.ts",
@@ -10433,6 +11292,10 @@
       ],
       "./node_modules/@loopback/rest/dist/writer.d.ts": [
         "./node_modules/@loopback/rest/dist/types.d.ts"
+      ],
+      "./node_modules/@loopback/rest/node_modules/@types/serve-static/index.d.ts": [
+        "./node_modules/@types/express-serve-static-core/index.d.ts",
+        "./node_modules/@types/mime/index.d.ts"
       ],
       "./node_modules/@loopback/security/dist/index.d.ts": [
         "./node_modules/@loopback/security/dist/keys.d.ts",
@@ -13089,7 +13952,7 @@
         "./src/repositories/index.ts"
       ],
       "./src/graphql-resolvers/event-resolver.ts": [
-        "./module/graphql/index.d.ts",
+        "./node_modules/@loopback/graphql/dist/index.d.ts",
         "./src/graphql-types/event/event-filter.ts",
         "./src/graphql-types/event/event-input.ts",
         "./src/graphql-types/event/event-type.ts",
@@ -13099,37 +13962,37 @@
       "./src/graphql-resolvers/location-resolver.ts": [
         "./src/graphql-types/location/location-input.ts",
         "./src/graphql-types/location/location-type.ts",
-        "./src/helper/types.ts",
+        "./src/helper/index.ts",
         "./src/repositories/index.ts"
       ],
       "./src/graphql-resolvers/organization-resolver.ts": [
         "./src/graphql-types/organization/organization-input.ts",
         "./src/graphql-types/organization/organization-type.ts",
-        "./src/helper/types.ts",
+        "./src/helper/index.ts",
         "./src/repositories/index.ts"
       ],
       "./src/graphql-resolvers/parent-resolver.ts": [
         "./src/graphql-types/parent/parent-input.ts",
         "./src/graphql-types/parent/parent-type.ts",
-        "./src/helper/types.ts",
+        "./src/helper/index.ts",
         "./src/repositories/parent.repository.ts"
       ],
       "./src/graphql-resolvers/person-resolver.ts": [
         "./src/graphql-types/person/person-input.ts",
         "./src/graphql-types/person/person-type.ts",
-        "./src/helper/types.ts",
+        "./src/helper/index.ts",
         "./src/repositories/index.ts"
       ],
       "./src/graphql-resolvers/room-resolver.ts": [
         "./src/graphql-types/room/room-input.ts",
         "./src/graphql-types/room/room-type.ts",
-        "./src/helper/types.ts",
+        "./src/helper/index.ts",
         "./src/repositories/index.ts"
       ],
       "./src/graphql-resolvers/talk-resolver.ts": [
         "./src/graphql-types/talk/talk-input.ts",
         "./src/graphql-types/talk/talk-type.ts",
-        "./src/helper/types.ts",
+        "./src/helper/index.ts",
         "./src/repositories/index.ts"
       ],
       "./src/graphql-resolvers/topic-resolver.ts": [
@@ -13137,7 +14000,7 @@
         "./src/graphql-types/parent/parent-input.ts",
         "./src/graphql-types/topic/topic-input.ts",
         "./src/graphql-types/topic/topic-type.ts",
-        "./src/helper/types.ts",
+        "./src/helper/index.ts",
         "./src/repositories/index.ts"
       ],
       "./src/graphql-types/children/children-input.ts": [
@@ -13373,13 +14236,6 @@
       ]
     },
     "semanticDiagnosticsPerFile": [
-      "./module/graphql/decorators/index.d.ts",
-      "./module/graphql/graphql.component.d.ts",
-      "./module/graphql/graphql.container.d.ts",
-      "./module/graphql/graphql.server.d.ts",
-      "./module/graphql/index.d.ts",
-      "./module/graphql/keys.d.ts",
-      "./module/graphql/types.d.ts",
       "./node_modules/@apollo/protobufjs/index.d.ts",
       "./node_modules/@apollographql/apollo-tools/lib/buildservicedefinition.d.ts",
       "./node_modules/@apollographql/apollo-tools/lib/index.d.ts",
@@ -13405,6 +14261,53 @@
       "./node_modules/@loopback/authentication/dist/services/user-identity.service.d.ts",
       "./node_modules/@loopback/authentication/dist/services/user.service.d.ts",
       "./node_modules/@loopback/authentication/dist/types.d.ts",
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/body-parser.d.ts",
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/body-parser.helpers.d.ts",
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/body-parser.json.d.ts",
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/body-parser.raw.d.ts",
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/body-parser.stream.d.ts",
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/body-parser.text.d.ts",
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/body-parser.urlencoded.d.ts",
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/index.d.ts",
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/body-parsers/types.d.ts",
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/http-handler.d.ts",
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/index.d.ts",
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/keys.d.ts",
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/parse-json.d.ts",
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/parser.d.ts",
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/providers/find-route.provider.d.ts",
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/providers/index.d.ts",
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/providers/invoke-method.provider.d.ts",
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/providers/log-error.provider.d.ts",
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/providers/parse-params.provider.d.ts",
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/providers/reject.provider.d.ts",
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/providers/send.provider.d.ts",
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/request-context.d.ts",
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/rest-http-error.d.ts",
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/rest.application.d.ts",
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/rest.component.d.ts",
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/rest.server.d.ts",
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/base-route.d.ts",
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/controller-route.d.ts",
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/external-express-routes.d.ts",
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/handler-route.d.ts",
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/index.d.ts",
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/openapi-path.d.ts",
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/redirect-route.d.ts",
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/regexp-router.d.ts",
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/rest-router.d.ts",
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/route-entry.d.ts",
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/route-sort.d.ts",
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/router-base.d.ts",
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/router-spec.d.ts",
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/routing-table.d.ts",
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/trie-router.d.ts",
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/router/trie.d.ts",
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/sequence.d.ts",
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/spec-enhancers/info.spec-enhancer.d.ts",
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/types.d.ts",
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/validation/request-body.validator.d.ts",
+      "./node_modules/@loopback/authentication/node_modules/@loopback/rest/dist/writer.d.ts",
       "./node_modules/@loopback/boot/dist/boot.component.d.ts",
       "./node_modules/@loopback/boot/dist/booters/application-metadata.booter.d.ts",
       "./node_modules/@loopback/boot/dist/booters/base-artifact.booter.d.ts",
@@ -13482,6 +14385,15 @@
       "./node_modules/@loopback/extension-metrics/dist/keys.d.ts",
       "./node_modules/@loopback/extension-metrics/dist/metrics.component.d.ts",
       "./node_modules/@loopback/extension-metrics/dist/types.d.ts",
+      "./node_modules/@loopback/graphql/dist/decorators/index.d.ts",
+      "./node_modules/@loopback/graphql/dist/graphql.component.d.ts",
+      "./node_modules/@loopback/graphql/dist/graphql.container.d.ts",
+      "./node_modules/@loopback/graphql/dist/graphql.server.d.ts",
+      "./node_modules/@loopback/graphql/dist/index.d.ts",
+      "./node_modules/@loopback/graphql/dist/keys.d.ts",
+      "./node_modules/@loopback/graphql/dist/types.d.ts",
+      "./node_modules/@loopback/graphql/node_modules/@loopback/http-server/dist/http-server.d.ts",
+      "./node_modules/@loopback/graphql/node_modules/@loopback/http-server/dist/index.d.ts",
       "./node_modules/@loopback/http-server/dist/http-server.d.ts",
       "./node_modules/@loopback/http-server/dist/index.d.ts",
       "./node_modules/@loopback/metadata/dist/decorator-factory.d.ts",
@@ -13622,6 +14534,7 @@
       "./node_modules/@loopback/rest/dist/types.d.ts",
       "./node_modules/@loopback/rest/dist/validation/request-body.validator.d.ts",
       "./node_modules/@loopback/rest/dist/writer.d.ts",
+      "./node_modules/@loopback/rest/node_modules/@types/serve-static/index.d.ts",
       "./node_modules/@loopback/security/dist/index.d.ts",
       "./node_modules/@loopback/security/dist/keys.d.ts",
       "./node_modules/@loopback/security/dist/types.d.ts",

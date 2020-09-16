@@ -1,5 +1,5 @@
-import {field, inputType} from '../../../module/graphql';
 import {Organization} from './organization-type';
+import {field, inputType} from "@loopback/graphql";
 
 @inputType()
 export class OrganizationInput implements Partial<Organization> {

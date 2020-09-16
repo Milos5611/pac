@@ -1,7 +1,7 @@
-import {field, ID, objectType} from '../../../module/graphql';
 import {belongsTo, Entity, hasMany, model, property} from '@loopback/repository';
 import {Location} from "../location/location-type";
 import {Talk} from "../talk/talk-type";
+import {field, ID, objectType} from "@loopback/graphql";
 
 @objectType({description: 'Object representing room'})
 @model({

@@ -76,7 +76,26 @@ export class EventRepository
 
 
   async getOne(id: string) {
-    return this.findById(id);
+    return this.findById(id, {
+      include: [{
+        relation: "location",
+        scope: {
+          include: [{
+            relation: 'rooms',
+            scope: {
+              include: [{
+                relation: 'talks',
+                scope: {
+                  include: [{
+                    relation: 'topics'
+                  }],
+                },
+              }],
+            },
+          }],
+        },
+      }]
+    });
   }
 
 

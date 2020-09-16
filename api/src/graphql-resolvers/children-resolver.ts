@@ -1,8 +1,8 @@
-import {arg, mutation, query, resolver} from '../../module/graphql';
 import {repository} from '@loopback/repository';
 import {ChildrenRepository} from "../repositories";
 import {Children} from "../graphql-types/children/children-type";
 import {ChildrenInput} from "../graphql-types/children/children-input";
+import {arg, mutation, query, resolver} from "@loopback/graphql";
 
 @resolver(of => Children)
 export class ChildrenResolver {

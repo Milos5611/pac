@@ -1,5 +1,5 @@
-import {field, inputType} from '../../../module/graphql';
 import {Person} from './person-type';
+import {field, inputType} from "@loopback/graphql";
 
 @inputType()
 export class PersonInput implements Partial<Person> {

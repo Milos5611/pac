@@ -8,12 +8,12 @@
 		<span class="black-logo navigation-logo-img"></span>
     </a>
 
-	<Navigate styles="anchor" to="persons" title="Persons">
-		<p>Persons</p>
+	<Navigate styles="anchor" to="events" title="Events">
+		<p>Events</p>
 	</Navigate>
 
-	<Navigate styles="anchor" to="overview" title="Day Overview">
-		<p>Day Overview</p>
+	<Navigate styles="anchor" to="persons" title="Persons">
+		<p>Persons</p>
 	</Navigate>
 
 	<Navigate styles="anchor" to="/" title="Logout">

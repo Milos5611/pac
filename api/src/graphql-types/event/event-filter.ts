@@ -1,5 +1,5 @@
-import {field, inputType} from '../../../module/graphql';
 import {EventInput} from "./event-input";
+import {field, inputType} from "@loopback/graphql";
 
 @inputType()
 export class EventFilter implements Partial<EventInput> {

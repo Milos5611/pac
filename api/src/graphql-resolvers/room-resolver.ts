@@ -1,11 +1,11 @@
-import {arg, mutation, query, resolver} from '../../module/graphql';
 import {repository} from '@loopback/repository';
 import {Room} from '../graphql-types/room/room-type';
 import {RoomRepository} from '../repositories';
 import {RoomInput} from "../graphql-types/room/room-input";
 import {Ctx} from "type-graphql";
-import {ContextTypes} from "../helper/types";
+import {ContextTypes} from "../helper";
 import {parseToken} from "../helper/util";
+import {arg, mutation, query, resolver} from "@loopback/graphql";
 
 @resolver(of => Room)
 export class RoomResolver {

@@ -1,11 +1,11 @@
-import {arg, mutation, query, resolver} from '../../module/graphql';;
 import {repository} from '@loopback/repository';
 import {ParentRepository} from "../repositories/parent.repository";
 import {Parent} from "../graphql-types/parent/parent-type";
 import {ParentInput} from "../graphql-types/parent/parent-input";
 import {Ctx} from "type-graphql";
-import {ContextTypes} from "../helper/types";
+import {ContextTypes} from "../helper";
 import {parseToken} from "../helper/util";
+import {arg, mutation, query, resolver} from "@loopback/graphql";
 
 @resolver(of => Parent)
 export class ParentResolver {

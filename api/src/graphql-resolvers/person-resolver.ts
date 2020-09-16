@@ -1,11 +1,11 @@
-import {arg, mutation, query, resolver} from '../../module/graphql';
 import {repository} from '@loopback/repository';
 import {Person} from '../graphql-types/person/person-type';
 import {PersonRepository} from '../repositories';
 import {PersonInput} from "../graphql-types/person/person-input";
 import {Ctx} from "type-graphql";
-import {ContextTypes} from "../helper/types";
+import {ContextTypes} from "../helper";
 import {parseToken} from "../helper/util";
+import {arg, mutation, query, resolver} from "@loopback/graphql";
 
 @resolver(of => Person)
 export class PersonResolver {

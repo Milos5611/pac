@@ -1,11 +1,11 @@
-import {arg, mutation, query, resolver} from '../../module/graphql';
 import {repository} from '@loopback/repository';
 import {Organization} from '../graphql-types/organization/organization-type';
 import {OrganizationRepository} from '../repositories';
 import {OrganizationInput} from "../graphql-types/organization/organization-input";
 import {Ctx} from "type-graphql";
-import {ContextTypes} from "../helper/types";
+import {ContextTypes} from "../helper";
 import {parseToken} from "../helper/util";
+import {arg, mutation, query, resolver} from "@loopback/graphql";
 
 @resolver(of => Organization)
 export class OrganizationResolver {

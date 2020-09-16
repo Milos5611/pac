@@ -1,6 +1,6 @@
-import {field, ID, objectType} from '../../../module/graphql';
 import {belongsTo, Entity, model, property} from '@loopback/repository';
 import {Location} from "../location/location-type";
+import {field, ID, objectType} from "@loopback/graphql";
 
 @objectType({description: 'Object representing events'})
 @model({

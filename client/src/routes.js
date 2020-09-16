@@ -1,8 +1,8 @@
 import Events from './pages/events/Events.svelte';
+import Event from './pages/events/Event.svelte';
 import Persons from './pages/persons/Persons.svelte';
 import Person from './pages/persons/Person.svelte';
 import Home from './pages/home/Home.svelte';
-import Overview from './pages/overview/Overview.svelte';
 import PublicLayout from './component/layout/public_layout.svelte';
 
 const routes = [
@@ -26,8 +26,8 @@ const routes = [
         layout: PublicLayout,
     },
     {
-        name: 'overview',
-        component: Overview,
+        name: 'event/:id',
+        component: Event,
         layout: PublicLayout,
     },
 ];

@@ -1,5 +1,5 @@
-import {field, inputType} from '../../../module/graphql';
 import {Talk} from './talk-type';
+import {field, inputType} from "@loopback/graphql";
 
 @inputType()
 export class TalkInput implements Partial<Talk> {

@@ -1,7 +1,7 @@
-import {field, ID, objectType} from '../../../module/graphql';
 import {belongsTo, Entity, model, property} from '@loopback/repository';
 import {Organization} from "../organization/organization-type";
 import {Talk} from "../talk/talk-type";
+import {field, ID, objectType} from "@loopback/graphql";
 
 @objectType({description: 'Object representing person'})
 @model({

@@ -1,12 +1,11 @@
-import {arg, mutation, query, resolver} from '../../module/graphql';
 import {repository} from '@loopback/repository';
 import {Location} from '../graphql-types/location/location-type';
 import {LocationRepository} from '../repositories';
 import {LocationInput} from "../graphql-types/location/location-input";
 import {Ctx} from "type-graphql";
-import {ContextTypes} from "../helper/types";
-import {Event} from "../graphql-types/event/event-type";
+import {ContextTypes} from "../helper";
 import {parseToken} from "../helper/util";
+import {arg, mutation, query, resolver} from "@loopback/graphql";
 
 @resolver(of => Location)
 export class LocationResolver {

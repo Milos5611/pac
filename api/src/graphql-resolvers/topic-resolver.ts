@@ -1,4 +1,3 @@
-import {arg, mutation, query, resolver} from '../../module/graphql';
 import {repository} from '@loopback/repository';
 import {Topic} from "../graphql-types/topic/topic-type";
 import {TopicInput} from "../graphql-types/topic/topic-input";
@@ -8,8 +7,9 @@ import {Children} from "../graphql-types/children/children-type";
 import {ParentInput} from "../graphql-types/parent/parent-input";
 import {Parent} from "../graphql-types/parent/parent-type";
 import {Ctx} from "type-graphql";
-import {ContextTypes} from "../helper/types";
+import {ContextTypes} from "../helper";
 import {parseToken} from "../helper/util";
+import {arg, mutation, query, resolver} from "@loopback/graphql";
 
 @resolver(of => Topic)
 export class RoomResolver {

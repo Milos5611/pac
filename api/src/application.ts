@@ -5,12 +5,12 @@ import {RestApplication} from '@loopback/rest';
 import {ServiceMixin} from '@loopback/service-proxy';
 import {MetricsComponent} from '@loopback/extension-metrics';
 import path from 'path';
-import {GraphQLBindings, GraphQLComponent} from '../module/graphql';
 import * as dotenv from 'dotenv';
 import * as dotenvExt from 'dotenv-extended';
 import {LoggingBindings, LoggingComponent, WinstonLoggerOptions, format} from "@loopback/extension-logging";
 import {DataSourceMixin} from "./datasources/mixins";
 import {SeedService} from "./services";
+import {GraphQLBindings, GraphQLComponent} from "@loopback/graphql";
 
 export {ApplicationConfig};
 

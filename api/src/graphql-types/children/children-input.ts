@@ -1,5 +1,5 @@
-import {field, inputType} from '../../../module/graphql';
 import {Children} from "./children-type";
+import {field, inputType} from "@loopback/graphql";
 
 @inputType()
 export class ChildrenInput implements Partial<Children> {

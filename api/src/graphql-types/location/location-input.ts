@@ -1,5 +1,5 @@
-import {field, inputType} from '../../../module/graphql';
 import {Location} from "./location-type";
+import {field, inputType} from "@loopback/graphql";
 
 @inputType()
 export class LocationInput implements Partial<Location> {

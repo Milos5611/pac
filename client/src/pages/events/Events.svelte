@@ -24,9 +24,11 @@
 						<time>{moment(event.end_date).format("DD.MM.Y")}</time>
 					</div>
 					<article>
-						<h5 class="card__title">
-							{event.name}
-						</h5>
+						<Navigate to="/event/{event.id}">
+							<h5 class="card__title">
+								{event.name}
+							</h5>
+						</Navigate>
 						<p class="card__description">
 							{event.location.name}
 						</p>
@@ -44,12 +46,6 @@
 						{/if}
 					</article>
 				</div>
-
-			<div class="event-action">
-				<div class="p-2">
-
-				</div>
-			</div>
 		</div>
 	{/each}
 </div>

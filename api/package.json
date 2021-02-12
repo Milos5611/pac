@@ -12,7 +12,7 @@
     "node": ">=10.16"
   },
   "scripts": {
-    "build": "lb-tsc && cp -r src/migrations dist",
+    "build": "lb-tsc",
     "build:watch": "lb-tsc --watch",
     "dev": "nodemon -e 'js,ts' -w src -d 2 -x 'lb-tsc && node --inspect=9202 -r source-map-support/register . || exit 1'",
     "lint": "npm run prettier:check && npm run eslint",

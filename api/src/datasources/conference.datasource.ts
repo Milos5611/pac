@@ -40,6 +40,7 @@ export class ConferenceDatasource extends juggler.DataSource
    * Start the datasource when application is started
    */
   start(): ValueOrPromise<void> {
+    console.log(config);
     // Add logic here to be invoked when the application is started
   }
 

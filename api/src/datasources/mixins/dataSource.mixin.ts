@@ -86,40 +86,42 @@ export function DataSourceMixin<T extends Class<any>>(superClass: T) {
         'migrations',
         migrationType,
       );
+      /*
+            const files = fs.readdirSync(pathToMigrations);
+            console.log("files");
+            console.log(files);
+            logger.info(`Migrating data for ${migrationType} and schema ${schema}`);
 
-      const files = fs.readdirSync(pathToMigrations);
-      logger.info(`Migrating data for ${migrationType} and schema ${schema}`);
+            for (const file of files) {
+              if (!file.endsWith('.js')) {
+                continue;
+              }
 
-      for (const file of files) {
-        if (!file.endsWith('.js')) {
-          continue;
-        }
+              const {run} = require(`${pathToMigrations}/${file}`);
+              if (!run || !(run instanceof Function)) {
+                throw new Error(`Migation ${file} missing run() export.`);
+              }
 
-        const {run} = require(`${pathToMigrations}/${file}`);
-        if (!run || !(run instanceof Function)) {
-          throw new Error(`Migation ${file} missing run() export.`);
-        }
+              // Execute migration if it has not been run before
+              const name = file.replace('.js', '');
+              const migration = {name, schema};
+              const hasRun = await migrationRepository.findOne({where: migration});
 
-        // Execute migration if it has not been run before
-        const name = file.replace('.js', '');
-        const migration = {name, schema};
-        const hasRun = await migrationRepository.findOne({where: migration});
-
-        if (!hasRun) {
-          logger.info(
-            `Schema ${migrationType} data migration #${name}: Executing`,
-          );
-          await run(this);
-          await migrationRepository.create({
-            ...migration,
-            created_at: new Date(),
-          });
-        } else {
-          logger.info(
-            `Schema ${migrationType} data migration #${name}: Skipped`,
-          );
-        }
-      }
+              if (!hasRun) {
+                logger.info(
+                  `Schema ${migrationType} data migration #${name}: Executing`,
+                );
+                await run(this);
+                await migrationRepository.create({
+                  ...migration,
+                  created_at: new Date(),
+                });
+              } else {
+                logger.info(
+                  `Schema ${migrationType} data migration #${name}: Skipped`,
+                );
+              }
+            }*/
     }
 
     // This function is needed when SchemaMigrationOptions.existingSchema = drop

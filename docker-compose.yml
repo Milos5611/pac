@@ -1,5 +1,17 @@
 version: '3.7'
 services:
+
+  api:
+    build:
+      context: ./api
+      dockerfile: ./Dockerfile
+    command: npm run dev
+    env_file:
+      - devenv/.env
+    ports:
+      - 3000:3000
+    depends_on:
+      - postgres
   postgres:
     image: postgres:11.0-alpine
     restart: always

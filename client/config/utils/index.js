@@ -153,3 +153,11 @@ export const pickField = (obj, ...props) => {
 
 export const isEmpty = object =>
   Object.values(object).every(x => x === null || x === '');
+
+export const config = {
+  SVELTE_APP_BE_URL: "http://conference.backend/graphql",
+  SVELTE_APP_CLIENT_ID: "0oaup7oeuqIcBZjyw4x6",
+  SVELTE_APP_ISSUER: "https://dev-269607.okta.com",
+  SVELTE_APP_OKTA_TESTING_DISABLEHTTPSCHECK: false,
+  SVELTE_APP_REDIRECT_OKTA_URL: "http://conference.frontend/",
+};

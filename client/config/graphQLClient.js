@@ -1,13 +1,13 @@
 import ApolloClient from 'apollo-client';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { createUploadLink } from 'apollo-upload-client';
-import { getPersistedUserToken } from './utils';
+import { getPersistedUserToken, config } from './utils';
 
 export default function graphQLClient(token) {
   let requestToken = token || getPersistedUserToken();
   return new ApolloClient({
     link: createUploadLink({
-      uri: `${__conference.env.BE_URL ?? process.env.BE_URL}`,
+      uri: `${process.env.SVELTE_APP_BE_URL || config.SVELTE_APP_BE_URL}`,
       headers: {
         Authorization: requestToken,
       },

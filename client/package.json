@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "scripts": {
     "build": "rollup -c",
-    "dev": "rollup -c -w",
-    "start": "sirv public -s",
+    "dev": "env-cmd rollup -c -w",
+    "start": "env-cmd sirv public -s",
     "clean": "rm -rf public/build",
-    "docker:build": "docker build -t pac_mnikolic_web .",
+    "docker:build": "docker build --no-cache -t pac_mnikolic_web .",
     "docker:run": "docker run -p 5000:5000 -d pac_mnikolic_web"
   },
   "devDependencies": {
@@ -30,6 +30,7 @@
     "apollo-client": "^2.6.10",
     "apollo-upload-client": "^14.1.1",
     "bulma": "^0.9.0",
+    "env-cmd": "^10.1.0",
     "graphql": "^14.0.2",
     "moment": "^2.27.0",
     "rollup-plugin-postcss": "^3.1.8",
@@ -37,6 +38,7 @@
     "smelte": "^1.0.18",
     "svelma": "^0.4.0",
     "svelte-apollo": "^0.3.0",
+    "svelte-environment-variables": "^1.0.3",
     "svelte-router-spa": "^5.7.3"
   }
 }

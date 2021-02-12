@@ -6,7 +6,7 @@ import { terser } from 'rollup-plugin-terser';
 import autoPreprocess from 'svelte-preprocess';
 import postcss from 'rollup-plugin-postcss'
 import replace from '@rollup/plugin-replace';
-import {config} from 'dotenv';
+import includeEnv from "svelte-environment-variables";
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -41,11 +41,7 @@ export default {
 	},
 	plugins: [
 		replace({
-			__conference: JSON.stringify({
-				env: {
-					...config().parsed
-				}
-			})
+			...includeEnv()
 		}),
 		svelte({
 			preprocess: autoPreprocess(),

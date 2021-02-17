@@ -1,0 +1,33 @@
+datadog:
+  site: "datadoghq.eu"
+  collectEvents: true
+  leaderElection: true
+  clusterChecks:
+    enabled: true
+  processAgent:
+    enabled: true
+    processCollection: true
+  logs:
+    enabled: true
+    containerCollectAll: true
+    containerCollectUsingFiles: true
+  systemProbe:
+    enabled: true
+  orchestratorExplorer:
+    enabled: true
+  podLabelsAsTags:
+    app: kube_app
+    chart: helm_chart
+    release: helm_release
+
+clusterAgent:
+  enabled: true
+  metricsProvider:
+    enabled: true
+
+agents:
+  containers:
+    agent:
+      env:
+        - name: DD_KUBELET_TLS_VERIFY
+          value: "false"

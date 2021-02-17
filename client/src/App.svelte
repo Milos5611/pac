@@ -1,5 +1,4 @@
 <script>
-  export let conference;
   import {
     OidcContext,
     login

@@ -5,7 +5,7 @@ WORKDIR /usr/src/app
 COPY . /usr/src/app/
 
 # install node modules
-RUN yarn install
+RUN yarn install --ignore-engines
 
 # build the app
 RUN yarn run build

@@ -7,7 +7,7 @@ export default function graphQLClient(token) {
   let requestToken = token || getPersistedUserToken();
   return new ApolloClient({
     link: createUploadLink({
-      uri: `${process.env.SVELTE_APP_BE_URL || config.SVELTE_APP_BE_URL}`,
+      uri: "process.env.SVELTE_APP_BE_URL",
       headers: {
         Authorization: requestToken,
       },

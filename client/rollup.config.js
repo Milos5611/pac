@@ -6,9 +6,10 @@ import { terser } from 'rollup-plugin-terser';
 import autoPreprocess from 'svelte-preprocess';
 import postcss from 'rollup-plugin-postcss'
 import replace from '@rollup/plugin-replace';
-import includeEnv from "svelte-environment-variables";
+import pkg from './package.json';
 
 const production = !process.env.ROLLUP_WATCH;
+const defaultRedirectUri = production ? 'http://conference.frontend/' : 'http://localhost:5000';
 
 function serve() {
 	let server;
@@ -41,7 +42,11 @@ export default {
 	},
 	plugins: [
 		replace({
-			...includeEnv()
+			'process.env.SVELTE_APP_BE_URL': process.env.SVELTE_APP_BE_URL || 'http://localhost:3000',
+			'process.env.SVELTE_APP_ISSUER': process.env.SVELTE_APP_ISSUER || 'https://dev-26276100.okta.com/',
+			'process.env.SVELTE_APP_CLIENT_ID': process.env.SVELTE_APP_CLIENT_ID || '0oa5v4cgxUyPfnyUR5d6',
+			'process.env.SVELTE_APP_REDIRECT_OKTA_URL': process.env.SVELTE_APP_REDIRECT_OKTA_URL || defaultRedirectUri,
+			'pkg.version': pkg.version,
 		}),
 		svelte({
 			preprocess: autoPreprocess(),

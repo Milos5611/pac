@@ -8,7 +8,7 @@ COPY . /usr/src/app/
 RUN yarn install
 
 # build the app
-RUN npm run-script build
+RUN yarn run build
 
 # drop node modules after build
 RUN rm -rf ./node_modules

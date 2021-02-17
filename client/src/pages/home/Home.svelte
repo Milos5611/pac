@@ -1,7 +1,6 @@
 <script>
 	import {
 		login,
-		logout,
 		userInfo,
 		isAuthenticated
 	} from '@dopry/svelte-oidc';

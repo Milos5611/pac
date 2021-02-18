@@ -22,16 +22,18 @@ for that. Additionally monitoring must ensure that bottlenecks can be detected e
 
 ## Stack
 
-- Loopback 4
-- GraphQL
-- Postgres
-- Svelte
-- Svelma
-- Docker
-- Kubernetes
-- Minikube
-- Okta
-- Datadog
+- [Loopback4](https://loopback.io/)
+- [GraphQL](https://graphql.org/)
+- [Postgres](https://www.postgresql.org/)
+- [Svelte](https://svelte.dev/)
+- [Svelma](https://c0bra.github.io/svelma/)
+- [Docker](https://www.docker.com/)
+- [Kubernetes](https://kubernetes.io/)
+- [Terraform](https://www.terraform.io/)
+- [Minikube](https://minikube.sigs.k8s.io/docs/)
+- [Okta](https://www.okta.com/)
+- [Datadog](https://www.datadoghq.com/)
+- [Helm](https://helm.sh/)
 
 # Running project in local Minikube
 

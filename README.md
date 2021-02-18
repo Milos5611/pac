@@ -14,10 +14,8 @@ for that. Additionally monitoring must ensure that bottlenecks can be detected e
 
 | Role            | Name          | Email                                                                | Teams          |
 | --------------- | ------------- | -------------------------------------------------------------------- | -------------- |
-| _Product
-Owner_ | Darko Krizic  | [darko.krizic@prodyna.com](mailto:darko.krizic@prodyna.com)          | @Darko Krizic  |
-| _
-Maintainer_    | Milos Nikolic | [milos.nikolic@prodyna.com](mailto:milos.nikolic@prodyna.com)        | @Milos Nikolic |
+| _Product Owner_ | Darko Krizic  | [darko.krizic@prodyna.com](mailto:darko.krizic@prodyna.com)          | @Darko Krizic  |
+| _Maintainer_    | Milos Nikolic | [milos.nikolic@prodyna.com](mailto:milos.nikolic@prodyna.com)        | @Milos Nikolic |
 
 ## Stack
 

@@ -1,104 +1,91 @@
-*Looking for a shareable component template? Go here --> [sveltejs/component-template](https://github.com/sveltejs/component-template)*
+# PAC Belgrade 2019 - Frontend
 
----
+![Logo](public/images/prodyna_logo.png)
 
-# svelte app
+## Product Vision
 
-This is a project template for [Svelte](https://svelte.dev) apps. It lives at https://github.com/sveltejs/template.
+The Conferencing App is a fictive but easy to understand business application. The customers organises events and wants
+to get rid of printed paper and digitise the business. The intention is to have a central place where all details about
+events, talks, persons a.s.o. are stored. The system must support multiple frontends (e.g. Web or Mobile phone). The
+system must be scalable because while the events take place the load gets very high. So the architecture must compensate
+for that. Additionally monitoring must ensure that bottlenecks can be detected early to prevent low performance.
 
-To create a new project based on this template using [degit](https://github.com/Rich-Harris/degit):
+## Points of Contact
 
-```bash
-npx degit sveltejs/template svelte-app
-cd svelte-app
+| Role            | Name          | Email                                                                | Teams          |
+| --------------- | ------------- | -------------------------------------------------------------------- | -------------- |
+| _Product Owner_ | Darko Krizic  | [darko.krizic@prodyna.com](mailto:darko.krizic@prodyna.com)          | @Darko Krizic  |
+| _Maintainer_    | Milos Nikolic | [milos.nikolic@prodyna.com](mailto:milos.nikolic@prodyna.com)        | @Milos Nikolic |
+
+## Stack
+
+- Svelte
+- Svelma
+- @svelteOIDC
+- Rollup
+- Svelte Router
+
+## Installation
+
+Install dependencies via
+
 ```
-
-*Note that you will need to have [Node.js](https://nodejs.org) installed.*
-
-
-## Get started
-
-Install the dependencies...
-
-```bash
-cd svelte-app
 npm install
 ```
 
-...then start [Rollup](https://rollupjs.org):
+## Environment tasks
 
-```bash
-npm run dev
+| Environment   |      Command             | Description                                      |
+| ------------- | :----------------------: | ------------------------------------------------ |
+| Local         |  **npm run dev**         | Run local Svelte with hot reloading enabled.     |
+| Local Prod    |  **npm run start**       | Run local Svelte with production build.          |
+| Prod build    |  **npm run build**       | Run production build.                            |
+
+Build will create new directory name `build` and all files will be there
+
+## Other tasks
+
+| Task          |          Command          | Description                                      |
+| ------------- | :-----------------------: | ------------------------------------------------ |
+| Docker build  |  **npm run docker:build** | Run production build and create docker container |
+| Docker run    |  **npm run docker:run**   | Run already created docker container             |
+
+## Environment variable
+
+All env variable are executed during build time and can be find in
+**_rollup.config.js_** file.
+
+| Variable                             | Description                  |
+| ------------------------------------ | :--------------------------- |
+| SVELTE_APP_BE_URL                    | Endpoint to Node server      |
+| SVELTE_APP_ISSUER                    | OIDC Issuer                  |
+| SVELTE_APP_CLIENT_ID                 | OIDC App ID                  |
+| SVELTE_APP_REDIRECT_OKTA_URL         | Redirect route after login   |
+
+### Repository structure
+
 ```
-
-Navigate to [localhost:5000](http://localhost:5000). You should see your app running. Edit a component file in `src`, save it, and reload the page to see your changes.
-
-By default, the server will only respond to requests from localhost. To allow connections from other computers, edit the `sirv` commands in package.json to include the option `--host 0.0.0.0`.
-
-
-## Building and running in production mode
-
-To create an optimised version of the app:
-
-```bash
-npm run build
-```
-
-You can run the newly built app with `npm run start`. This uses [sirv](https://github.com/lukeed/sirv), which is included in your package.json's `dependencies` so that the app will work when you deploy to platforms like [Heroku](https://heroku.com).
-
-
-## Single-page app mode
-
-By default, sirv will only respond to requests that match files in `public`. This is to maximise compatibility with static fileservers, allowing you to deploy your app anywhere.
-
-If you're building a single-page app (SPA) with multiple routes, sirv needs to be able to respond to requests for *any* path. You can make it so by editing the `"start"` command in package.json:
-
-```js
-"start": "sirv public --single"
-```
-
-## Using TypeScript
-
-This template comes with a script to set up a TypeScript development environment, you can run it immediately after cloning the template with:
-
-```bash
-node scripts/setupTypeScript.js
-```
-
-Or remove the script via:
-
-```bash
-rm scripts/setupTypeScript.js
-```
-
-## Deploying to the web
-
-### With [Vercel](https://vercel.com)
-
-Install `vercel` if you haven't already:
-
-```bash
-npm install -g vercel
-```
-
-Then, from within your project folder:
-
-```bash
-cd public
-vercel deploy --name my-project
-```
-
-### With [surge](https://surge.sh/)
-
-Install `surge` if you haven't already:
-
-```bash
-npm install -g surge
-```
-
-Then, from within your project folder:
-
-```bash
-npm run build
-surge public my-project.surge.sh
+/
+|
+├─ client/
+|  |
+|  |─ config/        # Buld configuration / GraphQL / storage
+|  |
+│  ├─ public/        # All static related files
+|  |    ├─ fonts/    # Project fonts
+|  |    ├─ icons/    # Project icons
+|  |    ├─ images/   # Project images
+|  |
+|  |─ src/
+|  |    ├─ components/   # Damb for widgets
+│  │    ├─ pages/        # Complex components with many sub-components
+│  │    ├─ main.js       # Application start
+│  │    ├─ App.svelte    # Svelte App
+│  │    ├─ routes        # Application Routes
+|  |
+├─ Dockerfile        # Container definition
+├─ .gitignore        # List of files and folders not tracked by Git
+├─ package.json      # Project manifest
+├─ package-lock.json # Project manifest with locked version
+└─ README.md         # This file
 ```

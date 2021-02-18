@@ -48,21 +48,3 @@ for that. Additionally monitoring must ensure that bottlenecks can be detected e
   | minikube_ip    |  conference.backend   |
 
   Note: Minikube ip can be found by running `minikube ip`.
-
-
-* Run `eval $(minikube docker-env)` in order to connect minikube with a local docker.
-
-
-* Run `./build-docker-images.sh` from root and wait that API and Web app are dockerized.
-
-
-* Go into `terraform` folder and run `./install`. This will run terraform and install all the components to Minikube.
-
-
-* Front end of the application can be accessed at http://conference.frontend
-
-
-* Backend end of the application can be accessed at http://conference.backend
-
-
-* Datadog monitoring of the application can be accessed at https://app.datadoghq.eu

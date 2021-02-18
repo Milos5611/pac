@@ -30,7 +30,7 @@ for that. Additionally monitoring must ensure that bottlenecks can be detected e
 - Okta
 - Datadog
 
-# Running the project in local Minikube
+# Running project in local Minikube
 
 * Go to [client folder](./client) and run `npm install` in order to install all frontend dependency.
 

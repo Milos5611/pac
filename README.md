@@ -2,6 +2,9 @@
 
 ![Logo](client/public/images/prodyna_logo.png)
 
+![client](https://github.com/Milos5611/pac/workflows/client/badge.svg)
+![api](https://github.com/Milos5611/pac/workflows/api/badge.svg)
+
 ## Product Vision
 
 The Conferencing App is a fictive but easy to understand business application. The customers organises events and wants

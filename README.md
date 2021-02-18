@@ -106,6 +106,7 @@ Seed test data with:
 ```
 /
 |
+├─ .github/                     # Github Actions to build and check the project
 ├─ api/                         # Backend application
 ├─ client/                      # Frontend application
 ├─ dotenv/                      # Environment variables

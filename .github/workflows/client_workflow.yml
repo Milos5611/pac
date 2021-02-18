@@ -16,10 +16,15 @@ jobs:
     timeout-minutes: 30
     env:
       CI: true
+      SVELTE_APP_BE_URL: "http://conference.backend/graphql"
+      SVELTE_APP_CLIENT_ID: "0oaup7oeuqIcBZjyw4x6"
+      SVELTE_APP_ISSUER: "https://dev-269607.okta.com"
+      SVELTE_APP_OKTA_TESTING_DISABLEHTTPSCHECK: "false"
+      SVELTE_APP_REDIRECT_OKTA_URL: "http://conference.frontend/"
     steps:
       # Checks-out repository under $GITHUB_WORKSPACE, so job can access it
       - name: 'Checkout'
-      - uses: actions/checkout@v2
+        uses: actions/checkout@v2
 
       # Install necessary dependency
       - name: 'Install dependencies'

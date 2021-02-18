@@ -40,7 +40,7 @@ for that. Additionally monitoring must ensure that bottlenecks can be detected e
     minikube addons enable metrics-server
     ```
 
-* In order to access the services that will run in Minikube properly, you will need to update your /etc/hosts file to include the following:
+* In order to access the services that will run in Minikube properly, you will need to update your `/etc/hosts` file to include the following:
 
   | Address        |  Host                 |
   | -------------- | --------------------- |

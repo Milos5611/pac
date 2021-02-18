@@ -1,4 +1,4 @@
-# PAC Belgrade 2019 - Backend
+# PAC Belgrade 2019 - Conference Application POC
 
 ![Logo](client/public/images/prodyna_logo.png)
 
@@ -74,17 +74,11 @@ Seed test data with:
 ```
 /
 |
-├─ api/
-|  |
-|  |─ src/
-|  |    ├─ datasrource/         # Database configuration
-│  │    ├─ graphql-resolvers/   # Graphql Resolvers 
-│  │    ├─ graphql-types/       # Graphql Types
-│  │    ├─ helpers/             # Helpers method for migration and seed database
-│  │    ├─ repositories/        # Methods to execute operation on database
-│  │    ├─ seed-data/           # Data to seed database
-│  │    ├─ services/            # Internal services
-|  |
+├─ api/                         # Backend application
+├─ client/                      # Frontend application
+├─ dotenv/                      # Environment variables
+├─ infrastructure/              # Infrastructuree of the application
+|
 ├─ docker-compose.yaml          # Config to run app in local docker container
 ├─ build-docler-images.sh       # Build Api and Web docker images from the root folder
 ├─ .gitignore                   # List of files and folders not tracked by Git
@@ -94,7 +88,7 @@ Seed test data with:
 
 ## Services
 
-[Web Application](client/README.md)
-[Loopback Node Api](./api/README.md)
-[Infrastracture](./infrastructure/README.md)
-Local Postgres Database
+* [Web Application](client/README.md)
+* [Loopback Node Api](./api/README.md)
+* [Infrastracture](./infrastructure/README.md)
+* Local Postgres Database

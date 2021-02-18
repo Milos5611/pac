@@ -2,6 +2,10 @@ datadog:
   site: "datadoghq.eu"
   collectEvents: true
   leaderElection: true
+  metricsProvider:
+    enabled: true
+  clusterAgent:
+    enabled: true
   clusterChecks:
     enabled: true
   processAgent:
@@ -15,10 +19,18 @@ datadog:
     enabled: true
   orchestratorExplorer:
     enabled: true
+  nodeLabelsAsTags:
+    node.kubernetes.io/instance-type: instance_type
+    topology.kubernetes.io/region: region
+    topology.kubernetes.io/zone: zone
+    storageprofile: storageprofile
+    storagetier: storagetier
   podLabelsAsTags:
     app: kube_app
     chart: helm_chart
     release: helm_release
+  apiKeyExistingSecret: "datadog"
+  appKeyExistingSecret: "datadog"
 
 clusterAgent:
   enabled: true

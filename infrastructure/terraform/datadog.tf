@@ -6,7 +6,7 @@ resource "kubernetes_namespace" "datadog" {
 
 resource "kubernetes_secret" "datadog" {
   metadata {
-    name      = "datadog"
+    name = "datadog"
     namespace = kubernetes_namespace.datadog.metadata.0.name
   }
 
@@ -17,21 +17,18 @@ resource "kubernetes_secret" "datadog" {
 
 }
 
-
 resource "helm_release" "datadog" {
   chart         = "datadog"
   name          = "datadog"
   namespace     = kubernetes_namespace.datadog.id
-  repository    = local.helm_repository_datadog
+  repository = local.helm_repository_datadog
   recreate_pods = true
 
   values = [
     file("helm_config/datadog.yaml"),
   ]
 
-  timeout = 600
-  /**/
-  wait    = false
+  timeout = 1200
 
   depends_on = [
     kubernetes_secret.datadog

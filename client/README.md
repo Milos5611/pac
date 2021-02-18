@@ -21,7 +21,7 @@ for that. Additionally monitoring must ensure that bottlenecks can be detected e
 
 - Svelte
 - Svelma
-- @svelteOIDC
+- Svelte OIDC
 - Rollup
 - Svelte Router
 

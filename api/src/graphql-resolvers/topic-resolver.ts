@@ -8,7 +8,7 @@ import {ParentInput} from "../graphql-types/parent/parent-input";
 import {Parent} from "../graphql-types/parent/parent-type";
 import {Ctx} from "type-graphql";
 import {ContextTypes} from "../helper";
-import {parseToken} from "../helper/util";
+import SSOOktaStrategy from "../authentication-strategies/sso.okta.strategy";
 import {arg, mutation, query, resolver} from "@loopback/graphql";
 
 @resolver(of => Topic)
@@ -33,7 +33,7 @@ export class RoomResolver {
         @arg('topic') topic: TopicInput,
         @Ctx() context: ContextTypes
     ): Promise<Topic | Error> {
-        const user = await parseToken(context.req.headers);
+        const user = await SSOOktaStrategy.authenticate(context.req);
         if(user) {
             return this.topicRepo.createTopic(topic);
         } else {
@@ -47,7 +47,7 @@ export class RoomResolver {
         @arg('childTopic') childTopic: ChildrenInput,
         @Ctx() context: ContextTypes
     ): Promise<Topic | Error> {
-        const user = await parseToken(context.req.headers);
+        const user = await SSOOktaStrategy.authenticate(context.req);
         if(user) {
             return this.topicRepo.addChildTopic(topicId, childTopic);
         } else {
@@ -61,7 +61,7 @@ export class RoomResolver {
         @arg('parentTopic') parentTopic: ParentInput,
         @Ctx() context: ContextTypes
     ): Promise<Topic | Error> {
-        const user = await parseToken(context.req.headers);
+        const user = await SSOOktaStrategy.authenticate(context.req);
         if(user) {
             return this.topicRepo.addParentTopic(topicId, parentTopic);
         } else {

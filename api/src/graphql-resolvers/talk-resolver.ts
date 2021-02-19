@@ -4,7 +4,7 @@ import {TalkInput} from "../graphql-types/talk/talk-input";
 import {TalkRepository} from "../repositories";
 import {Ctx} from "type-graphql";
 import {ContextTypes} from "../helper";
-import {parseToken} from "../helper/util";
+import SSOOktaStrategy from "../authentication-strategies/sso.okta.strategy";
 import {arg, mutation, query, resolver} from "@loopback/graphql";
 
 @resolver(of => Talk)
@@ -29,7 +29,7 @@ export class TalkResolver {
         @arg('talk') talk: TalkInput,
         @Ctx() context: ContextTypes
     ): Promise<Talk | Error> {
-        const user = await parseToken(context.req.headers);
+        const user = await SSOOktaStrategy.authenticate(context.req);
         if(user) {
             return this.talkRepo.createTalk(talk);
         } else {

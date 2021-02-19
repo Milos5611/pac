@@ -4,7 +4,7 @@ import {PersonRepository} from '../repositories';
 import {PersonInput} from "../graphql-types/person/person-input";
 import {Ctx} from "type-graphql";
 import {ContextTypes} from "../helper";
-import {parseToken} from "../helper/util";
+import SSOOktaStrategy from "../authentication-strategies/sso.okta.strategy";
 import {arg, mutation, query, resolver} from "@loopback/graphql";
 
 @resolver(of => Person)
@@ -29,7 +29,7 @@ export class PersonResolver {
         @arg('person') person: PersonInput,
         @Ctx() context: ContextTypes
     ): Promise<Person | Error> {
-        const user = await parseToken(context.req.headers);
+        const user = await SSOOktaStrategy.authenticate(context.req);
         if(user) {
             return this.personRepo.createPerson(person);
         } else {

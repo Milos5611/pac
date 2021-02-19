@@ -7,8 +7,8 @@ export async function main(options: ApplicationConfig = {}) {
   const app = new ApiApplication(options);
   await app.boot();
   // This should be removed
-  await app.migrateDataSources();
-  await seedDev();
+  // await app.migrateDataSources();
+  // await seedDev();
   await app.start();
 
   const url = app.restServer.url;

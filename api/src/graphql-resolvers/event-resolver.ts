@@ -4,9 +4,9 @@ import {Event} from '../graphql-types/event/event-type';
 import {EventRepository} from '../repositories';
 import {inject} from "@loopback/core";
 import {ContextTypes} from "../helper";
-import {parseToken} from "../helper/util";
 import {EventFilter} from "../graphql-types/event/event-filter";
-import {arg, Ctx, GraphQLBindings, mutation, query, resolver, ResolverData} from "@loopback/graphql";
+import {arg, Ctx, GraphQLBindings, mutation, query, resolver, ResolverData} from '@loopback/graphql';
+import SSOOktaStrategy from "../authentication-strategies/sso.okta.strategy";
 
 export interface IFilter {
   start_date: string
@@ -38,7 +38,7 @@ export class EventResolver {
       @arg('event') event: EventInput,
       @Ctx() context: ContextTypes
   ): Promise<Event | Error> {
-    const user = await parseToken(context.req.headers);
+    const user = await SSOOktaStrategy.authenticate(context.req);
     if(user) {
       return this.eventsRepo.createEvent(event);
     } else {

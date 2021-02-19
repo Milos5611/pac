@@ -43,7 +43,7 @@ export default {
 	plugins: [
 		replace({
 			'process.env.SVELTE_APP_BE_URL': process.env.SVELTE_APP_BE_URL || 'http://localhost:3000',
-			'process.env.SVELTE_APP_ISSUER': process.env.SVELTE_APP_ISSUER || 'https://dev-26276100.okta.com/',
+			'process.env.SVELTE_APP_ISSUER': process.env.SVELTE_APP_ISSUER || 'https://dev-26276100.okta.com/oauth2/default',
 			'process.env.SVELTE_APP_CLIENT_ID': process.env.SVELTE_APP_CLIENT_ID || '0oa5v4cgxUyPfnyUR5d6',
 			'process.env.SVELTE_APP_REDIRECT_OKTA_URL': process.env.SVELTE_APP_REDIRECT_OKTA_URL || defaultRedirectUri,
 			'pkg.version': pkg.version,

@@ -17,6 +17,7 @@ import {Location} from "../graphql-types/location/location-type";
 import {LocationRepository} from "./location.repository";
 import {IFilter} from "../graphql-resolvers/event-resolver";
 import {EventFilter} from "../graphql-types/event/event-filter";
+import {authenticate} from '@loopback/authentication';
 
 @bind({
   scope: BindingScope.SINGLETON,
@@ -97,7 +98,6 @@ export class EventRepository
       }]
     });
   }
-
 
   async createEvent(eventData: EventInput) {
     const newEvent = Object.assign(eventData, {id: uuidv4()});

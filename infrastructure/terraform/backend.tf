@@ -51,6 +51,7 @@ resource "kubernetes_config_map" "backend-config" {
     DB_USER = "postgres"
     DB_PASSWORD = random_password.backend-postgres-password.result
     DB_DATABASE = "postgres"
+    CLIENT_ID = "0oa5v4cgxUyPfnyUR5d6"
   }
 }
 

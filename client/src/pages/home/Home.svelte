@@ -13,9 +13,9 @@
 	<div class="evnt-login">
 		<div class="image-holder">
 			<aside>
-				<h2 class="quote">Great, kid. Don't get cocky</h2>
+				<h2 class="quote">Let’s keep a little optimism here.</h2>
 				<hr/>
-				<h4 class="author">Han Solo</h4>
+				<h4 class="author">Milos Nikolic</h4>
 			</aside>
 		</div>
 		<section class="main-wrapped">

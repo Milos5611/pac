@@ -4,7 +4,7 @@ import {Parent} from "../graphql-types/parent/parent-type";
 import {ParentInput} from "../graphql-types/parent/parent-input";
 import {Ctx} from "type-graphql";
 import {ContextTypes} from "../helper";
-import {parseToken} from "../helper/util";
+import SSOOktaStrategy from "../authentication-strategies/sso.okta.strategy";
 import {arg, mutation, query, resolver} from "@loopback/graphql";
 
 @resolver(of => Parent)
@@ -29,7 +29,7 @@ export class ParentResolver {
         @arg('parent') parent: ParentInput,
         @Ctx() context: ContextTypes
     ): Promise<Parent | Error> {
-        const user = await parseToken(context.req.headers);
+        const user = await SSOOktaStrategy.authenticate(context.req);
         if(user) {
             return this.parentRepository.createParent(parent);
         } else {
@@ -43,7 +43,7 @@ export class ParentResolver {
         @arg('parent') parent: ParentInput,
         @Ctx() context: ContextTypes
     ): Promise<Parent | Error> {
-        const user = await parseToken(context.req.headers);
+        const user = await SSOOktaStrategy.authenticate(context.req);
         if(user) {
             return this.parentRepository.updateParent(id, parent);
         } else {

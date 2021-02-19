@@ -4,7 +4,7 @@ import {LocationRepository} from '../repositories';
 import {LocationInput} from "../graphql-types/location/location-input";
 import {Ctx} from "type-graphql";
 import {ContextTypes} from "../helper";
-import {parseToken} from "../helper/util";
+import SSOOktaStrategy from "../authentication-strategies/sso.okta.strategy";
 import {arg, mutation, query, resolver} from "@loopback/graphql";
 
 @resolver(of => Location)
@@ -29,7 +29,7 @@ export class LocationResolver {
         @arg('location') location: LocationInput,
         @Ctx() context: ContextTypes
     ): Promise<Location | Error> {
-        const user = await parseToken(context.req.headers);
+        const user = await SSOOktaStrategy.authenticate(context.req);
         if(user) {
             return this.locationRepo.createLocation(location);
         } else {

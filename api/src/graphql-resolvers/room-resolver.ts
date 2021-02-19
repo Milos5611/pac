@@ -4,7 +4,7 @@ import {RoomRepository} from '../repositories';
 import {RoomInput} from "../graphql-types/room/room-input";
 import {Ctx} from "type-graphql";
 import {ContextTypes} from "../helper";
-import {parseToken} from "../helper/util";
+import SSOOktaStrategy from "../authentication-strategies/sso.okta.strategy";
 import {arg, mutation, query, resolver} from "@loopback/graphql";
 
 @resolver(of => Room)
@@ -29,7 +29,7 @@ export class RoomResolver {
         @arg('room') room: RoomInput,
         @Ctx() context: ContextTypes
     ): Promise<Room | Error> {
-        const user = await parseToken(context.req.headers);
+        const user = await SSOOktaStrategy.authenticate(context.req);
         if(user) {
             return this.roomRepo.createRoom(room);
         } else {

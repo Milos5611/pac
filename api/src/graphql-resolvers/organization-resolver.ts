@@ -4,7 +4,7 @@ import {OrganizationRepository} from '../repositories';
 import {OrganizationInput} from "../graphql-types/organization/organization-input";
 import {Ctx} from "type-graphql";
 import {ContextTypes} from "../helper";
-import {parseToken} from "../helper/util";
+import SSOOktaStrategy from "../authentication-strategies/sso.okta.strategy";
 import {arg, mutation, query, resolver} from "@loopback/graphql";
 
 @resolver(of => Organization)
@@ -29,7 +29,7 @@ export class OrganizationResolver {
         @arg('organization') organization: OrganizationInput,
         @Ctx() context: ContextTypes
     ): Promise<Organization | Error> {
-        const user = await parseToken(context.req.headers);
+        const user = await SSOOktaStrategy.authenticate(context.req);
         if(user) {
             return this.organizationRepo.createOrganization(organization);
         } else {

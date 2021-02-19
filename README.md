@@ -22,6 +22,8 @@ for that. Additionally monitoring must ensure that bottlenecks can be detected e
 
 ## Stack
 
+- [Typescript](https://typescriptlang.org)
+- [NodeJS](https://nodejs.org/)
 - [Loopback4](https://loopback.io/)
 - [GraphQL](https://graphql.org/)
 - [Postgres](https://www.postgresql.org/)

@@ -11,11 +11,11 @@ resource "kubernetes_config_map" "frontend-config" {
   }
 
   data = {
-    SVELTE_APP_BE_URL: "http://conference.backend/graphql"
-    SVELTE_APP_CLIENT_ID: "0oa5v4cgxUyPfnyUR5d6"
-    SVELTE_APP_ISSUER: "https://dev-26276100.okta.com"
-    SVELTE_APP_OKTA_TESTING_DISABLEHTTPSCHECK: false,
-    SVELTE_APP_REDIRECT_OKTA_URL: "http://conference.frontend/"
+    SVELTE_APP_BE_URL: var.backend_url
+    SVELTE_APP_CLIENT_ID: var.okta_client_id
+    SVELTE_APP_ISSUER: var.okta_issuer
+    SVELTE_APP_OKTA_TESTING_DISABLEHTTPSCHECK: var.okta_http_check
+    SVELTE_APP_REDIRECT_OKTA_URL: var.okta_redirect_url
   }
 }
 

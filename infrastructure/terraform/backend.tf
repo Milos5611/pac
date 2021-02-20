@@ -16,7 +16,7 @@ resource "kubernetes_secret" "backend-postgres-access" {
   }
 
   data = {
-    DB_USER = "postgres"
+    DB_USER = var.database_user
     DB_PASSWORD = random_password.backend-postgres-password.result
   }
 }
@@ -44,14 +44,14 @@ resource "kubernetes_config_map" "backend-config" {
   }
 
   data = {
-    DB_DRIVER = "postgresql"
+    DB_DRIVER = var.database_driver
     DB_HOST = helm_release.backend-postgres.metadata[0].name
-    DB_NAME = "conference_db"
-    DB_PORT = "5432"
-    DB_USER = "postgres"
+    DB_NAME = var.database_name
+    DB_PORT = var.database_port
+    DB_USER = var.database_user
     DB_PASSWORD = random_password.backend-postgres-password.result
-    DB_DATABASE = "postgres"
-    CLIENT_ID = "0oa5v4cgxUyPfnyUR5d6"
+    DB_DATABASE = var.database_db,
+    CLIENT_ID = var.okta_client_id
   }
 }
 

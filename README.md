@@ -4,6 +4,7 @@
 
 ![client](https://github.com/Milos5611/pac/workflows/client/badge.svg)
 ![api](https://github.com/Milos5611/pac/workflows/api/badge.svg)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FMilos5611%2Fpac-backend.svg?type=shield)]
 
 ## Product Vision
 

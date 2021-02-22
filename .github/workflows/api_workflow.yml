@@ -25,7 +25,7 @@ jobs:
     steps:
       # Checks-out repository under $GITHUB_WORKSPACE, so job can access it
       - name: 'Checkout'
-        uses: actions/checkout@v2
+        uses: actions/checkout@master
 
       # Install necessary dependency
       - name: 'Install dependencies'

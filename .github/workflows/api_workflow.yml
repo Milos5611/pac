@@ -31,10 +31,12 @@ jobs:
       - name: 'Install dependencies'
         working-directory: api
         run: |
-          npm install && npm i -g @loopback/build
+          npm install
 
       # Build the project
       - name: 'Build project'
-        working-directory: api
+      - uses: ./api
+        with:
+          milliseconds: 1000
         run: |
           npm run build

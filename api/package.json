@@ -83,7 +83,7 @@
     "uuid": "^8.3.0"
   },
   "devDependencies": {
-    "@loopback/build": "^6.2.0",
+    "@loopback/build": "^5.4.3",
     "@loopback/eslint-config": "^9.0.0",
     "@loopback/repository": "^2.10.0",
     "@loopback/rest": "^5.2.1",

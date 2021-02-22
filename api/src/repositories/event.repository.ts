@@ -111,4 +111,10 @@ export class EventRepository
     await this.updateById(id, eventData);
     return this.findById(id);
   }
+
+  async deleteEvent(id: string) {
+    const foundEvent = await this.findById(id);
+    if(!foundEvent) throw new Error("Event doesn't exist");
+    await this.deleteById(id);
+  }
 }

@@ -7,6 +7,7 @@ import {ContextTypes} from "../helper";
 import {EventFilter} from "../graphql-types/event/event-filter";
 import {arg, Ctx, GraphQLBindings, mutation, query, resolver, ResolverData} from '@loopback/graphql';
 import SSOOktaStrategy from "../authentication-strategies/sso.okta.strategy";
+import * as Events from 'events';
 
 export interface IFilter {
   start_date: string
@@ -49,5 +50,10 @@ export class EventResolver {
   @mutation(() => Event)
   async updateEvent(@arg('id') id: string,  @arg('event') event: EventInput): Promise<Event> {
     return this.eventsRepo.updateEvent(id, event);
+  }
+
+  @mutation(() => Event, {nullable: true})
+  async deleteEvent(@arg('id') id: string) {
+    return this.eventsRepo.deleteEvent(id);
   }
 }

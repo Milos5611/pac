@@ -1,11 +1,15 @@
 import {Issuer} from './issuer';
 import {HttpErrors, Request} from '@loopback/rest';
-import {securityId, UserProfile} from '@loopback/security';
+import {UserProfile} from '@loopback/security';
 import jwt_decode from 'jwt-decode';
 import debugFactory from 'debug';
+import {asAuthStrategy, AuthenticationStrategy} from '@loopback/authentication';
+import {injectable} from '@loopback/core';
 const debug = debugFactory('loopback:multi-tenancy:sso:okta');
 
-class SSOOktaStrategy {
+@injectable(asAuthStrategy)
+class SSOOktaStrategy implements AuthenticationStrategy {
+  name = 'sso.okta';
   async authenticate(request: any): Promise<UserProfile> {
     const token: string = this.extractCredentials(request);
     const userProfile: UserProfile = await this.verifyToken(token);

@@ -35,7 +35,6 @@ jobs:
 
       # Build the project
       - name: 'Build project'
-        with:
-          milliseconds: 1000
+        working-directory: api
         run: |
           npm run build

@@ -37,7 +37,7 @@ jobs:
       - name: 'Install lb-tsc as a dependency'
         working-directory: api
         run: |
-          npm install @loopback/build --save-dev
+          npm install @loopback/build
 
       # Build the project
       - name: 'Build project'

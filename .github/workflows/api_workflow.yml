@@ -35,7 +35,6 @@ jobs:
 
       # Build the project
       - name: 'Build project'
-        uses: ./api
         with:
           milliseconds: 1000
         run: |

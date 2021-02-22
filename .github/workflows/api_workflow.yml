@@ -24,17 +24,8 @@ jobs:
       NODE_ENV: "production"
     steps:
       # Checks-out repository under $GITHUB_WORKSPACE, so job can access it
-      - name: 'Checkout'
-        uses: actions/checkout@v2
-
-      # Install necessary dependency
-      - name: 'Install dependencies'
-        working-directory: api
-        run: |
-          npm ci
-
-      # Build the project
-      - name: 'Build project'
-        working-directory: api
-        run: |
-          npm run build --if-present
+      - uses: actions/checkout@v2
+      - run: |
+          npm install
+      - run: |
+          npm run build

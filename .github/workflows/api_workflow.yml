@@ -28,13 +28,17 @@ jobs:
         uses: actions/checkout@v2
 
       # Install necessary dependency
-      - name: 'Install dependencies'
-        working-directory: api
-        run: |
-          npm install
+
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+          working-directory: api
+      - run: npm i
+      - run: npm run build --if-present
 
       # Build the project
       - name: 'Build project'
-        working-directory: ./api
+        working-directory: api
         run: |
           npm run build

@@ -28,7 +28,9 @@ jobs:
         with:
           node-version: 14
       - name: Bootstrap project
+        working-directory: qpi
         run: |
           npm ci --ignore-scripts
       - name: Build
+        working-directory: qpi
         run: npm run build

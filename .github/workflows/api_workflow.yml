@@ -9,11 +9,9 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    name: App build
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 30
     env:
-      CI: true
       LOG_LEVEL: "info"
       DB_HOST: "localhost"
       DB_PORT: "5432"
@@ -22,15 +20,24 @@ jobs:
       DB_DATABASE: "postgres"
       NODE_ENV: "production"
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js 14
-        uses: actions/setup-node@v2
-        with:
-          node-version: 14
-      - name: Bootstrap project
-        working-directory: qpi
+      # Checks-out repository under $GITHUB_WORKSPACE, so job can access it
+      - name: 'Checkout'
+        uses: actions/checkout@master
+
+      # Install necessary dependency
+      - name: 'Install dependencies'
+        working-directory: api
         run: |
           npm install
-      - name: Build
-        working-directory: qpi
-        run: npm run build
+
+      # Install @loopback/build separatelly
+      - name: 'Install lb-tsc as a dependency'
+        working-directory: api
+        run: |
+          npm install @loopback/build
+
+      # Build the project
+      - name: 'Build project'
+        working-directory: api
+        run: |
+          npm run build

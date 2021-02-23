@@ -30,7 +30,7 @@ jobs:
       - name: Bootstrap project
         working-directory: qpi
         run: |
-          npm ci --ignore-scripts
+          npm ci
       - name: Build
         working-directory: qpi
         run: npm run build

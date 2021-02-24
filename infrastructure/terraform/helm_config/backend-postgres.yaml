@@ -1,7 +1,11 @@
 master:
   persistence:
     size: 1Gi
+  metrics:
+    enabled: true
 slave:
   persistence:
     size: 1Gi
   replicas: 0
+  metrics:
+    enabled: true

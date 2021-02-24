@@ -15,8 +15,6 @@ datadog:
     enabled: true
     containerCollectAll: true
     containerCollectUsingFiles: true
-  systemProbe:
-    enabled: true
   orchestratorExplorer:
     enabled: true
   nodeLabelsAsTags:
@@ -43,3 +41,7 @@ agents:
       env:
         - name: DD_KUBELET_TLS_VERIFY
           value: "false"
+        - name: DD_APM_ENABLED
+          value: "true"
+        - name: DD_APM_NON_LOCAL_TRAFFIC
+          value: "true"

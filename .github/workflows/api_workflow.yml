@@ -18,9 +18,9 @@ jobs:
 
       - name: Build :latest
         working-directory: api
-        run: docker build -t pac_mnikolic_api:latest .
+        run: docker build -t ${GITHUB_REPOSITORY}:latest .
 
       - name: Push to docker hub :latest
         uses: actions-hub/docker@master
         with:
-          args: push pac_mnikolic_api:latest
+          args: push ${GITHUB_REPOSITORY}:latest

@@ -27,7 +27,7 @@ jobs:
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build :latest
-        run: docker build -t pac_mnikolic_api:latest .
+        run: npm run docker:build
 
       - name: Push to docker hub :latest
         uses: actions-hub/docker@master

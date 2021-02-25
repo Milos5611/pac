@@ -1,5 +1,5 @@
 image:
-  repository: pac_mnikolic_api
+  repository: mnikolic/pac_mnikolic_api
   tag: latest
 envFrom:
 - configMapRef:

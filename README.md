@@ -49,13 +49,7 @@ for that. Additionally monitoring must ensure that bottlenecks can be detected e
 * Follow the steps [described here](./infrastructure/README.md) in order to prepare minikube and hosts.
 
 
-* Run `eval $(minikube docker-env)` in order to connect minikube with a local docker.
-
-
-* Run `./build-docker-images.sh` from root and wait that API and Web app are dockerized.
-
-
-* Go into `terraform` folder and run `./install`. This will run terraform and install all the components to Minikube.
+* Go into `infrastructure/terraform` folder and run `./install`. This will run terraform and install all the components to Minikube.
 
 
 * Front end of the application can be accessed at http://conference.frontend
@@ -121,7 +115,6 @@ Seed test data with:
 ├─ infrastructure/              # Infrastructuree of the application
 |
 ├─ docker-compose.yaml          # Config to run app in local docker container
-├─ build-docler-images.sh       # Build Api and Web docker images from the root folder
 ├─ .gitignore                   # List of files and folders not tracked by Git
 └─ README.md                    # This file
 ```

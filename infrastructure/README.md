@@ -36,7 +36,6 @@ for that. Additionally monitoring must ensure that bottlenecks can be detected e
   
     minikube addons enable ingress
     minikube addons enable dashboard
-    minikube addons enable freshpod
     minikube addons enable metrics-server
     ```
 

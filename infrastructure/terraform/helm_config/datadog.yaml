@@ -17,6 +17,8 @@ datadog:
     containerCollectUsingFiles: true
   orchestratorExplorer:
     enabled: true
+  apm:
+    enabled: true
   nodeLabelsAsTags:
     node.kubernetes.io/instance-type: instance_type
     topology.kubernetes.io/region: region

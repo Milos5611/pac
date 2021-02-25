@@ -6,38 +6,25 @@ on:
   push:
     branches: [master]
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  build-and-publish:
+    name: build and publish
     runs-on: ubuntu-latest
-    timeout-minutes: 30
-    env:
-      LOG_LEVEL: "info"
-      DB_HOST: "localhost"
-      DB_PORT: "5432"
-      DB_USER: "postgres"
-      DB_PASSWORD: "postgres"
-      DB_DATABASE: "postgres"
-      NODE_ENV: "production"
     steps:
-      # Checks-out repository under $GITHUB_WORKSPACE, so job can access it
-      - name: 'Checkout'
-        uses: actions/checkout@master
-
-      # Install necessary dependency
-      - name: 'Install dependencies'
-        working-directory: api
-        run: |
-          npm install
-
-      # Install @loopback/build separatelly
-      - name: 'Install lb-tsc as a dependency'
-        working-directory: api
-        run: |
-          npm install @loopback/build
-
-      # Build the project
-      - name: 'Build project'
-        working-directory: api
-        run: |
-          npm run build
+      - uses: actions/checkout@master
+      - name: npm install
+        uses: actions/npm@master
+        with:
+          args: install
+      - name: docker build
+        uses: actions/docker/cli@master
+        with:
+          args: build -t mnikolic/pac_mnikolic_api .
+      - name: docker login
+        uses: actions/docker/login@master
+        env:
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      - name: docker push
+        uses: actions/docker/cli@master
+        with:
+          args: push mnikolic/pac_mnikolic_api

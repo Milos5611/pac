@@ -31,9 +31,6 @@ jobs:
         working-directory: api
         run: npm run docker:build
 
-      - name: Tag image
-        run: docker tag pac_mnikolic_api:latest pac_mnikolic_api:latest
-
       - name: Push to docker hub :latest
         uses: actions-hub/docker@master
         with:

@@ -46,7 +46,7 @@ jobs:
 
       # Build docker image
       - name: Build :latest
-        working-directory: api
+        working-directory: web
         run: npm run docker:build
 
       # Tag docker image

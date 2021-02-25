@@ -10,23 +10,16 @@ jobs:
     name: build and publish
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Login to DockerHub Registry
-        run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
-
-      - uses: actions/checkout@master
-      - run: npm ci
-
-      - name: docker build
-        uses: actions/docker/cli@master
-        with:
-          args: build -t mnikolic/pac_mnikolic_api .
-      - name: docker login
-        uses: actions/docker/login@master
+      - name: Login to docker hub
+        uses: actions-hub/docker/login@master
         env:
-          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-      - name: docker push
-        uses: actions/docker/cli@master
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build :latest
+        run: docker build -t pac_mnikolic_api:latest .
+
+      - name: Push to docker hub :latest
+        uses: actions-hub/docker@master
         with:
-          args: push mnikolic/pac_mnikolic_api
+          args: push pac_mnikolic_api:latest

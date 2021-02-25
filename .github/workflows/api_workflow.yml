@@ -17,6 +17,7 @@ jobs:
           node-version: 14
 
       - name: Bootstrap project
+        working-directory: api
         run: |
           npm install
 
@@ -27,6 +28,7 @@ jobs:
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build :latest
+        working-directory: api
         run: npm run docker:build
 
       - name: Push to docker hub :latest

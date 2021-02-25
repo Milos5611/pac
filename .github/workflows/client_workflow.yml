@@ -23,17 +23,38 @@ jobs:
       SVELTE_APP_REDIRECT_OKTA_URL: "http://conference.frontend/"
     steps:
       # Checks-out repository under $GITHUB_WORKSPACE, so job can access it
-      - name: 'Checkout'
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
+
+      # Setup Node.js version to build from
+      - name: Use Node.js 14
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
 
       # Install necessary dependency
-      - name: 'Install dependencies'
-        working-directory: client
+      - name: Bootstrap project
+        working-directory: api
         run: |
           npm install
 
-      # Build the project
-      - name: 'Build project'
-        working-directory: client
-        run: |
-          npm run build
+      # Login to DockerHub
+      - name: Login to docker hub
+        uses: actions-hub/docker/login@master
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+
+      # Build docker image
+      - name: Build :latest
+        working-directory: api
+        run: npm run docker:build
+
+      # Tag docker image
+      - name: Tag image
+        run: docker tag pac_mnikolic_web:latest mnikolic/pac_mnikolic_web:latest
+
+      # Push docker image to DockerHub
+      - name: Push to docker hub :latest
+        uses: actions-hub/docker@master
+        with:
+          args: push mnikolic/pac_mnikolic_web

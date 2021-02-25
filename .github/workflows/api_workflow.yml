@@ -6,35 +6,46 @@ on:
   push:
     branches: [master]
 jobs:
+  # This workflow contains a single job called "build-and-publish which will build and publish"
+  # docker image to dockerhub mnikolic/pac_mnikolic_api
   build-and-publish:
     name: build and publish
+    # The type of runner that the job will run on
     runs-on: ubuntu-latest
     steps:
+      # Checks-out repository under $GITHUB_WORKSPACE, so job can access it
       - uses: actions/checkout@v2
+
+      # Setup Node.js version to build from
       - name: Use Node.js 14
         uses: actions/setup-node@v2
         with:
           node-version: 14
 
+      # Install necessary dependency
       - name: Bootstrap project
         working-directory: api
         run: |
           npm install
 
+      # Login to DockerHub
       - name: Login to docker hub
         uses: actions-hub/docker/login@master
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
 
+      # Build docker image
       - name: Build :latest
         working-directory: api
         run: npm run docker:build
 
+      # Tag docker image
       - name: Tag image
-        run: docker tag pac_mnikolic_api mnikolic/pac_mnikolic_api:latest
+        run: docker tag pac_mnikolic_api:latest mnikolic/pac_mnikolic_api:latest
 
+      # Push docker image to DockerHub
       - name: Push to docker hub :latest
         uses: actions-hub/docker@master
         with:
-          args: push mnikolic/pac_mnikolic_api:latest
+          args: push mnikolic/pac_mnikolic_api

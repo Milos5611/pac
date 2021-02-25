@@ -10,6 +10,17 @@ jobs:
     name: build and publish
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 14
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
+      - name: Bootstrap project
+        working-directory: qpi
+        run: |
+          npm install
+
       - name: Login to docker hub
         uses: actions-hub/docker/login@master
         env:
@@ -17,7 +28,6 @@ jobs:
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build :latest
-        working-directory: api
         run: docker build -t ${GITHUB_REPOSITORY}:latest .
 
       - name: Push to docker hub :latest

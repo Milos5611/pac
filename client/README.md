@@ -1,14 +1,5 @@
-# PAC Belgrade 2019 - Frontend
+# PAC Belgrade 2020 - Frontend
 
-![Logo](public/images/prodyna_logo.png)
-
-## Product Vision
-
-The Conferencing App is a fictive but easy to understand business application. The customers organises events and wants
-to get rid of printed paper and digitise the business. The intention is to have a central place where all details about
-events, talks, persons a.s.o. are stored. The system must support multiple frontends (e.g. Web or Mobile phone). The
-system must be scalable because while the events take place the load gets very high. So the architecture must compensate
-for that. Additionally monitoring must ensure that bottlenecks can be detected early to prevent low performance.
 
 ## Points of Contact
 

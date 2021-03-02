@@ -1,4 +1,4 @@
-# PAC Belgrade 2019 - Conference Application POC
+# PAC Belgrade 2020 - Conference Application POC
 
 ![Logo](client/public/images/prodyna_logo.png)
 

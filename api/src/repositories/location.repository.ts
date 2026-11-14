@@ -1,4 +1,9 @@
-import {DefaultCrudRepository, HasManyRepositoryFactory, repository, RepositoryBindings} from '@loopback/repository';
+import {
+  DefaultCrudRepository,
+  HasManyRepositoryFactory,
+  repository,
+  RepositoryBindings,
+} from '@loopback/repository';
 import {Location} from '../graphql-types/location/location-type';
 import {ConferenceDatasource} from '../datasources';
 import {
@@ -8,45 +13,48 @@ import {
   inject,
   LifeCycleObserver,
   lifeCycleObserver,
-  Getter
+  Getter,
 } from '@loopback/core';
-import {Event} from "../graphql-types/event/event-type";
-import {EventRepository} from "./event.repository";
-import {LocationInput} from "../graphql-types/location/location-input";
-import {Room} from "../graphql-types/room/room-type";
-import {RoomRepository} from "./room.repository";
+import {Event} from '../graphql-types/event/event-type';
+import {EventRepository} from './event.repository';
+import {LocationInput} from '../graphql-types/location/location-input';
+import {Room} from '../graphql-types/room/room-type';
+import {RoomRepository} from './room.repository';
 
 @bind({
   scope: BindingScope.SINGLETON,
   tags: {
-    [ContextTags.NAMESPACE]: RepositoryBindings.REPOSITORIES
+    [ContextTags.NAMESPACE]: RepositoryBindings.REPOSITORIES,
   },
 })
 @lifeCycleObserver('repository')
 export class LocationRepository
   extends DefaultCrudRepository<Location, typeof Location.prototype.id>
-  implements LifeCycleObserver {
+  implements LifeCycleObserver
+{
   public readonly events: HasManyRepositoryFactory<
-      Event,
-      typeof Location.prototype.id
-      >;
+    Event,
+    typeof Location.prototype.id
+  >;
   public readonly rooms: HasManyRepositoryFactory<
-      Room,
-      typeof Location.prototype.id
-      >;
+    Room,
+    typeof Location.prototype.id
+  >;
   constructor(
-      @inject('datasources.conference') dataSource: ConferenceDatasource,
-      @repository.getter('EventRepository') eventRepositoryGetter: Getter<EventRepository>,
-      @repository.getter('RoomRepository') roomRepositoryGetter: Getter<RoomRepository>
+    @inject('datasources.conference') dataSource: ConferenceDatasource,
+    @repository.getter('EventRepository')
+    eventRepositoryGetter: Getter<EventRepository>,
+    @repository.getter('RoomRepository')
+    roomRepositoryGetter: Getter<RoomRepository>,
   ) {
     super(Location, dataSource);
     this.events = this.createHasManyRepositoryFactoryFor(
-        'events',
-        eventRepositoryGetter,
+      'events',
+      eventRepositoryGetter,
     );
     this.rooms = this.createHasManyRepositoryFactoryFor(
-        'rooms',
-        roomRepositoryGetter,
+      'rooms',
+      roomRepositoryGetter,
     );
 
     this.registerInclusionResolver('events', this.events.inclusionResolver);
@@ -60,20 +68,21 @@ export class LocationRepository
   async getAll() {
     return this.find({
       include: [
-          {relation: "events"},
-          {
-            relation: "rooms",
-            scope: {
-              include: [{relation: 'talks'}],
-            },
-          }]
+        {relation: 'events'},
+        {
+          relation: 'rooms',
+          scope: {
+            include: [{relation: 'talks'}],
+          },
+        },
+      ],
     });
   }
 
   async getOne(id: string) {
-    return  this.findOne({
+    return this.findOne({
       where: {id},
-      include: [{relation: "events"}, {relation: "rooms"}]
+      include: [{relation: 'events'}, {relation: 'rooms'}],
     });
   }
 

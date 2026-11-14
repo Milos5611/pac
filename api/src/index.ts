@@ -1,25 +1,29 @@
-import {ApplicationConfig, ApiApplication} from './application';
-import {seedDev} from "./helper/seed-dev.script";
+import {LoggingBindings} from '@loopback/logging';
+import {ApiApplication, ApplicationConfig} from './application';
+import {seedDatabase} from './seed';
 
 export * from './application';
 
 export async function main(options: ApplicationConfig = {}) {
   const app = new ApiApplication(options);
   await app.boot();
-  // This should be removed
-  await app.migrateDataSources();
-  await seedDev();
+
+  if (process.env.AUTO_MIGRATE !== 'false') {
+    await app.migrateDataSources();
+    await seedDatabase(app);
+  }
+
   await app.start();
 
+  const logger = await app.get(LoggingBindings.WINSTON_LOGGER);
   const url = app.restServer.url;
-  console.log(`Server is running at ${url}`);
-  console.log(`Try ${url}/ping`);
+  logger.info(`Server is running at ${url}`);
+  logger.info(`GraphQL endpoint: ${url}/graphql`);
 
   return app;
 }
 
 if (require.main === module) {
-  // Run the application
   const config = {
     rest: {
       port: +(process.env.PORT ?? 3000),
@@ -30,8 +34,8 @@ if (require.main === module) {
       // upon stop, set its value to `0`.
       // See https://www.npmjs.com/package/stoppable
       gracePeriodForClose: 5000, // 5 seconds
+      cors: {origin: true, credentials: true},
       openApiSpec: {
-        // useful when used with OpenAPI-to-GraphQL to locate your application
         setServersFromRequest: true,
       },
     },

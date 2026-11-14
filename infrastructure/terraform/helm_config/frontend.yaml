@@ -1,12 +1,8 @@
-image:
-  repository: mnikolic/pac_mnikolic_web
-  tag: latest
-envFrom:
-- configMapRef:
-    name: frontend-config
 ingress:
   enabled: true
+  className: nginx
   hosts:
     - host: conference.frontend
       paths:
-        - "/"
+        - path: /
+          pathType: Prefix

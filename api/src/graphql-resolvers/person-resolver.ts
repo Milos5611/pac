@@ -1,39 +1,34 @@
+import {arg, Ctx, mutation, query, resolver} from '@loopback/graphql';
 import {repository} from '@loopback/repository';
+import {requireUser} from '../auth/require-user';
+import {PersonInput} from '../graphql-types/person/person-input';
 import {Person} from '../graphql-types/person/person-type';
+import {GraphQLContext} from '../helper';
 import {PersonRepository} from '../repositories';
-import {PersonInput} from "../graphql-types/person/person-input";
-import {Ctx} from "type-graphql";
-import {ContextTypes} from "../helper";
-import SSOOktaStrategy from "../authentication-strategies/sso.okta.strategy";
-import {arg, mutation, query, resolver} from "@loopback/graphql";
 
 @resolver(of => Person)
 export class PersonResolver {
-    constructor(
-        @repository('PersonRepository')
-        private readonly personRepo: PersonRepository,
-    ) {}
+  constructor(
+    @repository('PersonRepository')
+    private readonly repo: PersonRepository,
+  ) {}
 
-    @query(() => Person, {nullable: true})
-    async person(@arg('personId') personId: string) {
-        return this.personRepo.getOne(personId);
-    }
+  @query(() => Person, {nullable: true})
+  async person(@arg('personId') id: string) {
+    return this.repo.getOne(id);
+  }
 
-    @query(() => [Person])
-    async persons(): Promise<Person[]> {
-        return this.personRepo.getAll();
-    }
+  @query(() => [Person])
+  async persons(): Promise<Person[]> {
+    return this.repo.getAll();
+  }
 
-    @mutation(() => Person)
-    async createPerson(
-        @arg('person') person: PersonInput,
-        @Ctx() context: ContextTypes
-    ): Promise<Person | Error> {
-        const user = await SSOOktaStrategy.authenticate(context.req);
-        if(user) {
-            return this.personRepo.createPerson(person);
-        } else {
-            return new Error("You must be logged in to do this action");
-        }
-    }
+  @mutation(() => Person)
+  async createPerson(
+    @arg('person') input: PersonInput,
+    @Ctx() context: GraphQLContext,
+  ): Promise<Person> {
+    await requireUser(context);
+    return this.repo.createPerson(input);
+  }
 }

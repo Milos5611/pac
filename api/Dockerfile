@@ -1,28 +1,22 @@
-# Check out https://hub.docker.com/_/node to select a new base image
-FROM node:10-slim
+FROM node:26-alpine AS build
+WORKDIR /app
 
-# Set to a non-root built-in user `node`
-USER node
+COPY package.json package-lock.json .npmrc ./
+RUN npm ci
 
-# Create app directory (with user `node`)
-RUN mkdir -p /home/node/app
+COPY tsconfig.json ./
+COPY src ./src
+RUN npm run build && npm prune --omit=dev
 
+FROM node:26-alpine
+ENV NODE_ENV=production HOST=0.0.0.0 PORT=3000
 WORKDIR /home/node/app
 
-# Install app dependencies
-# A wildcard is used to ensure both package.json AND package-lock.json are copied
-# where available (npm@5+)
-COPY --chown=node package*.json ./
+COPY --chown=node package.json ./
+COPY --chown=node public ./public
+COPY --from=build --chown=node /app/node_modules ./node_modules
+COPY --from=build --chown=node /app/dist ./dist
 
-RUN npm install
-
-# Bundle app source code
-COPY --chown=node . .
-
-RUN npm run build
-
-# Bind to all network interfaces so that it can be mapped to the host OS
-ENV HOST=0.0.0.0 PORT=3000
-
-EXPOSE ${PORT}
-CMD [ "node", "." ]
+USER node
+EXPOSE 3000
+CMD ["node", "--enable-source-maps", "."]

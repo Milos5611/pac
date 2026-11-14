@@ -1,6 +1,6 @@
 import {belongsTo, Entity, model, property} from '@loopback/repository';
-import {Location} from "../location/location-type";
-import {field, ID, objectType} from "@loopback/graphql";
+import {Location} from '../location/location-type';
+import {field, ID, objectType} from '@loopback/graphql';
 
 @objectType({description: 'Object representing events'})
 @model({
@@ -13,7 +13,7 @@ import {field, ID, objectType} from "@loopback/graphql";
         foreignKey: 'location_id',
       },
     },
-  }
+  },
 })
 export class Event extends Entity {
   @field(() => ID)
@@ -36,7 +36,7 @@ export class Event extends Entity {
   end_date?: Date;
 
   @field()
-  @belongsTo(() => Location, {keyFrom: "locationId"},{name: "location_id"})
+  @belongsTo(() => Location, {keyFrom: 'locationId'}, {name: 'location_id'})
   locationId: string;
 
   @field(() => Location, {nullable: true})

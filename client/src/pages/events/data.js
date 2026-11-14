@@ -1,16 +1,15 @@
-import {gql} from "apollo-boost";
-export const EVENTS_QUERY = gql`
-{
+export const EVENTS_QUERY = `
+  query Events {
     events {
-       id
-       name
-       start_date
-       end_date
-       location{
-         name
-         rooms{
-           name
-           talks{
+      id
+      name
+      start_date
+      end_date
+      location {
+        name
+        rooms {
+          name
+          talks {
             topics {
               name
             }
@@ -18,36 +17,37 @@ export const EVENTS_QUERY = gql`
         }
       }
     }
-}
+  }
 `;
 
-export const EVENT_QUERY = gql`
-query Event($eventId: String!) {
+export const EVENT_QUERY = `
+  query Event($eventId: String!) {
     event(eventId: $eventId) {
-       id
-       name
-       start_date
-       end_date
-       location{
-         name
-         rooms{
-           name
-           talks{
+      id
+      name
+      start_date
+      end_date
+      location {
+        name
+        rooms {
+          name
+          talks {
+            id
             duration
             title
             level
             topics {
-            name
-            childrens {
               name
+              childrens {
+                name
+              }
+              parents {
+                name
+              }
             }
-            parents{
-               name
-            }
-          }
           }
         }
       }
     }
-}
+  }
 `;

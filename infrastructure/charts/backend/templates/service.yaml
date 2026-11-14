@@ -6,10 +6,9 @@ metadata:
     {{- include "backend.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.service.type }}
-  externalName: host.docker.internal
   ports:
     - port: {{ .Values.service.port }}
-      targetPort: 3000
+      targetPort: http
       protocol: TCP
       name: http
   selector:

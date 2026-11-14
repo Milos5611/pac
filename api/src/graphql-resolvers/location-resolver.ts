@@ -1,39 +1,34 @@
+import {arg, Ctx, mutation, query, resolver} from '@loopback/graphql';
 import {repository} from '@loopback/repository';
+import {requireUser} from '../auth/require-user';
+import {LocationInput} from '../graphql-types/location/location-input';
 import {Location} from '../graphql-types/location/location-type';
+import {GraphQLContext} from '../helper';
 import {LocationRepository} from '../repositories';
-import {LocationInput} from "../graphql-types/location/location-input";
-import {Ctx} from "type-graphql";
-import {ContextTypes} from "../helper";
-import SSOOktaStrategy from "../authentication-strategies/sso.okta.strategy";
-import {arg, mutation, query, resolver} from "@loopback/graphql";
 
 @resolver(of => Location)
 export class LocationResolver {
-    constructor(
-        @repository('LocationRepository')
-        private readonly locationRepo: LocationRepository,
-    ) {}
+  constructor(
+    @repository('LocationRepository')
+    private readonly repo: LocationRepository,
+  ) {}
 
-    @query(() => Location, {nullable: true})
-    async location(@arg('locationId') locationId: string) {
-        return this.locationRepo.getOne(locationId);
-    }
+  @query(() => Location, {nullable: true})
+  async location(@arg('locationId') id: string) {
+    return this.repo.getOne(id);
+  }
 
-    @query(() => [Location])
-    async locations(): Promise<Location[]> {
-        return this.locationRepo.getAll();
-    }
+  @query(() => [Location])
+  async locations(): Promise<Location[]> {
+    return this.repo.getAll();
+  }
 
-    @mutation(() => Location)
-    async createLocation(
-        @arg('location') location: LocationInput,
-        @Ctx() context: ContextTypes
-    ): Promise<Location | Error> {
-        const user = await SSOOktaStrategy.authenticate(context.req);
-        if(user) {
-            return this.locationRepo.createLocation(location);
-        } else {
-            return new Error("You must be logged in to do this action");
-        }
-    }
+  @mutation(() => Location)
+  async createLocation(
+    @arg('location') input: LocationInput,
+    @Ctx() context: GraphQLContext,
+  ): Promise<Location> {
+    await requireUser(context);
+    return this.repo.createLocation(input);
+  }
 }

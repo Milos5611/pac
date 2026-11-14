@@ -1,14 +1,14 @@
 import {Person} from './person-type';
-import {field, inputType} from "@loopback/graphql";
+import {field, inputType} from '@loopback/graphql';
 
 @inputType()
 export class PersonInput implements Partial<Person> {
-    @field()
-    name: string;
+  @field()
+  name: string;
 
-    @field()
-    organizationId: string;
+  @field()
+  organizationId: string;
 
-    @field()
-    talkId: string;
+  @field()
+  talkId: string;
 }

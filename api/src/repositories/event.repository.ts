@@ -1,4 +1,10 @@
-import {BelongsToAccessor, DefaultCrudRepository, Filter, repository, RepositoryBindings} from '@loopback/repository';
+import {randomUUID} from 'crypto';
+import {
+  BelongsToAccessor,
+  DefaultCrudRepository,
+  repository,
+  RepositoryBindings,
+} from '@loopback/repository';
 import {Event} from '../graphql-types/event/event-type';
 import {ConferenceDatasource} from '../datasources';
 import {
@@ -8,41 +14,41 @@ import {
   inject,
   LifeCycleObserver,
   lifeCycleObserver,
-  Getter
+  Getter,
 } from '@loopback/core';
-import {plainToClass} from "class-transformer";
-import {EventInput} from "../graphql-types/event/event-input";
-import {v4 as uuidv4} from 'uuid'
-import {Location} from "../graphql-types/location/location-type";
-import {LocationRepository} from "./location.repository";
-import {IFilter} from "../graphql-resolvers/event-resolver";
-import {EventFilter} from "../graphql-types/event/event-filter";
-import {authenticate} from '@loopback/authentication';
+import {EventInput} from '../graphql-types/event/event-input';
+import {Location} from '../graphql-types/location/location-type';
+import {LocationRepository} from './location.repository';
+import {EventFilter} from '../graphql-types/event/event-filter';
 
 @bind({
   scope: BindingScope.SINGLETON,
   tags: {
-    [ContextTags.NAMESPACE]: RepositoryBindings.REPOSITORIES
+    [ContextTags.NAMESPACE]: RepositoryBindings.REPOSITORIES,
   },
 })
 @lifeCycleObserver('repository')
 export class EventRepository
-  extends DefaultCrudRepository<Event, typeof Event.prototype.id> implements LifeCycleObserver {
-
-  public readonly location: BelongsToAccessor<Location, typeof Event.prototype.id>;
+  extends DefaultCrudRepository<Event, typeof Event.prototype.id>
+  implements LifeCycleObserver
+{
+  public readonly location: BelongsToAccessor<
+    Location,
+    typeof Event.prototype.id
+  >;
 
   constructor(
-      @inject('datasources.conference') dataSource: ConferenceDatasource,
-      @repository.getter('LocationRepository') locationRepository: Getter<LocationRepository>
-      ) {
+    @inject('datasources.conference') dataSource: ConferenceDatasource,
+    @repository.getter('LocationRepository')
+    locationRepository: Getter<LocationRepository>,
+  ) {
     super(Event, dataSource);
 
     this.location = this.createBelongsToAccessorFor(
-        "location",
-        locationRepository
+      'location',
+      locationRepository,
     );
-    this.registerInclusionResolver("location", this.location.inclusionResolver);
-
+    this.registerInclusionResolver('location', this.location.inclusionResolver);
   }
 
   async start() {}
@@ -51,70 +57,83 @@ export class EventRepository
 
   async getAll(filter?: EventFilter) {
     return this.find({
-      ...filter && {
+      ...(filter && {
         where: {
-          ...filter
+          ...filter,
         },
-      },
-      include: [{
-        relation: "location",
-        scope: {
-          include: [{
-            relation: 'rooms',
-            scope: {
-              include: [{
-                relation: 'talks',
+      }),
+      include: [
+        {
+          relation: 'location',
+          scope: {
+            include: [
+              {
+                relation: 'rooms',
                 scope: {
-                  include: [{relation: 'topics'}],
+                  include: [
+                    {
+                      relation: 'talks',
+                      scope: {
+                        include: [{relation: 'topics'}],
+                      },
+                    },
+                  ],
                 },
-              }],
-            },
-          }],
+              },
+            ],
+          },
         },
-      }]
+      ],
     });
   }
 
-
   async getOne(id: string) {
     return this.findById(id, {
-      include: [{
-        relation: "location",
-        scope: {
-          include: [{
-            relation: 'rooms',
-            scope: {
-              include: [{
-                relation: 'talks',
+      include: [
+        {
+          relation: 'location',
+          scope: {
+            include: [
+              {
+                relation: 'rooms',
                 scope: {
-                  include: [{
-                    relation: 'topics'
-                  }],
+                  include: [
+                    {
+                      relation: 'talks',
+                      scope: {
+                        include: [
+                          {
+                            relation: 'topics',
+                            scope: {
+                              include: [
+                                {relation: 'childrens'},
+                                {relation: 'parents'},
+                              ],
+                            },
+                          },
+                        ],
+                      },
+                    },
+                  ],
                 },
-              }],
-            },
-          }],
+              },
+            ],
+          },
         },
-      }]
+      ],
     });
   }
 
   async createEvent(eventData: EventInput) {
-    const newEvent = Object.assign(eventData, {id: uuidv4()});
-    const event = plainToClass(Event, newEvent);
-    return this.create(event);
+    return this.create({...eventData, id: randomUUID()});
   }
 
   async updateEvent(id: string, eventData: EventInput) {
-    const foundEvent = await this.findById(id);
-    if(!foundEvent) throw new Error("Event doesn't exist");
     await this.updateById(id, eventData);
     return this.findById(id);
   }
 
   async deleteEvent(id: string) {
-    const foundEvent = await this.findById(id);
-    if(!foundEvent) throw new Error("Event doesn't exist");
     await this.deleteById(id);
   }
 }

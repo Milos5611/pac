@@ -13,6 +13,8 @@
 # planfile
 **/planfile
 
+**/secrets.auto.tfvars
+
 # Crash log files
 crash.log
 

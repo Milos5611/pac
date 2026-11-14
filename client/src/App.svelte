@@ -1,35 +1,27 @@
 <script>
-  import {
-    OidcContext,
-    login
-  } from '@dopry/svelte-oidc';
-  import 'smelte/src/tailwind.css' ;
-  import {Router} from 'svelte-router-spa';
-  import {routes} from './routes';
+  import {router, matchRoute} from './lib/router.svelte.js';
+  import {auth, initAuth} from './lib/auth.svelte.js';
+  import {routes, notFound} from './routes.js';
 
-  import graphQLClient from '../config/graphQLClient';
-  import {setClient} from 'svelte-apollo';
+  initAuth();
 
-  const client = graphQLClient();
-  setClient(client);
+  const match = $derived(
+    matchRoute(routes, router.path) ?? {route: notFound, params: {}},
+  );
+  const Page = $derived(match.route.component);
+  const Layout = $derived(match.route.layout);
 </script>
 
 <main>
-  <OidcContext
-    issuer="process.env.SVELTE_APP_ISSUER"
-    client_id="process.env.SVELTE_APP_CLIENT_ID"
-    redirect_uri="process.env.SVELTE_APP_REDIRECT_OKTA_URL"
-    post_logout_redirect_uri="process.env.SVELTE_APP_REDIRECT_OKTA_URL"
-  >
-    <Router {routes} />
-  </OidcContext>
+  {#if auth.ready}
+    {#key router.path}
+      {#if Layout}
+        <Layout>
+          <Page params={match.params} />
+        </Layout>
+      {:else}
+        <Page params={match.params} />
+      {/if}
+    {/key}
+  {/if}
 </main>
-
-<style type='text/scss'>
-  @import "./App.scss";
-
-  :global(body) {
-    background: #f3f3f3;
-    font-family: 'Roboto', sans-serif;
-  }
-</style>

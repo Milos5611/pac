@@ -10,12 +10,11 @@ import {juggler, RepositoryBindings} from '@loopback/repository';
 const config = {
   name: 'conference_db',
   connector: 'postgresql',
-  url: '',
-  host: process.env.DB_HOST ?? "localhost",
-  port: process.env.DB_PORT ?? 5432,
-  user: process.env.DB_USER ?? "postgres",
-  password: process.env.DB_PASSWORD ?? "postgres",
-  database: process.env.DB_DATABASE ?? "postgres"
+  host: process.env.DB_HOST ?? 'localhost',
+  port: +(process.env.DB_PORT ?? 5432),
+  user: process.env.DB_USER ?? 'postgres',
+  password: process.env.DB_PASSWORD ?? 'postgres',
+  database: process.env.DB_DATABASE ?? 'postgres',
 };
 
 @lifeCycleObserver('datasource', {
@@ -24,8 +23,10 @@ const config = {
     [ContextTags.NAMESPACE]: RepositoryBindings.DATASOURCES,
   },
 })
-export class ConferenceDatasource extends juggler.DataSource
-  implements LifeCycleObserver {
+export class ConferenceDatasource
+  extends juggler.DataSource
+  implements LifeCycleObserver
+{
   static dataSourceName = 'conference';
   static readonly defaultConfig = config;
 
@@ -36,12 +37,7 @@ export class ConferenceDatasource extends juggler.DataSource
     super(dsConfig);
   }
 
-  /**
-   * Start the datasource when application is started
-   */
-  start(): ValueOrPromise<void> {
-    // Add logic here to be invoked when the application is started
-  }
+  start(): ValueOrPromise<void> {}
 
   /**
    * Disconnect the datasource when application is stopped. This allows the

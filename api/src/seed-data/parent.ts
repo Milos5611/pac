@@ -1,50 +1,14 @@
-import {plainToClass} from 'class-transformer';
-import faker from "faker";
-import {Parent} from "../graphql-types/parent/parent-type";
+import {Parent} from '../graphql-types/parent/parent-type';
 
-export const sampleParent = [
-    createParent({
-        topicId: "1",
-        name: faker.name.jobArea(),
-    }),
-    createParent( {
-        topicId: "2",
-        name: faker.name.jobArea(),
-    }),
-    createParent({
-        topicId: "3",
-        name: faker.name.jobArea(),
-    }),
-    createParent({
-        topicId: "2",
-        name: faker.name.jobArea(),
-    }),
-    createParent({
-        topicId: "2",
-        name: faker.name.jobArea(),
-    }),
-    createParent({
-        topicId: "4",
-        name: faker.name.jobArea(),
-    }),
-    createParent({
-        topicId: "5",
-        name: faker.name.jobArea(),
-    }),
-    createParent({
-        topicId: "2",
-        name: faker.name.jobArea(),
-    }),
-    createParent({
-        topicId: "2",
-        name: faker.name.jobArea(),
-    }),
-    createParent({
-        topicId: "9",
-        name: faker.name.jobArea(),
-    }),
+export const sampleParent: Partial<Parent>[] = [
+  {topicId: '1', name: 'Architecture'},
+  {topicId: '2', name: 'APIs'},
+  {topicId: '3', name: 'Cloud'},
+  {topicId: '2', name: 'Web'},
+  {topicId: '2', name: 'Backend'},
+  {topicId: '4', name: 'Integration'},
+  {topicId: '5', name: 'DevOps'},
+  {topicId: '2', name: 'Data'},
+  {topicId: '2', name: 'Developer experience'},
+  {topicId: '9', name: 'Web'},
 ];
-
-function createParent(parentData: Partial<Parent>): Parent {
-    return plainToClass(Parent, parentData);
-}

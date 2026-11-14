@@ -5,11 +5,11 @@ metadata:
   labels:
     {{- include "backend.labels" . | nindent 4 }}
   annotations:
-    "helm.sh/hook": test-success
+    "helm.sh/hook": test
 spec:
   containers:
     - name: wget
-      image: busybox
+      image: busybox:stable
       command: ['wget']
-      args: ['{{ include "backend.fullname" . }}:{{ .Values.service.port }}']
+      args: ['-q', '-O', '-', '{{ include "backend.fullname" . }}:{{ .Values.service.port }}']
   restartPolicy: Never

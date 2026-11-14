@@ -1,5 +1,8 @@
 node_modules
-npm-debug.log
-/dist
-# Cache used by TypeScript's incremental build
+dist
 *.tsbuildinfo
+npm-debug.log
+.env
+.env.*
+Dockerfile
+.dockerignore

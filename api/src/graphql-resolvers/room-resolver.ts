@@ -1,39 +1,34 @@
+import {arg, Ctx, mutation, query, resolver} from '@loopback/graphql';
 import {repository} from '@loopback/repository';
+import {requireUser} from '../auth/require-user';
+import {RoomInput} from '../graphql-types/room/room-input';
 import {Room} from '../graphql-types/room/room-type';
+import {GraphQLContext} from '../helper';
 import {RoomRepository} from '../repositories';
-import {RoomInput} from "../graphql-types/room/room-input";
-import {Ctx} from "type-graphql";
-import {ContextTypes} from "../helper";
-import SSOOktaStrategy from "../authentication-strategies/sso.okta.strategy";
-import {arg, mutation, query, resolver} from "@loopback/graphql";
 
 @resolver(of => Room)
 export class RoomResolver {
-    constructor(
-        @repository('RoomRepository')
-        private readonly roomRepo: RoomRepository,
-    ) {}
+  constructor(
+    @repository('RoomRepository')
+    private readonly repo: RoomRepository,
+  ) {}
 
-    @query(() => Room, {nullable: true})
-    async room(@arg('roomId') roomId: string) {
-        return this.roomRepo.getOne(roomId);
-    }
+  @query(() => Room, {nullable: true})
+  async room(@arg('roomId') id: string) {
+    return this.repo.getOne(id);
+  }
 
-    @query(() => [Room])
-    async rooms(): Promise<Room[]> {
-        return this.roomRepo.getAll();
-    }
+  @query(() => [Room])
+  async rooms(): Promise<Room[]> {
+    return this.repo.getAll();
+  }
 
-    @mutation(() => Room)
-    async createRoom(
-        @arg('room') room: RoomInput,
-        @Ctx() context: ContextTypes
-    ): Promise<Room | Error> {
-        const user = await SSOOktaStrategy.authenticate(context.req);
-        if(user) {
-            return this.roomRepo.createRoom(room);
-        } else {
-            return new Error("You must be logged in to do this action");
-        }
-    }
+  @mutation(() => Room)
+  async createRoom(
+    @arg('room') input: RoomInput,
+    @Ctx() context: GraphQLContext,
+  ): Promise<Room> {
+    await requireUser(context);
+    return this.repo.createRoom(input);
+  }
 }

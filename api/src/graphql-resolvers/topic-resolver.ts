@@ -1,71 +1,58 @@
+import {arg, Ctx, mutation, query, resolver} from '@loopback/graphql';
 import {repository} from '@loopback/repository';
-import {Topic} from "../graphql-types/topic/topic-type";
-import {TopicInput} from "../graphql-types/topic/topic-input";
-import {TopicRepository} from "../repositories";
-import {ChildrenInput} from "../graphql-types/children/children-input";
-import {Children} from "../graphql-types/children/children-type";
-import {ParentInput} from "../graphql-types/parent/parent-input";
-import {Parent} from "../graphql-types/parent/parent-type";
-import {Ctx} from "type-graphql";
-import {ContextTypes} from "../helper";
-import SSOOktaStrategy from "../authentication-strategies/sso.okta.strategy";
-import {arg, mutation, query, resolver} from "@loopback/graphql";
+import {ChildrenInput} from '../graphql-types/children/children-input';
+import {Children} from '../graphql-types/children/children-type';
+import {ParentInput} from '../graphql-types/parent/parent-input';
+import {Parent} from '../graphql-types/parent/parent-type';
+import {requireUser} from '../auth/require-user';
+import {TopicInput} from '../graphql-types/topic/topic-input';
+import {Topic} from '../graphql-types/topic/topic-type';
+import {GraphQLContext} from '../helper';
+import {TopicRepository} from '../repositories';
 
 @resolver(of => Topic)
-export class RoomResolver {
-    constructor(
-        @repository('TopicRepository')
-        private readonly topicRepo: TopicRepository,
-    ) {}
+export class TopicResolver {
+  constructor(
+    @repository('TopicRepository')
+    private readonly repo: TopicRepository,
+  ) {}
 
-    @query(() => Topic, {nullable: true})
-    async topic(@arg('topicId') topicId: string) {
-        return this.topicRepo.getOne(topicId);
-    }
+  @query(() => Topic, {nullable: true})
+  async topic(@arg('topicId') id: string) {
+    return this.repo.getOne(id);
+  }
 
-    @query(() => [Topic])
-    async topics() {
-        return this.topicRepo.getAll();
-    }
+  @query(() => [Topic])
+  async topics(): Promise<Topic[]> {
+    return this.repo.getAll();
+  }
 
-    @mutation(() => Topic)
-    async createTopic(
-        @arg('topic') topic: TopicInput,
-        @Ctx() context: ContextTypes
-    ): Promise<Topic | Error> {
-        const user = await SSOOktaStrategy.authenticate(context.req);
-        if(user) {
-            return this.topicRepo.createTopic(topic);
-        } else {
-            return new Error("You must be logged in to do this action");
-        }
-    }
+  @mutation(() => Topic)
+  async createTopic(
+    @arg('topic') input: TopicInput,
+    @Ctx() context: GraphQLContext,
+  ): Promise<Topic> {
+    await requireUser(context);
+    return this.repo.createTopic(input);
+  }
 
-    @mutation(() => Children)
-    async addChildTopic(
-        @arg('topicId') topicId: string,
-        @arg('childTopic') childTopic: ChildrenInput,
-        @Ctx() context: ContextTypes
-    ): Promise<Topic | Error> {
-        const user = await SSOOktaStrategy.authenticate(context.req);
-        if(user) {
-            return this.topicRepo.addChildTopic(topicId, childTopic);
-        } else {
-            return new Error("You must be logged in to do this action");
-        }
-    }
+  @mutation(() => Children)
+  async addChildTopic(
+    @arg('topicId') topicId: string,
+    @arg('childTopic') childTopic: ChildrenInput,
+    @Ctx() context: GraphQLContext,
+  ): Promise<Children> {
+    await requireUser(context);
+    return this.repo.addChildTopic(topicId, childTopic);
+  }
 
-    @mutation(() => Parent)
-    async addParentTopic(
-        @arg('topicId') topicId: string,
-        @arg('parentTopic') parentTopic: ParentInput,
-        @Ctx() context: ContextTypes
-    ): Promise<Topic | Error> {
-        const user = await SSOOktaStrategy.authenticate(context.req);
-        if(user) {
-            return this.topicRepo.addParentTopic(topicId, parentTopic);
-        } else {
-            return new Error("You must be logged in to do this action");
-        }
-    }
+  @mutation(() => Parent)
+  async addParentTopic(
+    @arg('topicId') topicId: string,
+    @arg('parentTopic') parentTopic: ParentInput,
+    @Ctx() context: GraphQLContext,
+  ): Promise<Parent> {
+    await requireUser(context);
+    return this.repo.addParentTopic(topicId, parentTopic);
+  }
 }

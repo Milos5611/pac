@@ -1,50 +1,14 @@
-import {plainToClass} from 'class-transformer';
-import faker from "faker";
-import {Children} from "../graphql-types/children/children-type";
+import {Children} from '../graphql-types/children/children-type';
 
-export const sampleChildren = [
-    createChildren( {
-        topicId:"1",
-        name: faker.name.jobArea(),
-    }),
-    createChildren( {
-        topicId: "2",
-        name: faker.name.jobArea(),
-    }),
-    createChildren({
-        topicId: "2",
-        name: faker.name.jobArea(),
-    }),
-    createChildren({
-        topicId: "2",
-        name: faker.name.jobArea(),
-    }),
-    createChildren({
-        topicId: "2",
-        name: faker.name.jobArea(),
-    }),
-    createChildren({
-        topicId: "4",
-        name: faker.name.jobArea(),
-    }),
-    createChildren({
-        topicId: "5",
-        name: faker.name.jobArea(),
-    }),
-    createChildren({
-        topicId: "2",
-        name: faker.name.jobArea(),
-    }),
-    createChildren({
-        topicId: "2",
-        name: faker.name.jobArea(),
-    }),
-    createChildren({
-        topicId:"9",
-        name: faker.name.jobArea(),
-    }),
+export const sampleChildren: Partial<Children>[] = [
+  {topicId: '1', name: 'Load balancing'},
+  {topicId: '2', name: 'Queries'},
+  {topicId: '2', name: 'Mutations'},
+  {topicId: '2', name: 'Subscriptions'},
+  {topicId: '2', name: 'Schema design'},
+  {topicId: '4', name: 'REST'},
+  {topicId: '5', name: 'Modules'},
+  {topicId: '2', name: 'Resolvers'},
+  {topicId: '2', name: 'Federation'},
+  {topicId: '9', name: 'Components'},
 ];
-
-function createChildren(childrenData: Partial<Children>): Children {
-    return plainToClass(Children, childrenData);
-}

@@ -10,15 +10,15 @@
 
 ## Stack
 
-- Svelte
-- Svelma
-- Svelte OIDC
-- Rollup
-- Svelte Router
+- [Svelte 5](https://svelte.dev/) (runes)
+- [Vite](https://vite.dev/)
+- [oidc-client-ts](https://github.com/authts/oidc-client-ts) for Okta login (authorization code + PKCE)
+- Sass for component styles
+- A small built-in history router (`src/lib/router.svelte.js`) and `fetch`-based GraphQL client (`src/lib/graphql.js`)
+
+Requires Node.js 22.12 or newer (CI and the Docker build use Node 26 LTS). npm is the only package manager; `package-lock.json` is the lockfile.
 
 ## Installation
-
-Install dependencies via
 
 ```
 npm install
@@ -26,32 +26,40 @@ npm install
 
 ## Environment tasks
 
-| Environment   |      Command             | Description                                      |
-| ------------- | :----------------------: | ------------------------------------------------ |
-| Local         |  **npm run dev**         | Run local Svelte with hot reloading enabled.     |
-| Local Prod    |  **npm run start**       | Run local Svelte with production build.          |
-| Prod build    |  **npm run build**       | Run production build.                            |
+| Environment   |      Command             | Description                                        |
+| ------------- | :----------------------: | -------------------------------------------------- |
+| Local         |  **npm run dev**         | Vite dev server with hot reload on http://localhost:5173 |
+| Prod build    |  **npm run build**       | Production build into `dist/`                      |
+| Local Prod    |  **npm run preview**     | Serve the `dist/` build on http://localhost:4173   |
+| Check         |  **npm run check**       | Type and template checks with `svelte-check`       |
 
-Build will create new directory name `build` and all files will be there
+The API must be running (default `http://localhost:3000/graphql`) for pages to load data.
 
 ## Other tasks
 
 | Task          |          Command          | Description                                      |
 | ------------- | :-----------------------: | ------------------------------------------------ |
-| Docker build  |  **npm run docker:build** | Run production build and create docker container |
-| Docker run    |  **npm run docker:run**   | Run already created docker container             |
+| Docker build  |  **npm run docker:build** | Build the nginx image `pac_mnikolic_web`         |
+| Docker run    |  **npm run docker:run**   | Run the image on http://localhost:8080           |
 
-## Environment variable
+## Environment variables
 
-All env variable are executed during build time and can be find in
-**_rollup.config.js_** file.
+| Variable                       | Description                    | Default                         |
+| ------------------------------ | :----------------------------- | ------------------------------- |
+| SVELTE_APP_BE_URL              | GraphQL endpoint of the API    | `http://localhost:3000/graphql` |
+| SVELTE_APP_ISSUER              | OIDC issuer (Okta authorization server) | empty: login disabled  |
+| SVELTE_APP_CLIENT_ID           | OIDC client ID                 | empty: login disabled           |
+| SVELTE_APP_REDIRECT_OKTA_URL   | Redirect URI after login/logout | current origin                 |
 
-| Variable                             | Description                  |
-| ------------------------------------ | :--------------------------- |
-| SVELTE_APP_BE_URL                    | Endpoint to Node server      |
-| SVELTE_APP_ISSUER                    | OIDC Issuer                  |
-| SVELTE_APP_CLIENT_ID                 | OIDC App ID                  |
-| SVELTE_APP_REDIRECT_OKTA_URL         | Redirect route after login   |
+Values are resolved in this order:
+
+1. **Runtime**: `window.APP_CONFIG` from `/config.js`. The Docker image writes this file at container start from the variables above, so one image works in every environment (`docker run -e SVELTE_APP_BE_URL=... pac_mnikolic_web`).
+2. **Build time**: `SVELTE_APP_*` from `.env`, inlined by Vite. Used by `npm run dev` and local builds. The Docker build ignores `.env`.
+3. The defaults in the table.
+
+When the issuer or client ID is empty, the Login button is hidden and the app runs in guest mode. Guests can browse everything; login only adds a `Bearer` token to API requests.
+
+To log in during local development, add `http://localhost:5173` as a sign-in and sign-out redirect URI in the Okta application.
 
 ### Repository structure
 
@@ -60,23 +68,23 @@ All env variable are executed during build time and can be find in
 |
 ├─ client/
 |  |
-|  |─ config/        # Buld configuration / GraphQL / storage
+|  ├─ docker/        # Container start script that writes config.js
+|  ├─ public/        # Static files copied as-is (config.js, global.css, images)
 |  |
-│  ├─ public/        # All static related files
-|  |    ├─ fonts/    # Project fonts
-|  |    ├─ icons/    # Project icons
-|  |    ├─ images/   # Project images
+|  ├─ src/
+|  |    ├─ component/    # Reusable widgets (header, layout, link, chip)
+|  |    ├─ lib/          # Config, auth, router, GraphQL client, formatting
+|  |    ├─ pages/        # One folder per page; queries live in data.js
+|  |    ├─ App.svelte    # Root component: auth bootstrap and routing
+|  |    ├─ main.js       # Application start
+|  |    ├─ routes.js     # Route table
 |  |
-|  |─ src/
-|  |    ├─ components/   # Damb for widgets
-│  │    ├─ pages/        # Complex components with many sub-components
-│  │    ├─ main.js       # Application start
-│  │    ├─ App.svelte    # Svelte App
-│  │    ├─ routes        # Application Routes
-|  |
+|  ├─ index.html     # Vite entry HTML
+|  ├─ nginx.conf     # nginx config for the Docker image (SPA fallback)
+|  ├─ vite.config.js # Vite config
 ├─ Dockerfile        # Container definition
 ├─ .gitignore        # List of files and folders not tracked by Git
 ├─ package.json      # Project manifest
-├─ package-lock.json # Project manifest with locked version
+├─ package-lock.json # Locked dependency versions
 └─ README.md         # This file
 ```

@@ -1,5 +1,5 @@
+import {LoggingBindings} from '@loopback/logging';
 import {ApiApplication} from './application';
-import {LoggingBindings} from "@loopback/extension-logging";
 
 export async function migrate(args: string[]) {
   const app = new ApiApplication();
@@ -13,9 +13,8 @@ export async function migrate(args: string[]) {
     existingSchema,
   });
 
-  // Connectors usually keep a pool of opened connections,
-  // this keeps the process running even after all work is done.
-  // We need to exit explicitly.
+  // Connectors keep a pool of open connections, which keeps the process
+  // alive after the work is done. Exit explicitly.
   process.exit(0);
 }
 

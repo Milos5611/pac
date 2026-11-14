@@ -1,39 +1,34 @@
+import {arg, Ctx, mutation, query, resolver} from '@loopback/graphql';
 import {repository} from '@loopback/repository';
+import {requireUser} from '../auth/require-user';
+import {OrganizationInput} from '../graphql-types/organization/organization-input';
 import {Organization} from '../graphql-types/organization/organization-type';
+import {GraphQLContext} from '../helper';
 import {OrganizationRepository} from '../repositories';
-import {OrganizationInput} from "../graphql-types/organization/organization-input";
-import {Ctx} from "type-graphql";
-import {ContextTypes} from "../helper";
-import SSOOktaStrategy from "../authentication-strategies/sso.okta.strategy";
-import {arg, mutation, query, resolver} from "@loopback/graphql";
 
 @resolver(of => Organization)
 export class OrganizationResolver {
-    constructor(
-        @repository('OrganizationRepository')
-        private readonly organizationRepo: OrganizationRepository,
-    ) {}
+  constructor(
+    @repository('OrganizationRepository')
+    private readonly repo: OrganizationRepository,
+  ) {}
 
-    @query(() => Organization, {nullable: true})
-    async organization(@arg('organizationId') organizationId: string) {
-        return this.organizationRepo.getOne(organizationId);
-    }
+  @query(() => Organization, {nullable: true})
+  async organization(@arg('organizationId') id: string) {
+    return this.repo.getOne(id);
+  }
 
-    @query(() => [Organization])
-    async organizations(): Promise<Organization[]> {
-        return this.organizationRepo.getAll();
-    }
+  @query(() => [Organization])
+  async organizations(): Promise<Organization[]> {
+    return this.repo.getAll();
+  }
 
-    @mutation(() => Organization)
-    async createOrganization(
-        @arg('organization') organization: OrganizationInput,
-        @Ctx() context: ContextTypes
-    ): Promise<Organization | Error> {
-        const user = await SSOOktaStrategy.authenticate(context.req);
-        if(user) {
-            return this.organizationRepo.createOrganization(organization);
-        } else {
-            return new Error("You must be logged in to do this action");
-        }
-    }
+  @mutation(() => Organization)
+  async createOrganization(
+    @arg('organization') input: OrganizationInput,
+    @Ctx() context: GraphQLContext,
+  ): Promise<Organization> {
+    await requireUser(context);
+    return this.repo.createOrganization(input);
+  }
 }

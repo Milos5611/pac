@@ -1,60 +1,45 @@
-name: 'client'
+name: client
 
-# Controls when the action will run.
 on:
-  # Triggers the workflow on push request events but only for the master branch
   push:
-    branches: [ master ]
-
-  # Allows us to run this workflow manually from the Actions tab
+    branches: [master]
+    paths: ['client/**', '.github/workflows/client_workflow.yml']
+  pull_request:
+    paths: ['client/**', '.github/workflows/client_workflow.yml']
   workflow_dispatch:
+
 jobs:
-  # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
+    name: check and build
     runs-on: ubuntu-latest
-    timeout-minutes: 30
-    env:
-      CI: true
-      SVELTE_APP_BE_URL: "http://conference.backend/graphql"
-      SVELTE_APP_CLIENT_ID: "0oaup7oeuqIcBZjyw4x6"
-      SVELTE_APP_ISSUER: "https://dev-269607.okta.com"
-      SVELTE_APP_OKTA_TESTING_DISABLEHTTPSCHECK: "false"
-      SVELTE_APP_REDIRECT_OKTA_URL: "http://conference.frontend/"
-    steps:
-      # Checks-out repository under $GITHUB_WORKSPACE, so job can access it
-      - uses: actions/checkout@v2
-
-      # Setup Node.js version to build from
-      - name: Use Node.js 14
-        uses: actions/setup-node@v2
-        with:
-          node-version: 14
-
-      # Install necessary dependency
-      - name: Bootstrap project
-        working-directory: api
-        run: |
-          npm install
-
-      # Login to DockerHub
-      - name: Login to docker hub
-        uses: actions-hub/docker/login@master
-        env:
-          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-
-      # Build docker image
-      - name: Build :latest
+    defaults:
+      run:
         working-directory: client
-        run: npm run docker:build
-
-      # Tag docker image
-      - name: Tag image
-        run: docker tag pac_mnikolic_web:latest mnikolic/pac_mnikolic_web:latest
-
-      # Push docker image to DockerHub
-      - name: Push to docker hub :latest
-        uses: actions-hub/docker@master
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
-          args: push mnikolic/pac_mnikolic_web
+          node-version: 26
+          cache: npm
+          cache-dependency-path: client/package-lock.json
+      - run: npm ci
+      - run: npm run check
+      - run: npm run build
+
+  publish:
+    name: build and publish image
+    needs: build
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: docker/setup-buildx-action@v4
+      - uses: docker/login-action@v4
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+      - uses: docker/build-push-action@v7
+        with:
+          context: client
+          push: true
+          tags: mnikolic/pac_mnikolic_web:latest

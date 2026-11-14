@@ -1,29 +1,9 @@
-import {plainToClass} from 'class-transformer';
-import {Organization} from "../graphql-types/organization/organization-type";
-import faker from "faker";
-export const sampleOrganization = [
-    createOrganization({
-        id: "1",
-        name: faker.company.companyName()
-    }),
-    createOrganization({
-        id: "2",
-        name: faker.company.companyName(),
-    }),
-    createOrganization({
-        id: "3",
-        name: faker.company.companyName()
-    }),
-    createOrganization({
-        id: "4",
-        name: faker.company.companyName()
-    }),
-    createOrganization({
-        id: "5",
-        name: faker.company.companyName()
-    })
-];
+import {Organization} from '../graphql-types/organization/organization-type';
 
-function createOrganization(organizationData: Partial<Organization>): Organization {
-    return plainToClass(Organization, organizationData);
-}
+export const sampleOrganization: Partial<Organization>[] = [
+  {id: '1', name: 'PRODYNA'},
+  {id: '2', name: 'Northwind Traders'},
+  {id: '3', name: 'Contoso'},
+  {id: '4', name: 'Fabrikam'},
+  {id: '5', name: 'Initech'},
+];

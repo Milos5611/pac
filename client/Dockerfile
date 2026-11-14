@@ -1,27 +1,18 @@
-FROM node:10-slim as build
+FROM node:26-alpine AS build
+WORKDIR /app
 
-# copy the app
-WORKDIR /usr/src/app
-COPY . /usr/src/app/
+COPY package.json package-lock.json ./
+RUN npm ci
 
-# install node modules
-RUN yarn install --ignore-engines
+COPY . .
+RUN npm run build
 
-# build the app
-RUN yarn run build
+FROM nginx:alpine
 
-# drop node modules after build
-RUN rm -rf ./node_modules
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY docker/40-app-config.sh /docker-entrypoint.d/40-app-config.sh
+RUN chmod +x /docker-entrypoint.d/40-app-config.sh
 
-# use nginx to build the second stage
-FROM nginx:1.13.12-alpine
+COPY --from=build /app/dist /usr/share/nginx/html
 
-# copy default nginx configuration and replace args with the values via envsubst
-COPY --from=build /usr/src/app/nginx.conf /data/conf/nginx.conf
-
-# copy static files
-COPY --from=build /usr/src/app/public /usr/share/nginx/html
-
-# run the nginx
-CMD ["nginx", "-c", "/data/conf/nginx.conf", "-g", "daemon off;"]
 EXPOSE 80

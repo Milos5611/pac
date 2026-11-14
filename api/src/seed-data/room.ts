@@ -1,54 +1,13 @@
-import {plainToClass} from 'class-transformer';
-import faker from "faker";
-import {Room} from "../graphql-types/room/room-type";
-export const sampleRoom = [
-    createRoom({
-        id: "1",
-        name: faker.commerce.department(),
-        locationId: "4"
-    }),
-    createRoom({
-        id: "2",
-        name: faker.commerce.department(),
-        locationId: "3"
-    }),
-    createRoom({
-        id: "3",
-        name: faker.commerce.department(),
-        locationId: "5"
-    }),
-    createRoom({
-        id: "4",
-        name: faker.commerce.department(),
-        locationId: "4"
-    }),
-    createRoom({
-        id: "5",
-        name: faker.commerce.department(),
-        locationId: "1"
-    }),
-    createRoom({
-        id: "6",
-        name: faker.commerce.department(),
-        locationId: "1"
-    }),
-    createRoom({
-        id: "7",
-        name: faker.commerce.department(),
-        locationId: "2"
-    }),
-    createRoom({
-        id: "8",
-        name: faker.commerce.department(),
-        locationId: "5"
-    }),
-    createRoom({
-        id: "9",
-        name: faker.commerce.department(),
-        locationId: "6"
-    })
-];
+import {Room} from '../graphql-types/room/room-type';
 
-function createRoom(roomData: Partial<Room>): Room {
-    return plainToClass(Room, roomData);
-}
+export const sampleRoom: Partial<Room>[] = [
+  {id: '1', name: 'Main Hall', locationId: '4'},
+  {id: '2', name: 'Auditorium', locationId: '3'},
+  {id: '3', name: 'Danube Room', locationId: '5'},
+  {id: '4', name: 'Workshop Room', locationId: '4'},
+  {id: '5', name: 'Sava Hall', locationId: '1'},
+  {id: '6', name: 'Room 101', locationId: '1'},
+  {id: '7', name: 'Petrovaradin Room', locationId: '2'},
+  {id: '8', name: 'Ballroom', locationId: '5'},
+  {id: '9', name: 'Conference Room A', locationId: '6'},
+];

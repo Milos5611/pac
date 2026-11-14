@@ -1,21 +1,56 @@
-version: '3.7'
-services:
+name: pac
 
-  api:
-    build:
-      context: ./api
-      dockerfile: ./Dockerfile
-    command: npm run dev
-    env_file:
-      - devenv/.env
-    ports:
-      - 3000:3000
-    depends_on:
-      - postgres
+services:
   postgres:
-    image: postgres:11.0-alpine
-    restart: always
-    env_file:
-      - devenv/.env
+    image: postgres:18-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
     ports:
       - '5432:5432'
+    volumes:
+      - pgdata:/var/lib/postgresql
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres']
+      interval: 2s
+      timeout: 3s
+      retries: 30
+
+  api:
+    build: ./api
+    restart: unless-stopped
+    env_file:
+      - path: devenv/.env
+        required: false
+    environment:
+      NODE_ENV: development
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_DATABASE: postgres
+    ports:
+      - '3000:3000'
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  web:
+    build: ./client
+    restart: unless-stopped
+    env_file:
+      - path: devenv/.env
+        required: false
+    environment:
+      # The browser calls the API directly, so this is the host-side URL
+      SVELTE_APP_BE_URL: http://localhost:3000/graphql
+      SVELTE_APP_REDIRECT_OKTA_URL: http://localhost:8080
+    ports:
+      - '8080:80'
+    depends_on:
+      - api
+
+volumes:
+  pgdata:

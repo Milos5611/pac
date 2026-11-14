@@ -1,53 +1,44 @@
+import {arg, Ctx, mutation, query, resolver} from '@loopback/graphql';
 import {repository} from '@loopback/repository';
-import {ParentRepository} from "../repositories/parent.repository";
-import {Parent} from "../graphql-types/parent/parent-type";
-import {ParentInput} from "../graphql-types/parent/parent-input";
-import {Ctx} from "type-graphql";
-import {ContextTypes} from "../helper";
-import SSOOktaStrategy from "../authentication-strategies/sso.okta.strategy";
-import {arg, mutation, query, resolver} from "@loopback/graphql";
+import {requireUser} from '../auth/require-user';
+import {ParentInput} from '../graphql-types/parent/parent-input';
+import {Parent} from '../graphql-types/parent/parent-type';
+import {GraphQLContext} from '../helper';
+import {ParentRepository} from '../repositories';
 
 @resolver(of => Parent)
 export class ParentResolver {
-    constructor(
-        @repository('ParentRepository')
-        private readonly parentRepository: ParentRepository
-    ) {}
+  constructor(
+    @repository('ParentRepository')
+    private readonly repo: ParentRepository,
+  ) {}
 
-    @query(() => Parent, {nullable: true})
-    async parent(@arg('id') id: string) {
-        return this.parentRepository.getOne(id);
-    }
+  @query(() => Parent, {nullable: true})
+  async parent(@arg('id') id: string) {
+    return this.repo.getOne(id);
+  }
 
-    @query(() => [Parent])
-    async parents(): Promise<Parent[]> {
-        return this.parentRepository.getAll();
-    }
+  @query(() => [Parent])
+  async parents(): Promise<Parent[]> {
+    return this.repo.getAll();
+  }
 
-    @mutation(() => Parent)
-    async createParent(
-        @arg('parent') parent: ParentInput,
-        @Ctx() context: ContextTypes
-    ): Promise<Parent | Error> {
-        const user = await SSOOktaStrategy.authenticate(context.req);
-        if(user) {
-            return this.parentRepository.createParent(parent);
-        } else {
-            return new Error("You must be logged in to do this action");
-        }
-    }
+  @mutation(() => Parent)
+  async createParent(
+    @arg('parent') input: ParentInput,
+    @Ctx() context: GraphQLContext,
+  ): Promise<Parent> {
+    await requireUser(context);
+    return this.repo.createParent(input);
+  }
 
-    @mutation(() => Parent)
-    async updateParent(
-        @arg('id') id: string,
-        @arg('parent') parent: ParentInput,
-        @Ctx() context: ContextTypes
-    ): Promise<Parent | Error> {
-        const user = await SSOOktaStrategy.authenticate(context.req);
-        if(user) {
-            return this.parentRepository.updateParent(id, parent);
-        } else {
-            return new Error("You must be logged in to do this action");
-        }
-    }
+  @mutation(() => Parent)
+  async updateParent(
+    @arg('id') id: string,
+    @arg('parent') input: ParentInput,
+    @Ctx() context: GraphQLContext,
+  ): Promise<Parent> {
+    await requireUser(context);
+    return this.repo.updateParent(id, input);
+  }
 }

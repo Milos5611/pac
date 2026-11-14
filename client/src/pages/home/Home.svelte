@@ -1,60 +1,63 @@
 <script>
-	import {
-		login,
-		userInfo,
-		isAuthenticated
-	} from '@dopry/svelte-oidc';
-	import { Button } from 'smelte';
-	import {Navigate} from "svelte-router-spa";
-	$userInfo = JSON.stringify(userInfo, null, 2);
+  import Link from '../../component/link/Link.svelte';
+  import {auth, authEnabled, login} from '../../lib/auth.svelte.js';
+
+  const loggedIn = $derived(Boolean(auth.user));
+  const userName = $derived(
+    auth.user?.profile?.name ??
+      auth.user?.profile?.preferred_username ??
+      auth.user?.profile?.email ??
+      '',
+  );
 </script>
 
 <div id="appContainer">
-	<div class="evnt-login">
-		<div class="image-holder">
-			<aside>
-				<h2 class="quote">Let’s keep a little optimism here.</h2>
-				<hr/>
-				<h4 class="author">Milos Nikolic</h4>
-			</aside>
-		</div>
-		<section class="main-wrapped">
-			<div class="login-form">
-				<aside>
-					<h3 class="aside-title">
-						{#if !$userInfo.name}
-							Welcome to
-						{/if}
-						Eventio
-					</h3>
-					{#if !$userInfo.name}
-						<p class="login--good aside-desc">Choose how you want to continue</p>
-					{/if}
-				</aside>
-				<aside class="action-buttons">
-					{#if !$userInfo.name}
-						<Button text on:click={() => login()}>
-							Login
-						</Button>
-					{/if}
-					<Navigate to="events">
-						<Button text>
-							{#if isAuthenticated && $userInfo.name}
-								Welcome back {$userInfo.name} you can proceed to application
-							{:else}
-								Guest access
-							{/if}
-						</Button>
-					</Navigate>
-				</aside>
-			</div>
-		</section>
-	</div>
+  <div class="evnt-login">
+    <div class="image-holder">
+      <aside>
+        <h2 class="quote">Let’s keep a little optimism here.</h2>
+        <hr />
+        <h4 class="author">Milos Nikolic</h4>
+      </aside>
+    </div>
+    <section class="main-wrapped">
+      <div class="login-form">
+        <aside>
+          <h3 class="aside-title">
+            {#if !loggedIn}
+              Welcome to
+            {/if}
+            Eventio
+          </h3>
+          {#if !loggedIn}
+            <p class="login--good aside-desc">Choose how you want to continue</p>
+          {/if}
+          {#if auth.error}
+            <p class="error">Login failed: {auth.error}</p>
+          {/if}
+        </aside>
+        <aside class="action-buttons">
+          {#if authEnabled && !loggedIn}
+            <button type="button" class="btn-text" onclick={() => login()}>
+              Login
+            </button>
+          {/if}
+          <Link to="/events" class="btn-text">
+            {#if loggedIn}
+              Welcome back {userName} you can proceed to application
+            {:else}
+              Guest access
+            {/if}
+          </Link>
+        </aside>
+      </div>
+    </section>
+  </div>
 </div>
 
-<style type="text/scss">
+<style lang="scss">
 	.image-holder {
-		background: url("../images/str.png") no-repeat center;
+		background: url('/images/str.png') no-repeat center;
 		width: 25%;
 		height: auto;
 		background-size: cover;

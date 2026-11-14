@@ -1,5 +1,5 @@
-import {EventInput} from "./event-input";
-import {field, inputType} from "@loopback/graphql";
+import {EventInput} from './event-input';
+import {field, inputType} from '@loopback/graphql';
 
 @inputType()
 export class EventFilter implements Partial<EventInput> {
@@ -15,4 +15,3 @@ export class EventFilter implements Partial<EventInput> {
   @field({nullable: true})
   locationId: string;
 }
-

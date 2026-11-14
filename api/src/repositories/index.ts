@@ -6,4 +6,4 @@ export * from './room.repository';
 export * from './talk.repository';
 export * from './topic.repository';
 export * from './children.repository';
-export * from './migration.repository';
+export * from './parent.repository';

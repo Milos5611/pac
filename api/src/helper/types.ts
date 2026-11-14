@@ -1,10 +1,6 @@
-export interface ContextTypes {
-    req: { [key: string]: string },
-    res: { [key: string]: string }
+import {Request, Response} from '@loopback/rest';
+
+export interface GraphQLContext {
+  req: Request;
+  res: Response;
 }
-
-export interface ErrorResponse {
-    name: string | string[]
-}
-
-

@@ -44,3 +44,4 @@ override.tf.json
 terraform.rc
 
 devenv/.env
+CLAUDE.md

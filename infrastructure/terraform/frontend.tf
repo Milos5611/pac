@@ -11,10 +11,11 @@ resource "kubernetes_config_map_v1" "frontend_config" {
   }
 
   data = {
-    SVELTE_APP_BE_URL            = var.backend_url
-    SVELTE_APP_CLIENT_ID         = var.okta_client_id
-    SVELTE_APP_ISSUER            = var.okta_issuer
-    SVELTE_APP_REDIRECT_OKTA_URL = var.okta_redirect_url
+    SVELTE_APP_BE_URL       = var.backend_url
+    SVELTE_APP_CLIENT_ID    = var.auth0_client_id
+    SVELTE_APP_ISSUER       = var.auth0_issuer
+    SVELTE_APP_REDIRECT_URL = var.auth0_redirect_url
+    SVELTE_APP_AUDIENCE     = var.auth0_audience
   }
 }
 

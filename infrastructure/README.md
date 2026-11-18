@@ -14,7 +14,7 @@
 - Terraform (`hashicorp/kubernetes` 3.x, `hashicorp/helm` 3.x, `hashicorp/random` 3.x)
 - Helm charts for the API and the web client (`charts/backend`, `charts/frontend`)
 - Postgres 18 (official `postgres:18-alpine` image, deployed by Terraform)
-- Okta (login)
+- Auth0 (login, OIDC)
 - Datadog (optional)
 
 ## What gets deployed
@@ -68,7 +68,7 @@ Add both hostnames to `/etc/hosts` (on Windows: `C:\Windows\System32\drivers\etc
 
 ## 3. Configure
 
-Non-secret settings live in [`terraform/pac_context.auto.tfvars`](terraform/pac_context.auto.tfvars): Okta issuer and client ID, redirect URL, backend URL, database name.
+Non-secret settings live in [`terraform/pac_context.auto.tfvars`](terraform/pac_context.auto.tfvars): Auth0 issuer, client ID, audience and redirect URL, backend URL, database name.
 
 Secrets are never committed. Datadog is off by default. To enable it:
 

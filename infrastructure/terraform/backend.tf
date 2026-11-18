@@ -175,12 +175,12 @@ resource "kubernetes_config_map_v1" "backend_config" {
   }
 
   data = {
-    NODE_ENV      = "production"
-    DB_HOST       = "${kubernetes_service_v1.backend_postgres.metadata[0].name}.${kubernetes_namespace_v1.backend.metadata[0].name}.svc.cluster.local"
-    DB_PORT       = tostring(var.database_port)
-    DB_DATABASE   = var.database_name
-    OKTA_ISSUER   = var.okta_issuer
-    OKTA_AUDIENCE = var.okta_audience
+    NODE_ENV       = "production"
+    DB_HOST        = "${kubernetes_service_v1.backend_postgres.metadata[0].name}.${kubernetes_namespace_v1.backend.metadata[0].name}.svc.cluster.local"
+    DB_PORT        = tostring(var.database_port)
+    DB_DATABASE    = var.database_name
+    AUTH0_ISSUER   = var.auth0_issuer
+    AUTH0_AUDIENCE = var.auth0_audience
   }
 }
 

@@ -14,7 +14,7 @@ describe('GraphQL API (in-memory database)', () => {
   before(async () => {
     process.env.LOG_LEVEL ??= 'error';
     delete process.env.AUTH_DISABLED;
-    delete process.env.OKTA_ISSUER;
+    delete process.env.AUTH0_ISSUER;
 
     app = new ApiApplication({rest: givenHttpServerConfig()});
     app

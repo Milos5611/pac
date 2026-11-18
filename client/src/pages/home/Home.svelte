@@ -1,148 +1,305 @@
 <script>
   import Link from '../../component/link/Link.svelte';
+  import Logo from '../../component/logo/Logo.svelte';
+  import Icon from '../../component/icon/Icon.svelte';
   import {auth, authEnabled, login} from '../../lib/auth.svelte.js';
 
   const loggedIn = $derived(Boolean(auth.user));
   const userName = $derived(
-    auth.user?.profile?.name ??
-      auth.user?.profile?.preferred_username ??
-      auth.user?.profile?.email ??
+    auth.user?.given_name ??
+      auth.user?.name ??
+      auth.user?.nickname ??
+      auth.user?.email ??
       '',
   );
+
+  const shortcuts = [
+    {
+      to: '/events',
+      icon: /** @type {const} */ ('calendar'),
+      title: 'Events',
+      text: 'Dates, venues, rooms and the full programme.',
+    },
+    {
+      to: '/persons',
+      icon: /** @type {const} */ ('mic'),
+      title: 'Speakers',
+      text: 'Who is talking, where they work and what about.',
+    },
+  ];
 </script>
 
-<div id="appContainer">
-  <div class="evnt-login">
-    <div class="image-holder">
-      <aside>
-        <h2 class="quote">Let’s keep a little optimism here.</h2>
-        <hr />
-        <h4 class="author">Milos Nikolic</h4>
-      </aside>
-    </div>
-    <section class="main-wrapped">
-      <div class="login-form">
-        <aside>
-          <h3 class="aside-title">
-            {#if !loggedIn}
-              Welcome to
+<svelte:head>
+  <title>Eventio · Conference management</title>
+</svelte:head>
+
+<div class="home">
+  <aside class="hero" aria-label="Quote">
+    <figure class="quote fade-up">
+      <blockquote>“Let’s keep a little optimism here.”</blockquote>
+      <figcaption>Milos Nikolic</figcaption>
+    </figure>
+  </aside>
+
+  <main class="panel">
+    <div class="panel-inner">
+      <Logo size={40} />
+
+      <section class="welcome fade-up">
+        <p class="eyebrow">Conference platform</p>
+        <h1>
+          {#if loggedIn}
+            Welcome back{userName ? `, ${userName}` : ''}
+          {:else}
+            Welcome to Eventio
+          {/if}
+        </h1>
+        <p class="lead">
+          Browse events, rooms, talks and the speakers behind them, on any
+          device.
+        </p>
+
+        {#if auth.error}
+          <p class="alert" role="alert">
+            <Icon name="alert" size={18} />
+            <span>Login failed: {auth.error}</span>
+          </p>
+        {/if}
+
+        <div class="actions">
+          {#if loggedIn}
+            <Link to="/events" class="btn btn-primary btn-lg">
+              Go to events
+              <Icon name="arrow-right" size={18} />
+            </Link>
+          {:else}
+            {#if authEnabled}
+              <button
+                type="button"
+                class="btn btn-primary btn-lg"
+                onclick={() => login()}>
+                <Icon name="log-in" size={18} />
+                Log in
+              </button>
             {/if}
-            Eventio
-          </h3>
-          {#if !loggedIn}
-            <p class="login--good aside-desc">Choose how you want to continue</p>
+            <Link to="/events" class="btn btn-secondary btn-lg">
+              Continue as guest
+            </Link>
           {/if}
-          {#if auth.error}
-            <p class="error">Login failed: {auth.error}</p>
-          {/if}
-        </aside>
-        <aside class="action-buttons">
-          {#if authEnabled && !loggedIn}
-            <button type="button" class="btn-text" onclick={() => login()}>
-              Login
-            </button>
-          {/if}
-          <Link to="/events" class="btn-text">
-            {#if loggedIn}
-              Welcome back {userName} you can proceed to application
-            {:else}
-              Guest access
-            {/if}
+        </div>
+        {#if !loggedIn}
+          <p class="hint">No account needed to browse.</p>
+        {/if}
+      </section>
+
+      <nav class="shortcuts" aria-label="Explore">
+        {#each shortcuts as item (item.to)}
+          <Link to={item.to} class="card-link shortcut">
+            <span class="shortcut-icon"><Icon name={item.icon} size={20} /></span>
+            <span class="shortcut-text">
+              <strong>{item.title}</strong>
+              <span>{item.text}</span>
+            </span>
+            <Icon name="arrow-right" size={18} class="shortcut-arrow" />
           </Link>
-        </aside>
-      </div>
-    </section>
-  </div>
+        {/each}
+      </nav>
+    </div>
+  </main>
 </div>
 
-<style lang="scss">
-	.image-holder {
-		background: url('/images/str.png') no-repeat center;
-		width: 25%;
-		height: auto;
-		background-size: cover;
-		min-height: 100%;
-		position: fixed;
-		display: block;
+<style>
+  .home {
+    display: grid;
+    min-height: 100dvh;
+  }
 
-		&:after {
-			content: "";
-			position: absolute;
-			top: 0;
-			left: 0;
-			z-index: -1;
-			width: 100%;
-			height: 100%;
-			opacity: 0.85;
-			background-color: #323c46;
-		}
+  @media (min-width: 960px) {
+    .home {
+      grid-template-columns: minmax(360px, 42%) 1fr;
+    }
+  }
 
-		@media (max-width: 1200px) {
-			width: 33.3%;
-		}
+  /* ---------- Hero ---------- */
 
-		@media (max-width: 992px) {
-			display: none;
-		}
+  .hero {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    min-height: 240px;
+    padding: 28px var(--gutter);
+    overflow: hidden;
+    background: #1e1b4b url('/images/str.png') center 30% / cover no-repeat;
+    isolation: isolate;
+  }
 
-		aside {
-			display: flex;
-			flex-direction: column;
-			justify-content: flex-end;
-			align-items: center;
-			height: 100vh;
-			padding: 0 8em 6em;
-			text-align: center;
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      linear-gradient(180deg, rgba(15, 23, 42, 0.1) 0%, rgba(15, 23, 42, 0.85) 100%),
+      linear-gradient(135deg, rgba(79, 70, 229, 0.55), rgba(236, 72, 153, 0.25));
+  }
 
-			.quote {
-				align-items: flex-start;
-				color: #fff;
-				font-size: 36px;
-				text-align: center;
-				width: 310px;
-			}
+  @media (min-width: 960px) {
+    .hero {
+      position: sticky;
+      top: 0;
+      height: 100dvh;
+      padding: 56px;
+    }
+  }
 
-			hr {
-				width: 20px;
-				border: 1px solid #5cb85c;
-				margin: 10px;
-			}
+  .quote {
+    max-width: 22ch;
+    color: #fff;
+  }
 
-			.author {
-				color: blanchedalmond;
-				align-items: flex-end;
-				font-size: 14px;
-			}
-		}
-	}
-	.main-wrapped {
-		width: 75%;
-		float: right;
-		.login-form {
-			width: 50%;
-			margin: auto;
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			align-items: center;
-			text-align: center;
-			position: relative;
-			height: 100vh;
-			overflow: hidden;
+  blockquote {
+    font-size: clamp(1.5rem, 3.4vw, 2.5rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
 
-			.aside-title {
-				font-size: 28px;
-				line-height: 1.71;
-			}
-			.aside-desc {
-				color: #6a7989;
-				font-size: 18px;
-				line-height: 1.33;
-			}
+  figcaption {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 16px;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
 
-			.action-buttons {
-				margin-top: 20px;
-			}
-		}
-	}
+  figcaption::before {
+    content: '';
+    width: 24px;
+    height: 2px;
+    border-radius: 2px;
+    background: #a5b4fc;
+  }
+
+  /* ---------- Panel ---------- */
+
+  .panel {
+    display: flex;
+    justify-content: center;
+    padding: 32px var(--gutter) calc(40px + env(safe-area-inset-bottom));
+  }
+
+  @media (min-width: 960px) {
+    .panel {
+      align-items: center;
+      padding: 56px;
+    }
+  }
+
+  .panel-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    width: 100%;
+    max-width: 480px;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    font-weight: 800;
+    letter-spacing: -0.035em;
+  }
+
+  .lead {
+    margin-top: 12px;
+    color: var(--text-2);
+    font-size: 1.0625rem;
+  }
+
+  .alert {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    margin-top: 20px;
+    padding: 12px 14px;
+    border-radius: var(--radius-sm);
+    background: var(--danger-soft);
+    color: var(--danger);
+    font-size: 0.9375rem;
+    overflow-wrap: anywhere;
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+  }
+
+  @media (max-width: 480px) {
+    .actions > :global(*) {
+      flex: 1 1 100%;
+    }
+  }
+
+  .hint {
+    margin-top: 14px;
+    color: var(--text-3);
+    font-size: 0.875rem;
+  }
+
+  /* ---------- Shortcuts ---------- */
+
+  .shortcuts {
+    display: grid;
+    gap: 12px;
+  }
+
+  .shortcuts :global(.shortcut) {
+    flex-direction: row;
+    align-items: center;
+    gap: 14px;
+    padding: 16px;
+  }
+
+  .shortcut-icon {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    background: var(--primary-soft);
+    color: var(--primary-text);
+  }
+
+  .shortcut-text {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  .shortcut-text strong {
+    font-weight: 600;
+  }
+
+  .shortcut-text span {
+    color: var(--text-2);
+    font-size: 0.875rem;
+  }
+
+  .shortcuts :global(.shortcut-arrow) {
+    color: var(--text-3);
+    transition:
+      transform 0.25s var(--ease),
+      color 0.25s var(--ease);
+  }
+
+  .shortcuts :global(.shortcut:hover .shortcut-arrow) {
+    color: var(--primary-text);
+    transform: translateX(3px);
+  }
 </style>

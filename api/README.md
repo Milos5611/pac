@@ -12,7 +12,7 @@
 - TypeScript, Node.js 22 / 24 / 26
 - LoopBack 4 (`@loopback/core` 8) with `@loopback/graphql` (type-graphql 2, Apollo Server 5)
 - PostgreSQL (`loopback-connector-postgresql`)
-- Okta access-token verification (`@okta/jwt-verifier`)
+- Auth0 access-token verification (`jsonwebtoken` + `jwks-rsa`)
 - Docker
 
 ## Installation
@@ -58,8 +58,8 @@ The tests use an in-memory database, so they need no Postgres.
 | DB_PASSWORD     | `postgres`         | Postgres password                                                   |
 | DB_DATABASE     | `postgres`         | Postgres database                                                   |
 | PORT / HOST     | `3000` / all       | HTTP listen port and host                                           |
-| OKTA_ISSUER     | (none)             | Okta issuer, e.g. `https://dev-26276100.okta.com/oauth2/default`. Without it every mutation is rejected. |
-| OKTA_AUDIENCE   | `api://default`    | Expected access-token audience                                      |
+| AUTH0_ISSUER    | (none)             | Auth0 issuer, e.g. `https://dev-a6i1rkcd4ax8jbrq.us.auth0.com/`. Without it every mutation is rejected. |
+| AUTH0_AUDIENCE  | (none)             | Auth0 API identifier, e.g. `https://pac-api`. Without it every mutation is rejected. |
 | AUTH_DISABLED   | `false`            | `true` skips the token check for mutations. Local development only. |
 | AUTO_MIGRATE    | `true`             | `false` skips schema migration and seeding on start                 |
 | NODE_ENV        |                    | `production` switches logs to JSON                                  |
@@ -72,7 +72,7 @@ api/
 ├─ public/                  # Static start page
 └─ src/
    ├─ __tests__/            # Acceptance tests
-   ├─ auth/                 # Okta token check for mutations
+   ├─ auth/                 # Auth0 token check for mutations
    ├─ datasources/          # Postgres datasource + migration mixin
    ├─ graphql-resolvers/    # GraphQL resolvers
    ├─ graphql-types/        # Models: LoopBack entity + GraphQL type in one class

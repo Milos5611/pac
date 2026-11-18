@@ -1,5 +1,5 @@
 import {config} from './config.js';
-import {accessToken} from './auth.svelte.js';
+import {getAccessToken} from './auth.svelte.js';
 
 /**
  * @param {string} query
@@ -9,7 +9,7 @@ import {accessToken} from './auth.svelte.js';
 export async function gql(query, variables = {}) {
   /** @type {Record<string, string>} */
   const headers = {'Content-Type': 'application/json'};
-  const token = accessToken();
+  const token = await getAccessToken();
   if (token) headers.Authorization = `Bearer ${token}`;
 
   const response = await fetch(config.graphqlUrl, {

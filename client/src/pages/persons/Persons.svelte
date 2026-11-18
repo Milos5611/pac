@@ -1,113 +1,244 @@
 <script>
   import Link from '../../component/link/Link.svelte';
+  import Avatar from '../../component/avatar/Avatar.svelte';
+  import Icon from '../../component/icon/Icon.svelte';
+  import SearchField from '../../component/search/SearchField.svelte';
+  import CardSkeletons from '../../component/state/CardSkeletons.svelte';
+  import EmptyState from '../../component/state/EmptyState.svelte';
   import {gql} from '../../lib/graphql.js';
+  import {levelClass, matches, plural} from '../../lib/format.js';
   import {PERSONS_QUERY} from './data.js';
 
+  /**
+   * @typedef {{
+   *   id: string,
+   *   name: string,
+   *   organization?: {name: string} | null,
+   *   talk?: {id?: string, title?: string, duration?: number, level?: string, language?: string} | null,
+   * }} Person
+   */
+
+  /** @type {Promise<{persons: Person[]}>} */
   const request = gql(PERSONS_QUERY);
+  let query = $state('');
+
+  /** @param {Person[]} persons */
+  function byName(persons) {
+    return [...persons].sort((a, b) => a.name.localeCompare(b.name));
+  }
 </script>
 
-{#await request then data}
-  <div class="person-cards">
-    <div class="toolbar-wrapper">
-      <p class="all--persons">ALL SPEAKERS</p>
+<svelte:head>
+  <title>Speakers · Eventio</title>
+</svelte:head>
+
+<div class="container page">
+  <header class="page-header">
+    <div>
+      <p class="eyebrow">People</p>
+      <h1>Speakers</h1>
+      {#await request then data}
+        {@const orgs = new Set(
+          data.persons.map(p => p.organization?.name).filter(Boolean),
+        )}
+        <p class="muted summary">
+          {plural(data.persons.length, 'speaker')} from {plural(
+            orgs.size,
+            'organization',
+          )}
+        </p>
+      {/await}
     </div>
-    {#each data.persons as person (person.id)}
-      <div class="person-card">
-        <div class="wrapper">
-          <article>
-            <h5 class="card__title">
-              {person.name}
-            </h5>
-            <p class="card__description">
-              {person.organization?.name ?? ''}
-            </p>
-            <p class="card__description">
-              {person.talk?.title ?? ''}
-            </p>
-          </article>
-        </div>
+    <SearchField
+      bind:value={query}
+      placeholder="Search names, companies, talks"
+      label="Search speakers" />
+  </header>
 
-        <div class="person-action">
-          <div class="action-padding">
-            <Link to="/person/{person.id}" class="btn-text">Person detail</Link>
-          </div>
-        </div>
-      </div>
-    {/each}
-  </div>
-{:catch error}
-  <p class="error load-error">Could not load speakers: {error.message}</p>
-{/await}
+  {#await request}
+    <CardSkeletons count={6} />
+  {:then data}
+    {@const persons = byName(data.persons).filter(p =>
+      matches(query, [p.name, p.organization?.name, p.talk?.title]),
+    )}
+    {#if persons.length}
+      <ul class="grid">
+        {#each persons as person, i (person.id)}
+          <li class="fade-up" style:animation-delay="{Math.min(i, 8) * 40}ms">
+            <Link to="/person/{person.id}" class="card-link">
+              <article class="person">
+                <div class="who">
+                  <Avatar name={person.name} size={48} />
+                  <div class="who-text">
+                    <h2>{person.name}</h2>
+                    {#if person.organization?.name}
+                      <p class="org">
+                        <Icon name="building" size={14} />
+                        {person.organization.name}
+                      </p>
+                    {/if}
+                  </div>
+                </div>
 
-<style lang="scss">
-  .person-cards {
-    width: 70%;
-    margin: 10em auto 0;
-    z-index: 2;
+                {#if person.talk?.title}
+                  <div class="talk">
+                    <span class="label">Talk</span>
+                    <p class="talk-title">{person.talk.title}</p>
+                  </div>
+                {/if}
+
+                <footer>
+                  <span class="facts">
+                    {#if person.talk?.level}
+                      <span class="badge {levelClass(person.talk.level)}">
+                        {person.talk.level}
+                      </span>
+                    {/if}
+                    {#if person.talk?.duration}
+                      <span class="meta">
+                        <Icon name="clock" size={14} />
+                        {person.talk.duration} min
+                      </span>
+                    {/if}
+                  </span>
+                  <Icon name="arrow-right" size={18} class="go" />
+                </footer>
+              </article>
+            </Link>
+          </li>
+        {/each}
+      </ul>
+    {:else if query}
+      <EmptyState
+        title="No speakers match “{query}”"
+        message="Try another name, company or talk title.">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          onclick={() => (query = '')}>
+          Clear search
+        </button>
+      </EmptyState>
+    {:else}
+      <EmptyState
+        icon="users"
+        title="No speakers yet"
+        message="Speakers will show up here once they are added." />
+    {/if}
+  {:catch error}
+    <EmptyState
+      tone="error"
+      title="Couldn’t load speakers"
+      message={error.message}>
+      <button
+        type="button"
+        class="btn btn-secondary"
+        onclick={() => location.reload()}>
+        Try again
+      </button>
+    </EmptyState>
+  {/await}
+</div>
+
+<style>
+  .summary {
+    margin-top: 6px;
   }
-  .person-card {
-    width: 31%;
-    height: 260px;
-    float: left;
-    margin-bottom: 15px;
-    margin-left: 0.5em;
-    margin-right: 0.5em;
-    border-radius: 2px;
-    background-color: #fff;
-    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.11);
+
+  .person {
     display: flex;
+    flex: 1;
     flex-direction: column;
-    position: relative;
-    overflow: hidden;
-    @extend %transitionTopBlue;
-  }
-  .wrapper {
-    overflow: hidden;
-    padding: 2.6em 1.6em 1.6em;
+    gap: 18px;
+    padding: 20px;
   }
 
-  .card__description {
-    font-size: 16px;
-    line-height: 1.5;
-    color: #949ea8;
+  .who {
+    display: flex;
+    align-items: center;
+    gap: 14px;
   }
-  .person-action {
+
+  .who-text {
+    min-width: 0;
+  }
+
+  h2 {
+    font-size: 1.0625rem;
+    font-weight: 650;
+    line-height: 1.3;
+  }
+
+  .org {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 2px;
+    color: var(--text-2);
+    font-size: 0.875rem;
+  }
+
+  .org :global(.icon) {
+    color: var(--text-3);
+  }
+
+  .talk {
+    padding: 12px 14px;
+    border-radius: var(--radius-sm);
+    background: var(--surface-2);
+  }
+
+  .label {
+    color: var(--text-3);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .talk-title {
+    display: -webkit-box;
+    margin-top: 2px;
+    overflow: hidden;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    line-height: 1.4;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+  }
+
+  footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     margin-top: auto;
-  }
-  .action-padding {
-    padding: 0.5rem;
+    color: var(--text-3);
   }
 
-  .toolbar-wrapper {
-    padding: 0 10px 10px;
-    font-size: 14px;
-    font-weight: bold;
+  .facts {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
   }
 
-  .load-error {
-    margin: 10em auto 0;
-    text-align: center;
+  .meta {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--text-2);
+    font-size: 0.8125rem;
   }
 
-  %transitionTopBlue {
-    transform: perspective(1px) translateZ(0);
-    &:hover:before {
-      transform: translateY(0);
-    }
+  footer :global(.go) {
+    transition:
+      transform 0.25s var(--ease),
+      color 0.25s var(--ease);
+  }
 
-    &:before {
-      content: '';
-      position: absolute;
-      z-index: -1;
-      left: 0;
-      right: 0;
-      top: 0;
-      background: #2098d1;
-      height: 4px;
-      transform: translateY(-4px);
-      transition-property: transform;
-      transition-duration: 0.3s;
-      transition-timing-function: ease-out;
-    }
+  :global(.card-link:hover) footer :global(.go) {
+    color: var(--primary-text);
+    transform: translateX(3px);
   }
 </style>

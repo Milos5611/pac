@@ -9,7 +9,7 @@ json_escape() {
 
 {
   echo "window.APP_CONFIG = {"
-  for key in SVELTE_APP_BE_URL SVELTE_APP_ISSUER SVELTE_APP_CLIENT_ID SVELTE_APP_REDIRECT_OKTA_URL; do
+  for key in SVELTE_APP_BE_URL SVELTE_APP_ISSUER SVELTE_APP_CLIENT_ID SVELTE_APP_REDIRECT_URL SVELTE_APP_AUDIENCE; do
     eval "value=\${$key:-}"
     printf '  "%s": "%s",\n' "$key" "$(json_escape "$value")"
   done

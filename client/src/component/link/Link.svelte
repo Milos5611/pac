@@ -1,8 +1,8 @@
 <script>
   import {navigate} from '../../lib/router.svelte.js';
 
-  /** @type {{to: string, class?: string, title?: string, children?: import('svelte').Snippet}} */
-  let {to, class: className = '', title, children} = $props();
+  /** @type {{to: string, class?: string, children?: import('svelte').Snippet} & Record<string, any>} */
+  let {to, class: className = '', children, ...rest} = $props();
 
   /** @param {MouseEvent} event */
   function onclick(event) {
@@ -13,4 +13,4 @@
   }
 </script>
 
-<a href={to} class={className} {title} {onclick}>{@render children?.()}</a>
+<a href={to} class={className} {...rest} {onclick}>{@render children?.()}</a>

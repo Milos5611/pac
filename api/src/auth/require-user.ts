@@ -1,19 +1,59 @@
-import OktaJwtVerifier from '@okta/jwt-verifier';
+import jwt, {JwtHeader, JwtPayload, SigningKeyCallback} from 'jsonwebtoken';
+import {JwksClient} from 'jwks-rsa';
 import {GraphQLContext} from '../helper';
 
 export interface AuthenticatedUser {
   sub: string;
 }
 
-let verifier: OktaJwtVerifier | undefined;
-
-function getVerifier(issuer: string): OktaJwtVerifier {
-  verifier ??= new OktaJwtVerifier({issuer});
-  return verifier;
-}
-
 export class AuthenticationError extends Error {
   readonly extensions = {code: 'UNAUTHENTICATED'};
+}
+
+let jwks: {issuer: string; client: JwksClient} | undefined;
+
+/** Auth0 publishes its signing keys at `<issuer>.well-known/jwks.json`. */
+function getJwksClient(issuer: string): JwksClient {
+  if (jwks?.issuer !== issuer) {
+    jwks = {
+      issuer,
+      client: new JwksClient({
+        jwksUri: `${issuer}.well-known/jwks.json`,
+        cache: true,
+        rateLimit: true,
+      }),
+    };
+  }
+  return jwks.client;
+}
+
+function verifyAccessToken(
+  token: string,
+  issuer: string,
+  audience: string,
+): Promise<JwtPayload> {
+  const getKey = (header: JwtHeader, callback: SigningKeyCallback) => {
+    getJwksClient(issuer)
+      .getSigningKey(header.kid)
+      .then(
+        key => callback(null, key.getPublicKey()),
+        err => callback(err as Error),
+      );
+  };
+
+  return new Promise((resolve, reject) => {
+    jwt.verify(
+      token,
+      getKey,
+      {issuer, audience, algorithms: ['RS256']},
+      (err, payload) => {
+        if (err) reject(err);
+        else if (!payload || typeof payload === 'string') {
+          reject(new Error('token payload is not a JSON object'));
+        } else resolve(payload);
+      },
+    );
+  });
 }
 
 export async function requireUser(
@@ -23,12 +63,15 @@ export async function requireUser(
     return {sub: 'local-dev'};
   }
 
-  const issuer = process.env.OKTA_ISSUER;
-  if (!issuer) {
+  const issuerSetting = process.env.AUTH0_ISSUER;
+  const audience = process.env.AUTH0_AUDIENCE;
+  if (!issuerSetting || !audience) {
     throw new AuthenticationError(
-      'Authentication is not configured on the server (OKTA_ISSUER is not set)',
+      'Authentication is not configured on the server (AUTH0_ISSUER and AUTH0_AUDIENCE must be set)',
     );
   }
+  // Auth0 issuers always end with a slash, and `iss` must match exactly
+  const issuer = issuerSetting.replace(/\/*$/, '/');
 
   const header = context.req?.headers?.authorization;
   if (!header) {
@@ -42,11 +85,8 @@ export async function requireUser(
   }
 
   try {
-    const jwt = await getVerifier(issuer).verifyAccessToken(
-      token,
-      process.env.OKTA_AUDIENCE ?? 'api://default',
-    );
-    return {sub: String(jwt.claims.sub)};
+    const claims = await verifyAccessToken(token, issuer, audience);
+    return {sub: String(claims.sub)};
   } catch (err) {
     throw new AuthenticationError(
       `Invalid access token: ${(err as Error).message}`,

@@ -10,6 +10,7 @@ export const EVENTS_QUERY = `
         rooms {
           name
           talks {
+            title
             topics {
               name
             }

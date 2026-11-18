@@ -12,7 +12,7 @@
 
 - [Svelte 5](https://svelte.dev/) (runes)
 - [Vite](https://vite.dev/)
-- [oidc-client-ts](https://github.com/authts/oidc-client-ts) for Okta login (authorization code + PKCE)
+- [@auth0/auth0-spa-js](https://github.com/auth0/auth0-spa-js) for Auth0 login (authorization code + PKCE, rotating refresh tokens)
 - Sass for component styles
 - A small built-in history router (`src/lib/router.svelte.js`) and `fetch`-based GraphQL client (`src/lib/graphql.js`)
 
@@ -47,9 +47,10 @@ The API must be running (default `http://localhost:3000/graphql`) for pages to l
 | Variable                       | Description                    | Default                         |
 | ------------------------------ | :----------------------------- | ------------------------------- |
 | SVELTE_APP_BE_URL              | GraphQL endpoint of the API    | `http://localhost:3000/graphql` |
-| SVELTE_APP_ISSUER              | OIDC issuer (Okta authorization server) | empty: login disabled  |
+| SVELTE_APP_ISSUER              | OIDC issuer (Auth0 tenant URL) | empty: login disabled           |
 | SVELTE_APP_CLIENT_ID           | OIDC client ID                 | empty: login disabled           |
-| SVELTE_APP_REDIRECT_OKTA_URL   | Redirect URI after login/logout | current origin                 |
+| SVELTE_APP_REDIRECT_URL        | Redirect URI after login/logout | current origin                 |
+| SVELTE_APP_AUDIENCE            | API audience sent at login (Auth0 needs it for a JWT access token) | empty: not sent |
 
 Values are resolved in this order:
 
@@ -59,7 +60,7 @@ Values are resolved in this order:
 
 When the issuer or client ID is empty, the Login button is hidden and the app runs in guest mode. Guests can browse everything; login only adds a `Bearer` token to API requests.
 
-To log in during local development, add `http://localhost:5173` as a sign-in and sign-out redirect URI in the Okta application.
+To log in during local development, add `http://localhost:5173` to Allowed Callback URLs, Allowed Logout URLs and Allowed Web Origins in the Auth0 application. Login needs a secure origin (https or `localhost`); elsewhere the SDK cannot start and the app stays in guest mode.
 
 ### Repository structure
 

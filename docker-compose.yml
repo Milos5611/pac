@@ -46,7 +46,7 @@ services:
     environment:
       # The browser calls the API directly, so this is the host-side URL
       SVELTE_APP_BE_URL: http://localhost:3000/graphql
-      SVELTE_APP_REDIRECT_OKTA_URL: http://localhost:8080
+      SVELTE_APP_REDIRECT_URL: http://localhost:8080
     ports:
       - '8080:80'
     depends_on:

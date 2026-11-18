@@ -5,15 +5,31 @@
   let {children} = $props();
 </script>
 
-<div class="app">
+<div class="layout">
   <Header />
-  <section class="section">
+  <main class="layout-main">
     {@render children?.()}
-  </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container">Eventio · conference management POC</div>
+  </footer>
 </div>
 
 <style>
-  .section {
-    position: relative;
+  .layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+  }
+
+  .layout-main {
+    flex: 1;
+  }
+
+  .site-footer {
+    padding-block: 24px calc(24px + env(safe-area-inset-bottom));
+    border-top: 1px solid var(--border);
+    color: var(--text-3);
+    font-size: 0.8125rem;
   }
 </style>

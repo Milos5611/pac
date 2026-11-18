@@ -27,7 +27,7 @@ for that. Additionally monitoring must ensure that bottlenecks can be detected e
 - [LoopBack 4](https://loopback.io/) with [GraphQL](https://graphql.org/) (type-graphql, Apollo Server)
 - [PostgreSQL](https://www.postgresql.org/) 18
 - [Svelte 5](https://svelte.dev/) and [Vite](https://vite.dev/)
-- [Okta](https://www.okta.com/) (OpenID Connect) for login
+- [Auth0](https://auth0.com/) (OpenID Connect) for login
 - [Docker](https://www.docker.com/), [Kubernetes](https://kubernetes.io/), [Minikube](https://minikube.sigs.k8s.io/docs/), [Helm](https://helm.sh/), [Terraform](https://www.terraform.io/)
 - [Datadog](https://www.datadoghq.com/) (optional)
 
@@ -50,7 +50,7 @@ docker compose up --build
 On start the API creates the schema and fills empty tables with sample data. Stop with `Ctrl+C` or
 `docker compose down`. Add `-v` to also delete the database volume.
 
-Okta login and GraphQL mutations need Okta settings: copy `devenv/.env.example` to `devenv/.env` and adjust it. Without
+Login and GraphQL mutations need OIDC settings: copy `devenv/.env.example` to `devenv/.env` and adjust it. Without
 it, the app runs in guest mode (read-only).
 
 ## Local development (hot reload)
@@ -82,12 +82,16 @@ npm run seed                     # insert sample data into empty tables
 With the Docker stack, run them inside the container instead, for example
 `docker compose exec api node dist/migrate --rebuild`.
 
-### Okta
+### Login (Auth0)
 
-Both Okta settings point at the `dev-26276100` Okta org (issuer `https://dev-26276100.okta.com/oauth2/default`,
-client id `0oa5v4cgxUyPfnyUR5d6`). Its Okta application must list the URL you use (`http://localhost:5173`,
-`http://localhost:8080`, `http://conference.frontend/`) as a sign-in and sign-out redirect URI. Queries never need a
-login. For local testing of mutations without Okta, set `AUTH_DISABLED=true` in `api/.env`.
+Login uses the Auth0 tenant `dev-a6i1rkcd4ax8jbrq.us.auth0.com` (issuer `https://dev-a6i1rkcd4ax8jbrq.us.auth0.com/`,
+SPA client id `MSppXA9ofiby9G6xq0DTiMLzJhYGRSHw`, API audience `https://pac-api`). The Auth0 application must list the URL you use (`http://localhost:5173`,
+`http://localhost:8080`, `http://conference.frontend/`) under Allowed Callback URLs, Allowed Logout URLs and Allowed Web
+Origins. In the Auth0 API (**Applications → APIs → PAC API**), authorize the PAC application for user access on the
+**Application Access** tab and turn on **Allow Offline Access**; in the application settings, turn on **Refresh Token
+Rotation**. The web client keeps sessions alive with rotating refresh tokens. Login needs a secure origin (https or
+`localhost`); on plain http such as `http://conference.frontend/` the Login button is hidden. Queries never need a
+login. For local testing of mutations without a login, set `AUTH_DISABLED=true` in `api/.env`.
 
 ## Running in local Minikube
 

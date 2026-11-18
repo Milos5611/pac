@@ -75,25 +75,25 @@ variable "postgres_storage_size" {
   description = "Size of the Postgres persistent volume claim."
 }
 
-variable "okta_issuer" {
+variable "auth0_issuer" {
   type        = string
-  description = "Okta authorization server issuer URL, e.g. https://<org>.okta.com/oauth2/default. Used by the web client for login and by the API to verify access tokens."
+  description = "Auth0 issuer URL with trailing slash, e.g. https://<tenant>.us.auth0.com/. Used by the web client for login and by the API to verify access tokens."
 }
 
-variable "okta_audience" {
+variable "auth0_audience" {
   type        = string
   default     = "api://default"
-  description = "Expected audience of Okta access tokens verified by the API."
+  description = "Auth0 API identifier (audience): requested by the web client at login and checked by the API in access tokens."
 }
 
-variable "okta_client_id" {
+variable "auth0_client_id" {
   type        = string
-  description = "Client ID of the Okta SPA application used by the web client."
+  description = "Client ID of the Auth0 single-page application used by the web client."
 }
 
-variable "okta_redirect_url" {
+variable "auth0_redirect_url" {
   type        = string
-  description = "Where Okta redirects after a successful sign-in."
+  description = "Where Auth0 redirects after sign-in and sign-out."
 }
 
 variable "backend_url" {

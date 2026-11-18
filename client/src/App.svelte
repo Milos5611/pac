@@ -12,16 +12,14 @@
   const Layout = $derived(match.route.layout);
 </script>
 
-<main>
-  {#if auth.ready}
-    {#key router.path}
-      {#if Layout}
-        <Layout>
-          <Page params={match.params} />
-        </Layout>
-      {:else}
+{#if auth.ready}
+  {#key router.path}
+    {#if Layout}
+      <Layout>
         <Page params={match.params} />
-      {/if}
-    {/key}
-  {/if}
-</main>
+      </Layout>
+    {:else}
+      <Page params={match.params} />
+    {/if}
+  {/key}
+{/if}

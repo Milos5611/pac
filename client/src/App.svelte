@@ -2,6 +2,7 @@
   import {router, matchRoute} from './lib/router.svelte.js';
   import {auth, initAuth} from './lib/auth.svelte.js';
   import {routes, notFound} from './routes.js';
+  import Toaster from './component/toast/Toaster.svelte';
 
   initAuth();
 
@@ -23,3 +24,5 @@
     {/if}
   {/key}
 {/if}
+
+<Toaster />

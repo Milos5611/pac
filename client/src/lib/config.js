@@ -9,6 +9,8 @@ const buildTime = {
 };
 
 /**
+ * First non-empty value wins: runtime /config.js (written by the Docker image
+ * at container start), then build-time Vite env, then the fallback.
  * @param {keyof typeof buildTime} key
  * @param {string} fallback
  */

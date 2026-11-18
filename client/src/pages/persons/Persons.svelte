@@ -5,6 +5,11 @@
   import SearchField from '../../component/search/SearchField.svelte';
   import CardSkeletons from '../../component/state/CardSkeletons.svelte';
   import EmptyState from '../../component/state/EmptyState.svelte';
+  import Modal from '../../component/modal/Modal.svelte';
+  import SpeakerForm from './SpeakerForm.svelte';
+  import {auth} from '../../lib/auth.svelte.js';
+  import {navigate} from '../../lib/router.svelte.js';
+  import {toast} from '../../lib/toast.svelte.js';
   import {gql} from '../../lib/graphql.js';
   import {levelClass, matches, plural} from '../../lib/format.js';
   import {PERSONS_QUERY} from './data.js';
@@ -21,6 +26,7 @@
   /** @type {Promise<{persons: Person[]}>} */
   const request = gql(PERSONS_QUERY);
   let query = $state('');
+  let creating = $state(false);
 
   /** @param {Person[]} persons */
   function byName(persons) {
@@ -49,11 +55,32 @@
         </p>
       {/await}
     </div>
-    <SearchField
-      bind:value={query}
-      placeholder="Search names, companies, talks"
-      label="Search speakers" />
+    <div class="header-actions">
+      <SearchField
+        bind:value={query}
+        placeholder="Search names, companies, talks"
+        label="Search speakers" />
+      {#if auth.user}
+        <button
+          type="button"
+          class="btn btn-primary"
+          onclick={() => (creating = true)}>
+          <Icon name="plus" size={16} />
+          New speaker
+        </button>
+      {/if}
+    </div>
   </header>
+
+  <Modal bind:open={creating} title="New speaker">
+    <SpeakerForm
+      onsaved={id => {
+        creating = false;
+        toast('Speaker added');
+        navigate(`/person/${id}`);
+      }}
+      oncancel={() => (creating = false)} />
+  </Modal>
 
   {#await request}
     <CardSkeletons count={6} />

@@ -120,8 +120,6 @@
     }
   }
 
-  /* ---------- Hero ---------- */
-
   .hero {
     position: relative;
     display: flex;
@@ -182,8 +180,6 @@
     border-radius: 2px;
     background: #a5b4fc;
   }
-
-  /* ---------- Panel ---------- */
 
   .panel {
     display: flex;
@@ -249,8 +245,6 @@
     color: var(--text-3);
     font-size: 0.875rem;
   }
-
-  /* ---------- Shortcuts ---------- */
 
   .shortcuts {
     display: grid;

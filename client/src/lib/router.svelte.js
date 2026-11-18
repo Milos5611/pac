@@ -18,6 +18,8 @@ export function navigate(to, {replace = false} = {}) {
 /** @typedef {{path: string, component: any, layout?: any}} Route */
 
 /**
+ * First route whose segments all match. A `:name` segment matches any
+ * non-empty segment and captures it as `params.name`.
  * @param {Route[]} routes
  * @param {string} path
  * @returns {{route: Route, params: Record<string, string>} | null}

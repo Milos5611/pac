@@ -18,6 +18,8 @@ export async function gql(query, variables = {}) {
     body: JSON.stringify({query, variables}),
   });
 
+  // GraphQL errors arrive in the JSON body, often with HTTP 200, so read the
+  // body first and fall back to the status only when there is no message
   let body;
   try {
     body = await response.json();
@@ -31,4 +33,16 @@ export async function gql(query, variables = {}) {
     throw new Error(`GraphQL request failed: HTTP ${response.status}`);
   }
   return body.data;
+}
+
+/**
+ * Message for a failed mutation, with auth failures in plain words.
+ * @param {unknown} error
+ */
+export function errorMessage(error) {
+  const text = error instanceof Error ? error.message : String(error);
+  if (/Authorization header|Invalid access token|not configured/i.test(text)) {
+    return 'You need to be logged in to make changes. Log in and try again.';
+  }
+  return text;
 }

@@ -32,6 +32,8 @@ function verifyAccessToken(
   issuer: string,
   audience: string,
 ): Promise<JwtPayload> {
+  // jsonwebtoken asks for the public key matching the token's `kid`;
+  // jwks-rsa fetches it from Auth0 once and caches it
   const getKey = (header: JwtHeader, callback: SigningKeyCallback) => {
     getJwksClient(issuer)
       .getSigningKey(header.kid)

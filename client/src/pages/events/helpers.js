@@ -1,8 +1,9 @@
 /**
  * @typedef {{name: string}} Topic
- * @typedef {{id?: string, title?: string, duration?: number, level?: string, language?: string, topics?: Topic[] | null}} Talk
- * @typedef {{name: string, talks?: Talk[] | null}} Room
- * @typedef {{id: string, name: string, start_date?: string, end_date?: string, location?: {name: string, rooms?: Room[] | null} | null}} ConferenceEvent
+ * @typedef {{id: string, name: string}} Speaker
+ * @typedef {{id?: string, title?: string, duration?: number, level?: string, language?: string, topics?: Topic[] | null, persons?: Speaker[] | null}} Talk
+ * @typedef {{id?: string, name: string, talks?: Talk[] | null}} Room
+ * @typedef {{id: string, name: string, start_date?: string, end_date?: string, locationId?: string, location?: {id?: string, name: string, rooms?: Room[] | null} | null}} ConferenceEvent
  */
 
 /** @param {ConferenceEvent} event */
@@ -16,7 +17,6 @@ export function eventTalks(event) {
 }
 
 /**
- * Unique topic names across all talks of an event.
  * @param {ConferenceEvent} event
  */
 export function eventTopics(event) {

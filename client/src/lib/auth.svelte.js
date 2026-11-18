@@ -57,6 +57,9 @@ export async function initAuth() {
     return;
   }
   try {
+    // Auth0 redirects back with ?code&state on success or ?error&state on
+    // failure; exchange it for tokens, then drop the query from the URL.
+    // Otherwise refresh the cached session; failing that just means "guest".
     const params = new URLSearchParams(window.location.search);
     if (params.has('state') && (params.has('code') || params.has('error'))) {
       const {appState} = await client.handleRedirectCallback();

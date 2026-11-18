@@ -32,7 +32,6 @@ export function formatDateRange(start, end) {
 }
 
 /**
- * Month and day for a calendar badge.
  * @param {string | number | Date | null | undefined} value
  */
 export function dateBadge(value) {
@@ -79,7 +78,6 @@ export function levelClass(level) {
 }
 
 /**
- * Case-insensitive match of a search query against several fields.
  * @param {string} query
  * @param {Array<string | null | undefined>} fields
  */
@@ -87,4 +85,22 @@ export function matches(query, fields) {
   const q = query.trim().toLowerCase();
   if (!q) return true;
   return fields.some(field => (field ?? '').toLowerCase().includes(q));
+}
+
+/**
+ * Value for <input type="date">. Dates are stored at noon UTC, so the UTC
+ * calendar day is the day the user picked.
+ * @param {string | number | Date | null | undefined} value
+ */
+export function toDateInput(value) {
+  const date = toDate(value);
+  return date ? date.toISOString().slice(0, 10) : '';
+}
+
+/**
+ * ISO timestamp (noon UTC) for a "YYYY-MM-DD" value from <input type="date">.
+ * @param {string} value
+ */
+export function fromDateInput(value) {
+  return `${value}T12:00:00.000Z`;
 }

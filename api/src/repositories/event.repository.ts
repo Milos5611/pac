@@ -87,6 +87,8 @@ export class EventRepository
     });
   }
 
+  // The include chain decides how deep a GraphQL query on `event` can go:
+  // relations not listed here come back as null, without an error
   async getOne(id: string) {
     return this.findById(id, {
       include: [
@@ -111,6 +113,7 @@ export class EventRepository
                               ],
                             },
                           },
+                          {relation: 'persons'},
                         ],
                       },
                     },

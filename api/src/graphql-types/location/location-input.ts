@@ -3,8 +3,8 @@ import {field, inputType} from '@loopback/graphql';
 
 @inputType()
 export class LocationInput implements Partial<Location> {
-  @field()
-  id: string;
+  @field({nullable: true})
+  id?: string;
 
   @field()
   name: string;

@@ -8,6 +8,7 @@
       .split(/\s+/)
       .filter(Boolean)
       .map(part => part[0])
+      // First and last initial only: "Ana Maria Petrović" -> "AP"
       .filter((_, i, all) => i === 0 || i === all.length - 1)
       .join('')
       .toUpperCase() || '?',

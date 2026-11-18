@@ -39,10 +39,6 @@ export class ConferenceDatasource
 
   start(): ValueOrPromise<void> {}
 
-  /**
-   * Disconnect the datasource when application is stopped. This allows the
-   * application to be shut down gracefully.
-   */
   stop(): ValueOrPromise<void> {
     return super.disconnect();
   }

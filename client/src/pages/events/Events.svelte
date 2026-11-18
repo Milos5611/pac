@@ -5,6 +5,11 @@
   import SearchField from '../../component/search/SearchField.svelte';
   import CardSkeletons from '../../component/state/CardSkeletons.svelte';
   import EmptyState from '../../component/state/EmptyState.svelte';
+  import Modal from '../../component/modal/Modal.svelte';
+  import EventForm from './EventForm.svelte';
+  import {auth} from '../../lib/auth.svelte.js';
+  import {navigate} from '../../lib/router.svelte.js';
+  import {toast} from '../../lib/toast.svelte.js';
   import {gql} from '../../lib/graphql.js';
   import {
     cleanTitle,
@@ -26,6 +31,7 @@
   /** @type {Promise<{events: import('./helpers.js').ConferenceEvent[]}>} */
   const request = gql(EVENTS_QUERY);
   let query = $state('');
+  let creating = $state(false);
 
   /** @param {import('./helpers.js').ConferenceEvent} event */
   function searchable(event) {
@@ -58,11 +64,32 @@
         </p>
       {/await}
     </div>
-    <SearchField
-      bind:value={query}
-      placeholder="Search events, cities, topics"
-      label="Search events" />
+    <div class="header-actions">
+      <SearchField
+        bind:value={query}
+        placeholder="Search events, cities, topics"
+        label="Search events" />
+      {#if auth.user}
+        <button
+          type="button"
+          class="btn btn-primary"
+          onclick={() => (creating = true)}>
+          <Icon name="plus" size={16} />
+          New event
+        </button>
+      {/if}
+    </div>
   </header>
+
+  <Modal bind:open={creating} title="New event">
+    <EventForm
+      onsaved={id => {
+        creating = false;
+        toast('Event created');
+        navigate(`/event/${id}`);
+      }}
+      oncancel={() => (creating = false)} />
+  </Modal>
 
   {#await request}
     <CardSkeletons count={6} />

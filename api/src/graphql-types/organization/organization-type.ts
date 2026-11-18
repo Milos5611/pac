@@ -20,7 +20,7 @@ export class Organization extends Entity {
   id: string;
 
   @field()
-  @property()
+  @property({required: true})
   name: string;
 
   @hasMany(() => Person, {keyTo: 'organization_id', keyFrom: 'id'})

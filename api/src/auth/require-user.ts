@@ -61,7 +61,12 @@ function verifyAccessToken(
 export async function requireUser(
   context: GraphQLContext,
 ): Promise<AuthenticatedUser> {
-  if (process.env.AUTH_DISABLED === 'true') {
+  // main() already refuses this in production; repeated here for code paths
+  // that create the app without main()
+  if (
+    process.env.AUTH_DISABLED === 'true' &&
+    process.env.NODE_ENV !== 'production'
+  ) {
     return {sub: 'local-dev'};
   }
 

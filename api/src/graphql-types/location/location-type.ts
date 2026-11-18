@@ -21,7 +21,7 @@ export class Location extends Entity {
   id: string;
 
   @field()
-  @property()
+  @property({required: true})
   name: string;
 
   @field(() => [Event], {nullable: true})

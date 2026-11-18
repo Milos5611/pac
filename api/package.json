@@ -48,14 +48,16 @@
     "!*/__tests__"
   ],
   "dependencies": {
-    "@loopback/boot": "^9.0.0",
-    "@loopback/core": "^8.0.0",
-    "@loopback/graphql": "^0.15.0",
-    "@loopback/logging": "^0.14.0",
-    "@loopback/metrics": "^0.16.0",
-    "@loopback/repository": "^9.0.0",
-    "@loopback/rest": "^16.0.0",
-    "@loopback/service-proxy": "^9.0.0",
+    "@loopback/boot": "^9.0.1",
+    "@loopback/core": "^8.0.1",
+    "@loopback/graphql": "^0.15.1",
+    "@loopback/health": "^0.16.1",
+    "@loopback/logging": "^0.14.1",
+    "@loopback/metrics": "^0.16.1",
+    "@loopback/repository": "^9.0.1",
+    "@loopback/rest": "^16.0.1",
+    "@loopback/service-proxy": "^9.0.1",
+    "class-validator": "^0.15.1",
     "graphql": "^16.14.2",
     "jsonwebtoken": "^9.0.3",
     "jwks-rsa": "^4.1.0",
@@ -63,9 +65,9 @@
     "tslib": "^2.8.1"
   },
   "devDependencies": {
-    "@loopback/build": "^13.0.0",
+    "@loopback/build": "^13.0.1",
     "@loopback/eslint-config": "^17.0.0",
-    "@loopback/testlab": "^9.0.0",
+    "@loopback/testlab": "^9.0.1",
     "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^24.19.2",
     "eslint": "^8.57.1",
@@ -77,6 +79,7 @@
     "@loopback/core": "$@loopback/core",
     "@loopback/rest": "$@loopback/rest",
     "@loopback/boot": "$@loopback/boot",
+    "@loopback/repository": "$@loopback/repository",
     "graphql": "$graphql"
   }
 }

@@ -168,6 +168,11 @@ resource "kubernetes_service_v1" "backend_postgres" {
   }
 }
 
+locals {
+  # The web client's origin, e.g. http://conference.frontend
+  backend_cors_origins = length(var.cors_origins) > 0 ? var.cors_origins : [regex("^https?://[^/]+", var.auth0_redirect_url)]
+}
+
 resource "kubernetes_config_map_v1" "backend_config" {
   metadata {
     name      = "backend-config"
@@ -181,6 +186,9 @@ resource "kubernetes_config_map_v1" "backend_config" {
     DB_DATABASE    = var.database_name
     AUTH0_ISSUER   = var.auth0_issuer
     AUTH0_AUDIENCE = var.auth0_audience
+    CORS_ORIGINS   = join(",", local.backend_cors_origins)
+    # The chart's pre-install/pre-upgrade Job migrates instead
+    AUTO_MIGRATE = "false"
   }
 }
 

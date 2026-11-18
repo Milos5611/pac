@@ -104,7 +104,7 @@ TF_VAR_kube_context=my-local-cluster ./install.sh
 
 ## Using locally built images
 
-By default the charts pull `mnikolic/pac_mnikolic_api:latest` and `mnikolic/pac_mnikolic_web:latest` from Docker Hub with `imagePullPolicy: Always`. To run your local code instead, build the images, load them into Minikube, and override the image variables.
+By default the charts pull `ghcr.io/milos5611/pac-api:latest` and `ghcr.io/milos5611/pac-web:latest` from GitHub Container Registry with `imagePullPolicy: Always`. CI also tags every build as `sha-<short commit>`; set `backend_image_tag` / `frontend_image_tag` to one of those to pin a build. To run your local code instead, build the images, load them into Minikube, and override the image variables.
 
 ```bash
 # from the repository root

@@ -35,19 +35,19 @@ export class Person extends Entity {
   id: string;
 
   @field()
-  @property()
+  @property({required: true})
   name: string;
 
   @field()
   @belongsTo(
     () => Organization,
     {keyFrom: 'organizationId'},
-    {name: 'organization_id'},
+    {name: 'organization_id', required: true},
   )
   organizationId: string;
 
   @field()
-  @belongsTo(() => Talk, {keyFrom: 'talkId'}, {name: 'talk_id'})
+  @belongsTo(() => Talk, {keyFrom: 'talkId'}, {name: 'talk_id', required: true})
   talkId: string;
 
   @field(type => Organization, {nullable: true})

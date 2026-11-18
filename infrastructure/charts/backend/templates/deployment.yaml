@@ -41,22 +41,23 @@ spec:
           envFrom:
             {{- toYaml . | nindent 12 }}
           {{- end }}
+          # /live: the process answers. /ready: it also reaches the database.
           startupProbe:
             httpGet:
-              path: /
+              path: /live
               port: http
             periodSeconds: {{ .Values.startupProbe.periodSeconds }}
             failureThreshold: {{ .Values.startupProbe.failureThreshold }}
           livenessProbe:
             httpGet:
-              path: /
+              path: /live
               port: http
             periodSeconds: 15
             timeoutSeconds: 5
             failureThreshold: 3
           readinessProbe:
             httpGet:
-              path: /
+              path: /ready
               port: http
             periodSeconds: 10
             timeoutSeconds: 5

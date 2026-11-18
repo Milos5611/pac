@@ -12,26 +12,26 @@ variable "kube_config_path" {
 
 variable "backend_image_repository" {
   type        = string
-  default     = "mnikolic/pac_mnikolic_api"
+  default     = "ghcr.io/milos5611/pac-api"
   description = "Container image repository for the API."
 }
 
 variable "backend_image_tag" {
   type        = string
   default     = "latest"
-  description = "Container image tag for the API."
+  description = "Container image tag for the API: latest, or sha-<short commit> to pin a CI build."
 }
 
 variable "frontend_image_repository" {
   type        = string
-  default     = "mnikolic/pac_mnikolic_web"
+  default     = "ghcr.io/milos5611/pac-web"
   description = "Container image repository for the web client."
 }
 
 variable "frontend_image_tag" {
   type        = string
   default     = "latest"
-  description = "Container image tag for the web client."
+  description = "Container image tag for the web client: latest, or sha-<short commit> to pin a CI build."
 }
 
 variable "image_pull_policy" {
@@ -94,6 +94,12 @@ variable "auth0_client_id" {
 variable "auth0_redirect_url" {
   type        = string
   description = "Where Auth0 redirects after sign-in and sign-out."
+}
+
+variable "cors_origins" {
+  type        = list(string)
+  default     = []
+  description = "Browser origins allowed to call the API. Empty means the origin of auth0_redirect_url."
 }
 
 variable "backend_url" {

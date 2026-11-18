@@ -54,9 +54,7 @@ export class ChildrenRepository
   }
 
   async getOne(id: string) {
-    return this.findById(id, {
-      include: [{relation: 'topic'}],
-    });
+    return this.findOne({where: {id}, include: [{relation: 'topic'}]});
   }
 
   async createChildren(childrenData: ChildrenInput) {

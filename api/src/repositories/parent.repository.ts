@@ -52,7 +52,7 @@ export class ParentRepository
   }
 
   async getOne(id: string) {
-    return this.findById(id);
+    return this.findOne({where: {id}});
   }
 
   async createParent(parentData: ParentInput) {

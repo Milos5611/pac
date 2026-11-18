@@ -78,7 +78,8 @@ export class TopicRepository
   }
 
   async getOne(id: string) {
-    return this.findById(id, {
+    return this.findOne({
+      where: {id},
       include: [{relation: 'childrens'}, {relation: 'parents'}],
     });
   }

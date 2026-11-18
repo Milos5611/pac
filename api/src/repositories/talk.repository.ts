@@ -76,9 +76,7 @@ export class TalkRepository
   }
 
   async getOne(id: string) {
-    return this.findById(id, {
-      include: [{relation: 'topics'}],
-    });
+    return this.findOne({where: {id}, include: [{relation: 'topics'}]});
   }
 
   async createTalk(talk: TalkInput) {
@@ -87,6 +85,6 @@ export class TalkRepository
 
   async updateTalk(id: string, talk: TalkInput) {
     await this.updateById(id, talk);
-    return this.getOne(id);
+    return this.findById(id, {include: [{relation: 'topics'}]});
   }
 }

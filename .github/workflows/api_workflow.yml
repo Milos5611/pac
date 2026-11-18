@@ -30,15 +30,30 @@ jobs:
     needs: test
     if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
+    # GITHUB_TOKEN pushes to GitHub Container Registry; no registry secrets needed
+    permissions:
+      contents: read
+      packages: write
     steps:
       - uses: actions/checkout@v7
       - uses: docker/setup-buildx-action@v4
       - uses: docker/login-action@v4
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      # Tags: latest (default branch only) and sha-<short commit>; also adds
+      # the OCI source label that links the package to this repository
+      - id: meta
+        uses: docker/metadata-action@v6
+        with:
+          images: ghcr.io/${{ github.repository_owner }}/pac-api
+          tags: |
+            type=raw,value=latest,enable={{is_default_branch}}
+            type=sha
       - uses: docker/build-push-action@v7
         with:
           context: api
           push: true
-          tags: mnikolic/pac_mnikolic_api:latest
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}

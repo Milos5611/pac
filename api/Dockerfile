@@ -1,4 +1,4 @@
-FROM node:26-alpine AS build
+FROM node:26.13.1-alpine3.24 AS build
 WORKDIR /app
 
 COPY package.json package-lock.json .npmrc ./
@@ -8,7 +8,7 @@ COPY tsconfig.json ./
 COPY src ./src
 RUN npm run build && npm prune --omit=dev
 
-FROM node:26-alpine
+FROM node:26.13.1-alpine3.24
 ENV NODE_ENV=production HOST=0.0.0.0 PORT=3000
 WORKDIR /home/node/app
 

@@ -24,7 +24,7 @@ export class Event extends Entity {
   id: string;
 
   @field()
-  @property()
+  @property({required: true})
   name: string;
 
   @field({nullable: true})
@@ -36,7 +36,11 @@ export class Event extends Entity {
   end_date?: Date;
 
   @field()
-  @belongsTo(() => Location, {keyFrom: 'locationId'}, {name: 'location_id'})
+  @belongsTo(
+    () => Location,
+    {keyFrom: 'locationId'},
+    {name: 'location_id', required: true},
+  )
   locationId: string;
 
   @field(() => Location, {nullable: true})

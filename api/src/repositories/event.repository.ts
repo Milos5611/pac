@@ -90,7 +90,8 @@ export class EventRepository
   // The include chain decides how deep a GraphQL query on `event` can go:
   // relations not listed here come back as null, without an error
   async getOne(id: string) {
-    return this.findById(id, {
+    return this.findOne({
+      where: {id},
       include: [
         {
           relation: 'location',
@@ -132,7 +133,11 @@ export class EventRepository
   }
 
   async updateEvent(id: string, eventData: EventInput) {
-    await this.updateById(id, eventData);
+    // Only fields present in the input change; an omitted date keeps its value
+    const changes = Object.fromEntries(
+      Object.entries(eventData).filter(([, value]) => value !== undefined),
+    );
+    await this.updateById(id, changes);
     return this.findById(id);
   }
 

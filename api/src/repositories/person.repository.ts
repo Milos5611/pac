@@ -68,7 +68,8 @@ export class PersonRepository
   }
 
   async getOne(id: string) {
-    return this.findById(id, {
+    return this.findOne({
+      where: {id},
       include: [{relation: 'organization'}, {relation: 'talk'}],
     });
   }
@@ -79,6 +80,8 @@ export class PersonRepository
 
   async updatePerson(id: string, person: PersonInput) {
     await this.updateById(id, person);
-    return this.getOne(id);
+    return this.findById(id, {
+      include: [{relation: 'organization'}, {relation: 'talk'}],
+    });
   }
 }

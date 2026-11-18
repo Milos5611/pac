@@ -37,7 +37,7 @@ export class OrganizationRepository
   }
 
   async getOne(id: string) {
-    return this.findById(id);
+    return this.findOne({where: {id}});
   }
 
   async createOrganization(organization: OrganizationInput) {

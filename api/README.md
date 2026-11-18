@@ -45,7 +45,10 @@ The tests use an in-memory database, so they need no Postgres.
 ## Endpoints
 
 - `POST /graphql`: GraphQL API. `GET /graphql` in a browser opens the Apollo Sandbox.
-- `GET /metrics`: Prometheus metrics.
+- `GET /live`: liveness probe, 200 while the process runs.
+- `GET /ready`: readiness probe, 200 only when the database answers.
+- `GET /health`: both checks with details.
+- `GET /metrics`: Prometheus metrics, only with `METRICS_ENABLED=true` (the endpoint has no auth).
 - `GET /`: static start page.
 
 ## Environment variables
@@ -57,13 +60,19 @@ The tests use an in-memory database, so they need no Postgres.
 | DB_USER         | `postgres`         | Postgres user                                                       |
 | DB_PASSWORD     | `postgres`         | Postgres password                                                   |
 | DB_DATABASE     | `postgres`         | Postgres database                                                   |
+| DB_POOL_MAX     | `10`               | Maximum Postgres connections                                        |
+| DB_STATEMENT_TIMEOUT_MS | `15000`    | Postgres cancels statements that run longer                         |
 | PORT / HOST     | `3000` / all       | HTTP listen port and host                                           |
 | AUTH0_ISSUER    | (none)             | Auth0 issuer, e.g. `https://dev-a6i1rkcd4ax8jbrq.us.auth0.com/`. Without it every mutation is rejected. |
 | AUTH0_AUDIENCE  | (none)             | Auth0 API identifier, e.g. `https://pac-api`. Without it every mutation is rejected. |
-| AUTH_DISABLED   | `false`            | `true` skips the token check for mutations. Local development only. |
-| AUTO_MIGRATE    | `true`             | `false` skips schema migration and seeding on start                 |
-| NODE_ENV        |                    | `production` switches logs to JSON                                  |
+| AUTH_DISABLED   | `false`            | `true` skips the token check for mutations. Refused when `NODE_ENV=production`. |
+| AUTO_MIGRATE    | `true`, `false` in production | Run schema migration and seeding on start                |
+| CORS_ORIGINS    | `http://localhost:5173,http://localhost:4173,http://localhost:8080` | Comma-separated browser origins allowed to call the API |
+| METRICS_ENABLED | `false`            | `true` serves Prometheus metrics at `/metrics`                      |
+| NODE_ENV        |                    | `production` switches logs to JSON and enables the strict startup checks below |
 | LOG_LEVEL       | `info`             | Winston log level                                                   |
+
+In production (`NODE_ENV=production`) the server refuses to start when `AUTH_DISABLED=true`, or when `DB_HOST`, `DB_USER`, `DB_PASSWORD`, `DB_DATABASE`, `AUTH0_ISSUER` or `AUTH0_AUDIENCE` is missing. Outside production, missing Auth0 settings only log a warning.
 
 ### Repository structure
 

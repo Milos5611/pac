@@ -4,6 +4,7 @@ import {
   expect,
   givenHttpServerConfig,
 } from '@loopback/testlab';
+import {getIntrospectionQuery} from 'graphql';
 import {ApiApplication} from '../../application';
 import {seedDatabase} from '../../seed';
 
@@ -263,8 +264,93 @@ describe('GraphQL API (in-memory database)', () => {
         `query ($id: String!) { event(eventId: $id) { id } }`,
         {id: event.id},
       );
-      expect(gone.body.errors[0].message).to.match(/not found/i);
+      expect(gone.body.errors).to.be.undefined();
+      expect(gone.body.data.event).to.be.null();
     });
+
+    it('keeps event dates that an update leaves out', async () => {
+      const start = '2027-06-01T09:00:00.000Z';
+      const {createEvent: event} = await mutate<{createEvent: {id: string}}>(
+        `mutation ($e: EventInput!) { createEvent(event: $e) { id } }`,
+        {e: {name: 'Dated', start_date: start, locationId: '1'}},
+      );
+      const {updateEvent} = await mutate<{
+        updateEvent: {name: string; start_date: string};
+      }>(
+        `mutation ($id: String!, $e: EventInput!) {
+          updateEvent(id: $id, event: $e) { name start_date }
+        }`,
+        {id: event.id, e: {name: 'Still dated', locationId: '1'}},
+      );
+      expect(updateEvent).to.eql({name: 'Still dated', start_date: start});
+    });
+
+    it('rejects invalid input with the broken rules', async () => {
+      const res = await gql(
+        `mutation ($t: TalkInput!) { createTalk(talk: $t) { id } }`,
+        {
+          t: {
+            title: '   ',
+            duration: -5,
+            level: 'Junior',
+            language: 'English',
+            roomId: '1',
+          },
+        },
+      );
+      const [error] = res.body.errors;
+      expect(error.extensions.code).to.equal('BAD_USER_INPUT');
+      expect(error.message).to.match(/title must not be blank/);
+      expect(error.message).to.match(/duration must not be less than 1/);
+      expect(JSON.stringify(error)).to.not.match(/target/);
+    });
+
+    it('reports NOT_FOUND when updating a missing record', async () => {
+      const res = await gql(
+        `mutation { updateOrganization(id: "missing", organization: {name: "X"}) { id } }`,
+      );
+      expect(res.body.errors[0].extensions.code).to.equal('NOT_FOUND');
+    });
+  });
+
+  describe('query limits', () => {
+    function rejected(query: string) {
+      return client
+        .post('/graphql')
+        .set('Content-Type', 'application/json')
+        .send({query})
+        .expect(400)
+        .then(res => res.body.errors[0]);
+    }
+
+    it('rejects queries nested deeper than 10 levels', async () => {
+      const error = await rejected(`{ talks { persons { talk { persons {
+        talk { persons { talk { persons { talk { persons { talk { title }
+      } } } } } } } } } } }`);
+      expect(error.extensions.code).to.equal('GRAPHQL_VALIDATION_FAILED');
+      expect(error.message).to.match(/deeper than 10/);
+    });
+
+    it('rejects queries with more than 20 aliases', async () => {
+      const aliases = Array.from({length: 21}, (_, i) => `r${i}: rooms { id }`);
+      const error = await rejected(`{ ${aliases.join(' ')} }`);
+      expect(error.message).to.match(/more than 20 aliases/);
+    });
+
+    it('still allows the full introspection query', async () => {
+      const res = await gql(getIntrospectionQuery());
+      expect(res.body.errors).to.be.undefined();
+      expect(res.body.data.__schema.queryType.name).to.equal('Query');
+    });
+  });
+
+  it('serves liveness and readiness probes', async () => {
+    await client.get('/live').expect(200);
+    await client.get('/ready').expect(200);
+  });
+
+  it('does not expose /metrics unless METRICS_ENABLED=true', async () => {
+    await client.get('/metrics').expect(404);
   });
 
   it('serves the GraphQL sandbox on GET', async () => {

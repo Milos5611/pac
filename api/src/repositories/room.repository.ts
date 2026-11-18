@@ -60,9 +60,7 @@ export class RoomRepository
   }
 
   async getOne(id: string) {
-    return this.findById(id, {
-      include: [{relation: 'talks'}],
-    });
+    return this.findOne({where: {id}, include: [{relation: 'talks'}]});
   }
 
   async createRoom(room: RoomInput) {
@@ -71,6 +69,6 @@ export class RoomRepository
 
   async updateRoom(id: string, room: RoomInput) {
     await this.updateById(id, room);
-    return this.getOne(id);
+    return this.findById(id, {include: [{relation: 'talks'}]});
   }
 }

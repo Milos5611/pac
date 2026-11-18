@@ -25,11 +25,15 @@ export class Parent extends Entity {
   id?: string;
 
   @field()
-  @property()
+  @property({required: true})
   name: string;
 
   @field()
-  @belongsTo(() => Topic, {keyFrom: 'topicId'}, {name: 'topic_id'})
+  @belongsTo(
+    () => Topic,
+    {keyFrom: 'topicId'},
+    {name: 'topic_id', required: true},
+  )
   topicId: string;
 
   @field(() => Topic, {nullable: true})

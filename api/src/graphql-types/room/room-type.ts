@@ -32,11 +32,15 @@ export class Room extends Entity {
   id: string;
 
   @field()
-  @property()
+  @property({required: true})
   name: string;
 
   @field()
-  @belongsTo(() => Location, {keyFrom: 'locationId'}, {name: 'location_id'})
+  @belongsTo(
+    () => Location,
+    {keyFrom: 'locationId'},
+    {name: 'location_id', required: true},
+  )
   locationId: string;
 
   @field(type => [Talk], {nullable: true})

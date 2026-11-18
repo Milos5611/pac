@@ -15,6 +15,14 @@ const config = {
   user: process.env.DB_USER ?? 'postgres',
   password: process.env.DB_PASSWORD ?? 'postgres',
   database: process.env.DB_DATABASE ?? 'postgres',
+  // Passed through to pg.Pool: cap connections, and fail instead of hanging
+  // when the database is unreachable or a query runs away
+  max: +(process.env.DB_POOL_MAX ?? 10),
+  idleTimeoutMillis: 30_000,
+  connectionTimeoutMillis: 5_000,
+  statement_timeout: +(process.env.DB_STATEMENT_TIMEOUT_MS ?? 15_000),
+  // Client-side limit for when the server itself stops responding
+  query_timeout: +(process.env.DB_STATEMENT_TIMEOUT_MS ?? 15_000) + 5_000,
 };
 
 @lifeCycleObserver('datasource', {

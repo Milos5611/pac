@@ -3,7 +3,7 @@
 replicaCount: 1
 
 image:
-  repository: mnikolic/pac_mnikolic_web
+  repository: ghcr.io/milos5611/pac-web
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: "latest"

@@ -33,23 +33,23 @@ export class Talk extends Entity {
   id: string;
 
   @field()
-  @property()
+  @property({required: true})
   duration: number;
 
   @field()
-  @property()
+  @property({required: true})
   title: string;
 
   @field()
-  @property()
+  @property({required: true})
   level: string;
 
   @field()
-  @property()
+  @property({required: true})
   language: string;
 
   @field()
-  @belongsTo(() => Room, {keyFrom: 'roomId'}, {name: 'room_id'})
+  @belongsTo(() => Room, {keyFrom: 'roomId'}, {name: 'room_id', required: true})
   roomId: string;
 
   @field(type => [Person], {nullable: true})

@@ -3,7 +3,7 @@
 replicaCount: 1
 
 image:
-  repository: mnikolic/pac_mnikolic_api
+  repository: ghcr.io/milos5611/pac-api
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: "latest"
@@ -38,6 +38,15 @@ service:
 startupProbe:
   failureThreshold: 60
   periodSeconds: 5
+
+# Pre-install/pre-upgrade Job that runs `node dist/migrate`. Set the API's
+# AUTO_MIGRATE=false when this is enabled.
+migration:
+  enabled: true
+  # Also run `node dist/seed` on the first install
+  seed: true
+  backoffLimit: 5
+  activeDeadlineSeconds: 300
 
 ingress:
   enabled: false

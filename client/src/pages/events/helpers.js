@@ -1,5 +1,5 @@
 /**
- * @typedef {{name: string}} Topic
+ * @typedef {{id?: string, name: string}} Topic
  * @typedef {{id: string, name: string}} Speaker
  * @typedef {{id?: string, title?: string, duration?: number, level?: string, language?: string, topics?: Topic[] | null, persons?: Speaker[] | null}} Talk
  * @typedef {{id?: string, name: string, talks?: Talk[] | null}} Room

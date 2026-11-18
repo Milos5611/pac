@@ -20,11 +20,16 @@ export const PERSONS_QUERY = `
 export const PERSON_QUERY = `
   query Person($personId: String!) {
     person(personId: $personId) {
+      id
       name
+      organizationId
+      talkId
       organization {
+        id
         name
       }
       talk {
+        id
         title
         duration
         level
@@ -59,6 +64,22 @@ export const CREATE_ORGANIZATION = `
 export const CREATE_PERSON = `
   mutation CreatePerson($person: PersonInput!) {
     createPerson(person: $person) {
+      id
+    }
+  }
+`;
+
+export const UPDATE_PERSON = `
+  mutation UpdatePerson($id: String!, $person: PersonInput!) {
+    updatePerson(id: $id, person: $person) {
+      id
+    }
+  }
+`;
+
+export const UPDATE_ORGANIZATION = `
+  mutation UpdateOrganization($id: String!, $organization: OrganizationInput!) {
+    updateOrganization(id: $id, organization: $organization) {
       id
     }
   }

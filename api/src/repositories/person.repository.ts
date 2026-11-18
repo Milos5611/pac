@@ -76,4 +76,9 @@ export class PersonRepository
   async createPerson(person: PersonInput) {
     return this.create(person);
   }
+
+  async updatePerson(id: string, person: PersonInput) {
+    await this.updateById(id, person);
+    return this.getOne(id);
+  }
 }

@@ -31,4 +31,14 @@ export class OrganizationResolver {
     await requireUser(context);
     return this.repo.createOrganization(input);
   }
+
+  @mutation(() => Organization)
+  async updateOrganization(
+    @arg('id') id: string,
+    @arg('organization') input: OrganizationInput,
+    @Ctx() context: GraphQLContext,
+  ): Promise<Organization> {
+    await requireUser(context);
+    return this.repo.updateOrganization(id, input);
+  }
 }

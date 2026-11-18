@@ -3,8 +3,8 @@ import {field, ID, inputType} from '@loopback/graphql';
 
 @inputType()
 export class TopicInput implements Partial<Topic> {
-  @field(() => ID)
-  id: string;
+  @field(() => ID, {nullable: true})
+  id?: string;
 
   @field()
   name: string;

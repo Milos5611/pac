@@ -6,7 +6,7 @@
   import Modal from '../../component/modal/Modal.svelte';
   import EmptyState from '../../component/state/EmptyState.svelte';
   import EventForm from './EventForm.svelte';
-  import RoomForm from './RoomForm.svelte';
+  import NameForm from '../../component/forms/NameForm.svelte';
   import TalkForm from './TalkForm.svelte';
   import SpeakerForm from '../persons/SpeakerForm.svelte';
   import {auth} from '../../lib/auth.svelte.js';
@@ -20,7 +20,13 @@
     levelClass,
     plural,
   } from '../../lib/format.js';
-  import {DELETE_EVENT, EVENT_QUERY} from './data.js';
+  import {
+    CREATE_ROOM,
+    DELETE_EVENT,
+    EVENT_QUERY,
+    UPDATE_LOCATION,
+    UPDATE_ROOM,
+  } from './data.js';
   import {eventRooms, eventTalks} from './helpers.js';
 
   /** @typedef {import('./helpers.js').ConferenceEvent} ConferenceEvent */
@@ -54,13 +60,16 @@
 
   let editing = $state(false);
   let confirmingDelete = $state(false);
-  let addingRoom = $state(false);
-  let addingTalk = $state(false);
+  let renamingVenue = $state(false);
+  let roomOpen = $state(false);
+  let talkOpen = $state(false);
   let addingSpeaker = $state(false);
-  /** @type {Room | null} */
+  /** Room being renamed; null while adding a new one. @type {Room | null} */
   let targetRoom = $state(null);
-  /** @type {{id: string, title: string} | null} */
+  /** Talk being edited; null while adding one to `targetRoom`. @type {Talk | null} */
   let targetTalk = $state(null);
+  /** @type {{id: string, title: string} | null} */
+  let speakerTalk = $state(null);
 
   let deleting = $state(false);
   let deleteError = $state('');
@@ -71,16 +80,42 @@
     toast(message);
   }
 
-  /** @param {Room} room */
-  function openAddTalk(room) {
+  /** @param {Room | null} room */
+  function openRoom(room) {
     targetRoom = room;
-    addingTalk = true;
+    roomOpen = true;
+  }
+
+  /** @param {Room} room @param {Talk | null} talk */
+  function openTalk(room, talk) {
+    targetRoom = room;
+    targetTalk = talk;
+    talkOpen = true;
   }
 
   /** @param {Talk} talk */
   function openAddSpeaker(talk) {
-    targetTalk = {id: talk.id ?? '', title: talk.title ?? ''};
+    speakerTalk = {id: talk.id ?? '', title: talk.title ?? ''};
     addingSpeaker = true;
+  }
+
+  /** @param {string} name */
+  async function saveRoom(name) {
+    const locationId = event?.location?.id;
+    if (targetRoom?.id) {
+      await gql(UPDATE_ROOM, {id: targetRoom.id, room: {name, locationId}});
+    } else {
+      await gql(CREATE_ROOM, {room: {name, locationId}});
+    }
+    roomOpen = false;
+    await savedAndReload(targetRoom ? 'Room renamed' : 'Room added');
+  }
+
+  /** @param {string} name */
+  async function saveVenue(name) {
+    await gql(UPDATE_LOCATION, {id: event?.location?.id, location: {name}});
+    renamingVenue = false;
+    await savedAndReload('Venue renamed');
   }
 
   async function deleteEvent() {
@@ -166,6 +201,16 @@
           <li>
             <Icon name="map-pin" size={16} />
             {event.location.name}
+            {#if canEdit && event.location.id}
+              <button
+                type="button"
+                class="inline-edit"
+                aria-label="Rename venue {event.location.name}"
+                title="Rename venue"
+                onclick={() => (renamingVenue = true)}>
+                <Icon name="pencil" size={13} />
+              </button>
+            {/if}
           </li>
         {/if}
         {#if days}
@@ -199,7 +244,7 @@
           <button
             type="button"
             class="btn btn-secondary btn-sm"
-            onclick={() => (addingRoom = true)}>
+            onclick={() => openRoom(null)}>
             <Icon name="plus" size={14} />
             Add room
           </button>
@@ -217,9 +262,17 @@
             {#if canEdit && room.id}
               <button
                 type="button"
+                class="icon-btn"
+                aria-label="Rename {room.name}"
+                title="Rename room"
+                onclick={() => openRoom(room)}>
+                <Icon name="pencil" size={14} />
+              </button>
+              <button
+                type="button"
                 class="btn btn-ghost btn-sm"
                 aria-label="Add talk to {room.name}"
-                onclick={() => openAddTalk(room)}>
+                onclick={() => openTalk(room, null)}>
                 <Icon name="plus" size={14} />
                 <span class="hide-xs">Add talk</span>
               </button>
@@ -258,6 +311,16 @@
                           <Icon name="globe" size={14} />
                           {talk.language}
                         </span>
+                      {/if}
+                      {#if canEdit && talk.id}
+                        <button
+                          type="button"
+                          class="icon-btn"
+                          aria-label="Edit {talk.title}"
+                          title="Edit talk"
+                          onclick={() => openTalk(room, talk)}>
+                          <Icon name="pencil" size={14} />
+                        </button>
                       {/if}
                     </div>
                   </div>
@@ -338,38 +401,53 @@
 
     {#if event.location?.id}
       <Modal
-        bind:open={addingRoom}
-        title="Add a room"
+        bind:open={roomOpen}
+        title={targetRoom ? 'Rename room' : 'Add a room'}
         description="Rooms belong to the venue {event.location
-          .name}, so this room also appears in other events held there.">
-        <RoomForm
-          locationId={event.location.id}
-          onsaved={async () => {
-            addingRoom = false;
-            await savedAndReload('Room added');
-          }}
-          oncancel={() => (addingRoom = false)} />
+          .name}, so changes show in every event held there.">
+        <NameForm
+          label="Room name"
+          value={targetRoom?.name ?? ''}
+          placeholder="e.g. Hall A"
+          required="Give the room a name."
+          submitLabel={targetRoom ? 'Save' : 'Add room'}
+          save={saveRoom}
+          oncancel={() => (roomOpen = false)} />
+      </Modal>
+
+      <Modal
+        bind:open={renamingVenue}
+        title="Rename venue"
+        description="The new name shows in every event held at this venue.">
+        <NameForm
+          label="Venue name"
+          value={event.location.name}
+          required="Give the venue a name."
+          submitLabel="Save"
+          save={saveVenue}
+          oncancel={() => (renamingVenue = false)} />
       </Modal>
     {/if}
 
     <Modal
-      bind:open={addingTalk}
-      title="Add a talk"
+      bind:open={talkOpen}
+      title={targetTalk ? 'Edit talk' : 'Add a talk'}
       description={targetRoom ? `In ${targetRoom.name}` : ''}>
       {#if targetRoom?.id}
         <TalkForm
           roomId={targetRoom.id}
+          talk={targetTalk}
           onsaved={async () => {
-            addingTalk = false;
-            await savedAndReload('Talk added');
+            talkOpen = false;
+            await savedAndReload(targetTalk ? 'Talk updated' : 'Talk added');
           }}
-          oncancel={() => (addingTalk = false)} />
+          oncancel={() => (talkOpen = false)} />
       {/if}
     </Modal>
 
     <Modal bind:open={addingSpeaker} title="Add a speaker">
       <SpeakerForm
-        talk={targetTalk}
+        talk={speakerTalk}
         onsaved={async () => {
           addingSpeaker = false;
           await savedAndReload('Speaker added');
@@ -426,6 +504,35 @@
   .hero-actions {
     display: flex;
     gap: 6px;
+  }
+
+  .icon-btn,
+  .inline-edit {
+    display: inline-grid;
+    place-items: center;
+    flex-shrink: 0;
+    border-radius: 50%;
+    color: var(--text-3);
+    transition:
+      background-color 0.2s var(--ease),
+      color 0.2s var(--ease);
+  }
+
+  .icon-btn {
+    width: 32px;
+    height: 32px;
+  }
+
+  .inline-edit {
+    width: 26px;
+    height: 26px;
+    margin-left: -2px;
+  }
+
+  .icon-btn:hover,
+  .inline-edit:hover {
+    background: var(--surface-2);
+    color: var(--primary-text);
   }
 
   .danger-text {

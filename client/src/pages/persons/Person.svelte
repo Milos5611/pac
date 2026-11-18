@@ -2,35 +2,67 @@
   import Link from '../../component/link/Link.svelte';
   import Avatar from '../../component/avatar/Avatar.svelte';
   import Icon from '../../component/icon/Icon.svelte';
+  import Modal from '../../component/modal/Modal.svelte';
+  import NameForm from '../../component/forms/NameForm.svelte';
   import EmptyState from '../../component/state/EmptyState.svelte';
+  import SpeakerForm from './SpeakerForm.svelte';
+  import {auth} from '../../lib/auth.svelte.js';
+  import {toast} from '../../lib/toast.svelte.js';
   import {gql} from '../../lib/graphql.js';
   import {levelClass} from '../../lib/format.js';
-  import {PERSON_QUERY} from './data.js';
+  import {PERSON_QUERY, UPDATE_ORGANIZATION} from './data.js';
+
+  /**
+   * @typedef {{
+   *   id: string,
+   *   name: string,
+   *   organizationId?: string,
+   *   talkId?: string,
+   *   organization?: {id: string, name: string} | null,
+   *   talk?: {id?: string, title?: string, duration?: number, level?: string, language?: string} | null,
+   * }} Speaker
+   */
 
   /** @type {{params: {id: string}}} */
   let {params} = $props();
 
-  /**
-   * @type {Promise<{person: {
-   *   name: string,
-   *   organization?: {name: string} | null,
-   *   talk?: {title?: string, duration?: number, level?: string, language?: string} | null,
-   * } | null}>}
-   */
-  const request = $derived(gql(PERSON_QUERY, {personId: params.id}));
+  /** @type {{person: Speaker | null} | undefined} */
+  let data = $state();
+  /** @type {Error | null} */
+  let loadError = $state(null);
 
-  let title = $state('Speaker');
-  $effect(() => {
-    request
-      .then(data => {
-        if (data.person) title = data.person.name;
-      })
-      .catch(() => {});
-  });
+  async function load() {
+    try {
+      data = await gql(PERSON_QUERY, {personId: params.id});
+      loadError = null;
+    } catch (error) {
+      const err = /** @type {Error} */ (error);
+      if (/not found/i.test(err.message)) data = {person: null};
+      else loadError = err;
+    }
+  }
+  load();
+
+  const speaker = $derived(data?.person ?? null);
+  const canEdit = $derived(Boolean(auth.user));
+
+  let editing = $state(false);
+  let renamingOrg = $state(false);
+
+  /** @param {string} name */
+  async function saveOrganization(name) {
+    await gql(UPDATE_ORGANIZATION, {
+      id: speaker?.organization?.id,
+      organization: {name},
+    });
+    renamingOrg = false;
+    await load();
+    toast('Organization renamed');
+  }
 </script>
 
 <svelte:head>
-  <title>{title} · Eventio</title>
+  <title>{speaker?.name ?? 'Speaker'} · Eventio</title>
 </svelte:head>
 
 <div class="container page narrow">
@@ -39,7 +71,16 @@
     All speakers
   </Link>
 
-  {#await request}
+  {#if loadError}
+    <EmptyState
+      tone="error"
+      title="Couldn’t load this speaker"
+      message={loadError.message}>
+      <button type="button" class="btn btn-secondary" onclick={load}>
+        Try again
+      </button>
+    </EmptyState>
+  {:else if data === undefined}
     <div class="card profile" aria-busy="true" aria-label="Loading speaker">
       <div class="skeleton" style:width="88px" style:height="88px" style:border-radius="50%"></div>
       <div class="lines">
@@ -47,22 +88,39 @@
         <div class="skeleton" style:height="16px" style:width="140px"></div>
       </div>
     </div>
-  {:then data}
-    {#if data.person}
-      {@const speaker = data.person}
-      <section class="card profile fade-up">
-        <Avatar name={speaker.name} size={88} />
-        <div class="lines">
-          <p class="eyebrow">Speaker</p>
-          <h1>{speaker.name}</h1>
-          {#if speaker.organization?.name}
-            <p class="org">
-              <Icon name="building" size={16} />
-              {speaker.organization.name}
-            </p>
-          {/if}
-        </div>
-      </section>
+  {:else if speaker}
+    <section class="card profile fade-up">
+      <Avatar name={speaker.name} size={88} />
+      <div class="lines">
+        <p class="eyebrow">Speaker</p>
+        <h1>{speaker.name}</h1>
+        {#if speaker.organization?.name}
+          <p class="org">
+            <Icon name="building" size={16} />
+            {speaker.organization.name}
+            {#if canEdit}
+              <button
+                type="button"
+                class="inline-edit"
+                aria-label="Rename organization {speaker.organization.name}"
+                title="Rename organization"
+                onclick={() => (renamingOrg = true)}>
+                <Icon name="pencil" size={13} />
+              </button>
+            {/if}
+          </p>
+        {/if}
+      </div>
+      {#if canEdit}
+        <button
+          type="button"
+          class="btn btn-secondary btn-sm edit"
+          onclick={() => (editing = true)}>
+          <Icon name="pencil" size={14} />
+          Edit
+        </button>
+      {/if}
+    </section>
 
       <section class="talk-section fade-up" style:animation-delay="80ms">
         <h2 class="section-title">Talk</h2>
@@ -107,27 +165,80 @@
           <p class="no-talk">This speaker has no talk scheduled yet.</p>
         {/if}
       </section>
-    {:else}
-      <EmptyState
-        icon="users"
-        title="Speaker not found"
-        message="They may have been removed or the link is wrong.">
-        <Link to="/persons" class="btn btn-secondary">Browse speakers</Link>
-      </EmptyState>
+
+    <Modal bind:open={editing} title="Edit speaker">
+      <SpeakerForm
+        person={speaker}
+        onsaved={async () => {
+          editing = false;
+          await load();
+          toast('Speaker updated');
+        }}
+        oncancel={() => (editing = false)} />
+    </Modal>
+
+    {#if speaker.organization}
+      <Modal
+        bind:open={renamingOrg}
+        title="Rename organization"
+        description="The new name shows for every speaker from {speaker
+          .organization.name}.">
+        <NameForm
+          label="Organization name"
+          value={speaker.organization.name}
+          required="Give the organization a name."
+          submitLabel="Save"
+          save={saveOrganization}
+          oncancel={() => (renamingOrg = false)} />
+      </Modal>
     {/if}
-  {:catch error}
+  {:else}
     <EmptyState
-      tone="error"
-      title="Couldn’t load this speaker"
-      message={error.message}>
+      icon="users"
+      title="Speaker not found"
+      message="They may have been removed or the link is wrong.">
       <Link to="/persons" class="btn btn-secondary">Browse speakers</Link>
     </EmptyState>
-  {/await}
+  {/if}
 </div>
 
 <style>
   .narrow {
     max-width: 760px;
+  }
+
+  .profile {
+    position: relative;
+  }
+
+  .edit {
+    align-self: center;
+  }
+
+  @media (min-width: 560px) {
+    .edit {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+
+    .profile:has(.edit) .lines {
+      padding-right: 72px;
+    }
+  }
+
+  .inline-edit {
+    display: inline-grid;
+    place-items: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    color: var(--text-3);
+  }
+
+  .inline-edit:hover {
+    background: var(--surface-2);
+    color: var(--primary-text);
   }
 
   .profile {

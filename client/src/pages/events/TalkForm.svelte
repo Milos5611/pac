@@ -1,18 +1,32 @@
 <script>
+  import {untrack} from 'svelte';
   import Icon from '../../component/icon/Icon.svelte';
+  import TagInput from '../../component/forms/TagInput.svelte';
   import {gql, errorMessage} from '../../lib/graphql.js';
-  import {CREATE_TALK} from './data.js';
+  import {CREATE_TALK, CREATE_TOPIC, DELETE_TOPIC, UPDATE_TALK} from './data.js';
 
-  /** @type {{roomId: string, onsaved: () => void, oncancel: () => void}} */
-  let {roomId, onsaved, oncancel} = $props();
+  /**
+   * Pass `talk` to edit it; without it a new talk is created in `roomId`.
+   * @type {{
+   *   roomId: string,
+   *   talk?: import('./helpers.js').Talk | null,
+   *   onsaved: () => void,
+   *   oncancel: () => void,
+   * }}
+   */
+  let {roomId, talk = null, onsaved, oncancel} = $props();
 
   const LEVELS = ['Junior', 'Intermediate', 'Senior'];
   const LANGUAGES = ['English', 'German', 'Serbian', 'French', 'Spanish'];
 
-  let title = $state('');
-  let duration = $state(30);
-  let level = $state('Intermediate');
-  let language = $state('English');
+  const initial = untrack(() => talk);
+  const existingTopics = (initial?.topics ?? []).filter(t => t.id);
+
+  let title = $state(initial?.title ?? '');
+  let duration = $state(initial?.duration ?? 30);
+  let level = $state(initial?.level ?? 'Intermediate');
+  let language = $state(initial?.language ?? 'English');
+  let topics = $state(existingTopics.map(t => t.name));
   let saving = $state(false);
   let submitted = $state(false);
   let error = $state('');
@@ -26,6 +40,24 @@
     language: language.trim() ? '' : 'Say which language the talk is in.',
   });
 
+  /**
+   * Topics are rows of their own, so saving the tag list means diffing it
+   * against what the talk had: create the new names, delete the dropped ones.
+   * @param {string} talkId
+   */
+  async function syncTopics(talkId) {
+    const keep = new Set(topics.map(t => t.toLowerCase()));
+    const had = new Set(existingTopics.map(t => t.name.toLowerCase()));
+    await Promise.all([
+      ...topics
+        .filter(name => !had.has(name.toLowerCase()))
+        .map(name => gql(CREATE_TOPIC, {topic: {name, talkId}})),
+      ...existingTopics
+        .filter(t => !keep.has(t.name.toLowerCase()))
+        .map(t => gql(DELETE_TOPIC, {id: t.id})),
+    ]);
+  }
+
   /** @param {SubmitEvent} e */
   async function submit(e) {
     e.preventDefault();
@@ -33,16 +65,22 @@
     if (Object.values(problems).some(Boolean)) return;
     saving = true;
     error = '';
+    const input = {
+      title: title.trim(),
+      duration: Math.round(duration),
+      level,
+      language: language.trim(),
+      roomId,
+    };
     try {
-      await gql(CREATE_TALK, {
-        talk: {
-          title: title.trim(),
-          duration: Math.round(duration),
-          level,
-          language: language.trim(),
-          roomId,
-        },
-      });
+      let talkId = initial?.id;
+      if (talkId) {
+        await gql(UPDATE_TALK, {id: talkId, talk: input});
+      } else {
+        const created = await gql(CREATE_TALK, {talk: input});
+        talkId = created.createTalk.id;
+      }
+      await syncTopics(/** @type {string} */ (talkId));
       onsaved();
     } catch (err) {
       error = errorMessage(err);
@@ -120,12 +158,18 @@
     {/if}
   </div>
 
+  <div class="field">
+    <label for="talk-topics">Topics</label>
+    <TagInput id="talk-topics" bind:tags={topics} placeholder="e.g. GraphQL" />
+    <p class="hint">Press Enter or comma after each topic.</p>
+  </div>
+
   <div class="form-actions">
     <button type="button" class="btn btn-secondary" onclick={oncancel}>
       Cancel
     </button>
     <button type="submit" class="btn btn-primary" disabled={saving}>
-      {saving ? 'Adding…' : 'Add talk'}
+      {saving ? 'Saving…' : initial ? 'Save changes' : 'Add talk'}
     </button>
   </div>
 </form>

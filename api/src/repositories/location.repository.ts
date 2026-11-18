@@ -89,4 +89,9 @@ export class LocationRepository
   async createLocation(location: LocationInput) {
     return this.create(location);
   }
+
+  async updateLocation(id: string, location: LocationInput) {
+    await this.updateById(id, {name: location.name});
+    return this.findById(id);
+  }
 }

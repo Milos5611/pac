@@ -31,4 +31,14 @@ export class TalkResolver {
     await requireUser(context);
     return this.repo.createTalk(input);
   }
+
+  @mutation(() => Talk)
+  async updateTalk(
+    @arg('id') id: string,
+    @arg('talk') input: TalkInput,
+    @Ctx() context: GraphQLContext,
+  ): Promise<Talk> {
+    await requireUser(context);
+    return this.repo.updateTalk(id, input);
+  }
 }

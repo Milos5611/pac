@@ -31,4 +31,14 @@ export class LocationResolver {
     await requireUser(context);
     return this.repo.createLocation(input);
   }
+
+  @mutation(() => Location)
+  async updateLocation(
+    @arg('id') id: string,
+    @arg('location') input: LocationInput,
+    @Ctx() context: GraphQLContext,
+  ): Promise<Location> {
+    await requireUser(context);
+    return this.repo.updateLocation(id, input);
+  }
 }

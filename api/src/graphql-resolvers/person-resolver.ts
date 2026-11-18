@@ -31,4 +31,14 @@ export class PersonResolver {
     await requireUser(context);
     return this.repo.createPerson(input);
   }
+
+  @mutation(() => Person)
+  async updatePerson(
+    @arg('id') id: string,
+    @arg('person') input: PersonInput,
+    @Ctx() context: GraphQLContext,
+  ): Promise<Person> {
+    await requireUser(context);
+    return this.repo.updatePerson(id, input);
+  }
 }

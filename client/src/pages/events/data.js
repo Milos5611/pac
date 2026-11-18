@@ -42,6 +42,7 @@ export const EVENT_QUERY = `
             level
             language
             topics {
+              id
               name
             }
             persons {
@@ -106,6 +107,44 @@ export const CREATE_ROOM = `
 export const CREATE_TALK = `
   mutation CreateTalk($talk: TalkInput!) {
     createTalk(talk: $talk) {
+      id
+    }
+  }
+`;
+
+export const UPDATE_ROOM = `
+  mutation UpdateRoom($id: String!, $room: RoomInput!) {
+    updateRoom(id: $id, room: $room) {
+      id
+    }
+  }
+`;
+
+export const UPDATE_TALK = `
+  mutation UpdateTalk($id: String!, $talk: TalkInput!) {
+    updateTalk(id: $id, talk: $talk) {
+      id
+    }
+  }
+`;
+
+export const CREATE_TOPIC = `
+  mutation CreateTopic($topic: TopicInput!) {
+    createTopic(topic: $topic) {
+      id
+    }
+  }
+`;
+
+export const DELETE_TOPIC = `
+  mutation DeleteTopic($id: String!) {
+    deleteTopic(id: $id)
+  }
+`;
+
+export const UPDATE_LOCATION = `
+  mutation UpdateLocation($id: String!, $location: LocationInput!) {
+    updateLocation(id: $id, location: $location) {
       id
     }
   }

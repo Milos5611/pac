@@ -87,6 +87,13 @@ export class TopicRepository
     return this.create(topic);
   }
 
+  // Child and parent rows reference the topic, so they go first
+  async deleteTopic(id: string) {
+    await this.childrens(id).delete();
+    await this.parents(id).delete();
+    await this.deleteById(id);
+  }
+
   async addChildTopic(id: string, children: ChildrenInput) {
     return this.childrens(id).create(children);
   }

@@ -43,4 +43,9 @@ export class OrganizationRepository
   async createOrganization(organization: OrganizationInput) {
     return this.create(organization);
   }
+
+  async updateOrganization(id: string, organization: OrganizationInput) {
+    await this.updateById(id, organization);
+    return this.findById(id);
+  }
 }

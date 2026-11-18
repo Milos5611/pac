@@ -6,25 +6,29 @@
     CREATE_ORGANIZATION,
     CREATE_PERSON,
     SPEAKER_OPTIONS_QUERY,
+    UPDATE_PERSON,
   } from './data.js';
 
   /**
-   * Pass `talk` to add a speaker to that talk; otherwise the user picks one.
+   * Pass `person` to edit a speaker. Pass `talk` to add a speaker to that
+   * talk; otherwise the user picks the talk.
    * @type {{
+   *   person?: {id: string, name: string, organizationId?: string, talkId?: string} | null,
    *   talk?: {id: string, title: string} | null,
    *   onsaved: (id: string) => void,
    *   oncancel: () => void,
    * }}
    */
-  let {talk = null, onsaved, oncancel} = $props();
+  let {person = null, talk = null, onsaved, oncancel} = $props();
 
   const NEW = '__new__';
+  const editing = untrack(() => person);
   const fixedTalk = untrack(() => talk);
 
-  let name = $state('');
-  let organizationId = $state('');
+  let name = $state(editing?.name ?? '');
+  let organizationId = $state(editing?.organizationId ?? '');
   let newOrganization = $state('');
-  let talkId = $state(fixedTalk?.id ?? '');
+  let talkId = $state(fixedTalk?.id ?? editing?.talkId ?? '');
 
   /** @type {{id: string, name: string}[]} */
   let organizations = $state([]);
@@ -72,10 +76,14 @@
         });
         organization = created.createOrganization.id;
       }
-      const created = await gql(CREATE_PERSON, {
-        person: {name: name.trim(), organizationId: organization, talkId},
-      });
-      onsaved(created.createPerson.id);
+      const input = {name: name.trim(), organizationId: organization, talkId};
+      if (editing) {
+        await gql(UPDATE_PERSON, {id: editing.id, person: input});
+        onsaved(editing.id);
+      } else {
+        const created = await gql(CREATE_PERSON, {person: input});
+        onsaved(created.createPerson.id);
+      }
     } catch (err) {
       error = errorMessage(err);
     } finally {
@@ -181,7 +189,7 @@
       Cancel
     </button>
     <button type="submit" class="btn btn-primary" disabled={saving}>
-      {saving ? 'Adding…' : 'Add speaker'}
+      {saving ? 'Saving…' : editing ? 'Save changes' : 'Add speaker'}
     </button>
   </div>
 </form>

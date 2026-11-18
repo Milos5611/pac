@@ -28,6 +28,7 @@ export class Topic extends Entity {
   @property({
     type: 'string',
     id: true,
+    defaultFn: 'uuidv4',
   })
   id?: string;
 

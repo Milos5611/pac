@@ -31,4 +31,14 @@ export class RoomResolver {
     await requireUser(context);
     return this.repo.createRoom(input);
   }
+
+  @mutation(() => Room)
+  async updateRoom(
+    @arg('id') id: string,
+    @arg('room') input: RoomInput,
+    @Ctx() context: GraphQLContext,
+  ): Promise<Room> {
+    await requireUser(context);
+    return this.repo.updateRoom(id, input);
+  }
 }

@@ -55,4 +55,14 @@ export class TopicResolver {
     await requireUser(context);
     return this.repo.addParentTopic(topicId, parentTopic);
   }
+
+  @mutation(() => Boolean)
+  async deleteTopic(
+    @arg('id') id: string,
+    @Ctx() context: GraphQLContext,
+  ): Promise<boolean> {
+    await requireUser(context);
+    await this.repo.deleteTopic(id);
+    return true;
+  }
 }

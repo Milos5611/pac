@@ -1,17 +1,38 @@
 <script>
-  import Icon from '../../component/icon/Icon.svelte';
-  import {gql, errorMessage} from '../../lib/graphql.js';
-  import {CREATE_ROOM} from './data.js';
+  import {untrack} from 'svelte';
+  import Icon from '../icon/Icon.svelte';
+  import {errorMessage} from '../../lib/graphql.js';
 
-  /** @type {{locationId: string, onsaved: () => void, oncancel: () => void}} */
-  let {locationId, onsaved, oncancel} = $props();
+  /**
+   * One-field form for things that only have a name (rooms, venues,
+   * organizations). The caller does the actual save.
+   * @type {{
+   *   label: string,
+   *   value?: string,
+   *   placeholder?: string,
+   *   submitLabel: string,
+   *   required?: string,
+   *   save: (name: string) => Promise<void>,
+   *   oncancel: () => void,
+   * }}
+   */
+  let {
+    label,
+    value = '',
+    placeholder = '',
+    submitLabel,
+    required = 'Enter a name.',
+    save,
+    oncancel,
+  } = $props();
 
-  let name = $state('');
+  const id = `name-${Math.random().toString(36).slice(2, 9)}`;
+  let name = $state(untrack(() => value));
   let saving = $state(false);
   let submitted = $state(false);
   let error = $state('');
 
-  const problem = $derived(name.trim() ? '' : 'Give the room a name.');
+  const problem = $derived(name.trim() ? '' : required);
 
   /** @param {SubmitEvent} e */
   async function submit(e) {
@@ -21,8 +42,7 @@
     saving = true;
     error = '';
     try {
-      await gql(CREATE_ROOM, {room: {name: name.trim(), locationId}});
-      onsaved();
+      await save(name.trim());
     } catch (err) {
       error = errorMessage(err);
     } finally {
@@ -40,12 +60,12 @@
   {/if}
 
   <div class="field">
-    <label for="room-name">Room name</label>
+    <label for={id}>{label}</label>
     <input
-      id="room-name"
+      {id}
       class="input"
       bind:value={name}
-      placeholder="e.g. Hall A"
+      {placeholder}
       autocomplete="off"
       aria-invalid={submitted && !!problem} />
     {#if submitted && problem}
@@ -58,7 +78,7 @@
       Cancel
     </button>
     <button type="submit" class="btn btn-primary" disabled={saving}>
-      {saving ? 'Adding…' : 'Add room'}
+      {saving ? 'Saving…' : submitLabel}
     </button>
   </div>
 </form>

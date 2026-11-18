@@ -68,4 +68,9 @@ export class RoomRepository
   async createRoom(room: RoomInput) {
     return this.create(room);
   }
+
+  async updateRoom(id: string, room: RoomInput) {
+    await this.updateById(id, room);
+    return this.getOne(id);
+  }
 }
